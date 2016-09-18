@@ -19,12 +19,42 @@ public class ArrayAlgor {
      * 7.在二维数组中查找具体数字 findIn2DimArr
      * 8.替换所有空格 replaceAllBlank
      * 9.找出从1到n中1出现的次数 getNumberOf1
-     * 10.在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的。请找出数组中任意一个重复的数字 duplicate
+     * 10.0~n-1范围的数组中，第一个重复的数字 duplicate
      * 11. 去除已排序数组中的重复元素 removeDuplicates
+     * 12. 使奇数位于偶数前面
+     * 13. 找出超过一半的数字
      */
 
 
 
+    /**12. 使奇数位于偶数前面**/
+    public static void convertOdd(int[] arr){
+        if(arr == null || arr.length == 0){
+            return;
+        }
+        int high = arr.length - 1;
+        int low = 0;
+        while (low < high){
+            boolean isLowOdd = ((arr[low]&1) != 0) ? true : false;
+            boolean isHighOdd = ((arr[high]&1) != 0) ? true : false;
+            if (isLowOdd && !isHighOdd){ //奇数、偶数
+                low ++;
+                high --;
+            }else if (!isLowOdd && isHighOdd){ //偶数，奇数
+                int temp = arr[high];
+                arr[high] = arr[low];
+                arr[low] = temp;
+                low ++;
+                high --;
+            }else if (!isLowOdd && !isHighOdd){ //两个奇数
+                low++;
+            }else {
+                high--;
+            }
+        }
+    }
+
+    /**11. 去除已排序数组中的重复元素 removeDuplicates**/
     public static int removeDuplicates(int[] nums) {
         if (nums.length < 1)
             return nums.length;
@@ -36,28 +66,46 @@ public class ArrayAlgor {
         }
         return slow;
     }
-    public static boolean duplicate(int[] arr){
+
+    /**10. 0~n-1范围的数组中，第一个重复的数字**/
+    public static int duplicate(int[] arr){
         if(arr== null || arr.length <= 0){
-            return false;
+            return -1;
         }
         for(int i = 0; i<arr.length; i++){
             while(arr[i] != i){
                 if(arr[i] == arr[arr[i]]){
                     System.out.println(arr[i]);
-                    return true;
-                    //break;
-                } else {
+                    return arr[i];
+                } else {//将arr[i]的值放到属于他的位置
                     int temp = arr[i];
                     arr[i] = arr[temp];
                     arr[temp] = temp;
                 }
             }
         }
-
-        return false;
+        return -1;
     }
 
-
+    /**13. 找出超过一半的数字**/
+    public static int findOverHalfNumber(int[] arr){
+        if (arr == null || arr.length == 0){
+            return -1;
+        }
+        int temp = arr[0];
+        int count = 1;
+        for (int i=1; i < arr.length; i++){
+            if(temp == arr[i]){
+                count ++;
+            }else if (count > 0){
+                count --;
+            }else {
+                count = 1;
+                temp = arr[i];
+            }
+        }
+        return temp;
+    }
 
     public class getNumberOf1 {
         public int numberOf1BetweenAndN(int n){
@@ -288,8 +336,10 @@ public class ArrayAlgor {
         //System.out.println(findMaxSubseq_2(arr));
 
         //findSubSeq_SameSum(arr, 210);
-        int[] arr = {4,3,2,1,0,4,5,3,6,7};
-        duplicate(arr);
+        int[] arr = {1,2,3,4,5,1,1,1,1};
+        //duplicate(arr);
+        int a = findOverHalfNumber(arr);
+        System.out.println(a);
     }
 
     public static int max(int m,int n){
