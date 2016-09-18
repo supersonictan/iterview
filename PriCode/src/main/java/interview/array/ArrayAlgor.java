@@ -17,9 +17,9 @@ public class ArrayAlgor {
      * 5.和为s的两个数字（有序）findTwoNum_SameSum
      * 6.和为s的连续正整数序列（有序）findSubSeq_SameSum
      * 7.在二维数组中查找具体数字 findIn2DimArr
-     * 8.替换所有空格 replaceAllBlank
+     * 8.  替换所有空格 replaceAllBlank
      * 9.找出从1到n中1出现的次数 getNumberOf1
-     * 10.0~n-1范围的数组中，第一个重复的数字 duplicate
+     * 10. 0~n-1范围的数组中，第一个重复的数字 duplicate
      * 11. 去除已排序数组中的重复元素 removeDuplicates
      * 12. 使奇数位于偶数前面
      * 13. 找出超过一半的数字
@@ -191,7 +191,6 @@ public class ArrayAlgor {
             indexofOriginal--;
         }
         System.out.println("替换空格后的字符串：");
-        //printArray(tempArray);
     }
 
     /**在二维数组中查找具体数字 findIn2DimArr**/
