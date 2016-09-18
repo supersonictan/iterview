@@ -18,7 +18,7 @@ public class ArrayAlgor {
      * 6.和为s的连续正整数序列（有序）findSubSeq_SameSum
      * 7.在二维数组中查找具体数字 findIn2DimArr
      * 8.  替换所有空格 replaceAllBlank
-     * 9.找出从1到n中1出现的次数 getNumberOf1
+     * 9.  找出从1到n中1出现的次数 getNumberOf1
      * 10. 0~n-1范围的数组中，第一个重复的数字 duplicate
      * 11. 去除已排序数组中的重复元素 removeDuplicates
      * 12. 使奇数位于偶数前面
@@ -26,6 +26,25 @@ public class ArrayAlgor {
      */
 
 
+    /**13. 找出超过一半的数字**/
+    public static int findOverHalfNumber(int[] arr){
+        if (arr == null || arr.length == 0){
+            return -1;
+        }
+        int temp = arr[0];
+        int count = 1;
+        for (int i=1; i < arr.length; i++){
+            if(temp == arr[i]){
+                count ++;
+            }else if (count > 0){
+                count --;
+            }else {
+                count = 1;
+                temp = arr[i];
+            }
+        }
+        return temp;
+    }
 
     /**12. 使奇数位于偶数前面**/
     public static void convertOdd(int[] arr){
@@ -87,27 +106,29 @@ public class ArrayAlgor {
         return -1;
     }
 
-    /**13. 找出超过一半的数字**/
-    public static int findOverHalfNumber(int[] arr){
-        if (arr == null || arr.length == 0){
-            return -1;
-        }
-        int temp = arr[0];
-        int count = 1;
-        for (int i=1; i < arr.length; i++){
-            if(temp == arr[i]){
-                count ++;
-            }else if (count > 0){
-                count --;
-            }else {
-                count = 1;
-                temp = arr[i];
+    /**9. 找出从1到n中1出现的次数 getNumberOf1**/
+    public static int getOneTimes(int n){
+        if(n < 1){ return 0; }
+        int count = 0;
+        int base = 1;
+        int high = n;
+        while (high > 0){
+            int low = high % 10;
+            high = high/10;
+
+            count += high*base;
+
+            if (low == 1){
+                count += (n%base) + 1;
+            } else if (low > 1){
+                count += base;
             }
+            base = base *10;
         }
-        return temp;
+        return count;
     }
 
-    public class getNumberOf1 {
+    public class getNumberOf1_beta2 {
         public int numberOf1BetweenAndN(int n){
             int number = 0;
             for(int i = 1;i<= n;i++){
@@ -337,8 +358,7 @@ public class ArrayAlgor {
         //findSubSeq_SameSum(arr, 210);
         int[] arr = {1,2,3,4,5,1,1,1,1};
         //duplicate(arr);
-        int a = findOverHalfNumber(arr);
-        System.out.println(a);
+        System.out.println(getOneTimes(530));
     }
 
     public static int max(int m,int n){
