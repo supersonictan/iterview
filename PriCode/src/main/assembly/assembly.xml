@@ -1,0 +1,7 @@
+<assembly>
+    <id>assembly</id>
+    <formats>
+        <format>jar</format> <!--format设置包输出的格式，以上格式设置的为zip格式，目前还支持zip，tar，tar.gz，tar.bz2，jar，dir，war格式-->
+    </formats>
+
+</assembly>
