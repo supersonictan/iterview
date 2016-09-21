@@ -18,13 +18,31 @@ public class ArrayAlgor {
      * 6.和为s的连续正整数序列（有序）findSubSeq_SameSum
      * 7.在二维数组中查找具体数字 findIn2DimArr
      * 8.  替换所有空格 replaceAllBlank
-     * 9.  找出从1到n中1出现的次数 getNumberOf1
+     * 9.  找出从1到n中1出现的次数 getOneTimes
      * 10. 0~n-1范围的数组中，第一个重复的数字 duplicate
      * 11. 去除已排序数组中的重复元素 removeDuplicates
-     * 12. 使奇数位于偶数前面
-     * 13. 找出超过一半的数字
+     * 12. 使奇数位于偶数前面 convertOdd
+     * 13. 找出超过一半的数字 findOverHalfNumber
+     * 14. 从str1中删除str2的字符 deleteChar
      */
 
+    /**从str1中删除str2的字符**/
+    public static String deleteChar(String str1, String str2){
+        char[] A = str1.toCharArray();
+        Set<Character> set = new HashSet<Character>();
+        for(int i=0;i<str2.length();i++){
+            set.add(str2.charAt(i));
+        }
+
+        int slow = 0;
+        for (int fast = 0; fast<str1.length(); fast++){
+            char temp = A[fast];
+            if (!set.contains(temp)){
+                A[slow++] = temp;
+            }
+        }
+        return String.valueOf(A).substring(0,slow);
+    }
 
     /**13. 找出超过一半的数字**/
     public static int findOverHalfNumber(int[] arr){
@@ -358,7 +376,7 @@ public class ArrayAlgor {
         //findSubSeq_SameSum(arr, 210);
         int[] arr = {1,2,3,4,5,1,1,1,1};
         //duplicate(arr);
-        System.out.println(getOneTimes(530));
+        System.out.println(deleteChar("They are students.", "aeiou"));
     }
 
     public static int max(int m,int n){
