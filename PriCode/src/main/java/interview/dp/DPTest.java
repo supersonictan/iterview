@@ -1,27 +1,51 @@
 package interview.dp;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by tanzhen on 2016/9/8.
+ *
+ * 1. 求字符串内不包含重复字符的最长子串 sstrWithoutChar_ON2, 最好的 lengthOfLongestSubstring
+ * 2. 最长公共子序列 LCS
+ * 3. 最长递增子序列 LIS
+ * 4. 最长回文子串 longestPalindromeDP1
+ * 5. 求数对只差对大值 getMaxDiff
  */
 public class DPTest {
 
-    /**
-     * 1.求字符串内不包含重复字符的最长子串 sstrWithoutChar_ON2, 最好的 lengthOfLongestSubstring
-     * 2.最长公共子序列 LCS
-     * 3.LIS 最长递增子序列
-     * 4.最长回文子串
-     */
 
 
 
 
+    /**5.求数对只差对大值**/
+    public static int getMaxDiff(int[] arr){
+        if (arr == null || arr.length == 0){ return 0; }
+
+        int[] maxDiff = new int[arr.length]; //i之前的最大差
+        int[] max = new int[arr.length];//存储i之前的最大值
+
+        int left = 0; //左边最大数
+        int right = 0;
+
+        max[0] = arr[0];
+
+        for (int i=1; i<arr.length; i++){
+            maxDiff[i] = Math.max(maxDiff[i-1], max[i-1]-arr[i]);
+            max[i] = Math.max(max[i-1], arr[i]);
+
+            if (maxDiff[i-1] <= (max[i-1]-arr[i])){
+                right = arr[i];
+            }
+            if (max[i-1] <= arr[i]){
+                left = arr[i];
+            }
+        }
+
+        System.out.println("左边最大:" + left + "--右边值:" + right);
+        return maxDiff[arr.length-1];
+    }
     
-    /**最长回文子串**/
+    /**4 最长回文子串**/
     public static String longestPalindromeDP1(String s) {
         int len = s.length();
         int longestBegin = 0;
@@ -107,7 +131,7 @@ public class DPTest {
         return maxLength;
     }
 
-    /** 2.LCS **/
+    /** 4.LCS **/
     public static void LCS(String strA, String strB){
         char[] A = strA.toCharArray();
         char[] B = strB.toCharArray();
@@ -139,14 +163,14 @@ public class DPTest {
         }
     }
 
-    /** LIS 最长递增子序列 **/
+    /** 3. LIS 最长递增子序列 **/
     public static int LIS(int[] arr){
         int L[] = new int[arr.length];
         int max = -1;
         int beginIdx = -1;
         int endIdx = -1;
-        for (int j =1; j < arr.length; j++){
-            for (int i=0; i<j; i++){
+        for (int j =1; j < arr.length; j++){ //当前要求的下标
+            for (int i=0; i<j; i++){ //获得之前最大的L
                 if(arr[j] > arr[i] && L[j] < (L[i]+1)){
                     L[j] = L[i] + 1;
                     if(L[j] > max){
@@ -166,8 +190,8 @@ public class DPTest {
         //LCS("BDCABA", "ABCBDAB");
         //LIS(new int[]{9, 10, 5, 6, 7, 1, 2, 8});
 
-        String ss = "abcbcbb";
-        System.out.println(longestPalindromeDP1(ss));
+        int[] arr = {2, 4, 1, 16, 7, 5, 11, 9};
+        System.out.println(getMaxDiff(arr));
     }
 
 }
