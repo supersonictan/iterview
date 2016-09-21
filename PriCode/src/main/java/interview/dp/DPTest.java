@@ -10,12 +10,39 @@ import java.util.*;
  * 3. 最长递增子序列 LIS
  * 4. 最长回文子串 longestPalindromeDP1
  * 5. 求数对只差对大值 getMaxDiff
+ * 6. 从一列数中筛除尽可能少的数使得从左往右看，这些数是从小到大再从大到小的。rmLeaseNum
  */
 public class DPTest {
 
 
 
+    /**6. 从一列数中筛除尽可能少的数使得从左往右看，这些数是从小到大再从大到小的。**/
+    public static int rmLeaseNum(int[] arr){
 
+        if (arr == null || arr.length == 0){ return -1; }
+
+        int[] L = new int[arr.length]; //从左到右
+        int[] R = new int[arr.length]; //从右到左
+
+        //从左到右递增的个数
+        for (int i=1; i<arr.length; i++){ //求当前下标的LIS
+            for (int j=0; j<i; j++){
+                if (arr[j] < arr[i] && L[i] < (arr[j]+1)){
+                    L[i] = L[j] + 1;
+                }
+            }
+        }
+        //从左到右递减个数
+        for (int i=1; i<arr.length; i++){
+            for (int j=0; j<i; j++){
+                if (arr[i] < arr[j] && R[i] < (R[j] + 1)){
+                    R[i] = R[j] + 1;
+                }
+            }
+        }
+
+        return 0;
+    }
 
     /**5.求数对只差对大值**/
     public static int getMaxDiff(int[] arr){
