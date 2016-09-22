@@ -133,7 +133,6 @@ public class ArrayAlgor {
         while (high > 0){
             int low = high % 10;
             high = high/10;
-
             count += high*base;
 
             if (low == 1){

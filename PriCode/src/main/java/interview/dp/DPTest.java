@@ -20,28 +20,31 @@ public class DPTest {
     public static int rmLeaseNum(int[] arr){
 
         if (arr == null || arr.length == 0){ return -1; }
-
         int[] L = new int[arr.length]; //从左到右
         int[] R = new int[arr.length]; //从右到左
 
         //从左到右递增的个数
         for (int i=1; i<arr.length; i++){ //求当前下标的LIS
             for (int j=0; j<i; j++){
-                if (arr[j] < arr[i] && L[i] < (arr[j]+1)){
+                if (arr[i] > arr[j] && L[i] < (L[j]+1)){
                     L[i] = L[j] + 1;
                 }
             }
         }
         //从左到右递减个数
-        for (int i=1; i<arr.length; i++){
-            for (int j=0; j<i; j++){
-                if (arr[i] < arr[j] && R[i] < (R[j] + 1)){
+        for (int i=arr.length-2; i>=0; i--){
+            for (int j=arr.length-1; j>=0; j--){
+                if (arr[i] > arr[j] && R[i]<(arr[j]+1)){
                     R[i] = R[j] + 1;
                 }
             }
         }
-
-        return 0;
+        //max = Math.max(b[i]+c[i])
+        int max = 0;
+        for (int i=0; i<arr.length; i++){
+            max = (R[i] + L[i]) > max?(R[i] + L[i]):max;
+        }
+        return arr.length-max;
     }
 
     /**5.求数对只差对大值**/
