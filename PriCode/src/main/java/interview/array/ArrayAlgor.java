@@ -24,9 +24,15 @@ public class ArrayAlgor {
      * 12. 使奇数位于偶数前面 convertOdd
      * 13. 找出超过一半的数字 findOverHalfNumber
      * 14. 从str1中删除str2的字符 deleteChar
+     * 15. 罗马数字转化为整数
      */
 
-    /**从str1中删除str2的字符**/
+    /**15. 罗马数字转化为整数**/
+    public static int roman2Int(String s){
+        Map<Character, Integer> m = new HashMap<Character, Integer>()
+
+    }
+    /**14. 从str1中删除str2的字符**/
     public static String deleteChar(String str1, String str2){
         char[] A = str1.toCharArray();
         Set<Character> set = new HashSet<Character>();

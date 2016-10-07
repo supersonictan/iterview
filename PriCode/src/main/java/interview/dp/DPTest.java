@@ -5,16 +5,42 @@ import java.util.*;
 /**
  * Created by tanzhen on 2016/9/8.
  *
- * 1. 求字符串内不包含重复字符的最长子串 sstrWithoutChar_ON2, 最好的 lengthOfLongestSubstring
+ * 1. 最长不重复字串 noCommonStr
  * 2. 最长公共子序列 LCS
  * 3. 最长递增子序列 LIS
  * 4. 最长回文子串 longestPalindromeDP1
  * 5. 求数对只差对大值 getMaxDiff
  * 6. 从一列数中筛除尽可能少的数使得从左往右看，这些数是从小到大再从大到小的。rmLeaseNum
+ * 7. 最长公共子字符串
  */
 public class DPTest {
 
 
+    /**7. 最长公共子字符串**/
+    public static int commonStr(String s1, String s2){
+        char[] A = s1.toCharArray();
+        char[] B = s2.toCharArray();
+
+        int[][] result = new int[A.length+1][B.length+1];
+        int idx1 = 0,idx2=0;
+        int max = 0;
+        for (int i=1; i<A.length+1; i++){
+            for (int j=1; j<B.length+1; j++){
+                if (A[i-1] == B[j-1]){
+                    result[i][j] = result[i-1][j-1] + 1;
+                }else {
+                    result[i][j] = 0;
+                }
+                if(result[i][j] >= max){//结果的下标
+                    idx1 = i-1;
+                    idx2 = j-1;
+                    max = result[i][j];
+                }
+            }
+        }
+        System.out.println("max:" + max + " ,idx1:" + idx1);
+        return max;
+    }
 
     /**6. 从一列数中筛除尽可能少的数使得从左往右看，这些数是从小到大再从大到小的。**/
     public static int rmLeaseNum(int[] arr){
@@ -112,53 +138,24 @@ public class DPTest {
         }
     }
 
-    /** 1.求字符串内不包含重复字符的最长子串 最优 dp**/
-    public static int lengthOfLongestSubstring (String s) {
-        Map<Character,Integer> map = new HashMap<Character,Integer>();
-        int maxLength = 0;
-        int now = 0;
-        for(int i = 0; i < s.length(); i++){
-            if(map.containsKey(s.charAt(i))){
-                now = Math.max(map.get(s.charAt(i))+1,now);
-                if((i-now+1)>maxLength){
-                    maxLength=i-now+1;
-                }
-            }else{
-                if((i-now+1)>maxLength){
-                    maxLength=i-now+1;
-                }
-            }
-            map.put(s.charAt(i), i);
-        }
-        return maxLength;
-    }
-    /** 1.求字符串内不包含重复字符的最长子串 n^2复杂**/
-    public static int strWithoutChar_ON2(String str){
-        if(str==null||str.equals("")){
-            return 0;
-        }
-        Set<Character> set = new HashSet<Character>();
-        int maxLength=0;
-        int pre=0;
-        int after=0;
-        while(after<str.length()){
-            if(!set.contains(str.charAt(after))){
-                set.add(str.charAt(after));
-                after ++;
-            }else{
-                set.clear();
-                if((after-pre)>maxLength){
-                    maxLength=after-pre;
-                }
-                pre ++;
-                after=pre;
-            }
-        }
+    /**1.最长不重复字串**/
+    public static int noCommonStr(String s){
+        char[] arr = s.toCharArray();
 
-        if((after-pre)>maxLength){
-            maxLength=after-pre;
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        int[] result = new int[arr.length]; //TODO:可以优化
+        result[0] = 1;
+
+        for (int i=1; i<arr.length; i++){
+            if (map.containsKey(arr[i])){
+                int idx = map.get(arr[i]);
+                result[i] = Math.min(result[i-1]+1, i-idx);
+            }else {
+                result[i] = result[i-1] + 1;
+            }
+            map.put(arr[i], i);
         }
-        return maxLength;
+        return result[arr.length-1];
     }
 
     /** 4.LCS **/
@@ -220,8 +217,9 @@ public class DPTest {
         //LCS("BDCABA", "ABCBDAB");
         //LIS(new int[]{9, 10, 5, 6, 7, 1, 2, 8});
 
-        int[] arr = {2, 4, 1, 16, 7, 5, 11, 9};
-        System.out.println(getMaxDiff(arr));
+        String s1 = "bab";
+        String s2 = "caba";
+        System.out.println(commonStr(s1,s2));
     }
 
 }
