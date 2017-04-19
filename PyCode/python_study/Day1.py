@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+
 """
 Day1内容：
     1. import:
@@ -65,68 +66,75 @@ Day2内容：
 
 """
 
-#-------------------------------Day2:1
-a = ['a','b','c']
-b = ['1',2,3,4]
-print zip(a,b)
-c = map(None,a,b)
+if __name__ == '__main__':
+    say('tanzhen')
+
+
+def say(name, group="IMB"):
+    print name + group
+
+
+# -------------------------------Day2:1
+a = ['a', 'b', 'c']
+b = ['1', 2, 3, 4]
+print zip(a, b)
+c = map(None, a, b)
 print c
 
-#字典
+# 字典
 dic = {
-    'supersonic' : ['good','nice','intelligent'],
-    'john' : ['jgood','jnice','jintelligent']
+    'supersonic': ['good', 'nice', 'intelligent'],
+    'john': ['jgood', 'jnice', 'jintelligent']
 }
 dic2 = {
-    't':300
+    't': 300
 }
-dic.setdefault('t',100)
+dic.setdefault('t', 100)
 dic['t'] = 200
 dic.update(dic2)
 print dic.get("t")
 print dic.keys()
 
-
 print dic['supersonic']
 
 names = ['MS', 'MS', 'Google', 'Ali']
 names.append('JD')
-names.insert(1,'MS2')
+names.insert(1, 'MS2')
 names.reverse()
-for i,v in enumerate(names):
+for i, v in enumerate(names):
     print i
 print names.count('MS')
 print names.index('MS')
 print names
 print '-'.join(names)
 
-#写入
-f = file('pythonFile.txt','a')
+# 写入
+f = file('pythonFile.txt', 'a')
 f.write("test\n22222\n3333333\n4444444444\n5555555\n666666666\n")
 f.flush()
 f.close()
 
-#使用with open打开文件
+# 使用with open打开文件
 # with open('pythonFile.txt','r') as f:
 #     for i in f.readlines():
 #         print i,
 
-#读取
-#f = file('pythonFile.txt','r')
+# 读取
+# f = file('pythonFile.txt','r')
 # for i in f.read():
 #     print i
-#print "f.read():" + f.read() #读全部
+# print "f.read():" + f.read() #读全部
 
 # print  f.readlines() #list形式，for i in readlines()会加载全部数据到内存
 #
 # print f.tell()
-#f.seek(1)
+# f.seek(1)
 # print "f.readline():" + f.readline()
 
 
 
 
-#-----------------------------------------Day1:Part_2:
+# -----------------------------------------Day1:Part_2:
 # name = raw_input("Input something")
 # print "Hello " + name
 #
