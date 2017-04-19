@@ -66,13 +66,6 @@ Day2内容：
 
 """
 
-if __name__ == '__main__':
-    say('tanzhen')
-
-
-def say(name, group="IMB"):
-    print name + group
-
 
 # -------------------------------Day2:1
 a = ['a', 'b', 'c']
