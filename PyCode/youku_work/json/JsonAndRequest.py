@@ -4,7 +4,7 @@ import ConfigParser
 from optparse import OptionParser
 import os
 import json
-import log
+#import log
 import logging
 from urllib import unquote
 import requests
@@ -287,7 +287,7 @@ if __name__ == "__main__":
                       default="imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=110", help="The test ip")
     parser.add_option("-o", "--online vip", action="store", dest="online_ip",
                       default="imerge.soku.proxy.taobao.org/i/s?rankFlow=110", help="The online vip")
-    parser.add_option("-f", "--url file", action="store", dest="url_file", default="query.urls", help="url file")
+    parser.add_option("-f", "--url file", action="store", dest="url_file", default="query.file", help="url file")
     parser.add_option("-p", "--proprecision num", action="store", dest="precision", default="20", help="precision")
 
     (options, args) = parser.parse_args()
