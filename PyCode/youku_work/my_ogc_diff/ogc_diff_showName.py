@@ -76,24 +76,36 @@ def start(query_file):
         #计算online多的showid
         on_more = onShowIds - offShowIds
         off_more = offShowIds - onShowIds
+        on_more_name = []
+        off_more_name = []
+        for id in on_more:
+            if id in show_dic:
+                on_more_name.append(show_dic[id])
+            else:
+                on_more_name.append(id)
 
-        if (len(on_more) != 0 and len(off_more) != 0):	
-            print cur_query + '\tonMore:[' + ','.join(on_more) + ']\toffMore:[' + ','.join(off_more)+']'
+        for id in off_more:
+            if id in show_dic:
+                off_more_name.append(show_dic[id])
+            else:
+                off_more_name.append(id)
+
+        if (len(on_more) != 0 and len(off_more) != 0):
+            print cur_query + '\tonMore:[' + ','.join(on_more_name) + ']\toffMore:[' + ','.join(off_more_name)+']'
 
         if len(on_more) != 0:
-            print cur_query + "\tonMore:[" +','.join(on_more) + ']'
+            print cur_query + "\tonMore:[" +','.join(on_more_name) + ']'
 
         if len(off_more) != 0:
-            print cur_query + '\toffMore:[' + ','.join(off_more) + ']'
+            print cur_query + '\toffMore:[' + ','.join(off_more_name) + ']'
 
 def read_show_file(show_file):
     with open(show_file,'r') as f:
         for line in f:
             field = line.split('\t')
-            print line[0] + ',' + line[1]
-            #show_dic[]
+            show_dic[field[0]] = field[1]
 
 
 if __name__ == '__main__':
     read_show_file('all_show_odps')
-    #start('query_all.file')
+    start('query_all.file')
