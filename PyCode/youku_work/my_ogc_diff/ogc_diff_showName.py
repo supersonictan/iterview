@@ -39,8 +39,9 @@ def start(query_file):
     print len(querys)
     for query in querys:
         cur_query = query.strip('\n')
-        off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&cmd=1&qaFlow=3&keyword='+cur_query
-        online_url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=111&cmd=1&qaFlow=3&keyword='+cur_query
+        off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword='+cur_query
+        #off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword='+cur_query
+        online_url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword='+cur_query
 
         on_json = get_url_result(online_url)
         off_json = get_url_result(off_url)
@@ -90,22 +91,27 @@ def start(query_file):
             else:
                 off_more_name.append(id)
 
+        log_str = cur_query + '[' + str(len(onShowIds)) + ':' + str(len(offShowIds)) + ']';
         if (len(on_more) != 0 and len(off_more) != 0):
-            print cur_query + '\tonMore:[' + ','.join(on_more_name) + ']\toffMore:[' + ','.join(off_more_name)+']'
+            print log_str + '\tonMore:[' + ', '.join(on_more_name) + ']\toffMore:[' + ','.join(off_more_name)+']'
 
-        if len(on_more) != 0:
-            print cur_query + "\tonMore:[" +','.join(on_more_name) + ']'
+        elif len(on_more) != 0:
+            print log_str + "\tonMore:[" +', '.join(on_more_name) + ']'
 
-        if len(off_more) != 0:
-            print cur_query + '\toffMore:[' + ','.join(off_more_name) + ']'
+        elif len(off_more) != 0:
+            print log_str + '\toffMore:[' + ', '.join(off_more_name) + ']'
+        else:
+            print log_str + '\tSame'
+
 
 def read_show_file(show_file):
     with open(show_file,'r') as f:
         for line in f:
             field = line.split('\t')
-            show_dic[field[0]] = field[1]
+            show_dic[field[0]] = field[1].strip()
 
 
 if __name__ == '__main__':
-    read_show_file('all_show_odps')
-    start('query_all.file')
+    read_show_file('data/all_show_odps')
+    start('data/top300')
+    #start('data/query_all.file')

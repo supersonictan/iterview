@@ -38,8 +38,8 @@ def start(query_file):
     print len(querys)
     for query in querys:
         cur_query = query.strip('\n')
-        off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&cmd=1&qaFlow=3&keyword='+cur_query
-        online_url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=111&cmd=1&qaFlow=3&keyword='+cur_query
+        off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword='+cur_query
+        online_url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword='+cur_query
 
         on_json = get_url_result(online_url)
         off_json = get_url_result(off_url)
@@ -79,13 +79,14 @@ def start(query_file):
         if (len(on_more) != 0 and len(off_more) != 0):	
             print cur_query + '\tonMore:[' + ','.join(on_more) + ']\toffMore:[' + ','.join(off_more)+']'
 
-        if len(on_more) != 0:
-            print cur_query + "\tonMore:[" +','.join(on_more) + ']'
+        elif len(on_more) != 0:
+            print cur_query + "\tonMore:[" +','.join(on_more) + ']\t'+ off_url
 
-        if len(off_more) != 0:
+        elif len(off_more) != 0:
             print cur_query + '\toffMore:[' + ','.join(off_more) + ']'
-
+        else:
+            print cur_query + '\t same'
 
 if __name__ == '__main__':
     #get_query('query.file')
-    start('query_all.file')
+    start('data/query_all.file')
