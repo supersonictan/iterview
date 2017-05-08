@@ -29,7 +29,7 @@ def parse_file_html():
     print p
     pattern = re.compile('译　　名.*<br/>*?')
     matcher = re.search(pattern, p)
-    print matcher.group(1)
+    #print matcher.group(1)
     # for ele in str(p).split('◎'):
     #     print  ele.strip()
 
