@@ -169,7 +169,8 @@ def parse_vdo_html(detailUrl):
     matcher = re.search(director_pattern, p)
     if matcher is not None:
         match_str = matcher.group(0)
-        vdo_director = match_str.replace('导　　演　', '').replace('<br/>', '').strip()
+        #vdo_director = match_str.replace('导　　演　', '').replace('<br/>', '').strip()
+        vdo_director = match_str.replace('导.*?演　', '').replace('<br/>', '').strip()
     else:
         print 'No Director:' + detailUrl
 
