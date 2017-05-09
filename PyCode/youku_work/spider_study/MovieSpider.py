@@ -12,23 +12,37 @@ import chardet
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-yiming_pattern = re.compile('译　　名.*?<br/>')
-year_pattern = re.compile('年　　代.*?<br/>')
-area_pattern = re.compile('国　　家.*?<br/>')
-area2_pattern = re.compile('地　　区.*?<br/>')
-type_pattern = re.compile('类　　型.*?<br/>')
-type2_pattern = re.compile('类　　别.*?<br/>')
-language_pattern = re.compile('语　　言.*?<br/>')
-screan_pattern = re.compile('字　　幕.*?<br/>')
-imdb_pattern = re.compile('IMDb评分.*?<br/>')
-size_pattern = re.compile('视频尺寸.*?<br/>')
-length_pattern = re.compile('片　　长.*?<br/>')
-director_pattern = re.compile('导　　演.*?<br/>')
+# yiming_pattern = re.compile('译　　名.*?<br/>')
+# year_pattern = re.compile('年　　代.*?<br/>')
+# area_pattern = re.compile('国　　家.*?<br/>')
+# area2_pattern = re.compile('地　　区.*?<br/>')
+# type_pattern = re.compile('类　　型.*?<br/>')
+# type2_pattern = re.compile('类　　别.*?<br/>')
+# language_pattern = re.compile('语　　言.*?<br/>')
+# screan_pattern = re.compile('字　　幕.*?<br/>')
+# imdb_pattern = re.compile('IMDb评分.*?<br/>')
+# size_pattern = re.compile('视频尺寸.*?<br/>')
+# length_pattern = re.compile('片　　长.*?<br/>')
+# director_pattern = re.compile('导　　演.*?<br/>')
+# staring_pattern = re.compile('主　　演.*?◎简　　介')
+# desc_pattern = re.compile('简　　介.*?<br/>')
+yiming_pattern = re.compile('译　　名.*?<br *?/>')
+year_pattern = re.compile('年　　代.*?<br *?/>')
+area_pattern = re.compile('国　　家.*?<br *?/>')
+area2_pattern = re.compile('地　　区.*?<br *?/>')
+type_pattern = re.compile('类　　型.*?<br *?/>')
+type2_pattern = re.compile('类　　别.*?<br *?/>')
+language_pattern = re.compile('语　　言.*?<br *?/>')
+screan_pattern = re.compile('字　　幕.*?<br *?/>')
+imdb_pattern = re.compile('IMDb评分.*?<br *?/>')
+size_pattern = re.compile('视频尺寸.*?<br *?/>')
+length_pattern = re.compile('片　　长.*?<br *?/>')
+director_pattern = re.compile('导　　演.*?<br *?/>')
 staring_pattern = re.compile('主　　演.*?◎简　　介')
-desc_pattern = re.compile('简　　介.*?<br/>')
+desc_pattern = re.compile('简　　介.*?<br *?/>')
 
-conn= MySQLdb.connect(host='localhost', port=3306, user='root', passwd='root', db ='great_china',charset='utf8')
-cur = conn.cursor()
+# conn= MySQLdb.connect(host='localhost', port=3306, user='root', passwd='root', db ='great_china',charset='utf8')
+# cur = conn.cursor()
 
 vdo_name = []
 vdo_page_link = []
@@ -72,6 +86,7 @@ def parse_vdo_html(detailUrl):
 
 
     p = str(soup.find_all('p')[4])
+    print p
 
     #译名
     vdo_name_yiming = ''
@@ -201,7 +216,7 @@ def parse_vdo_html(detailUrl):
     #sql = """INSERT INTO `vedio` VALUES (1000, '极限特工3', '极限特工3', '美国', '动作/冒险', '英语', '中英双字幕', '5.4/10 from 31,888 users', '1280 x 720', '107分钟', 'D·J·卡卢索 D.J. Caruso', '范·迪塞尔 Vin Diesel;甄子丹 Donnie Yen;迪皮卡·帕度柯妮 Deepika Padukone;吴亦凡 Kris Wu;鲁比·罗丝 Ruby Rose;塞缪尔·杰克逊 Samuel L. Jackson;妮娜·杜波夫 Nina Dobrev;托尼·贾 Tony Jaa;托妮·科莱特 Toni Collette;赫敏·科菲尔德 Hermione Corfield;阿尔·萨皮恩扎 Al Sapienza;艾斯·库珀 Ice Cube;内马尔 Neymar;罗伊·麦克凯恩 Rory McCann;迈克尔·比斯平 Michael Bisping', null, 'ftp://ygdy8:ygdy8@yg32.dydytt.net:7013/[阳光电影www.ygdy8.com].极限特工3：终极回归.BD.720p.中英双字幕.mkv', null);"""
     #sql = "insert into vedio values(%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     #cur.execute(sql, (1000, vdo_name_yiming, vdo_name_yiming, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,'',vdo_url,''))
-    insert_mysql(vdo_name_yiming, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url)
+    #insert_mysql(vdo_name_yiming, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url)
 
 def insert_mysql(vdo_name_yiming, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url):
     vdo_length = vdo_length.decode('utf-8')
