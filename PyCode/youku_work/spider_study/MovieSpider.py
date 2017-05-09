@@ -33,7 +33,7 @@ cur = conn.cursor()
 vdo_name = []
 vdo_page_link = []
 
-
+#!Q(gidUF,4pI
 #解析url到文本
 def get_url_result(list_url, encoding):
     r = requests.get(list_url)
