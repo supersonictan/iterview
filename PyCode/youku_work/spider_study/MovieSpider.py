@@ -50,8 +50,8 @@ cur = conn.cursor()
 vdo_name = []
 vdo_core_name = []
 vdo_page_link = []
-pic_urls = []
-
+global pic_url
+pic_url = ''
 #!Q(gidUF,4pI
 #解析url到文本
 def get_url_result(list_url, encoding):
@@ -129,8 +129,8 @@ def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
 
     #解析图片地址
     pic_urls = re.findall('http:.*?jpg', p)
-    print pic_urls
-
+    if pic_urls:
+        pic_url = pic_urls[0]
 
     #译名
     vdo_name_yiming = vdo_name
@@ -262,7 +262,9 @@ def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
     #sql = "insert into vedio values(%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     #cur.execute(sql, (1000, vdo_name_yiming, vdo_name_yiming, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,'',vdo_url,''))
     picName = insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url, detailUrl)
-    downloadImageFile(str(picName),pic_urls[0])
+    print 'before down'
+    downloadImageFile(str(picName),pic_url)
+    pic_url = ''
 
 def insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url, detailUrl):
     vdo_length = vdo_length.decode('utf-8')
@@ -315,3 +317,5 @@ if __name__ == '__main__':
             parse_vdo_html(vdo_page_link[j], vdo_name[j], vdo_core_name[j])
             time.sleep(1)
         print 'Finished Page:' + str(i)
+
+#http://www.cnblogs.com/kaituorensheng/archive/2013/01/05/2846627.html
