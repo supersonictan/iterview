@@ -13,17 +13,18 @@ import time
 from requests.packages.urllib3.poolmanager import PoolManager
 import ssl
 from functools import wraps
-# def sslwrap(func):
-#     @wraps(func)
-#     def bar(*args, **kw):
-#         kw['ssl_version'] = ssl.PROTOCOL_TLSv1
-#         return func(*args, **kw)
-#     return bar
-#
-# ssl.wrap_socket = sslwrap(ssl.wrap_socket)
-# import requests.packages.urllib3.util.ssl_
-# print(requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS)
-# requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL'
+def sslwrap(func):
+    @wraps(func)
+    def bar(*args, **kw):
+        kw['ssl_version'] = ssl.PROTOCOL_TLSv1
+        return func(*args, **kw)
+    return bar
+
+ssl.wrap_socket = sslwrap(ssl.wrap_socket)
+
+import requests.packages.urllib3.util.ssl_
+print(requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS)
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL'
 import chardet
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -75,6 +76,8 @@ pic_url = ''
 
 #解析url到文本
 def get_url_result(list_url, encoding):
+    #headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
+    #r = requests.get(list_url,headers=headers)
     r = requests.get(list_url)
     r.encoding = encoding
     return r.text
@@ -335,10 +338,8 @@ def insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_languag
 if __name__ == '__main__':
     #parse_vdo_html('http://www.ygdy8.net/html/gndy/dyzz/20161208/52675.html', 'test','test')
     for i in range(1,162): #页码
-        print i
         list_url = 'http://www.ygdy8.net/html/gndy/dyzz/list_23_' + str(i) + '.html'
         list_res = get_url_result(list_url, 'gbk')
-        print list_res
         vdo_name = []
         vdo_core_name = []
         vdo_page_link = []
