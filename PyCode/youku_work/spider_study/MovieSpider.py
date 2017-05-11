@@ -11,21 +11,24 @@ import MySQLdb
 import sys
 import time
 from requests.packages.urllib3.poolmanager import PoolManager
-import ssl
-from functools import wraps
-def sslwrap(func):
-    @wraps(func)
-    def bar(*args, **kw):
-        kw['ssl_version'] = ssl.PROTOCOL_TLSv1
-        return func(*args, **kw)
-    return bar
-
-ssl.wrap_socket = sslwrap(ssl.wrap_socket)
-
-import requests.packages.urllib3.util.ssl_
-print(requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS)
-requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL'
 import chardet
+
+# import ssl
+# from functools import wraps
+# def sslwrap(func):
+#     @wraps(func)
+#     def bar(*args, **kw):
+#         kw['ssl_version'] = ssl.PROTOCOL_TLSv1
+#         return func(*args, **kw)
+#     return bar
+#
+# ssl.wrap_socket = sslwrap(ssl.wrap_socket)
+#
+# import requests.packages.urllib3.util.ssl_
+# print(requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS)
+# requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL'
+
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 # yiming_pattern = re.compile('译　　名.*?<br/>')
@@ -46,6 +49,7 @@ yiming_pattern = re.compile('译　　名.*?<br *?/>')
 year_pattern = re.compile('年.*?代.*?<br.*?/>')
 area_pattern = re.compile('国　　家.*?<br *?/>')
 area2_pattern = re.compile('地　　区.*?<br *?/>')
+area3_pattern = re.compile('产　　地.*?<br.*?/>')
 type_pattern = re.compile('类　　型.*?<br *?/>')
 type2_pattern = re.compile('类　　别.*?<br *?/>')
 language_pattern = re.compile('语　　言.*?<br *?/>')
@@ -107,11 +111,10 @@ def get_movies_link(html):
 
 def downloadImageFile(picName):
     global pic_url
-    print pic_url
     session = requests.session()
     session.mount('http://', HTTPAdapter(max_retries=3))
     #session.mount('https://', MyAdapter())
-    r = session.get(pic_url, stream=True, verify=False)  # here we need to set stream = True parameter
+    r = session.get(pic_url, stream=True, timeout=6)  # here we need to set stream = True parameter
 
     with open("F:\\pics\\"+ picName + ".jpg",'wb') as f:
         for chunk in r.iter_content(chunk_size=1024):
@@ -119,7 +122,6 @@ def downloadImageFile(picName):
                 f.write(chunk)
                 f.flush()
         f.close()
-    print 'Finished down pic'
 
 def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
     global pic_url
@@ -139,13 +141,16 @@ def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
 
     vdo_res_link = soup.find_all(attrs={'bgcolor':"#fdfddf"})
     vdo_url = ''
-    for td in vdo_res_link:
-        if vdo_url != '':
-            vdo_url += ';'
-        vdo_url += td.a.get('href')
-    if vdo_url == '':
-        print 'No vdo_url:' + vdo_core_name + '\t'  + detailUrl
-
+    if vdo_res_link:
+        for td in vdo_res_link:
+            if vdo_url != '':
+                vdo_url += ';'
+            if td and td.a:
+                vdo_url += td.a.get('href')
+        if vdo_url == '':
+            print 'No vdo_url:' + vdo_core_name + '\t'  + detailUrl
+    else:
+        print 'No vdo_url:' + vdo_core_name + '\t' + detailUrl
 
 
 
@@ -193,7 +198,12 @@ def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
             match_str = matcher.group(0)
             vdo_area = match_str.replace('国　　家　', '').replace('<br/>', '').strip()
         else:
-            print 'No 国家:' + vdo_core_name + '\t'  + detailUrl
+            matcher = re.search(area3_pattern, p)
+            if matcher:
+                match_str = matcher.group(0)
+                vdo_area = match_str.replace('产　　地　', '').replace('<br/>', '').strip()
+            else:
+                print 'No 国家:' + vdo_core_name + '\t'  + detailUrl
 
     #类别
     vdo_type = ''
@@ -269,7 +279,7 @@ def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
     matcher = re.search(staring_pattern, p)
     if matcher is not None:
         match_str = matcher.group(0)
-        vdo_staring = match_str.replace('主　　演　', '').replace('◎简　　介', '').replace('\'', '').strip('<br/>')
+        vdo_staring = match_str.replace('主　　演　', '').replace('◎简　　介', '').replace('\'', '').replace('·', '').strip('<br/>')
         vdo_stars = ''
         for item in vdo_staring.split('<br/>'):
             if vdo_stars != '':
@@ -293,8 +303,12 @@ def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
     #cur.execute(sql, (1000, vdo_name_yiming, vdo_name_yiming, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,'',vdo_url,''))
     picName = insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url, detailUrl)
 
-    if picName != -1:
-        downloadImageFile(str(picName))
+    print 'WaitToImage\t' + str(picName) + '\t' + pic_url
+    # if picName != -1:
+    #     try:
+    #         downloadImageFile(str(picName))
+    #     except Exception,e:
+    #         print 'Download pic fail:' + vdo_core_name + '\t' + detailUrl
     pic_url = ''
 
 def insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url, detailUrl):
@@ -322,7 +336,6 @@ def insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_languag
               (vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size,
                vdo_length, vdo_director, vdo_stars, 'desc', vdo_url, 'pic')
 
-        #cur.execute("SET NAMES utf8")
         rs = cur.execute(sql)
         conn.commit()
         id = cur.lastrowid
@@ -336,7 +349,7 @@ def insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_languag
 
 
 if __name__ == '__main__':
-    #parse_vdo_html('http://www.ygdy8.net/html/gndy/dyzz/20161208/52675.html', 'test','test')
+    #parse_vdo_html('http://www.ygdy8.net/html/gndy/dyzz/20160726/51532.html', 'test','test')
     for i in range(1,162): #页码
         list_url = 'http://www.ygdy8.net/html/gndy/dyzz/list_23_' + str(i) + '.html'
         list_res = get_url_result(list_url, 'gbk')
@@ -345,8 +358,9 @@ if __name__ == '__main__':
         vdo_page_link = []
         get_movies_link(list_res)
         for j in range(0, len(vdo_name)):
-            parse_vdo_html(vdo_page_link[j], vdo_name[j], vdo_core_name[j])
+            try:
+                parse_vdo_html(vdo_page_link[j], vdo_name[j], vdo_core_name[j])
+            except Exception, e:
+                print 'Exception:' + str(vdo_core_name[j]) + '\t' + str(vdo_page_link[j])
             #time.sleep(1)
         print 'Finished Page:' + str(i)
-
-#http://www.cnblogs.com/kaituorensheng/archive/2013/01/05/2846627.html
