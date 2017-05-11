@@ -113,7 +113,7 @@ def downloadImageFile(picName):
     #session.mount('https://', MyAdapter())
     r = session.get(pic_url, stream=True, verify=False)  # here we need to set stream = True parameter
 
-    with open("/Users/tanzhen/Downloads/pics/"+ picName + ".jpg",'wb') as f:
+    with open("F:\\pics\\"+ picName + ".jpg",'wb') as f:
         for chunk in r.iter_content(chunk_size=1024):
             if chunk:  # filter out keep-alive new chunks
                 f.write(chunk)
