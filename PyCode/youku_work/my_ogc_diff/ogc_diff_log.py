@@ -11,6 +11,9 @@ import json
 logger = Logger(logFileName='diff.log', logger="diff").getlog()
 show_dic = {}
 
+i = 1
+diff_num = 0
+
 def get_query(query_file):
     urls = []
     with open(query_file, 'r') as f:
@@ -39,8 +42,9 @@ def get_url_result(url):
 
 def start(query_file):
     querys = get_query(query_file)
-    i = 1
-    diff_num = 0
+    global i
+    global diff_num
+
     for query in querys:
         query = query.strip()
         try:
@@ -120,6 +124,7 @@ def start(query_file):
         except Exception,e:
             logger.info('Exception query:' + query)
         i+=1
+    logger.info('diff_ratio=' + float(diff_num)/float(i))
 
 def read_show_file(show_file):
     with open(show_file,'r') as f:
