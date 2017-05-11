@@ -39,6 +39,8 @@ def get_url_result(url):
 
 def start(query_file):
     querys = get_query(query_file)
+    i = 1
+    diff_num = 0
     for query in querys:
         query = query.strip()
         try:
@@ -96,17 +98,20 @@ def start(query_file):
                 else:
                     off_more_name.append(id)
 
-            log_str = cur_query + '[' + str(len(onShowIds)) + ':' + str(len(offShowIds)) + ']';
+            log_str = str(i) + '.' +  cur_query + '[' + str(len(onShowIds)) + ':' + str(len(offShowIds)) + ']';
             if (len(on_more) != 0 and len(off_more) != 0):
                 # print log_str + '\tonMore:[' + ', '.join(on_more_name) + ']\toffMore:[' + ','.join(off_more_name)+']'
+                diff_num +=1
                 logger.info(log_str + '\tonMore:[' + ', '.join(on_more_name) + ']\toffMore:[' + ','.join(off_more_name) + ']')
 
             elif len(on_more) != 0:
                 # print log_str + "\tonMore:[" +', '.join(on_more_name) + ']'
+                diff_num += 1
                 logger.info(log_str + "\tonMore:[" + ', '.join(on_more_name) + ']')
 
             elif len(off_more) != 0:
                 # print log_str + '\toffMore:[' + ', '.join(off_more_name) + ']'
+                diff_num +=1
                 logger.info(log_str + '\toffMore:[' + ', '.join(off_more_name) + ']')
             else:
                 # print log_str + '\tSame'
@@ -114,7 +119,7 @@ def start(query_file):
 
         except Exception,e:
             logger.info('Exception query:' + query)
-
+        i+=1
 
 def read_show_file(show_file):
     with open(show_file,'r') as f:

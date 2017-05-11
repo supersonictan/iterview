@@ -28,7 +28,7 @@ class Logger():
 
         # 再创建一个handler，用于输出到控制台
         ch = logging.StreamHandler()
-        ch.setLevel(logging.INFO)
+        ch.setLevel(logging.DEBUG)
 
         # 定义handler的输出格式
         formatter = logging.Formatter('%(message)s')
