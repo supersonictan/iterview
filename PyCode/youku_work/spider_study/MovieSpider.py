@@ -10,10 +10,24 @@ import re
 import MySQLdb
 import sys
 import time
+from requests.packages.urllib3.poolmanager import PoolManager
+import ssl
+from functools import wraps
+def sslwrap(func):
+    @wraps(func)
+    def bar(*args, **kw):
+        kw['ssl_version'] = ssl.PROTOCOL_TLSv1
+        return func(*args, **kw)
+    return bar
+
+ssl.wrap_socket = sslwrap(ssl.wrap_socket)
+
+import requests.packages.urllib3.util.ssl_
+print(requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS)
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL'
 import chardet
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
 # yiming_pattern = re.compile('译　　名.*?<br/>')
 # year_pattern = re.compile('年　　代.*?<br/>')
 # area_pattern = re.compile('国　　家.*?<br/>')
@@ -43,6 +57,7 @@ director_pattern = re.compile('导　　演.*?<br *?/>')
 staring_pattern = re.compile('主　　演.*?◎简　　介')
 desc_pattern = re.compile('简　　介.*?<br *?/>')
 vdoCoreName_pattern = re.compile('《.+?》')
+pic_pattern = re.compile('http.*?jpg')
 
 conn= MySQLdb.connect(host='localhost', port=3306, user='root', passwd='root', db ='great_china',charset='utf8')
 cur = conn.cursor()
@@ -50,11 +65,19 @@ cur = conn.cursor()
 vdo_name = []
 vdo_core_name = []
 vdo_page_link = []
-global pic_url
 pic_url = ''
-#!Q(gidUF,4pI
+
+# class MyAdapter(HTTPAdapter):
+#     def init_poolmanager(self, connections, maxsize, block=False):
+#         self.poolmanager = PoolManager(num_pools=connections, maxsize=maxsize, block=block, ssl_version=ssl.PROTOCOL_TLSv1)
+
+
+
+
 #解析url到文本
 def get_url_result(list_url, encoding):
+    #headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
+    #r = requests.get(list_url,headers=headers)
     r = requests.get(list_url)
     r.encoding = encoding
     return r.text
@@ -82,12 +105,15 @@ def get_movies_link(html):
 
         #print a_tag.string + "\thttp://www.ygdy8.net" + a_tag.get('href')
 
-def downloadImageFile(picName, picUrl):
+def downloadImageFile(picName):
+    global pic_url
+    print pic_url
     session = requests.session()
     session.mount('http://', HTTPAdapter(max_retries=3))
-    r = session.get(picUrl, stream=True)  # here we need to set stream = True parameter
+    #session.mount('https://', MyAdapter())
+    r = session.get(pic_url, stream=True, verify=False)  # here we need to set stream = True parameter
 
-    with open("F:\\pics\\"+ picName + ".jpg",'wb') as f:
+    with open("/Users/tanzhen/Downloads/pics/"+ picName + ".jpg",'wb') as f:
         for chunk in r.iter_content(chunk_size=1024):
             if chunk:  # filter out keep-alive new chunks
                 f.write(chunk)
@@ -96,6 +122,7 @@ def downloadImageFile(picName, picUrl):
     print 'Finished down pic'
 
 def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
+    global pic_url
     #html = get_url_result("http://www.ygdy8.net/html/gndy/dyzz/20170504/53865.html", 'gbk')
     session = requests.session()
     #request_retry = requests.adapters.HTTPAdapaters(max_retries=3)
@@ -128,9 +155,12 @@ def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
 
 
     #解析图片地址
-    pic_urls = re.findall('http:.*?jpg', p)
+    #pic_urls = re.findall('http:.*?jpg', p)
+    pic_urls = re.findall(pic_pattern, p)
     if pic_urls:
         pic_url = pic_urls[0]
+    else:
+        print 'No pic:' + detailUrl
 
     #译名
     vdo_name_yiming = vdo_name
@@ -262,8 +292,9 @@ def parse_vdo_html(detailUrl, vdo_name, vdo_core_name):
     #sql = "insert into vedio values(%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     #cur.execute(sql, (1000, vdo_name_yiming, vdo_name_yiming, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,'',vdo_url,''))
     picName = insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url, detailUrl)
-    print 'before down'
-    downloadImageFile(str(picName),pic_url)
+
+    if picName != -1:
+        downloadImageFile(str(picName))
     pic_url = ''
 
 def insert_mysql(vdo_name_yiming, vdo_core_name, vdo_area, vdo_type, vdo_language, vdo_screan, vdo_imdb, vdo_size, vdo_length,vdo_director,vdo_stars,vdo_url, detailUrl):
@@ -315,7 +346,7 @@ if __name__ == '__main__':
         get_movies_link(list_res)
         for j in range(0, len(vdo_name)):
             parse_vdo_html(vdo_page_link[j], vdo_name[j], vdo_core_name[j])
-            time.sleep(1)
+            #time.sleep(1)
         print 'Finished Page:' + str(i)
 
 #http://www.cnblogs.com/kaituorensheng/archive/2013/01/05/2846627.html
