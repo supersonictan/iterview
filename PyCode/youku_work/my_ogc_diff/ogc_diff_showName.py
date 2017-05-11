@@ -41,7 +41,8 @@ def start(query_file):
         cur_query = query.strip('\n')
         off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword='+cur_query
         #off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword='+cur_query
-        online_url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword='+cur_query
+        online_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&ecb_sp_ip=11.173.227.22:2090&cmd=1&qaFlow=1&keyword='+cur_query
+        #online_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword='+cur_query
 
         on_json = get_url_result(online_url)
         off_json = get_url_result(off_url)
