@@ -49,8 +49,8 @@ def start(query_file):
         query = query.strip()
         try:
             cur_query = query.strip('\n')
-            off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword=' + cur_query
-            # off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword='+cur_query
+            #off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword=' + cur_query
+            off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword='+cur_query
             online_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&ecb_sp_ip=11.173.227.22:2090&cmd=1&qaFlow=1&keyword=' + cur_query
             # online_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&qaFlow=1&keyword='+cur_query
 
@@ -124,7 +124,7 @@ def start(query_file):
         except Exception,e:
             logger.info('Exception query:' + query)
         i+=1
-    logger.info('diff_ratio=' + float(diff_num)/float(i))
+    logger.info('diff_ratio=' + str(float(diff_num)/float(i)))
 
 def read_show_file(show_file):
     with open(show_file,'r') as f:
@@ -135,5 +135,5 @@ def read_show_file(show_file):
 
 if __name__ == '__main__':
     read_show_file('data/all_show_odps')
-    start('data/top300')
-    #start('data/query_all.file')
+    #start('data/top300')
+    start('data/mid700')
