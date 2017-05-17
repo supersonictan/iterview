@@ -14,7 +14,7 @@ logger = Logger(logFileName='diff.log', logger="diff").getlog()
 
 
 showIdNameDic = {}
-q = Queue.Queue()
+queryQueue = Queue.Queue()
 
 
 #读取文件
@@ -40,5 +40,5 @@ def readShowFile(showFilePath):
 
 
 if __name__ == '__main__':
-    q.get(block=True, timeout=3)
+    queryQueue.get(block=True, timeout=3)
     print 'Ha'
