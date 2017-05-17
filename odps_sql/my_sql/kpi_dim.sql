@@ -59,7 +59,7 @@ GROUP BY
 	,args['k']
 	,ds
 UNION ALL
---不分qa
+--分实验，分query，不分qa
 SELECT
 	concat(split(expid, '\\.')[0], '.', split(expid, '\\.')[1], '.',  split(expid, '\\.')[3]) expid_abd
 	,'all' exp_qp
@@ -86,6 +86,33 @@ GROUP BY
 	,args['k']
 	,ds
 ;
+UNION ALL
+----分实验，不分query，不分qa
+SELECT
+	concat(split(expid, '\\.')[0], '.', split(expid, '\\.')[1], '.',  split(expid, '\\.')[3]) expid_abd
+	,'all' exp_qp
+	,'all' query
+	,count(*) vdo_clk
+	,ds ds
+FROM
+(
+	SELECT 
+		a.*
+		,regexp_replace(split(regexp_replace(args['engine'], '\\$', '\\=', 0), '=')[1], 'rv', '', 0) expid
+	FROM 
+		ytsoku.dwd_soku_app_query_click_utsdk_log_di a
+	WHERE 
+		ds='${ds}'
+		AND clk_object_type in ('1', '2', '3')
+		AND lower(trim(split(a.spm_id, "\\.")[3])) in ('poster', 'title', 'screenshot', 'playbutton', 'selectbutton', 'selectlist')
+		AND args['object_id'] is not null
+		AND length(args['object_id']) >= 5
+		AND length(args['object_id']) <= 25
+) a
+GROUP BY
+	concat(split(expid, '\\.')[0], '.', split(expid, '\\.')[1], '.',  split(expid, '\\.')[3])
+	,ds
+;
 --------------End clk-----------------
 
 
@@ -99,7 +126,7 @@ CREATE TABLE IF NOT EXISTS ads_soku_kpi_sqv_dev(
 ) PARTITIONED BY(ds string) LIFECYCLE 30;
 
 INSERT OVERWRITE TABLE ads_soku_kpi_sqv_dev PARTITION(ds)
---分实验/qp统计
+----分实验，分query，不分qa
 SELECT 
 	concat(split(expid, '\\.')[0], '.', split(expid, '\\.')[1], '.',  split(expid, '\\.')[3]) expid_abd
 	,split(expid, '\\.')[4]	exp_qp
@@ -123,7 +150,7 @@ GROUP BY
 	,split(expid, '\\.')[4]
 	,ds
 UNION ALL
---分实验，不分qp统计
+--分实验,分query，不分qp统计
 SELECT 
 	concat(split(expid, '\\.')[0], '.', split(expid, '\\.')[1], '.',  split(expid, '\\.')[3]) expid_abd
 	,'all' exp_qp
@@ -144,6 +171,28 @@ FROM
 GROUP BY 
 	concat(split(expid, '\\.')[0], '.', split(expid, '\\.')[1], '.',  split(expid, '\\.')[3])
 	,args['k']
+	,ds
+UNION ALL
+--分实验,不分query，不分qp统计
+SELECT 
+	concat(split(expid, '\\.')[0], '.', split(expid, '\\.')[1], '.',  split(expid, '\\.')[3]) expid_abd
+	,'all' exp_qp
+	,'all' query
+	,count(DISTINCT args['aaid']) sqv
+	,ds	ds
+FROM 
+(
+	SELECT 
+		a.*
+		,regexp_replace(split(regexp_replace(args['engine'], '\\$', '\\=', 0), '=')[1], 'rv', '', 0) expid
+	FROM 
+		ytsoku.dwd_soku_app_query_click_utsdk_log_di a
+	WHERE 
+		ds='${ds}'
+		AND args['aaid'] is not null 
+) a
+GROUP BY 
+	concat(split(expid, '\\.')[0], '.', split(expid, '\\.')[1], '.',  split(expid, '\\.')[3])
 	,ds
 ;
 --------------End sqv-----------------
