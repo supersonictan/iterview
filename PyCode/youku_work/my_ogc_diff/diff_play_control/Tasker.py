@@ -123,5 +123,5 @@ class Tasker(threading.Thread):
                     logger.debug(log_str + '\t' + 'Same')
 
             except Exception, e:
-                logger.warn('Thread:' + self.threadName + " Finished. e:" + str(e))
+                logger.debug('Thread:' + self.threadName + " Finished. e:" + str(e))
                 break;
