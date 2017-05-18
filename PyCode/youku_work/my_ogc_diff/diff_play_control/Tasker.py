@@ -65,7 +65,7 @@ class Tasker(threading.Thread):
     def run(self):
         while True:
             try:
-                query = Global.query_queue.get(block=True, timeout=10)
+                query = Global.query_queue.get(block=True, timeout=5)
 
                 #拼装url
                 on_params = {'rankFlow': Global.on_expid, 'isFilter': '16', 'cmd': '1', 'ecb_sp_ip':Global.on_ip, 'qaFlow':Global.on_qa, 'nocache': '1', 'keyword':query}
@@ -84,6 +84,12 @@ class Tasker(threading.Thread):
                 log_str = str(query) + '[' + str(len(on_showids_list)) + ':' + str(len(off_showids_list)) + ']'
 
                 if (len(on_more) != 0 and len(off_more) != 0):
+
+                    #统计diff
+                    Global.lock.acquire()
+                    Global.diff_num += 1
+                    Global.lock.release()
+
                     on_more_str = ''
                     off_more_str = ''
                     for i in on_more:
@@ -101,7 +107,12 @@ class Tasker(threading.Thread):
                     logger.info(log_str + '\tonMore:[' + on_more_str + ']\toffMore:[' + off_more_str + ']')
 
                 elif len(on_more) != 0:
-                    # diff_num += 1
+
+                    # 统计diff
+                    Global.lock.acquire()
+                    Global.diff_num += 1
+                    Global.lock.release()
+
                     on_more_str = ''
                     for i in on_more:
                         if on_more_str != '':
@@ -111,6 +122,12 @@ class Tasker(threading.Thread):
                     logger.info(log_str + "\tonMore:[" + on_more_str + ']')
 
                 elif len(off_more) != 0:
+
+                    # 统计diff
+                    Global.lock.acquire()
+                    Global.diff_num += 1
+                    Global.lock.release()
+
                     off_more_str = ''
                     for i in off_more:
                         if off_more_str != '':
@@ -123,5 +140,5 @@ class Tasker(threading.Thread):
                     logger.debug(log_str + '\t' + 'Same')
 
             except Exception, e:
-                logger.debug('Thread:' + self.threadName + " Finished. e:" + str(e))
-                break;
+                logger.debug('Thread:' + str(self.threadName) + " Finished. e:" + str(e))
+                break

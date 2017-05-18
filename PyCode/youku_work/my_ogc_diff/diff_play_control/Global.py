@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding=utf-8-*-
 import Queue
+import threading
 
 #HTTP Get 参数
 on_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s'
@@ -18,4 +19,4 @@ off_qa = '1'
 showname_dic = {}
 query_queue = Queue.Queue()
 diff_num = 0 #同步
-
+lock = threading.RLock()
