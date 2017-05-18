@@ -6,7 +6,7 @@ import sys
 import json
 import threading
 from SpiderTasker import *
-from youku_work.my_ogc_diff.Logger import *
+from Logger import *
 #http://www.cnblogs.com/pastgift/p/3985032.html
 import GlobalVar
 reload(sys)

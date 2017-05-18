@@ -20,7 +20,7 @@ class Logger():
 
         # 根据输入logger 创建一个logger
         self.logger = logging.getLogger(logger)
-        self.logger.setLevel(logging.DEBUG)
+        self.logger.setLevel(logging.INFO)
 
         # 创建一个handler，用于写入日志文件
         fh = logging.FileHandler(logFileName)

@@ -9,14 +9,13 @@ from Logger import *
 import copy
 import GlobalVar
 import time
-import ogc_diff_mThread
 from requests.adapters import HTTPAdapter
 from ECBResult import *
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 #加载Log模块
-logger = Logger(logFileName='diff.log', logger="diff").getlog()
+logger = Logger(logFileName='diff.log', logger="spider").getlog()
 glb_showid_list = []
 
 
@@ -69,13 +68,13 @@ class DiffTasker(threading.Thread):
 
 
     def run(self):
-
+        global glb_showid_list
         while True:
             try:
                 query = GlobalVar.queryQueue.get(block=False, timeout=10)
                 logger.debug('query:'+query)
-                off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword=' + query
-                online_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&ecb_sp_ip=11.173.227.22:2090&cmd=1&qaFlow=1&keyword=' + query
+                off_url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword=' + query
+                online_url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=111&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&qaFlow=1&keyword=' + query
 
                 #通过Http获取imerger的json结果
                 off_json = self.__getImergerJson(off_url)
@@ -85,6 +84,7 @@ class DiffTasker(threading.Thread):
                 #解析json结果，封装为对象和showid列表
                 off_resObj_dic = self.__parseJsonToObjList(off_json, query)
                 off_showids_list = copy.deepcopy(glb_showid_list) #需要深拷贝
+                glb_showid_list = []
                 on_resObj_dic = self.__parseJsonToObjList(on_json, query)
                 on_showids_list = glb_showid_list
 
