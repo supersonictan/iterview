@@ -39,8 +39,8 @@ def readShowFile(showFilePath):
 
 if __name__ == '__main__':
 
-    readQueryFile('E:\\code\\public\\tmp\\iterview\\PyCode\\youku_work\\my_ogc_diff\\data\\top300')
-    readShowFile('E:\\code\\public\\tmp\\iterview\\PyCode\\youku_work\\my_ogc_diff\\data\\all_show_odps')
+    readQueryFile('../data/top300')
+    readShowFile('../data/all_show_odps')
 
 
     t1 = DiffTasker('1')
