@@ -24,7 +24,7 @@ class Logger():
 
         # 创建一个handler，用于写入日志文件
         fh = logging.FileHandler(logFileName)
-        fh.setLevel(logging.INFO)
+        fh.setLevel(logging.DEBUG)
 
         # 再创建一个handler，用于输出到控制台
         ch = logging.StreamHandler()
