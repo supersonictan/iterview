@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf-8')
 
 
 #加载Log模块
-logger = Logger(logFileName='diff.log', logger="diff").getlog()
+logger = Logger(logFileName='diff.log', logger="diffb").getlog()
 
 #读取文件
 def read_query_file(queryFilePath):
@@ -24,7 +24,7 @@ def read_query_file(queryFilePath):
             try:
                 Global.query_queue.put(line.strip(), block=False)
             except Exception,e:
-                logger.info('Queue put Exception, query:%s', line.strip())
+                logger.error('Queue put Exception, query:%s', line.strip())
 
 def read_show_file(showFilePath):
     with open(showFilePath, 'r') as f:

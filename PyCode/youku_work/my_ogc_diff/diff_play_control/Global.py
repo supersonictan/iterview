@@ -9,7 +9,7 @@ on_ip = ''
 on_qa = '1'
 
 off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s'
-off_expid = '112'
+off_expid = '111'
 off_ip = '11.173.213.132:2090'
 off_qa = '1'
 

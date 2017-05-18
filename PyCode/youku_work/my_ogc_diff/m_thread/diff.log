@@ -48,3 +48,24 @@ Call __parseJsonToObjList query:欢乐喜剧人第3季
 Call __parseJsonToObjList query:欢乐喜剧人第3季
 欢乐喜剧人第3季[5:5]	Same
 query:奔跑吧兄弟2017迪丽热巴第5季
+query:人民的名义
+Query:人民的名义 Finished __getImergerJson
+Call __parseJsonToObjList query:人民的名义
+Call __parseJsonToObjList query:人民的名义
+人民的名义[3:3]	Same
+query:择天记
+Query:择天记 Finished __getImergerJson
+Call __parseJsonToObjList query:择天记
+Call __parseJsonToObjList query:择天记
+择天记[4:4]	Same
+query:微微一笑很倾城
+Query:微微一笑很倾城 Finished __getImergerJson
+Call __parseJsonToObjList query:微微一笑很倾城
+Call __parseJsonToObjList query:微微一笑很倾城
+微微一笑很倾城[2:2]	Same
+query:火影忍者
+Query:火影忍者 Finished __getImergerJson
+Call __parseJsonToObjList query:火影忍者
+Call __parseJsonToObjList query:火影忍者
+火影忍者[27:27]	Same
+query:小猪佩奇

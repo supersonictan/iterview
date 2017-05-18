@@ -41,20 +41,31 @@ class Tasker(threading.Thread):
 
 
     def __get_showids(self, json, query):
-        ecb_data = json['ecb']
-        ecb_merge_arr = ecb_data['ecbMergeArray']
         showIds = []
+        try:
+            ecb_data = json['ecb']
+            ecb_merge_arr = ecb_data['ecbMergeArray']
 
-        for entity in ecb_merge_arr:
-            show_id = entity['programmeId']
-            showIds.append(show_id)
+            for entity in ecb_merge_arr:
+                #是否有节目大词
+                if entity.has_key('shows'):
+                    wide_query_arr = entity['shows']
+                    for wide in wide_query_arr:
+                        show_id = str(wide['programmeId'])
+                        showIds.append(show_id)
+                    continue
+
+                show_id = str(entity['programmeId'])
+                showIds.append(show_id)
+        except Exception,e:
+            logger.error('parse json exception, query:' + query + ", e:" + str(e))
         return showIds
 
 
     def run(self):
         while True:
             try:
-                query = Global.query_queue.get(block=True, timeout=8)
+                query = Global.query_queue.get(block=True, timeout=10)
 
                 #拼装url
                 on_params = {'rankFlow': Global.on_expid, 'isFilter': '16', 'cmd': '1', 'ecb_sp_ip':Global.on_ip, 'qaFlow':Global.on_qa, 'nocache': '1', 'keyword':query}
@@ -71,15 +82,18 @@ class Tasker(threading.Thread):
 
                 # 打印log
                 log_str = str(query) + '[' + str(len(on_showids_list)) + ':' + str(len(off_showids_list)) + ']'
+
                 if (len(on_more) != 0 and len(off_more) != 0):
                     on_more_str = ''
                     off_more_str = ''
                     for i in on_more:
+                        i = str(i)
                         if on_more_str != '':
                             on_more_str += '; '
                         on_more_str += '' + str(i) + '|' + str(Global.showname_dic[i]) + ''
 
                     for i in off_more:
+                        i = str(i)
                         if off_more_str != '':
                             off_more_str += '; '
                         off_more_str += '' + str(i) + '|' + str(Global.showname_dic[i]) + ''
@@ -92,7 +106,7 @@ class Tasker(threading.Thread):
                     for i in on_more:
                         if on_more_str != '':
                             on_more_str += '; '
-                        on_more_str += '' + str(i) + '|' + str(Global.showname_dic[i]) + ''
+                        on_more_str += str(i) + '|' + str(Global.showname_dic[i])
 
                     logger.info(log_str + "\tonMore:[" + on_more_str + ']')
 
@@ -108,6 +122,6 @@ class Tasker(threading.Thread):
                     # print log_str + '\tSame'
                     logger.debug(log_str + '\t' + 'Same')
 
-            except Exception,e:
-                logger.warn('Thread:' + self.threadName + " Finished.")
+            except Exception, e:
+                logger.warn('Thread:' + self.threadName + " Finished. e:" + str(e))
                 break;
