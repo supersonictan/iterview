@@ -14,8 +14,6 @@ off_ip = '11.173.213.132:2090'
 off_qa = '1'
 
 
-off_url = 'rankFlow=111&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword=' + query
-
 
 showname_dic = {}
 query_queue = Queue.Queue()

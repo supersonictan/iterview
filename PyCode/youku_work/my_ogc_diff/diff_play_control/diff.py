@@ -36,5 +36,6 @@ if __name__ == '__main__':
     read_query_file('../data/top300')
     read_show_file('../data/all_show_odps')
     t1 = Tasker('1')
+    t1.start()
     t1.join()
     print 'Ha'
