@@ -42,6 +42,8 @@ class Tasker(threading.Thread):
 
 
     def __get_showids(self, json, query):
+        global currrnt_name_dic
+        currrnt_name_dic = {}
         showIds = []
         try:
             ecb_data = json['ecb']
@@ -54,16 +56,21 @@ class Tasker(threading.Thread):
                     for wide in wide_query_arr:
                         show_id = str(wide['programmeId'])
                         showIds.append(show_id)
+                        name = str(wide['name'])
+                        currrnt_name_dic[show_id] = name
                     continue
 
                 show_id = str(entity['programmeId'])
                 showIds.append(show_id)
+                name = str(entity['name'])
+                currrnt_name_dic[show_id] = name
         except Exception,e:
             logger.error('parse json exception, query:' + query + ", e:" + str(e))
         return showIds
 
 
     def run(self):
+        global currrnt_name_dic
         while True:
             try:
                 query = Global.query_queue.get(block=True, timeout=5)
@@ -103,13 +110,13 @@ class Tasker(threading.Thread):
                         i = str(i)
                         if on_more_str != '':
                             on_more_str += '; '
-                        on_more_str += '' + str(i) + '|' + str(Global.showname_dic[i]) + ''
+                        on_more_str += '' + str(i) + '|' + str(currrnt_name_dic[i]) + ''
 
                     for i in off_more:
                         i = str(i)
                         if off_more_str != '':
                             off_more_str += '; '
-                        off_more_str += '' + str(i) + '|' + str(Global.showname_dic[i]) + ''
+                        off_more_str += '' + str(i) + '|' + str(currrnt_name_dic[i]) + ''
 
                     logger.info(log_str + '\tonMore:[' + on_more_str + ']\toffMore:[' + off_more_str + ']')
 
@@ -124,7 +131,7 @@ class Tasker(threading.Thread):
                     for i in on_more:
                         if on_more_str != '':
                             on_more_str += '; '
-                        on_more_str += str(i) + '|' + str(Global.showname_dic[i])
+                        on_more_str += str(i) + '|' + str(currrnt_name_dic[i])
 
                     logger.info(log_str + "\tonMore:[" + on_more_str + ']')
 
@@ -139,7 +146,7 @@ class Tasker(threading.Thread):
                     for i in off_more:
                         if off_more_str != '':
                             off_more_str += '; '
-                        off_more_str += '' + str(i) + '|' + str(Global.showname_dic[i]) + ''
+                        off_more_str += '' + str(i) + '|' + str(currrnt_name_dic[i]) + ''
                     logger.info(log_str + '\toffMore:[' + off_more_str + ']')
 
                 else:

@@ -27,20 +27,21 @@ def read_query_file(queryFilePath):
             except Exception,e:
                 logger.error('Queue put Exception, query:%s', line.strip())
 
-def read_show_file(showFilePath):
-    with open(showFilePath, 'r') as f:
-        for line in f:
-            field = line.strip().split('\t')
-            Global.showname_dic[field[0]] = field[1]
+# def read_show_file(showFilePath):
+#     with open(showFilePath, 'r') as f:
+#         for line in f:
+#             field = line.strip().split('\t')
+#             Global.showname_dic[field[0]] = field[1]
 
 if __name__ == '__main__':
     st = time.clock()
 
     read_query_file('../data/top300')
-    read_show_file('../data/all_show_odps')
+    query_num = Global.query_queue.qsize()
+    #read_show_file('../data/all_show_odps')
 
     thread_list = []
-    for i in range(10):
+    for i in range(Global.thread_num):
         thread_list.append(Tasker(i))
 
     for thread in thread_list:
@@ -50,7 +51,7 @@ if __name__ == '__main__':
         thread.join()
 
     et = time.clock()
-    query_num = Global.query_queue.qsize()
+    cost_time = (et-st)/60
     diff_ratio = float(Global.diff_num) / float(query_num) * 100.0
 
-    logger.info('All Diff Finished, diff_ratio:%f, cost:%d', diff_ratio, et-st)
+    logger.info('All Diff Finished, diff_ratio:' + str(diff_ratio) + '%, cost:' + str(cost_time) + 'min')
