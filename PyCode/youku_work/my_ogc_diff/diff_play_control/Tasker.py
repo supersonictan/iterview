@@ -13,6 +13,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 logger = Logger(logFileName='diff.log', logger="tasker").getlog()
+currrnt_name_dic = {}
 
 class Tasker(threading.Thread):
 
@@ -80,8 +81,14 @@ class Tasker(threading.Thread):
                 on_more = set(on_showids_list) - set(off_showids_list)
                 off_more = set(off_showids_list) - set(on_showids_list)
 
+                #显示第几个
+                Global.lock_curId.acquire()
+                Global.cur_id += 1
+                tmpId = Global.cur_id
+                Global.lock_curId.release()
+
                 # 打印log
-                log_str = str(query) + '[' + str(len(on_showids_list)) + ':' + str(len(off_showids_list)) + ']'
+                log_str = str(tmpId) + '.' + str(query) + '[' + str(len(on_showids_list)) + ':' + str(len(off_showids_list)) + ']'
 
                 if (len(on_more) != 0 and len(off_more) != 0):
 

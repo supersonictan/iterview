@@ -15,9 +15,14 @@ off_ip = '11.173.213.132:2090'
 off_qa = '1'
 
 
+thread_num=20
+is_log_need_id=0
+cur_id=0
+
 
 showname_dic = {}
 query_queue = Queue.Queue()
 diff_num = 0 #同步
 lock = threading.RLock()
-thread_num=20
+lock_curId = threading.RLock()
+
