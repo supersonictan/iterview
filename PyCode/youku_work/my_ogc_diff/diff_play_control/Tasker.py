@@ -13,7 +13,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 logger = Logger(logFileName='diff.log', logger="tasker").getlog()
-currrnt_name_dic = {}
 
 class Tasker(threading.Thread):
 
@@ -41,9 +40,7 @@ class Tasker(threading.Thread):
         return json
 
 
-    def __get_showids(self, json, query):
-        global currrnt_name_dic
-        currrnt_name_dic = {}
+    def __get_showids(self, json, query, currrnt_name_dic):
         showIds = []
         try:
             ecb_data = json['ecb']
@@ -70,7 +67,6 @@ class Tasker(threading.Thread):
 
 
     def run(self):
-        global currrnt_name_dic
         while True:
             try:
                 query = Global.query_queue.get(block=True, timeout=5)
@@ -82,8 +78,9 @@ class Tasker(threading.Thread):
                 off_json = self.__getImergerJson(Global.off_url, off_params)
                 on_json = self.__getImergerJson(Global.on_url, on_params)
 
-                off_showids_list = self.__get_showids(off_json, query)
-                on_showids_list = self.__get_showids(on_json, query)
+                currrnt_name_dic = {}
+                off_showids_list = self.__get_showids(off_json, query, currrnt_name_dic)
+                on_showids_list = self.__get_showids(on_json, query, currrnt_name_dic)
 
                 on_more = set(on_showids_list) - set(off_showids_list)
                 off_more = set(off_showids_list) - set(on_showids_list)
@@ -154,5 +151,5 @@ class Tasker(threading.Thread):
                     logger.debug(log_str + '\t' + 'Same')
 
             except Exception, e:
-                logger.debug('Thread:' + str(self.threadName) + " Finished. e:" + str(e))
+                logger.debug('Thread:' + str(self.threadName) + " Finished. e:" + repr(e))
                 break

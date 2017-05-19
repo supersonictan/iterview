@@ -328,3 +328,554 @@ All Diff Finished, diff_ratio:12.0%, cost:9.84954359224s
 38.铠甲勇士捕王电影完整版[6:5]	onMore:[60389|铠甲勇士之帝皇侠]
 48.火影忍者国语版[13:12]	onMore:[206616|火影忍者 隐蔽瀑布处的战斗,我是英雄]
 All Diff Finished, diff_ratio:12.0%, cost:0.45805111288min
+All Diff Finished, diff_ratio:0.0125%, cost:0.266830916856min
+1.择天记[4:4]
+2.欢乐颂2[3:3]
+3.秦时明月之君临天下[1:1]
+4.龙珠传奇[1:1]
+5.人民的名义[3:3]
+6.火影忍者[15:15]
+7.微微一笑很倾城[2:2]
+8.欢乐颂[3:6]
+All Diff Finished, diff_ratio:0.0125%, cost:0.156740851395min
+Http request exception, query:择天记 e:No JSON object could be decoded
+Http request exception, query:择天记 e:No JSON object could be decoded
+parse json exception, query:择天记, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:择天记, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:欢乐颂2 e:No JSON object could be decoded
+Http request exception, query:欢乐颂2 e:No JSON object could be decoded
+parse json exception, query:欢乐颂2, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:欢乐颂2, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:秦时明月之君临天下 e:No JSON object could be decoded
+Http request exception, query:秦时明月之君临天下 e:No JSON object could be decoded
+parse json exception, query:秦时明月之君临天下, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:秦时明月之君临天下, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:龙珠传奇 e:No JSON object could be decoded
+Http request exception, query:龙珠传奇 e:No JSON object could be decoded
+parse json exception, query:龙珠传奇, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:龙珠传奇, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:人民的名义 e:No JSON object could be decoded
+Http request exception, query:人民的名义 e:No JSON object could be decoded
+parse json exception, query:人民的名义, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:人民的名义, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:火影忍者 e:No JSON object could be decoded
+Http request exception, query:火影忍者 e:No JSON object could be decoded
+parse json exception, query:火影忍者, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:火影忍者, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:微微一笑很倾城 e:No JSON object could be decoded
+Http request exception, query:微微一笑很倾城 e:No JSON object could be decoded
+parse json exception, query:微微一笑很倾城, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:微微一笑很倾城, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:欢乐颂 e:No JSON object could be decoded
+Http request exception, query:欢乐颂 e:No JSON object could be decoded
+parse json exception, query:欢乐颂, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:欢乐颂, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:欢乐颂第2季 e:No JSON object could be decoded
+Http request exception, query:欢乐颂第2季 e:No JSON object could be decoded
+parse json exception, query:欢乐颂第2季, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:欢乐颂第2季, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:小猪佩奇 e:No JSON object could be decoded
+Http request exception, query:小猪佩奇 e:No JSON object could be decoded
+parse json exception, query:小猪佩奇, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:小猪佩奇, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:笑声传奇 e:No JSON object could be decoded
+Http request exception, query:笑声传奇 e:No JSON object could be decoded
+parse json exception, query:笑声传奇, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:笑声传奇, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:热血长安 e:No JSON object could be decoded
+Http request exception, query:热血长安 e:No JSON object could be decoded
+parse json exception, query:热血长安, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:热血长安, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:金星秀 e:No JSON object could be decoded
+Http request exception, query:金星秀 e:No JSON object could be decoded
+parse json exception, query:金星秀, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:金星秀, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:秦时明月 e:No JSON object could be decoded
+Http request exception, query:秦时明月 e:No JSON object could be decoded
+parse json exception, query:秦时明月, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:秦时明月, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:铁血将军 e:No JSON object could be decoded
+Http request exception, query:铁血将军 e:No JSON object could be decoded
+parse json exception, query:铁血将军, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:铁血将军, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:欢乐颂2电视剧 e:No JSON object could be decoded
+Http request exception, query:欢乐颂2电视剧 e:No JSON object could be decoded
+parse json exception, query:欢乐颂2电视剧, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:欢乐颂2电视剧, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:继承人 e:No JSON object could be decoded
+Http request exception, query:继承人 e:No JSON object could be decoded
+parse json exception, query:继承人, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:继承人, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:熊出没 e:No JSON object could be decoded
+Http request exception, query:熊出没 e:No JSON object could be decoded
+parse json exception, query:熊出没, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:熊出没, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:白鹿原 e:No JSON object could be decoded
+Http request exception, query:白鹿原 e:No JSON object could be decoded
+parse json exception, query:白鹿原, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:白鹿原, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:三生三世十里桃花 e:No JSON object could be decoded
+Http request exception, query:三生三世十里桃花 e:No JSON object could be decoded
+parse json exception, query:三生三世十里桃花, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:三生三世十里桃花, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:电视剧 e:No JSON object could be decoded
+Http request exception, query:电视剧 e:No JSON object could be decoded
+parse json exception, query:电视剧, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:电视剧, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:御姐归来 e:No JSON object could be decoded
+Http request exception, query:御姐归来 e:No JSON object could be decoded
+parse json exception, query:御姐归来, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:御姐归来, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:寒武纪 e:No JSON object could be decoded
+Http request exception, query:寒武纪 e:No JSON object could be decoded
+parse json exception, query:寒武纪, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:寒武纪, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:金星秀2017 e:No JSON object could be decoded
+Http request exception, query:金星秀2017 e:No JSON object could be decoded
+parse json exception, query:金星秀2017, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:金星秀2017, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:欢乐喜剧人第3季 e:No JSON object could be decoded
+Http request exception, query:欢乐喜剧人第3季 e:No JSON object could be decoded
+parse json exception, query:欢乐喜剧人第3季, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:欢乐喜剧人第3季, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:变形计2017 e:No JSON object could be decoded
+Http request exception, query:变形计2017 e:No JSON object could be decoded
+parse json exception, query:变形计2017, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:变形计2017, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:熊熊乐园 e:No JSON object could be decoded
+Http request exception, query:熊熊乐园 e:No JSON object could be decoded
+parse json exception, query:熊熊乐园, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:熊熊乐园, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:爱情公寓 e:No JSON object could be decoded
+Http request exception, query:爱情公寓 e:No JSON object could be decoded
+parse json exception, query:爱情公寓, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:爱情公寓, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:欢乐喜剧人 e:No JSON object could be decoded
+Http request exception, query:欢乐喜剧人 e:No JSON object could be decoded
+parse json exception, query:欢乐喜剧人, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:欢乐喜剧人, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:秦时明月之天行九歌 e:No JSON object could be decoded
+Http request exception, query:秦时明月之天行九歌 e:No JSON object could be decoded
+parse json exception, query:秦时明月之天行九歌, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:秦时明月之天行九歌, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:卧底归来 e:No JSON object could be decoded
+Http request exception, query:卧底归来 e:No JSON object could be decoded
+parse json exception, query:卧底归来, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:卧底归来, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:奥特曼 e:No JSON object could be decoded
+Http request exception, query:奥特曼 e:No JSON object could be decoded
+parse json exception, query:奥特曼, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:奥特曼, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:西游记 e:No JSON object could be decoded
+Http request exception, query:西游记 e:No JSON object could be decoded
+parse json exception, query:西游记, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:西游记, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:奔跑吧兄弟2017迪丽热巴第5季 e:No JSON object could be decoded
+Http request exception, query:奔跑吧兄弟2017迪丽热巴第5季 e:No JSON object could be decoded
+parse json exception, query:奔跑吧兄弟2017迪丽热巴第5季, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:奔跑吧兄弟2017迪丽热巴第5季, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:极限挑战 e:No JSON object could be decoded
+Http request exception, query:极限挑战 e:No JSON object could be decoded
+parse json exception, query:极限挑战, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:极限挑战, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:外科风云 e:No JSON object could be decoded
+Http request exception, query:外科风云 e:No JSON object could be decoded
+parse json exception, query:外科风云, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:外科风云, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:爱情保卫战2017 e:No JSON object could be decoded
+Http request exception, query:爱情保卫战2017 e:No JSON object could be decoded
+parse json exception, query:爱情保卫战2017, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:爱情保卫战2017, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:欢乐颂第2部 e:No JSON object could be decoded
+Http request exception, query:欢乐颂第2部 e:No JSON object could be decoded
+parse json exception, query:欢乐颂第2部, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:欢乐颂第2部, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:思美人 e:No JSON object could be decoded
+Http request exception, query:思美人 e:No JSON object could be decoded
+parse json exception, query:思美人, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:思美人, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:美女与野兽 e:No JSON object could be decoded
+Http request exception, query:美女与野兽 e:No JSON object could be decoded
+parse json exception, query:美女与野兽, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:美女与野兽, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:我想和你唱 e:No JSON object could be decoded
+Http request exception, query:我想和你唱 e:No JSON object could be decoded
+parse json exception, query:我想和你唱, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:我想和你唱, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:超级飞侠 e:No JSON object could be decoded
+Http request exception, query:超级飞侠 e:No JSON object could be decoded
+parse json exception, query:超级飞侠, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:超级飞侠, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:晓说 e:No JSON object could be decoded
+Http request exception, query:晓说 e:No JSON object could be decoded
+parse json exception, query:晓说, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:晓说, e:'NoneType' object has no attribute '__getitem__'
+|
+Http request exception, query:三国演义 e:No JSON object could be decoded
+Http request exception, query:三国演义 e:No JSON object could be decoded
+parse json exception, query:三国演义, e:'NoneType' object has no attribute '__getitem__'
+parse json exception, query:三国演义, e:'NoneType' object has no attribute '__getitem__'
+|
+|
+|
+|
+|
+|
+|
+|
+|280255,42132,56898
+All Diff Finished, diff_ratio:0.0125%, cost:0.179310758807min
+|
+|
+|
+|
+|
+|
+|
+|280255,42132,56898
+All Diff Finished, diff_ratio:0.0125%, cost:0.13679166134min
+|
+|
+|
+|
+|
+|
+|
+|280255,42132,56898
+All Diff Finished, diff_ratio:0.0125%, cost:0.260814137895min
+|
+|
+|
+|
+|
+|
+|
+|280255,42132,56898
+All Diff Finished, diff_ratio:0.0125%, cost:0.122250947603min
+put:307775:择天记 TV版
+put:316789:择天记 未删减版
+put:309680:择天记 第二季
+put:299629:择天记 第一季
+put:307775:择天记 TV版
+put:316789:择天记 未删减版
+put:299629:择天记 第一季
+put:309680:择天记 第二季
+|
+put:316409:欢乐颂2
+put:300647:欢乐颂
+put:312663:广式妹纸吐槽 2017
+put:316409:欢乐颂2
+put:300647:欢乐颂
+put:312663:广式妹纸吐槽 2017
+|
+put:274380:秦时明月之君临天下
+put:274380:秦时明月之君临天下
+|
+put:317102:龙珠传奇
+put:317102:龙珠传奇
+|
+put:306354:人民的名义 TV版
+put:316474:人民的名义 DVD版
+put:317080:人民的名义 精华版
+put:306354:人民的名义 TV版
+put:316474:人民的名义 DVD版
+put:317080:人民的名义 精华版
+|
+put:19461:火影忍者
+put:298622:火影忍者剧场版 2015:博人
+put:291635:火影忍者剧场版 2014:完结篇
+put:206617:火影忍者 木叶大运动会
+put:252143:火影忍者剧场版 2012:忍者之路
+put:110718:火影忍者 寻找红色四叶草
+put:110721:火影忍者剧场版 2011:疾风传之血狱
+put:206615:火影忍者 终于爆发!上忍VS下忍!无差别混战大会开幕
+put:206616:火影忍者 隐蔽瀑布处的战斗,我是英雄
+put:110722:火影忍者剧场版 2010:疾风传之失落之塔
+put:110720:火影忍者剧场版 2007:疾风传之鸣人之死
+put:110723:火影忍者剧场版 2005:大激突!幻之地底遗迹
+put:123052:火影忍者剧场版 2004:雪姬忍法帖
+put:316449:博人传 火影忍者新时代
+put:206618:火影忍者疾风传 神灯特别篇
+put:19461:火影忍者
+put:298622:火影忍者剧场版 2015:博人
+put:291635:火影忍者剧场版 2014:完结篇
+put:252143:火影忍者剧场版 2012:忍者之路
+put:110718:火影忍者 寻找红色四叶草
+put:206615:火影忍者 终于爆发!上忍VS下忍!无差别混战大会开幕
+put:110721:火影忍者剧场版 2011:疾风传之血狱
+put:206617:火影忍者 木叶大运动会
+put:110722:火影忍者剧场版 2010:疾风传之失落之塔
+put:206616:火影忍者 隐蔽瀑布处的战斗,我是英雄
+put:110720:火影忍者剧场版 2007:疾风传之鸣人之死
+put:123052:火影忍者剧场版 2004:雪姬忍法帖
+put:110723:火影忍者剧场版 2005:大激突!幻之地底遗迹
+put:316449:博人传 火影忍者新时代
+put:206618:火影忍者疾风传 神灯特别篇
+|
+put:300389:微微一笑很倾城
+put:305789:微微一笑很倾城
+put:300389:微微一笑很倾城
+put:305789:微微一笑很倾城
+|
+put:300647:欢乐颂
+put:316409:欢乐颂2
+put:49325:欢乐颂
+put:42132:复制贝多芬
+put:280255:The sing-off 2010
+put:56898:喜悦
+put:300647:欢乐颂
+put:316409:欢乐颂2
+put:49325:欢乐颂
+|280255,42132,56898
+All Diff Finished, diff_ratio:0.0125%, cost:0.164708563994min
+put:307775:择天记 TV版
+put:316789:择天记 未删减版
+put:309680:择天记 第二季
+put:299629:择天记 第一季
+put:307775:择天记 TV版
+put:316789:择天记 未删减版
+put:299629:择天记 第一季
+put:309680:择天记 第二季
+|
+put:316409:欢乐颂2
+put:300647:欢乐颂
+put:312663:广式妹纸吐槽 2017
+put:316409:欢乐颂2
+put:300647:欢乐颂
+put:312663:广式妹纸吐槽 2017
+|
+put:274380:秦时明月之君临天下
+put:274380:秦时明月之君临天下
+|
+put:317102:龙珠传奇
+put:317102:龙珠传奇
+|
+put:306354:人民的名义 TV版
+put:316474:人民的名义 DVD版
+put:317080:人民的名义 精华版
+put:306354:人民的名义 TV版
+put:316474:人民的名义 DVD版
+put:317080:人民的名义 精华版
+|
+put:19461:火影忍者
+put:298622:火影忍者剧场版 2015:博人
+put:291635:火影忍者剧场版 2014:完结篇
+put:206617:火影忍者 木叶大运动会
+put:252143:火影忍者剧场版 2012:忍者之路
+put:110718:火影忍者 寻找红色四叶草
+put:110721:火影忍者剧场版 2011:疾风传之血狱
+put:206615:火影忍者 终于爆发!上忍VS下忍!无差别混战大会开幕
+put:206616:火影忍者 隐蔽瀑布处的战斗,我是英雄
+put:110722:火影忍者剧场版 2010:疾风传之失落之塔
+put:110720:火影忍者剧场版 2007:疾风传之鸣人之死
+put:110723:火影忍者剧场版 2005:大激突!幻之地底遗迹
+put:123052:火影忍者剧场版 2004:雪姬忍法帖
+put:316449:博人传 火影忍者新时代
+put:206618:火影忍者疾风传 神灯特别篇
+put:19461:火影忍者
+put:298622:火影忍者剧场版 2015:博人
+put:291635:火影忍者剧场版 2014:完结篇
+put:252143:火影忍者剧场版 2012:忍者之路
+put:110718:火影忍者 寻找红色四叶草
+put:206615:火影忍者 终于爆发!上忍VS下忍!无差别混战大会开幕
+put:110721:火影忍者剧场版 2011:疾风传之血狱
+put:206617:火影忍者 木叶大运动会
+put:110722:火影忍者剧场版 2010:疾风传之失落之塔
+put:206616:火影忍者 隐蔽瀑布处的战斗,我是英雄
+put:110720:火影忍者剧场版 2007:疾风传之鸣人之死
+put:123052:火影忍者剧场版 2004:雪姬忍法帖
+put:110723:火影忍者剧场版 2005:大激突!幻之地底遗迹
+put:316449:博人传 火影忍者新时代
+put:206618:火影忍者疾风传 神灯特别篇
+|
+put:300389:微微一笑很倾城
+put:305789:微微一笑很倾城
+put:300389:微微一笑很倾城
+put:305789:微微一笑很倾城
+|
+put:300647:欢乐颂
+put:316409:欢乐颂2
+put:49325:欢乐颂
+put:42132:复制贝多芬
+put:280255:The sing-off 2010
+put:56898:喜悦
+put:300647:欢乐颂
+put:316409:欢乐颂2
+put:49325:欢乐颂
+|280255,42132,56898
+8.欢乐颂[3:6]	offMore:[280255|The sing-off 2010; 42132|复制贝多芬; 56898|喜悦]
+put:300647:欢乐颂
+put:316409:欢乐颂2
+put:312663:广式妹纸吐槽 2017
+put:300647:欢乐颂
+put:316409:欢乐颂2
+put:312663:广式妹纸吐槽 2017
+|
+put:207027:小猪佩奇
+put:311872:小猪佩奇 英文版 第四季
+put:311871:小猪佩奇 英文版 第三季
+put:311870:小猪佩奇 英文版 第二季
+put:311867:小猪佩奇 英文版 第一季
+put:310468:小猪佩奇亲子故事 2016
+put:310470:小猪佩奇拆奇趣蛋 2016
+put:315239:红果果小猪佩奇视频 第一季
+put:313481:小猪佩奇亲子故事 2017
+put:316609:寓教于乐小猪佩奇 第一季
+put:313484:小猪佩奇拆奇趣蛋 2017
+put:315203:玩趣屋小猪佩奇的故事 第一季
+put:315220:卡通星球小猪佩奇的故事 第一季
+put:316603:汤圆的小猪佩奇玩具 第一季
+put:313454:小猪佩奇玩具 2017
+put:310105:小猪佩奇玩具 2016
+put:310443:小猪佩奇的玩具世界 2016
+put:313510:小猪佩奇的玩具世界 2017
+put:315228:趣味玩具小猪佩奇玩具 第一季
+put:316597:宣宇爱玩小猪佩奇玩具 第一季
+put:207027:小猪佩奇
+put:311872:小猪佩奇 英文版 第四季
+put:311871:小猪佩奇 英文版 第三季
+put:311870:小猪佩奇 英文版 第二季
+put:311867:小猪佩奇 英文版 第一季
+put:315239:红果果小猪佩奇视频 第一季
+put:310468:小猪佩奇亲子故事 2016
+put:313481:小猪佩奇亲子故事 2017
+put:316609:寓教于乐小猪佩奇 第一季
+put:310470:小猪佩奇拆奇趣蛋 2016
+put:313484:小猪佩奇拆奇趣蛋 2017
+put:315203:玩趣屋小猪佩奇的故事 第一季
+put:315220:卡通星球小猪佩奇的故事 第一季
+put:316603:汤圆的小猪佩奇玩具 第一季
+put:313454:小猪佩奇玩具 2017
+put:310105:小猪佩奇玩具 2016
+put:313510:小猪佩奇的玩具世界 2017
+put:310443:小猪佩奇的玩具世界 2016
+put:315228:趣味玩具小猪佩奇玩具 第一季
+put:316597:宣宇爱玩小猪佩奇玩具 第一季
+|
+put:316840:笑声传奇 第一季
+put:316840:笑声传奇 第一季
+|
+put:310737:热血长安
+put:310737:热血长安
+|
+put:313549:金星秀 2017
+put:303778:金星秀 2016
+put:287602:金星秀 2015
+put:313549:金星秀 2017
+put:303778:金星秀 2016
+put:287602:金星秀 2015
+|
+put:274380:秦时明月之君临天下
+put:192555:秦时明月之万里长城
+put:291522:秦时明月之少司命特别篇 罗生堂下
+put:296454:秦时明月 TV版
+put:302911:秦时明月 未删减版
+put:274380:秦时明月之君临天下
+put:192555:秦时明月之万里长城
+put:291522:秦时明月之少司命特别篇 罗生堂下
+put:296454:秦时明月 TV版
+put:302911:秦时明月 未删减版
+|
+put:309595:铁血将军
+put:261094:铁血将军
+put:309595:铁血将军
+put:261094:铁血将军
+|
+put:316409:欢乐颂2
+put:300647:欢乐颂
+put:312663:广式妹纸吐槽 2017
+put:300647:欢乐颂
+put:316409:欢乐颂2
+put:312663:广式妹纸吐槽 2017
+|
+put:316426:继承人
+put:291121:亿万继承人
+put:106320:继承人
+put:25941:女继承人
+put:316426:继承人
+put:106320:继承人
+put:25941:女继承人
+|291121
+17.继承人[3:4]	offMore:[291121|亿万继承人]
+put:242261:熊出没
+put:311975:熊出没之奇幻空间
+put:275137:熊出没之过年
+put:299621:熊出没之冬日乐翻天
+put:315227:趣味玩具熊出没玩具 第一季
+put:316607:汤圆的熊出没玩具 第一季
+put:316934:玩具SHOW熊出没玩具 第一季
+put:316613:宣宇爱玩熊出没玩具 第一季
+put:315241:红果果熊出没玩具视频 第一季
+put:242261:熊出没
+put:311975:熊出没之奇幻空间
+put:299621:熊出没之冬日乐翻天
+put:275137:熊出没之过年
+put:315227:趣味玩具熊出没玩具 第一季
+put:316607:汤圆的熊出没玩具 第一季
+put:315241:红果果熊出没玩具视频 第一季
+put:316613:宣宇爱玩熊出没玩具 第一季
+put:316934:玩具SHOW熊出没玩具 第一季
+|
+put:34248:白鹿原
+put:309978:白鹿原
+put:269542:独家纪录片-《白鹿原:将令》
+put:316538:全娱乐早扒点 2017 4月
+put:312663:广式妹纸吐槽 2017
+put:34248:白鹿原
+put:309978:白鹿原
+put:269542:独家纪录片-《白鹿原:将令》
+put:316538:全娱乐早扒点 2017 4月
+put:312663:广式妹纸吐槽 2017
+|
+put:308528:三生三世十里桃花
+put:299214:三生三世十里桃花
+put:308528:三生三世十里桃花
+put:299214:三生三世十里桃花
+|
+8.欢乐颂[3:6]	offMore:[280255|The sing-off 2010; 42132|复制贝多芬; 56898|喜悦]
+17.继承人[3:4]	offMore:[291121|亿万继承人]
+30.秦时明月之天行九歌[3:3]	onMore:[289157|秦时明月特别篇:空山鸟语]	offMore:[296454|秦时明月 TV版]
+32.奥特曼[28:29]	onMore:[274883|赛罗奥特曼外传 有机生命体的危机:STAGE1 钢铁宇宙; 110518|奥特曼剧场版 2003:最终决战; 110505|奥特曼剧场版 1997:超人大战; 110507|奥特曼剧场版 1998:星光战士]	offMore:[110523|梦比优斯奥特曼; 19741|雷欧奥特曼; 104926|盖亚奥特曼; 104930|戴拿奥特曼; 280403|赛罗奥特曼格斗 第一季]
+40.美女与野兽[12:13]	offMore:[10754|九纹龙的谎言]
