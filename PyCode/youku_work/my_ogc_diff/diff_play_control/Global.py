@@ -20,3 +20,4 @@ showname_dic = {}
 query_queue = Queue.Queue()
 diff_num = 0 #同步
 lock = threading.RLock()
+thread_num=20
