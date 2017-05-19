@@ -3114,3 +3114,18 @@ YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
 YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
 0.640000
 YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+Http request exception, query: e:'module' object has no attribute 'loads'
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
+Http request exception, query: e:'module' object has no attribute 'loads'
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
+Http request exception, query: e:'module' object has no attribute 'loads'
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
+Http request exception, query: e:'module' object has no attribute 'loads'
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
+Http request exception, query: e:'module' object has no attribute 'loads'
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
