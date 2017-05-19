@@ -98,7 +98,7 @@ def read_show_file(showFilePath):
     with open(showFilePath, 'r') as f:
         for line in f:
             field = line.strip().split('\t')
-            showname_dic[field[0]] = field[1]
+            showname_dic[str(field[0])] = str(field[1])
 
 def fill_reg():
     global reg_dic
@@ -128,8 +128,10 @@ def fill_reg():
 if __name__ == '__main__':
     #global outputIds
     #global trace_dic
+    #global showname_dic
     fill_reg()
     read_show_file('show_file')
+    
 
     query = '越狱'
     url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword=' + query
@@ -141,6 +143,7 @@ if __name__ == '__main__':
     log_title = '节目\t' + '时间\t' + '相关性\t' + 'vv\t' + '资源类型\t' + '分类\t' + '满意度\t' + 'ctr\t' + '质量分\t' + '全命中\t' + '总分'
     logger.error(log_title)
     for showid in outputIds:
+        showid = str(showid)
         this_show_trace = trace_dic[str(showid)]
         this_showname = showname_dic[showid]
         log_str = str(this_showname) + '|' + str(showid) + '\t'
