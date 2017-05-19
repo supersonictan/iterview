@@ -1,0 +1,3116 @@
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.174359)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.000000)
+[TRACE1] [build/release64/ha3/rank/DefaultScorer.cpp:69]tf=1
+[TRACE1] [build/release64/ha3/rank/DefaultScorer.cpp:69]tf=1
+[TRACE1] [build/release64/ha3/rank/DefaultScorer.cpp:69]tf=1
+[TRACE1] [build/release64/ha3/rank/DefaultScorer.cpp:69]tf=1
+relation info debug start:
+aliasSeg1TermsTotal size:0
+
+YoukuECBTimeDecayFeatureExtractor::calScore begin
+latestTime -> 1251719903
+latestTime:-> 1251719903 diffYear:--->7.827427
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.174359) 
+
+
+YoukuOGCShowTermMatchFeatureExtractor::calScore begin
+###QueryTerm->
+   term_id:778352177, term_weight:5
+###flag2_term->
+   term_id:778352177, term_weight:5
+###flag2_finger->
+   finger:778352177
+doc_type:1, showId:55260
+###showName_term:
+   778352177:147385,3515430591:53713,2354179593:40000
+###showSubTitle_term: 
+   
+###Doc Semantics--->778352177
+semantic_match_rate=1.000000
+###Semantic_Full_Match
+YoukuOGCShowTermMatchFeatureExtractor::calScore end (return 111.000000)
+
+YoukuOGCShowNoMatchTermRatioFeatureExtractor::calScore begin
+
+YoukuOGCShowNoMatchTermRatioFeatureExtractor::show alias
+queryInfo->
+term_id:778352177, term_weight:5
+doc_type:1, vdoId:0, showId:55260
+showName : 778352177:147385,3515430591:53713,2354179593:40000
+showSubTitle : 
+begin calculate Query&Show Name
+textStr:778352177:147385,3515430591:53713,2354179593:40000
+need term min seg : 0
+Show Name Seg1 textTermSum:3, noMatchTextTerm:2 -> noMatchTextTermRatio:0.666667
+Show Name Seg1 textTermWeightSum:24.109800, noMatchTextTermWeight:9.371300 -> noMatchTextWeightRatio:0.388693
+Show Name Seg3 textTermSum:0, noMatchTextTerm:0 -> noMatchTextTermRatio:0.666667
+Show Name Seg3 textTermWeightSum:0.000000, noMatchTextTermWeight:0.000000 -> noMatchTextWeightRatio:0.388693
+Show Name queryTermSum is 1, noMatchQueryTerm is 0, noMatchQueryTermRatio is 0.000000
+Show Name queryTermWeightSum is 5, noMatchQueryWeight is 0, noMatchQueryWeightRatio is 0.000000
+Show Name queryTermSum is 1, noMatchQueryTerm is 0, noMatchQueryTermRatio is 0.000000
+Show Name queryTermWeightSum is 5, noMatchQueryWeight is 0, noMatchQueryWeightRatio is 0.000000
+No Query&Show Alias
+YoukuOGCShowNoMatchTermRatioFeatureExtractor  showNameNoMatchRatio   0.330459   
+
+YoukuOGCShowNoMatchTermRatioFeatureExtractor  showAliasNoMatchRatio   1.000000   
+
+YoukuOGCShowNoMatchTermRatioFeatureExtractor  showSubTitleNoMatchRatio   0.000000   
+
+YoukuOGCShowNoMatchTermRatioFeatureExtractor::calScore end (return 43.045936)
+
+
+YoukuShowIdExtFeatureExtractor::calScore begin
+
+YoukuShowAllHitFeatureExtractor::calScore begin
+query all hit info->  finger:778352177, str:越狱
+doc_type:1, vdoId:0, showId:55260
+show all_hit has 1
+index:0  show all_hit:3113299349
+all_hit:0
+
+YoukuOGCShowTermMinwindowFeatureExtractor::calScore begin
+
+YoukuOGCShowNoMatchTermRatioFeatureExtractor::show alias
+queryInfo->
+term_id:778352177, term_weight:5
+doc_type:1, vdoId:0, showId:55260
+showName : 778352177:147385,3515430591:53713,2354179593:40000
+showAlias : 
+showSubTitle : 
+begin calculate Query&Show Name
+max term : matchNum=1
+querySize:1, startPos:0, endPos:0, minTermWindow:0
+YoukuOGCShowTermMinwindowFeatureExtractor:: Show Name -> score:0.000000
+No Query&Show Alias
+YoukuOGCShowTermMinwindowFeatureExtractor::calScore end (return 0.000000)
+
+
+YoukuECBQueryMatchIdxFeatureExtractor::calScore begin
+#####queryInfo->
+term_id:778352177, term_weight:5
+showName : 778352177:147385,3515430591:53713,2354179593:40000
+showAlias : 
+textStr:778352177:147385,3515430591:53713,2354179593:40000
+need term min seg : 0
+#####ShowNameTerm->
+Min_ShowName_term_id:778352177
+Min_ShowName_term_id:3515430591
+Min_ShowName_term_id:2354179593
+#####QueryTerm->
+Query_term_id:778352177
+match_idx_min:0, match_idx_max:-1
+QueryLength:1.000000, Query_len_weight:1.000000, Doc_len3, Match_idx:0, idx_weight:1.000000
+YoukuECBQueryMatchIdxFeatureExtractor::calScore end (return 1.000000)
+
+YoukuShowKeyValueMultiMatchFeatureExtractor::calScore begin
+queryInfo(people)->
+people_id:778352177
+doc_type:1, vdoId:0, showId:55260, plylstId:0
+YoukuShowKeyValueMultiMatchFeatureExtractor showPeopleC 130
+peopleStr:944575149:0,944575149:0,3752230494:42000,2786099491:42000,1136748452:42000,2815424610:42000,89775096:42000,944575149:0,944575149:0
+peopleWordNum:1, peopleWordFindNum:0 -> score:0.000000
+YoukuShowKeyValueMultiMatchFeatureExtractor::calScore end (return 0.000000)
+
+YoukuShowEpisodeFeatureExtractor::calScore begin
+query Episode info->
+doc_type:1, vdoId:0, showId:55260
+
+YoukuShowEpisodeFeatureExtractor::calScore end (return 0.000000)
+
+
+YoukuShowNewRelevanceFeatureExtractor::calScore begin()
+vecDependFeature.size() = 8
+
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.801478)
+
+
+YoukuECBShowVVFeatureExtractor::calScore begin
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:0, log_score:-inf, return 0.000000)
+
+
+YoukuECBExclusiveFeatureExtractor::calScore begin
+isExclusive:0
+show_site_val:1
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.062500, return 0.062500)
+
+YoukuCategoryRatioFeatureExtractor::calScore begin
+channelId:97
+categoryMap->
+(86:0.037800
+(95:0.140600
+(96:0.290300
+(97:0.375900
+(99:0.058100
+YoukuCategoryRatioFeatureExtractor  is Max Category
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.127700)
+
+
+YoukuSatisfactionFeatureExtractor::calScore begin
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.000000)
+
+YoukuQueryCtrPredFeatureExtractor::calScore begin
+YoukuQueryCtrPredFeatureExtractor::calScore end (queryCtrStr is empty or null)
+
+YoukuQualityFeatureExtractor::calScore begin
+doc_type:1, vdoId:0, showId:55260, plylstId:0
+vdoBlack:0, limited:0
+vdoVV:0, vdoLen:0.000000, hasVdoType:-1, vdoFormat:1, mbrScore:23184960
+formatScore:0.200000, vvScore:0.000000, lenScore:0.000000, mbrScore:0.000000
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000
+
+YoukuECBFakeFeatureExtractor::calScore begin()
+
+YoukuECBFakeFeatureExtractor::calScore end (return 0.000000)
+
+
+In PureLinerRanker Process:
+final mlrScore : 321.582374
+final score:[ 321.582 ]
+final group:[ 0 ]
+user score:[ 0 ]
+
+
+
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.174359)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.000000)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.174358)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.000000)
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.174358)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.000000)
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQueryCtrPredFeatureExtractor::calScore end. *?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+Finish doc:23
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+0.782119)
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+1.500000)
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+0.830000)
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+0.782119
+1.500000
+0.830000
+1
+0.040000 YoukuECBFakeFeatureExtractor::calScore begin(
+0.500000
+0.980587
+1.562700
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000', 'YoukuECBFakeFeatureExtractor::calScore', 'begin(']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000', 'YoukuECBFakeFeatureExtractor::calScore', 'begin(']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000', 'YoukuECBFakeFeatureExtractor::calScore', 'begin(']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000', 'YoukuECBFakeFeatureExtractor::calScore', 'begin(']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000', 'YoukuECBFakeFeatureExtractor::calScore', 'begin(']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000', 'YoukuECBFakeFeatureExtractor::calScore', 'begin(']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000', 'YoukuECBFakeFeatureExtractor::calScore', 'begin(']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000', 'YoukuECBFakeFeatureExtractor::calScore', 'begin(']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+['0.040000']
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.782119)
+0.782119
+YoukuSatisfactionFeatureExtractor::calScore end (return 1.500000)
+1.500000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.830000)
+0.830000
+YoukuShowAllHitFeatureExtractor::calScore begin query all hit info-> finger:1532352141, str:欢乐颂 doc_type:1, vdoId:0, showId:300647 show all_hit has 2 index:0 show all_hit:1
+1
+YoukuQualityFeatureExtractor::calScore end -> return 0.040000 YoukuECBFakeFeatureExtractor::calScore begin()
+0.040000 
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:5275111383, log_score:3.922232, return 0.980587)
+0.980587
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.562700)
+1.562700
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 96.454545)
+96.454545
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139065)
+0.139065
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.150000)
+0.150000
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139065)
+0.139065
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.150000)
+0.150000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+Http request exception, query: e:No JSON object could be decoded
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
+Http request exception, query: e:No JSON object could be decoded
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
+Http request exception, query: e:No JSON object could be decoded
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
+Http request exception, query: e:No JSON object could be decoded
+parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
+Finish i:1
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139065)
+0.139065
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.150000)
+0.150000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139065)
+0.139065
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.150000)
+0.150000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+55923
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139065)
+0.139065
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.150000)
+0.150000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuShowAllHitFeatureExtractor::.*?all_hit:[0,1]{1}
+55923
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139065)
+0.139065
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.150000)
+0.150000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuQualityFeatureExtractor::calScore end.*?\)
+55923
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139063)
+0.139063
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.090000)
+0.090000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuQualityFeatureExtractor::calScore end.*?\)
+55923
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139063)
+0.139063
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.090000)
+0.090000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuQualityFeatureExtractor::calScore end.*?\)
+55923
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139062)
+0.139062
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.090000)
+0.090000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:13532426, log_score:1.331376, return 0.791068)
+0.791068
+YoukuShowAllHitFeatureExtractor::.*all_hit:[0,1]{1}
+55923
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139062)
+0.139062
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.090000)
+0.090000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
