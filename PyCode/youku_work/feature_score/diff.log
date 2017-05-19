@@ -3129,3 +3129,303 @@ Finish i:1
 Http request exception, query: e:'module' object has no attribute 'loads'
 parse json exception, query:, e:'NoneType' object has no attribute '__getitem__'
 Finish i:1
+55923
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139051)
+0.139051
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.090000)
+0.090000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+0.640000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+0
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:13532426, log_score:1.331376, return 0.791068)
+0.791068
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.129800)
+1.129800
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.364402)
+84.364402
+15883
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.070492)
+0.070492
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.210000)
+0.210000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.690000)
+0.690000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+0
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:22267826, log_score:1.547678, return 0.824578)
+0.824578
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.129800)
+1.129800
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.337442)
+84.337442
+56933
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.179556)
+0.179556
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.000000)
+0.000000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.420000)
+0.420000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+YoukuShowAllHitFeatureExtractor calScore end (return 1)
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.125000, return 0.125000)
+0.125000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:0, log_score:-inf, return 0.000000)
+0.000000
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 0.289200)
+0.289200
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 98.650253)
+98.650253
+15884
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.087788)
+0.087788
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.135000)
+0.135000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.630000)
+0.630000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+0
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:16468180, log_score:1.416646, return 0.804812)
+0.804812
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.129800)
+1.129800
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.446757)
+84.446757
+15885
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.111933)
+0.111933
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.090000)
+0.090000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.600000)
+0.600000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+0
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:9393712, log_score:1.172837, return 0.763657)
+0.763657
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.129800)
+1.129800
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.353721)
+84.353721
+260356
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.443169)
+0.443169
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.885000)
+0.885000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.500000)
+0.500000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+YoukuShowAllHitFeatureExtractor calScore end (return 1)
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:42992487, log_score:1.833393, return 0.862165)
+0.862165
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 0.289200)
+0.289200
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 74.386364)
+74.386364
+40096
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.096341)
+0.096341
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.060000)
+0.060000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.320000)
+0.320000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+YoukuShowAllHitFeatureExtractor calScore end (return 1)
+1
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.125000, return 0.125000)
+0.125000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:10975, log_score:-1.759595, return 0.146841)
+0.146841
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 0.289200)
+0.289200
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 74.557565)
+74.557565
+41132
+YoukuECBTimeDecayFeatureExtractor::calScore end.*?\)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.099682)
+0.099682
+YoukuSatisfactionFeatureExtractor::calScore end.*?\)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.345000)
+0.345000
+YoukuQueryCtrPredFeatureExtractor::calScore end \(return .*?\)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.400000)
+0.400000
+YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+0
+YoukuQualityFeatureExtractor::calScore end.*?\)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+0.040000
+YoukuECBExclusiveFeatureExtractor::calScore end.*?\)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+0.500000
+YoukuECBShowVVFeatureExtractor::calScore end.*?\)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:651125, log_score:0.013664, return 0.503416)
+0.503416
+YoukuCategoryRatioFeatureExtractor::calScore end.*?\)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 0.289200)
+0.289200
+YoukuShowNewRelevanceFeatureExtractor::calScore end.*?\)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 47.299236)
+47.299236
+Finish i:9
+Finish i:9
+Finish i:9
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.139051)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.090000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.640000)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:13532426, log_score:1.331376, return 0.791068)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.129800)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.364402)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.070492)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.210000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.690000)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:22267826, log_score:1.547678, return 0.824578)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.129800)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.337442)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.179556)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.000000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.420000)
+YoukuShowAllHitFeatureExtractor calScore end (return 1)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.125000, return 0.125000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:0, log_score:-inf, return 0.000000)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 0.289200)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 98.650253)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.087787)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.135000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.630000)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:16468180, log_score:1.416646, return 0.804812)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.129800)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.446757)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.111933)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.090000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.600000)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:9393712, log_score:1.172837, return 0.763657)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 1.129800)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 84.353721)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.443168)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.885000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.500000)
+YoukuShowAllHitFeatureExtractor calScore end (return 1)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:42992487, log_score:1.833393, return 0.862165)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 0.289200)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 74.386364)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.096341)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.060000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.320000)
+YoukuShowAllHitFeatureExtractor calScore end (return 1)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.125000, return 0.125000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:10975, log_score:-1.759595, return 0.146841)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 0.289200)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 74.557565)
+YoukuECBTimeDecayFeatureExtractor::calScore end -> (return 0.099682)
+YoukuSatisfactionFeatureExtractor::calScore end (return 0.345000)
+YoukuQueryCtrPredFeatureExtractor::calScore end (return 0.400000)
+YoukuShowAllHitFeatureExtractor calScore end (return 0)
+YoukuQualityFeatureExtractor::calScore end (return 0.040000)
+YoukuECBExclusiveFeatureExtractor::calScore end (exlusiveScore:0.000000,showSiteScore:0.500000, return 0.500000)
+YoukuECBShowVVFeatureExtractor::calScore end -> (vv is:651125, log_score:0.013664, return 0.503416)
+YoukuCategoryRatioFeatureExtractor::calScore end -> (return 0.289200)
+YoukuShowNewRelevanceFeatureExtractor::calScore end (return 47.299236)
+Finish i:9

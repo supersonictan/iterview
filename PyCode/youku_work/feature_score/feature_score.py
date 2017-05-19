@@ -126,10 +126,8 @@ if __name__ == '__main__':
 
     i = 1
     for item in outputIds:
-        logger.error(item)
         doctrace = trace_dic[str(item)]
         for reg in reg_dic:
-            logger.error(reg)
             line = re.search(reg, doctrace).group().strip()
             logger.error(line)
             score = ''
@@ -137,15 +135,9 @@ if __name__ == '__main__':
                 field = line.split('return')
                 score = field[1].strip().replace(')','')
 
-                if 'calScore' in score:
-                    field2 = score.split('YoukuECBFakeFeatureExtractor')
-                    score = field2[0]
-
-                logger.error(score)
             else:
                 field = line.split('hit:')
                 score = field[1].strip()
-                logger.error(score)
         i += 1
     logger.error('Finish i:' + str(i))
 #print re.search(match_reg, str).group()
