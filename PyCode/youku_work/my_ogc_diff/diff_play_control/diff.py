@@ -36,7 +36,7 @@ def read_query_file(queryFilePath):
 if __name__ == '__main__':
     st = time.clock()
 
-    read_query_file('../data/top300')
+    read_query_file(Global.query_file)
     query_num = Global.query_queue.qsize()
     #read_show_file('../data/all_show_odps')
 
