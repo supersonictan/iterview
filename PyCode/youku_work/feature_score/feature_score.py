@@ -46,6 +46,7 @@ all_hit_reg = 'YoukuShowAllHitFeatureExtractor calScore end \(return.*?\)'
 outputIds = []
 showname_dic = {}
 reg_dic = {}
+reg_list = []
 trace_dic = {}
 
 def getImergerJson(url):
@@ -101,6 +102,7 @@ def read_show_file(showFilePath):
 
 def fill_reg():
     global reg_dic
+    global rec_list
     reg_dic[time_reg] = time_w
     reg_dic[new_relan_reg] = newRelevance_w
     reg_dic[vv_reg] = vv_w
@@ -110,6 +112,17 @@ def fill_reg():
     reg_dic[ctr_reg] = ctr_w
     reg_dic[quality_reg] = quality_w
     reg_dic[all_hit_reg] = allHit_w
+
+    reg_list.append(time_reg)
+    reg_list.append(new_relan_reg)
+    reg_list.append(vv_reg)
+    reg_list.append(exclusive_reg)
+    reg_list.append(category_reg)
+    reg_list.append(satisfaction_reg)
+    reg_list.append(ctr_reg)
+    reg_list.append(quality_reg)
+    reg_list.append(all_hit_reg)
+
 
 
 if __name__ == '__main__':
@@ -125,19 +138,33 @@ if __name__ == '__main__':
     get_showids(res_json)
 
     i = 1
-    for item in outputIds:
-        doctrace = trace_dic[str(item)]
-        for reg in reg_dic:
-            line = re.search(reg, doctrace).group().strip()
-            logger.error(line)
+    log_title = '节目\t' + '时间\t' + '相关性\t' + 'vv\t' + '资源类型\t' + '分类\t' + '满意度\t' + 'ctr\t' + '质量分\t' + '全命中\t' + '总分'
+    logger.error(log_title)
+    for showid in outputIds:
+        this_show_trace = trace_dic[str(showid)]
+        this_showname = showname_dic[showid]
+        log_str = str(this_showname) + '|' + str(showid) + '\t'
+        total_score = 0.0
+        for reg in reg_list:
+            line = re.search(reg, this_show_trace).group().strip()
             score = ''
             if 'return' in line:
                 field = line.split('return')
                 score = field[1].strip().replace(')','')
-
             else:
                 field = line.split('hit:')
                 score = field[1].strip()
+
+            #write log
+            w = float(reg_dic[reg])
+            res = float(score) * w
+            total_score += res
+            log_tmp = str(res) + '[' + str(score) + ':' + str(w) + ']\t'
+            log_str += log_tmp
+        log_str + str(total_score)
+        logger.error(log_str)
+
+
         i += 1
-    logger.error('Finish i:' + str(i))
+    logger.debug('Finish i:' + str(i))
 #print re.search(match_reg, str).group()
