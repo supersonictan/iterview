@@ -135,6 +135,7 @@ if __name__ == '__main__':
 
     query = '越狱'
     url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword=' + query
+    #url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&qaFlow=1&keyword=' + query
     res_json = getImergerJson(url)
 
     get_showids(res_json)
@@ -164,7 +165,7 @@ if __name__ == '__main__':
             total_score += res
             log_tmp = str(res) + '[' + str(score) + ':' + str(w) + ']\t'
             log_str += log_tmp
-        log_str + str(total_score)
+        log_str += str(total_score)
         logger.error(log_str)
 
 
