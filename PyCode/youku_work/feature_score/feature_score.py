@@ -10,7 +10,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-logger = Logger(logFileName='diff.log', logger="feature_score").getlog()
+logger = Logger(logFileName='log.log', logger="feature_score").getlog()
 
 match_reg = 'YoukuOGCShowTermMatchFeatureExtractor::calScore end.*?\)'
 noMatch_reg = 'YoukuOGCShowNoMatchTermRatioFeatureExtractor::calScore end.*?\)'
@@ -20,12 +20,12 @@ match_idx_reg = 'YoukuECBQueryMatchIdxFeatureExtractor::calScore end.*?\)'
 key_value_reg = 'YoukuShowKeyValueMultiMatchFeatureExtractor::calScore end.*?\)'
 episode_reg = 'YoukuShowEpisodeFeatureExtractor::calScore end.*?\)'
 
-time_w = 50.0
+time_w = 100.0
 newRelevance_w = 3.0
 vv_w = 10.0
 exclusive_w = 30.0
-category_w = 50.0
-satisfaction_w = 10.0
+category_w = 100.0
+satisfaction_w = 5.0
 ctr_w = 20.0
 quality_w = 5.0
 allHit_w = 20.0
@@ -133,8 +133,8 @@ if __name__ == '__main__':
     read_show_file('show_file')
     
 
-    query = '越狱'
-    url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=1&keyword=' + query
+    query = '奔跑吧兄弟'
+    url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=3&keyword=' + query
     #url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&qaFlow=1&keyword=' + query
     res_json = getImergerJson(url)
 
