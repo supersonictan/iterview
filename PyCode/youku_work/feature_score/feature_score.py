@@ -12,6 +12,7 @@ sys.setdefaultencoding('utf-8')
 
 logger = Logger(logFileName='log.log', logger="feature_score").getlog()
 
+charge_show_reg = "YoukuOGCChargeShowFeatureExtractor::calScore end.*?\)"
 match_reg = 'YoukuOGCShowTermMatchFeatureExtractor::calScore end.*?\)'
 noMatch_reg = 'YoukuOGCShowNoMatchTermRatioFeatureExtractor::calScore end.*?\)'
 idExt_reg = 'YoukuShowIdExtFeatureExtractor::calScore end.*?\)' #maybe null
@@ -20,6 +21,7 @@ match_idx_reg = 'YoukuECBQueryMatchIdxFeatureExtractor::calScore end.*?\)'
 key_value_reg = 'YoukuShowKeyValueMultiMatchFeatureExtractor::calScore end.*?\)'
 episode_reg = 'YoukuShowEpisodeFeatureExtractor::calScore end.*?\)'
 
+charge_show_w = 10.0
 time_w = 100.0
 newRelevance_w = 3.0
 vv_w = 10.0
@@ -103,6 +105,7 @@ def read_show_file(showFilePath):
 def fill_reg():
     global reg_dic
     global rec_list
+    reg_dic[charge_show_reg] = charge_show_w
     reg_dic[time_reg] = time_w
     reg_dic[new_relan_reg] = newRelevance_w
     reg_dic[vv_reg] = vv_w
@@ -113,6 +116,7 @@ def fill_reg():
     reg_dic[quality_reg] = quality_w
     reg_dic[all_hit_reg] = allHit_w
 
+    reg_list.append(charge_show_reg)
     reg_list.append(time_reg)
     reg_list.append(new_relan_reg)
     reg_list.append(vv_reg)
@@ -141,7 +145,7 @@ if __name__ == '__main__':
     get_showids(res_json)
 
     i = 1
-    log_title = '节目\t' + '时间\t' + '相关性\t' + 'vv\t' + '资源类型\t' + '分类\t' + '满意度\t' + 'ctr\t' + '质量分\t' + '全命中\t' + '总分'
+    log_title = '节目\t' + '付费\t' + '时间\t' + '相关性\t' + 'vv\t' + '资源类型\t' + '分类\t' + '满意度\t' + 'ctr\t' + '质量分\t' + '全命中\t' + '总分'
     logger.error(log_title)
     for showid in outputIds:
         showid = str(showid)
