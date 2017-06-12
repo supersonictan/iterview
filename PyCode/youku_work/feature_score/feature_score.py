@@ -139,6 +139,7 @@ if __name__ == '__main__':
 
     query = '奔跑吧兄弟'
     url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&qaFlow=3&keyword=' + query
+    #url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&ecb_sp_ip=11.134.231.181:2090&qaFlow=3&keyword=' + query
     #url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=112&isFilter=16&cmd=1&qaFlow=1&keyword=' + query
     res_json = getImergerJson(url)
 
