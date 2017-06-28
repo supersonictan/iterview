@@ -103,10 +103,13 @@ class FeatureTasker(threading.Thread):
             score = 0.0
             line = k
             reg_res = re.search(k, doctrace)
-            if reg_res != None:
-                line = reg_res.group().strip()
-                field = line.split('return+')
-                score = field[1].strip().replace(')', '')
+            try:
+                if reg_res != None:
+                    line = reg_res.group().strip()
+                    field = line.split('return+')
+                    score = field[1].strip().replace(')', '')
+            except Exception, e:
+                pass
             feature_vector += '\t' + str(score)
             #logger.error('DEBUG:' + line + '\t' + str(score))
         logger.error(feature_vector)
@@ -120,8 +123,9 @@ class FeatureTasker(threading.Thread):
     def run(self):
         global  cur_query
         cur_query = Global.query_queue.get(block=True, timeout=5)
+        #cur_query = '火星情报局'
         self.__fillRegDic()
-        url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&keyword='+ cur_query
+        url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&keyword='+ cur_query
 
         jsonRes = self.__getImergerJson(url)
         self.__parseJsonData(jsonRes)
