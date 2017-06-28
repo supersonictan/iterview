@@ -107,7 +107,7 @@ class FeatureTasker(threading.Thread):
                     line = reg_res.group().strip()
                     field = line.split('return+')
                     score = float(field[1].strip().replace(')', ''))
-                    score *= float(v)
+                    #score *= float(v)
             except Exception, e:
                 pass
             feature_vector += '\t' + str(score)
