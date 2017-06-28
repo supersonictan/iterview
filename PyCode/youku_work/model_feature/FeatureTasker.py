@@ -121,11 +121,16 @@ class FeatureTasker(threading.Thread):
         logger.debug('Finished ' + str(tmpId))
 
     def run(self):
-        global  cur_query
-        cur_query = Global.query_queue.get(block=True, timeout=5)
-        #cur_query = '火星情报局'
-        self.__fillRegDic()
-        url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&keyword='+ cur_query
+        while True:
+            try:
+                global  cur_query
+                cur_query = Global.query_queue.get(block=True, timeout=5)
+                #cur_query = '火星情报局'
+                self.__fillRegDic()
+                url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&keyword='+ cur_query
 
-        jsonRes = self.__getImergerJson(url)
-        self.__parseJsonData(jsonRes)
+                jsonRes = self.__getImergerJson(url)
+                self.__parseJsonData(jsonRes)
+            except Exception,e:
+                logger.debug('Thread:' + str(self.threadName) + " Finished. e:" + repr(e))
+                break

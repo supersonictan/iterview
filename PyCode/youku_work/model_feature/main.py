@@ -29,6 +29,7 @@ if __name__ == '__main__':
 
     read_query_file('data/query')
     query_num = Global.query_queue.qsize()
+    logger.debug(query_num)
     # read_show_file('../data/all_show_odps')
 
     thread_list = []
