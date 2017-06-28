@@ -8,6 +8,7 @@ import json
 import threading
 from Logger import *
 import copy
+import Global
 import re
 from urllib import unquote
 from requests.adapters import HTTPAdapter
@@ -109,12 +110,18 @@ class FeatureTasker(threading.Thread):
             feature_vector += '\t' + str(score)
             #logger.error('DEBUG:' + line + '\t' + str(score))
         logger.error(feature_vector)
+        # 显示第几个
+        Global.lock_curId.acquire()
+        Global.cur_id += 1
+        tmpId = Global.cur_id
+        Global.lock_curId.release()
+        logger.debug('Finished ' + str(tmpId))
 
     def run(self):
         global  cur_query
-        cur_query = '电影'
+        cur_query = Global.query_queue.get(block=True, timeout=5)
         self.__fillRegDic()
-        url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&keyword='+ cur_query
+        url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&keyword='+ cur_query
 
         jsonRes = self.__getImergerJson(url)
         self.__parseJsonData(jsonRes)
