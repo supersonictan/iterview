@@ -107,18 +107,13 @@ class FeatureTasker(threading.Thread):
                 if reg_res != None:
                     line = reg_res.group().strip()
                     field = line.split('return+')
-                    score = field[1].strip().replace(')', '')
+                    score = float(field[1].strip().replace(')', ''))
+                    score *= float(v)
             except Exception, e:
                 pass
             feature_vector += '\t' + str(score)
             #logger.error('DEBUG:' + line + '\t' + str(score))
         logger.error(feature_vector)
-        # 显示第几个
-        Global.lock_curId.acquire()
-        Global.cur_id += 1
-        tmpId = Global.cur_id
-        Global.lock_curId.release()
-        logger.debug('Finished ' + str(tmpId))
 
     def run(self):
         while True:
@@ -131,6 +126,13 @@ class FeatureTasker(threading.Thread):
 
                 jsonRes = self.__getImergerJson(url)
                 self.__parseJsonData(jsonRes)
+
+                # 显示第几个
+                Global.lock_curId.acquire()
+                Global.cur_id += 1
+                tmpId = Global.cur_id
+                Global.lock_curId.release()
+                logger.debug('Finished ' + str(tmpId))
             except Exception,e:
                 logger.debug('Thread:' + str(self.threadName) + " Finished. e:" + repr(e))
                 break
