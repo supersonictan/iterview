@@ -44,7 +44,6 @@ quality_w = 5.0
 allHit_w = 20.0
 
 reg_dic = OrderedDict({})
-cur_query=''
 
 class FeatureTasker(threading.Thread):
 
@@ -84,7 +83,7 @@ class FeatureTasker(threading.Thread):
             logger.error('Http request exception, query:' + ' e:' + str(e))
         return json
 
-    def __parseJsonData(self, json):
+    def __parseJsonData(self, json, cur_query):
         ecb_data = json['ecb']  #json最外层
         youku_ecb = ecb_data['youku_ecb']
         auctions = youku_ecb['auctions']
@@ -93,9 +92,9 @@ class FeatureTasker(threading.Thread):
             doctrace = str(unquote(docItem['doctrace']))
             #logger.error(doctrace)
             doc_show_id = docItem['show_id']
-            self.__parseAndWriteFeatureScore(doctrace, doc_show_id)
+            self.__parseAndWriteFeatureScore(doctrace, doc_show_id, cur_query)
 
-    def __parseAndWriteFeatureScore(self, doctrace, doc_show_id):
+    def __parseAndWriteFeatureScore(self, doctrace, doc_show_id, cur_query):
         feature_vector = cur_query.strip() + '\t' + str(doc_show_id)
         for k,v in reg_dic.items(): #遍历特征
             #logger.error(k)
@@ -118,14 +117,13 @@ class FeatureTasker(threading.Thread):
     def run(self):
         while True:
             try:
-                global  cur_query
                 cur_query = Global.query_queue.get(block=True, timeout=5)
                 #cur_query = '火星情报局'
                 self.__fillRegDic()
                 url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&keyword='+ cur_query
 
                 jsonRes = self.__getImergerJson(url)
-                self.__parseJsonData(jsonRes)
+                self.__parseJsonData(jsonRes, cur_query)
 
                 # 显示第几个
                 Global.lock_curId.acquire()
