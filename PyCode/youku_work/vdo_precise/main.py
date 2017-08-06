@@ -34,7 +34,7 @@ def __getImergerJson(url):
         session.mount('http://', HTTPAdapter(max_retries=3))
         res = session.get(url)
         json = res.json()
-        print json
+        #print json
         # retry
         i = 0
         while len(res.content) == 0 and i < 2:
@@ -50,7 +50,7 @@ def __getImergerJson(url):
 
 def __parseJsonData(json, cur_query):
     sp_data = json['sp']
-    print sp_data
+    #print sp_data
 
     if sp_data != None:
         youku_data = sp_data['youku']

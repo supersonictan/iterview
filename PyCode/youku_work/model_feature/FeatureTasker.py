@@ -120,7 +120,7 @@ class FeatureTasker(threading.Thread):
                 cur_query = Global.query_queue.get(block=True, timeout=5)
                 #cur_query = '火星情报局'
                 self.__fillRegDic()
-                url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.227.22:2090&keyword='+ cur_query
+                url = 'http://imerge.soku.proxy.taobao.org/i/s?rankFlow=110&isFilter=16&cmd=1&ecb_sp_ip=11.173.213.132:2090&keyword='+ cur_query
 
                 jsonRes = self.__getImergerJson(url)
                 self.__parseJsonData(jsonRes, cur_query)

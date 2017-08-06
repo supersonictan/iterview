@@ -5,14 +5,14 @@ import threading
 
 #HTTP Get 参数
 off_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s'
-off_expid = '112'
+off_expid = '110'
 off_ip = '11.134.231.181:2090'
 #off_ip = '11.173.213.132:2090'
 off_qa = '1'
 
-on_url = 'http://imerge-pre.soku.proxy.taobao.org/i/s'
-on_expid = '111'
-on_ip = '11.134.231.181:2090'
+on_url = 'http://imerge.soku.proxy.taobao.org/i/s'
+on_expid = '110'
+on_ip = '11.173.227.22:2090'
 on_qa = '1'
 
 
