@@ -5,7 +5,7 @@ import Queue
 import sys
 import json
 import threading
-from FeatureTasker import *
+from Tasker import *
 from Logger import *
 import time
 import Global
@@ -78,23 +78,33 @@ if __name__ == '__main__':
     query_num = Global.query_queue.qsize()
     logger.debug(query_num)
 
-    while True:
-        try:
-            cur_query = Global.query_queue.get(block=True, timeout=5)
-            # cur_query = '火星情报局'
-            url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?cmd=1&keyword=' + str(cur_query)
-            #print url
+    thread_list = []
+    for i in range(20):
+        thread_list.append(Tasker(i))
 
-            jsonRes = __getImergerJson(url)
-            __parseJsonData(jsonRes, cur_query)
+    for thread in thread_list:
+        thread.start()
 
-            # 显示第几个
-            Global.lock_curId.acquire()
-            Global.cur_id += 1
-            tmpId = Global.cur_id
-            Global.lock_curId.release()
-            logger.debug('Finished ' + str(tmpId))
-        except Exception, e:
-            logger.debug('Thread:' + repr(e))
-            break
+    for thread in thread_list:
+        thread.join()
+
+    # while True:
+    #     try:
+    #         cur_query = Global.query_queue.get(block=True, timeout=5)
+    #         # cur_query = '火星情报局'
+    #         url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?cmd=1&keyword=' + str(cur_query)
+    #         #print url
+    #
+    #         jsonRes = __getImergerJson(url)
+    #         __parseJsonData(jsonRes, cur_query)
+    #
+    #         # 显示第几个
+    #         Global.lock_curId.acquire()
+    #         Global.cur_id += 1
+    #         tmpId = Global.cur_id
+    #         Global.lock_curId.release()
+    #         logger.debug('Finished ' + str(tmpId))
+    #     except Exception, e:
+    #         logger.debug('Thread:' + repr(e))
+    #         break
 

@@ -23,22 +23,21 @@ bkt = """{"bts":{"soku_engine_master":{"bucket":{"groups":{"soku":""},"id":10052
 
 reg_dic = OrderedDict({})
 
-class FeatureTasker(threading.Thread):
+class Tasker(threading.Thread):
 
     def __init__(self, threadName):
         threading.Thread.__init__(self)
         self.threadName = threadName
 
-
-
     def __getImergerJson(self,url):
+
         json = None
         try:
             session = requests.session()
             session.mount('http://', HTTPAdapter(max_retries=3))
             res = session.get(url)
             json = res.json()
-            print json
+            # print json
             # retry
             i = 0
             while len(res.content) == 0 and i < 2:
@@ -51,33 +50,26 @@ class FeatureTasker(threading.Thread):
             logger.error('Http request exception, query:' + ' e:' + str(e))
         return json
 
-    def __parseJsonData(self, json, cur_query):
+    def __parseJsonData(self,json, cur_query):
         sp_data = json['sp']
+        # print sp_data
 
-        if sp_data :
+        if sp_data != None:
             youku_data = sp_data['youku']
-            if youku_data:
-                aux = youku_data['auxiliary']
-                if aux['vdo_precise']:
-                    logger.error(cur_query + '\t' + aux['vdo_precise'])
-                else:
-                    logger.error(cur_query + '\t' + '0')
+            if youku_data != None:
+                auctions_list = youku_data['auctions']
+                count = 0
+                for auction_item in auctions_list:
+                    sort_id = auction_item['auction_label']
+                    if sort_id == "32":
+                        count += 1
+                logger.error(cur_query + '\t' + str(count))
+
+
             else:
                 logger.error(cur_query + '\t' + 'youku data error')
         else:
             logger.error(cur_query + '\t' + 'sp_data error')
-
-        # ecb_data = json['ecb']  #json最外层
-        # youku_ecb = ecb_data['youku_ecb']
-        # auctions = youku_ecb['auctions']
-        #
-        # for docItem in auctions:
-        #     doctrace = str(unquote(docItem['doctrace']))
-        #     #logger.error(doctrace)
-        #     doc_show_id = docItem['show_id']
-        #     self.__parseAndWriteFeatureScore(doctrace, doc_show_id, cur_query)
-
-
 
     def run(self):
         while True:
