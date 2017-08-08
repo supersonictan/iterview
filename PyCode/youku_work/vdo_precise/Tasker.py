@@ -77,10 +77,10 @@ class Tasker(threading.Thread):
                 cur_query = Global.query_queue.get(block=True, timeout=5)
                 #cur_query = '火星情报局'
                 url = 'http://imerge-pre.soku.proxy.taobao.org/i/s?cmd=1&keyword='+ str(cur_query)
-                print url
+                #print url
 
                 jsonRes = self.__getImergerJson(url)
-                print str(jsonRes)
+                #print str(jsonRes)
                 self.__parseJsonData(jsonRes, cur_query)
 
                 # 显示第几个
