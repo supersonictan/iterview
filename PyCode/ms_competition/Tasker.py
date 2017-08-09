@@ -20,11 +20,12 @@ reg_dic = OrderedDict({})
 
 homePage_reg = r'<h3 class="r">.*?</h3>'
 title_reg = r'<a href.*?>(.*?)<'
-email_reg_list = [r'\b[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,4}\b']
+email_reg_list = [r'[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+[\.a-zA-Z0-9_-]+']
 
 #<img alt="Keith C. Schwab" src="http://d39s7jey1vv9fu.cloudfront.net/eas_directory/users/schwab/photos/keith-schwab-original.jpg?1464024708" />
 #<img  width="275" height="275" alt="Raquel  Hill" src="https://www.soic.indiana.edu/img/people/ralhill.jpg">
-pic_reg_list = [r'img.*?\bhttp:.+\.jpg[0-9-_?%~]+\b', r'img.*?\bhttp:.+\.png[0-9-_?%~]+\b'] #http https #-_?%~
+#pic_reg_list = [r'img.*?\bhttp:.+\.jpg[0-9-_?%~\u4e00-\u9fa5]+', r'img.*?\bhttp:.+\.png[0-9-_?%~]+\b'] #http https #-_?%~
+pic_reg_list = [r'img.*?(http.+\.jpg[0-9-_?%~\u4e00-\u9fa5]*)\"']
 
 class Tasker(threading.Thread):
 
@@ -35,29 +36,36 @@ class Tasker(threading.Thread):
     def __get_homepage_list(self, text):
         homePage_list = []
         title_list = []
-        print text
         res = re.findall(homePage_reg, text, re.S)
         for each_res in res:
-            homePage_url = re.findall(r'"http.*?"', each_res)[0]
+            homePage_url = re.findall(r'"(http.*?)"', each_res)[0]
             title_str = re.findall(title_reg, each_res)[0]
             homePage_list.append(homePage_url)
             title_list.append(title_str)
-        return homePage_list
+        return homePage_list,title_list
 
 
     def __get_email_list(self, text):
+        #print re.findall(r'([a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+[\.a-zA-Z0-9_-]+)', '<span>Email：</span>zytang@urban.pku.edu.cn </p>')
         res_list = []
         for reg in email_reg_list:
             #print reg
             res = re.findall(reg, text)
-            res_list.append(res)
+            res_list += res
+            #res_list.__add__(res)
+        res_list = list(set(res_list))
         return res_list
 
     def __get_img_list(self, text):
+
+        #print re.findall(r'img.*?(http.+\.jpg[0-9-_?%~\u4e00-\u9fa5]*)\"' ,'<div class="fl"><img width="134px" height="174px" src="http://oause.pku.edu.cn/upfile/img/唐志尧.jpg"></div>')
+
         res_list  =[]
         for reg in pic_reg_list:
             res = re.findall(reg, text)
-            res_list.append(res)
+            res_list += res
+
+        res_list = list(set(res_list))
         return res_list
 
 
@@ -91,8 +99,18 @@ class Tasker(threading.Thread):
                 html = self.__get_url_result(url)
                 main_txt = self.__parse_html(html)
 
-                print self.__get_homepage_list(str(main_txt))
+                homePage_url_list, title_list = self.__get_homepage_list(str(main_txt)) #获取Google结果,不会为None
+                #print homePage_url_list
 
+                abc = 'http://www.ues.pku.edu.cn/english/teachers_detail.php?id=73'
+                homePage_html = str(self.__get_url_result(abc))
+
+                res_email_list = self.__get_email_list(homePage_html)
+                print res_email_list
+
+
+                res_pic_list = self.__get_img_list(homePage_html)
+                print res_pic_list
 
                 # 显示第几个
                 # Global.lock_curId.acquire()
