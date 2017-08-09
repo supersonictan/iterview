@@ -7,4 +7,6 @@ using namespace std;
 int main()
 {
     cout<< "Size of int:" << sizeof(int32_t) <<endl;
+
+    return 0;
 }

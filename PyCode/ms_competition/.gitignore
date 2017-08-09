@@ -1,0 +1,7 @@
+*.pyc
+*.log
+.idea/
+*.iml
+target/
+PyCode/.idea/
+PyCode/youku_work/my_ogc_diff/*.log
