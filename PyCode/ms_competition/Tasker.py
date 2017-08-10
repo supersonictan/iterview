@@ -42,7 +42,8 @@ class Tasker(threading.Thread):
             title_str = re.findall(title_reg, each_res)[0]
             homePage_list.append(homePage_url)
             title_list.append(title_str)
-        return homePage_list,title_list
+        #return homePage_list,title_list
+        return homePage_list
 
 
     def __get_email_list(self, text):
@@ -89,28 +90,40 @@ class Tasker(threading.Thread):
 
 
     def run(self):
-        #while True:
+        while True:
             try:
-                #cur_query = Global.query_queue.get(block=True, timeout=5)
-                #cur_query = '火星情报局'
-                #url = str(cur_query).strip()
+                cur_query = Global.query_queue.get(block=True, timeout=5)
+                cur_query = str(cur_query).strip()
+                print cur_query
+                field = cur_query.split('#')
+                id = field[1].strip()
+                name = field[2].strip()
+                org = field[3].strip()
+                google_page = field[4].strip()
+                homepage = field[5].strip()
+                pic = field[6].strip()
+                email = field[7].strip()
+                gender = field[8].strip()
+                position = field[9].strip()
+                location = field[10].strip()
 
-                url = 'http://ifang.ml:8081/542b5c8adabfae23313e5e5b.html'
+                url = google_page
                 html = self.__get_url_result(url)
                 main_txt = self.__parse_html(html)
 
-                homePage_url_list, title_list = self.__get_homepage_list(str(main_txt)) #获取Google结果,不会为None
-                #print homePage_url_list
-
-                abc = 'http://www.ues.pku.edu.cn/english/teachers_detail.php?id=73'
-                homePage_html = str(self.__get_url_result(abc))
-
-                res_email_list = self.__get_email_list(homePage_html)
-                print res_email_list
+                homePage_url_list = self.__get_homepage_list(str(main_txt)) #获取Google结果,不会为None
+                print homePage_url_list
 
 
-                res_pic_list = self.__get_img_list(homePage_html)
-                print res_pic_list
+                # abc = 'http://www.ues.pku.edu.cn/english/teachers_detail.php?id=73'
+                # homePage_html = str(self.__get_url_result(abc))
+                #
+                # res_email_list = self.__get_email_list(homePage_html)
+                # print res_email_list
+                #
+                #
+                # res_pic_list = self.__get_img_list(homePage_html)
+                # print res_pic_list
 
                 # 显示第几个
                 # Global.lock_curId.acquire()

@@ -32,10 +32,10 @@ if __name__ == '__main__':
 
     # st = time.clock()
     #
-    # read_query_file('query')
-    # query_num = Global.query_queue.qsize()
-    # logger.debug(query_num)
-    #
+    read_query_file('data.txt')
+    query_num = Global.query_queue.qsize()
+    logger.debug(query_num)
+
     thread_list = []
     for i in range(1):
         thread_list.append(Tasker(i))
