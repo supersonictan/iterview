@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/tanzhen/Desktop/code/iterview/CCode/main.cpp
+assert.h
+-
+cstring
+-
+string
+-
+iostream
+-
+vector
+-
+list
+-
+
