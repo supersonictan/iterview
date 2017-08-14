@@ -74,8 +74,10 @@ class Tasker(threading.Thread):
         # headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
         # r = requests.get(list_url,headers=headers)
         session = requests.session()
-        session.mount('http://', HTTPAdapter(max_retries=5))
+        print (url)
+        session.mount('http://', HTTPAdapter(max_retries=1))
         r = session.get(url)
+        print ('22222222')
         r.encoding = 'utf-8'
         return r.text
 
@@ -94,7 +96,7 @@ class Tasker(threading.Thread):
             try:
                 cur_query = Global.query_queue.get(block=True, timeout=5)
                 cur_query = str(cur_query).strip()
-                print cur_query
+                #print cur_query
                 field = cur_query.split('#')
                 id = field[1].strip()
                 name = field[2].strip()
@@ -109,10 +111,11 @@ class Tasker(threading.Thread):
 
                 url = google_page
                 html = self.__get_url_result(url)
+                print html
                 main_txt = self.__parse_html(html)
 
                 homePage_url_list = self.__get_homepage_list(str(main_txt)) #获取Google结果,不会为None
-                print homePage_url_list
+                #print homePage_url_list
 
 
                 # abc = 'http://www.ues.pku.edu.cn/english/teachers_detail.php?id=73'

@@ -1,3 +1,3 @@
-/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir
+E:/code/public/tmp/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir
+E:/code/public/tmp/iterview/CCode/cmake-build-debug/CMakeFiles/edit_cache.dir
+E:/code/public/tmp/iterview/CCode/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-E:/code/public/tmp/iterview/CCode/main.cpp
-assert.h
--
-cstring
--
-string
--
-iostream
--
-vector
--
-list
+E:/code/public/tmp/iterview/CCode/c_study/hello.c
+stdio.h
 -
 

@@ -41,29 +41,25 @@ public:
         String(const char *str = NULL); // 通用构造函数
         String(const String &another); // 拷贝构造函数
         ~String(); // 析构函数
-        //& operater = (const String &rhs); // 赋值函数
+        String & operator =(const String &other); // 赋值函数
 private:
         char* m_data; // 用于保存字符串
 
 };
 //通用构造函数
-String::String(const char*str)
-{
+String::String(const char*str) {
     char* m_data;
-    if ( str == NULL ) // strlen在参数为NULL时会抛异常才会有这步判断
-    {
+    if ( str == NULL ) {
         m_data = new char[1] ;
         m_data[0] ='\0' ;
     }
-    else
-    {
+    else {
         m_data = new char[strlen(str) +1];
         strcpy(m_data, str);
     }
 }
 //拷贝构造函数
-String::String(const String &another)
-{
+String::String(const String &another) {
     char* m_data;
     m_data = new char[strlen(another.m_data) +1];
     strcpy(m_data, another.m_data);
@@ -83,6 +79,8 @@ int main()
         v.push_back(i);
         l.push_back(i);
     }
+
+    cout << "line:"<<__LINE__<<endl;
 
     for (vector<int>::iterator vi = v.begin(); vi != v.end()  ; vi++) {
         cout << *vi;
