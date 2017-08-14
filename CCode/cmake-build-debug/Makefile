@@ -149,6 +149,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\CCode.dir\build.make CMakeFiles/CCode.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+practise.obj: practise.cpp.obj
+
+.PHONY : practise.obj
+
+# target to build an object file
+practise.cpp.obj:
+	$(MAKE) -f CMakeFiles\CCode.dir\build.make CMakeFiles/CCode.dir/practise.cpp.obj
+.PHONY : practise.cpp.obj
+
+practise.i: practise.cpp.i
+
+.PHONY : practise.i
+
+# target to preprocess a source file
+practise.cpp.i:
+	$(MAKE) -f CMakeFiles\CCode.dir\build.make CMakeFiles/CCode.dir/practise.cpp.i
+.PHONY : practise.cpp.i
+
+practise.s: practise.cpp.s
+
+.PHONY : practise.s
+
+# target to generate assembly for a file
+practise.cpp.s:
+	$(MAKE) -f CMakeFiles\CCode.dir\build.make CMakeFiles/CCode.dir/practise.cpp.s
+.PHONY : practise.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -161,6 +188,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... practise.obj
+	@echo ... practise.i
+	@echo ... practise.s
 .PHONY : help
 
 

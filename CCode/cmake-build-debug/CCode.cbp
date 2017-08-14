@@ -85,6 +85,9 @@
 		<Unit filename="E:/code/public/tmp/iterview/CCode/main.cpp">
 			<Option target="CCode"/>
 		</Unit>
+		<Unit filename="E:/code/public/tmp/iterview/CCode/practise.cpp">
+			<Option target="CCode"/>
+		</Unit>
 		<Unit filename="E:/code/public/tmp/iterview/CCode/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
