@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-E:/code/public/tmp/iterview/CCode/main.cpp
-assert.h
--
+/Users/tanzhen/Desktop/code/iterview/CCode/practise.cpp
 cstring
--
-string
--
-iostream
--
-vector
--
-list
 -
 

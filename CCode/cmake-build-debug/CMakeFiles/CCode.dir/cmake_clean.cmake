@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CCode.dir/main.cpp.obj"
-  "CMakeFiles/CCode.dir/practise.cpp.obj"
+  "CMakeFiles/CCode.dir/practise.cpp.o"
+  "CMakeFiles/CCode.dir/test.cpp.o"
   "CCode.pdb"
-  "CCode.exe"
-  "CCode.exe.manifest"
-  "libCCode.dll.a"
+  "CCode"
 )
 
 # Per-language clean rules from dependency scanning.
