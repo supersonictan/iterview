@@ -4,6 +4,6 @@ project(CCode)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
-        practise.cpp test.cpp)
+        list.cpp test.cpp sort.cpp)
 
 add_executable(CCode ${SOURCE_FILES})

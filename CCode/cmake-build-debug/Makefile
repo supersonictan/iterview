@@ -150,6 +150,33 @@ practise.cpp.s:
 	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/practise.cpp.s
 .PHONY : practise.cpp.s
 
+sort.o: sort.cpp.o
+
+.PHONY : sort.o
+
+# target to build an object file
+sort.cpp.o:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/sort.cpp.o
+.PHONY : sort.cpp.o
+
+sort.i: sort.cpp.i
+
+.PHONY : sort.i
+
+# target to preprocess a source file
+sort.cpp.i:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/sort.cpp.i
+.PHONY : sort.cpp.i
+
+sort.s: sort.cpp.s
+
+.PHONY : sort.s
+
+# target to generate assembly for a file
+sort.cpp.s:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/sort.cpp.s
+.PHONY : sort.cpp.s
+
 test.o: test.cpp.o
 
 .PHONY : test.o
@@ -189,6 +216,9 @@ help:
 	@echo "... practise.o"
 	@echo "... practise.i"
 	@echo "... practise.s"
+	@echo "... sort.o"
+	@echo "... sort.i"
+	@echo "... sort.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"

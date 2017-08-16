@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug
 CMakeFiles/CCode.dir/all:
 	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/depend
 	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target CCode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target CCode"
 .PHONY : CMakeFiles/CCode.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/CCode.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CCode.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CCode.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/CCode.dir/rule

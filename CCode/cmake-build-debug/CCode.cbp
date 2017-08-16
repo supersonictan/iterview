@@ -85,10 +85,10 @@
 		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/practise.cpp">
 			<Option target="CCode"/>
 		</Unit>
-		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/test.cpp">
+		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/sort.cpp">
 			<Option target="CCode"/>
 		</Unit>
-		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/test.h">
+		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/test.cpp">
 			<Option target="CCode"/>
 		</Unit>
 		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/CMakeLists.txt">
