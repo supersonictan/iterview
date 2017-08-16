@@ -165,9 +165,22 @@ ListNode *mergeList(ListNode *head1, ListNode *head2) {
     return newHead.next;
 }
 
-//7. 给出3个排序链表[2->4->null,null,-1->null]，返回 -1->2->4->null
+//7. 排序K个链表。[2->4->null,null,-1->null]，返回 -1->2->4->null
 ListNode *mergeKLists(std::vector<ListNode *> &lists) {
-    // write your code here
+    if (lists.size() == 0) {return NULL;}
+
+    while (lists.size() > 1) {
+        std::vector<ListNode *> tmpVec;
+        for (int i = 0; i+1 < lists.size(); i+=2) {
+            ListNode* mergeList = mergeTwoLists(lists[i], lists[i+1]);
+            tmpVec.push_back(mergeList);
+        }
+        if (lists.size()%2 == 1){
+            tmpVec.push_back(lists[lists.size()-1]);
+        }
+        lists = tmpVec;
+    }
+    return lists[0];
 }
 
 int main(){
