@@ -1,4 +1,8 @@
 #include <cstring>
+#include <cstdlib>
+#include <string>
+
+using namespace std;
 
 struct ListNode{
     int val;
@@ -6,7 +10,15 @@ struct ListNode{
     ListNode(int x):val(x),next(NULL){}
 };
 
-
+int getLength(ListNode* n) {
+    if (!n) return 0;
+    int len = 0;
+    while (n) {
+        len++;
+        n = n->next;
+    }
+    return len;
+}
 
 
 ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
@@ -40,3 +52,45 @@ bool hasCycle(ListNode *head) {
     }
     return false;
 }
+
+
+
+
+
+ListNode * addLists2(ListNode * l1, ListNode * l2) {
+    if(!l1 && !l2) return NULL;
+    int len_a = getLength(l1), len_b = getLength(l2);
+    if (len_a < len_b) swap(l1,l2);
+    int diff = abs(len_a - len_b);
+    ListNode* vhead = new ListNode(0);
+    ListNode* cur = vhead, *combo = vhead;
+    while (diff--) {
+        cur->next = new ListNode(l1->val);
+        cur = cur->next;
+        l1 = l1->next;
+        if (cur->val != 9) combo = cur;
+    }
+    while (l1) {
+        int val = l1->val + l2->val;
+        if (val>9){
+            val %= 10;
+            combo->val++;
+            combo = combo->next;
+            while (combo) {
+                combo->val = 0;
+                combo = combo->next;
+            }
+        }
+        cur->next = new ListNode(val);
+        cur = cur->next;
+        l1 = l1->next, l2 = l2->next;
+        if (cur->val !=9) combo = cur;
+    }
+    ListNode* head = vhead;
+    if (!vhead->val){
+        head = vhead->next;
+        delete(vhead);
+    }
+    return head;
+}
+

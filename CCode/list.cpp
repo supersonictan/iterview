@@ -1,5 +1,7 @@
 #include <cstring>
 #include <vector>
+#include <cstdlib>
+
 
 using namespace std;
 
@@ -11,6 +13,8 @@ using namespace std;
  * 5.两个链表合并:1->3->8->11->15->null，2->null， 返回 1->2->3->8->11->15->null
  * 6.链表排序nlgn
  * 7.排序K个链表
+ * 8.返回链表中环的起始位置
+ * 9.判断单向链表是否回文
  * */
 
 
@@ -182,6 +186,97 @@ ListNode *mergeKLists(std::vector<ListNode *> &lists) {
     }
     return lists[0];
 }
+
+/*8.返回链表中环的起始位置*/
+ListNode *detectCycle(ListNode *head) {
+    ListNode *fast=head, *slow = head;
+    if (head == NULL) {return NULL;}
+
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast) break;
+    }
+    if(fast == NULL||fast->next ==NULL)
+        return NULL;
+    fast = head;
+    while (fast != slow) {
+        slow = slow->next;
+        fast = fast->next;
+    }
+    return fast;
+}
+
+/*9.判断单向链表是否回文*/
+bool isPalindrome(ListNode* head) {
+    ListNode *next = head;
+    ListNode *now = head;
+    ListNode *pre = NULL;
+    int lenth = 0;
+    if(head == NULL || head->next == NULL)
+        return true;
+    //取得长度
+    while(next != NULL) {
+        next = next->next;
+        lenth++;
+    }
+    //遍历到中间，并逆置,最后next指向后半段
+    for(int i = 0; i < (lenth / 2); i++) {
+        next = now->next;
+        now->next = pre;
+        pre = now;
+        now = next;
+    }
+    if((lenth % 2) == 1)
+        next = next->next;
+    //两个指针开始向两头移动，取值比较
+    while(next  && pre ) {
+        if(next->val != pre->val)
+            return false;
+        next = next->next;
+        pre = pre->next;
+    }
+    return true;//比较中没有发现不同值，则为回文链表
+}
+
+/*10.两个链表相加，数的低位在链表尾部*/
+ListNode * addLists2(ListNode * l1, ListNode * l2) {
+    if (!l1 && !l2) return NULL;
+    int len1 = getLength(l1), len2 = getLength(l2);
+    if (len1 < len2) swap(l1, l2);
+    int diff = abs(len1 - len2);
+    ListNode* vhead = new ListNode(0);
+    ListNode* cur = vhead, *combo = vhead;
+    while (diff--) {
+        cur->next = new ListNode(l1->val);
+        cur = cur->next;
+        if (cur->val != 9) combo = cur;//如果是9combo还指向最高的0
+        l1 = l1->next;
+    }
+    while (l1) {
+        int val = l1->val + l2->val;
+        if (val > 9) {//处理进位
+            val %= 10;
+            combo->val++;
+            combo = combo->next;//当前位计算完了应该下一位,必须有eg:399
+            while (combo) {//可能当前已经是9了
+                combo->val = 0;
+                combo = combo->next;
+            }
+        }
+        cur->next = new ListNode(val);
+        cur = cur->next;
+        if (cur->val != 9) combo = cur;
+        l1 = l1->next, l2 = l2->next;
+    }
+    ListNode* head = vhead;
+    if (!vhead->val) {
+        head = vhead->next;
+        delete(vhead);
+    }
+    return head;
+}
+
 
 int main(){
     addTwoNumbers(NULL,NULL);
