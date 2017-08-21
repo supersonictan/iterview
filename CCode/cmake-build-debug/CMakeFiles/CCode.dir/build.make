@@ -57,28 +57,28 @@ include CMakeFiles/CCode.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/CCode.dir/flags.make
 
-CMakeFiles/CCode.dir/practise.cpp.o: CMakeFiles/CCode.dir/flags.make
-CMakeFiles/CCode.dir/practise.cpp.o: ../practise.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CCode.dir/practise.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CCode.dir/practise.cpp.o -c /Users/tanzhen/Desktop/code/iterview/CCode/practise.cpp
+CMakeFiles/CCode.dir/list.cpp.o: CMakeFiles/CCode.dir/flags.make
+CMakeFiles/CCode.dir/list.cpp.o: ../list.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CCode.dir/list.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CCode.dir/list.cpp.o -c /Users/tanzhen/Desktop/code/iterview/CCode/list.cpp
 
-CMakeFiles/CCode.dir/practise.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CCode.dir/practise.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanzhen/Desktop/code/iterview/CCode/practise.cpp > CMakeFiles/CCode.dir/practise.cpp.i
+CMakeFiles/CCode.dir/list.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CCode.dir/list.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanzhen/Desktop/code/iterview/CCode/list.cpp > CMakeFiles/CCode.dir/list.cpp.i
 
-CMakeFiles/CCode.dir/practise.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CCode.dir/practise.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanzhen/Desktop/code/iterview/CCode/practise.cpp -o CMakeFiles/CCode.dir/practise.cpp.s
+CMakeFiles/CCode.dir/list.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CCode.dir/list.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanzhen/Desktop/code/iterview/CCode/list.cpp -o CMakeFiles/CCode.dir/list.cpp.s
 
-CMakeFiles/CCode.dir/practise.cpp.o.requires:
+CMakeFiles/CCode.dir/list.cpp.o.requires:
 
-.PHONY : CMakeFiles/CCode.dir/practise.cpp.o.requires
+.PHONY : CMakeFiles/CCode.dir/list.cpp.o.requires
 
-CMakeFiles/CCode.dir/practise.cpp.o.provides: CMakeFiles/CCode.dir/practise.cpp.o.requires
-	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/practise.cpp.o.provides.build
-.PHONY : CMakeFiles/CCode.dir/practise.cpp.o.provides
+CMakeFiles/CCode.dir/list.cpp.o.provides: CMakeFiles/CCode.dir/list.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/list.cpp.o.provides.build
+.PHONY : CMakeFiles/CCode.dir/list.cpp.o.provides
 
-CMakeFiles/CCode.dir/practise.cpp.o.provides.build: CMakeFiles/CCode.dir/practise.cpp.o
+CMakeFiles/CCode.dir/list.cpp.o.provides.build: CMakeFiles/CCode.dir/list.cpp.o
 
 
 CMakeFiles/CCode.dir/test.cpp.o: CMakeFiles/CCode.dir/flags.make
@@ -129,21 +129,47 @@ CMakeFiles/CCode.dir/sort.cpp.o.provides: CMakeFiles/CCode.dir/sort.cpp.o.requir
 CMakeFiles/CCode.dir/sort.cpp.o.provides.build: CMakeFiles/CCode.dir/sort.cpp.o
 
 
+CMakeFiles/CCode.dir/tree.cpp.o: CMakeFiles/CCode.dir/flags.make
+CMakeFiles/CCode.dir/tree.cpp.o: ../tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CCode.dir/tree.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CCode.dir/tree.cpp.o -c /Users/tanzhen/Desktop/code/iterview/CCode/tree.cpp
+
+CMakeFiles/CCode.dir/tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CCode.dir/tree.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanzhen/Desktop/code/iterview/CCode/tree.cpp > CMakeFiles/CCode.dir/tree.cpp.i
+
+CMakeFiles/CCode.dir/tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CCode.dir/tree.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanzhen/Desktop/code/iterview/CCode/tree.cpp -o CMakeFiles/CCode.dir/tree.cpp.s
+
+CMakeFiles/CCode.dir/tree.cpp.o.requires:
+
+.PHONY : CMakeFiles/CCode.dir/tree.cpp.o.requires
+
+CMakeFiles/CCode.dir/tree.cpp.o.provides: CMakeFiles/CCode.dir/tree.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/tree.cpp.o.provides.build
+.PHONY : CMakeFiles/CCode.dir/tree.cpp.o.provides
+
+CMakeFiles/CCode.dir/tree.cpp.o.provides.build: CMakeFiles/CCode.dir/tree.cpp.o
+
+
 # Object files for target CCode
 CCode_OBJECTS = \
-"CMakeFiles/CCode.dir/practise.cpp.o" \
+"CMakeFiles/CCode.dir/list.cpp.o" \
 "CMakeFiles/CCode.dir/test.cpp.o" \
-"CMakeFiles/CCode.dir/sort.cpp.o"
+"CMakeFiles/CCode.dir/sort.cpp.o" \
+"CMakeFiles/CCode.dir/tree.cpp.o"
 
 # External object files for target CCode
 CCode_EXTERNAL_OBJECTS =
 
-CCode: CMakeFiles/CCode.dir/practise.cpp.o
+CCode: CMakeFiles/CCode.dir/list.cpp.o
 CCode: CMakeFiles/CCode.dir/test.cpp.o
 CCode: CMakeFiles/CCode.dir/sort.cpp.o
+CCode: CMakeFiles/CCode.dir/tree.cpp.o
 CCode: CMakeFiles/CCode.dir/build.make
 CCode: CMakeFiles/CCode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable CCode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable CCode"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CCode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -151,9 +177,10 @@ CMakeFiles/CCode.dir/build: CCode
 
 .PHONY : CMakeFiles/CCode.dir/build
 
-CMakeFiles/CCode.dir/requires: CMakeFiles/CCode.dir/practise.cpp.o.requires
+CMakeFiles/CCode.dir/requires: CMakeFiles/CCode.dir/list.cpp.o.requires
 CMakeFiles/CCode.dir/requires: CMakeFiles/CCode.dir/test.cpp.o.requires
 CMakeFiles/CCode.dir/requires: CMakeFiles/CCode.dir/sort.cpp.o.requires
+CMakeFiles/CCode.dir/requires: CMakeFiles/CCode.dir/tree.cpp.o.requires
 
 .PHONY : CMakeFiles/CCode.dir/requires
 

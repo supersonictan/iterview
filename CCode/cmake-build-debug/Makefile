@@ -123,32 +123,32 @@ CCode/fast:
 	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/build
 .PHONY : CCode/fast
 
-practise.o: practise.cpp.o
+list.o: list.cpp.o
 
-.PHONY : practise.o
+.PHONY : list.o
 
 # target to build an object file
-practise.cpp.o:
-	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/practise.cpp.o
-.PHONY : practise.cpp.o
+list.cpp.o:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/list.cpp.o
+.PHONY : list.cpp.o
 
-practise.i: practise.cpp.i
+list.i: list.cpp.i
 
-.PHONY : practise.i
+.PHONY : list.i
 
 # target to preprocess a source file
-practise.cpp.i:
-	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/practise.cpp.i
-.PHONY : practise.cpp.i
+list.cpp.i:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/list.cpp.i
+.PHONY : list.cpp.i
 
-practise.s: practise.cpp.s
+list.s: list.cpp.s
 
-.PHONY : practise.s
+.PHONY : list.s
 
 # target to generate assembly for a file
-practise.cpp.s:
-	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/practise.cpp.s
-.PHONY : practise.cpp.s
+list.cpp.s:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/list.cpp.s
+.PHONY : list.cpp.s
 
 sort.o: sort.cpp.o
 
@@ -204,6 +204,33 @@ test.cpp.s:
 	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/test.cpp.s
 .PHONY : test.cpp.s
 
+tree.o: tree.cpp.o
+
+.PHONY : tree.o
+
+# target to build an object file
+tree.cpp.o:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/tree.cpp.o
+.PHONY : tree.cpp.o
+
+tree.i: tree.cpp.i
+
+.PHONY : tree.i
+
+# target to preprocess a source file
+tree.cpp.i:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/tree.cpp.i
+.PHONY : tree.cpp.i
+
+tree.s: tree.cpp.s
+
+.PHONY : tree.s
+
+# target to generate assembly for a file
+tree.cpp.s:
+	$(MAKE) -f CMakeFiles/CCode.dir/build.make CMakeFiles/CCode.dir/tree.cpp.s
+.PHONY : tree.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -213,15 +240,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... CCode"
-	@echo "... practise.o"
-	@echo "... practise.i"
-	@echo "... practise.s"
+	@echo "... list.o"
+	@echo "... list.i"
+	@echo "... list.s"
 	@echo "... sort.o"
 	@echo "... sort.i"
 	@echo "... sort.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
+	@echo "... tree.o"
+	@echo "... tree.i"
+	@echo "... tree.s"
 .PHONY : help
 
 

@@ -82,13 +82,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/practise.cpp">
+		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/list.cpp">
 			<Option target="CCode"/>
 		</Unit>
 		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/sort.cpp">
 			<Option target="CCode"/>
 		</Unit>
 		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/test.cpp">
+			<Option target="CCode"/>
+		</Unit>
+		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/tree.cpp">
 			<Option target="CCode"/>
 		</Unit>
 		<Unit filename="/Users/tanzhen/Desktop/code/iterview/CCode/CMakeLists.txt">

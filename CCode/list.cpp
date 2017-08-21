@@ -15,6 +15,9 @@ using namespace std;
  * 7.排序K个链表
  * 8.返回链表中环的起始位置
  * 9.判断单向链表是否回文
+ * 10.两链表相加,数字低位在链表尾部
+ * 11.O(1)时间删除链表节点
+ * 12.链表插入排序
  * */
 
 
@@ -212,14 +215,11 @@ bool isPalindrome(ListNode* head) {
     ListNode *next = head;
     ListNode *now = head;
     ListNode *pre = NULL;
-    int lenth = 0;
+
     if(head == NULL || head->next == NULL)
         return true;
     //取得长度
-    while(next != NULL) {
-        next = next->next;
-        lenth++;
-    }
+    int lenth = getLength(head);
     //遍历到中间，并逆置,最后next指向后半段
     for(int i = 0; i < (lenth / 2); i++) {
         next = now->next;
@@ -277,6 +277,122 @@ ListNode * addLists2(ListNode * l1, ListNode * l2) {
     return head;
 }
 
+/*11.O(1)时间删除链表节点*/
+void deleteNode(ListNode *node) {
+    ListNode *p = node->next;
+    node->val = p->val;
+    node->next = p->next;
+    delete p;
+}
+
+/*12.插入排序*/
+ListNode *insertionSortList(ListNode *head) {
+    //3->2->1->0->null, return 0->1->2->3->null
+    ListNode *dummy=new ListNode(0);
+    while(head!=NULL) {
+        ListNode *node = dummy;
+        while(node->next!=NULL && node->next->val < head->val) {
+            node = node->next;
+        }
+        //把head放到node后面,head再指向head.next
+        ListNode *temp = head->next;
+        head->next = node->next;//插入
+        node->next = head;//该结点放在node的那个链表后面
+        head = temp;
+    }
+    return dummy->next;
+}
+/*13. LRU*/
+struct LRUListNode {
+    LRUListNode *next;
+    int key, value;
+
+    LRUListNode(int k, int v) {
+        key = k;
+        value = v;
+        next = NULL;
+    }
+};
+int count;
+int cap;
+LRUListNode *head, *tail;
+LRUCache(int capacity) {
+    // write your code here
+    count = 0;
+    cap = capacity;
+    head = tail = NULL;
+}
+
+// @return an integer
+int get(int key) {
+    // write your code here
+    LRUListNode *p = head, *front = NULL;
+    int ret = -1;
+    while (p) {
+        if (p->key == key) {
+            ret = p->value;
+            break;
+        }
+        front = p;
+        p = p->next;
+    }
+    if (ret != -1 && p != tail) {
+        if (front) {
+            front->next = p->next;
+        } else {
+            head = p->next;
+        }
+        p->next = NULL;
+        tail->next = p;
+        tail = p;
+    }
+    return ret;
+}
+
+// @param key, an integer
+// @param value, an integer
+// @return nothing
+void set(int key, int value) {
+    // write your code here
+    LRUListNode *p = head, *front = NULL;
+    bool found = false;
+    while (p) {
+        if (p->key == key) {
+            found = true;
+            p->value = value;
+            break;
+        }
+        front = p;
+        p = p->next;
+    }
+    if (!found) {
+        ++count;
+        LRUListNode *q = new LRUListNode(key, value);
+        if (!tail) {
+            head = tail = q;
+        } else {
+            tail->next = q;
+            tail = q;
+        }
+        if (count > cap) {
+            --count;
+            LRUListNode *q = head;
+            head = q->next;
+            delete q;
+        }
+    } else {
+        if (p != tail) {
+            if (front) {
+                front->next = p->next;
+            } else {
+                head = p->next;
+            }
+            p->next = NULL;
+            tail->next = p;
+            tail = p;
+        }
+    }
+}
 
 int main(){
     addTwoNumbers(NULL,NULL);
