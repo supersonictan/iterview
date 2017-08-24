@@ -927,7 +927,7 @@ public class Demo {
 
     /**
      * 非递归解法：  
-     * 先求从根节点到两个节点的路径，然后再比较对应路径的节点就行，最后一个相同的节点也就是他们在二叉树中的最低公共祖先节点 
+     * 先求从根节点到两个节点的路径，然后再比较对应路径的节点就行，最后一个相同的节点也就是他们在二叉树中的最低公共祖先节点
      */
     public static TreeNode getLastCommonParent(TreeNode root, TreeNode n1, TreeNode n2) {
         if (root == null || n1 == null || n2 == null) {
@@ -1114,6 +1114,103 @@ public class Demo {
 //      return !isCompleteBinaryTreeSubRec(root).equalsTo(notComplete);  
         return isCompleteBinaryTreeSubRec(root).height != -1;
     }
+
+    public String serialize(TreeNode root) {
+        String res = "";
+        if(root == null) return "";
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        res += root.val;
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.remove();
+            if (cur.left != null) {
+                res += "," + cur.left.val;
+                queue.add(cur.left);
+            } else {
+                res += ",#";
+            }
+
+            if (cur.right != null) {
+                queue.add(cur.right);
+                res += "," +cur.right.val;
+            } else {
+                res += ",#";
+            }
+        }
+        int i = res.length()-1;
+        for (;i>=1;i--) {
+            if (res.charAt(i)!='#' && res.charAt(i)!=',') {
+                break;
+            }
+        }
+        return res.substring(0,i+1);
+    }
+    /*二叉树序列化/反序列化*/
+    public String serialize2(TreeNode root) {
+        if (root == null) {
+            return "{}";
+        }
+
+        ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
+        queue.add(root);
+
+        for (int i = 0; i < queue.size(); i++) {
+            TreeNode node = queue.get(i);
+            if (node == null) {
+                continue;
+            }
+            queue.add(node.left);
+            queue.add(node.right);
+        }
+
+        while (queue.get(queue.size() - 1) == null) {
+            queue.remove(queue.size() - 1);
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        sb.append(queue.get(0).val);
+        for (int i = 1; i < queue.size(); i++) {
+            if (queue.get(i) == null) {
+                sb.append(",#");
+            } else {
+                sb.append(",");
+                sb.append(queue.get(i).val);
+            }
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public TreeNode deserialize(String data) {
+        if (data.equals("{}")) {
+            return null;
+        }
+        String[] vals = data.substring(1, data.length() - 1).split(",");
+        ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
+        TreeNode root = new TreeNode(Integer.parseInt(vals[0]));
+        queue.add(root);
+        int index = 0;
+        boolean isLeftChild = true;
+        for (int i = 1; i < vals.length; i++) {
+            if (!vals[i].equals("#")) {
+                TreeNode node = new TreeNode(Integer.parseInt(vals[i]));
+                if (isLeftChild) {
+                    queue.get(index).left = node;
+                } else {
+                    queue.get(index).right = node;
+                }
+                queue.add(node);
+            }
+            if (!isLeftChild) {
+                index++;
+            }
+            isLeftChild = !isLeftChild;
+        }
+        return root;
+    }
+
+
 
     // 递归判断是否满树（完美）  
     public static boolean isPerfectBinaryTreeRec(TreeNode root){
