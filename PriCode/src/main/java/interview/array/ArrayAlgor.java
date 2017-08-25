@@ -28,10 +28,10 @@ public class ArrayAlgor {
      */
 
     /**15. 罗马数字转化为整数**/
-    public static int roman2Int(String s){
+    /*public static int roman2Int(String s){
         Map<Character, Integer> m = new HashMap<Character, Integer>()
 
-    }
+    }*/
     /**14. 从str1中删除str2的字符**/
     public static String deleteChar(String str1, String str2){
         char[] A = str1.toCharArray();

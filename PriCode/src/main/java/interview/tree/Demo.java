@@ -25,6 +25,7 @@ import java.util.*;
  * 13. 由前序遍历序列和中序遍历序列重建二叉树：rebuildBinaryTreeRec 
  * 14.判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec
  * 15.求二叉树中和为给定值的所有路径  getSumPath2
+ * serialize
  *
  */
 public class Demo {
@@ -48,98 +49,8 @@ public class Demo {
         root.right = new TreeNode(3);
         root.right.right = new TreeNode(4);
 
-        int sum = 15;
-        int CurrentSum = 0;
+        System.out.println(serialize(root));
 
-        ArrayDeque<TreeNode> ad = new ArrayDeque<TreeNode>();
-
-        getSumPath_beta2(root, ad, sum, CurrentSum);
-
-        /*TreeNode r1 = new TreeNode(1);
-        TreeNode r2 = new TreeNode(2);
-        TreeNode r3 = new TreeNode(3);
-        TreeNode r4 = new TreeNode(4);
-        TreeNode r5 = new TreeNode(5);
-        TreeNode r6 = new TreeNode(6);
-
-        r1.left = r2;
-        r1.right = r3;
-        r2.left = r4;
-        r2.right = r5;
-        r3.right = r6;*/
-
-//      System.out.println(getNodeNumRec(r1));  
-//      System.out.println(getNodeNum(r1));  
-//      System.out.println(getDepthRec(r1));  
-//      System.out.println(getDepth(r1));  
-
-//      System.out.println();
-//      preorderTraversal(r1);  
-//      System.out.println();  
-//      inorderTraversalRec(r1);  
-//      System.out.println();  
-//      inorderTraversal(r1);  
-//      System.out.println();  
-//      postorderTraversalRec(r1);  
-//      System.out.println();  
-//      postorderTraversal(r1);  
-//      System.out.println();  
-//      levelTraversal(r1);  
-//      System.out.println();  
-//      levelTraversalRec(r1);  
-//      System.out.println();  
-
-//      TreeNode tmp = convertBSTRec(r1);  
-//      while(true){  
-//          if(tmp == null){  
-//              break;  
-//          }  
-//          System.out.print(tmp.val + " ");  
-//          if(tmp.right == null){  
-//              break;  
-//          }  
-//          tmp = tmp.right;  
-//      }  
-//      System.out.println();  
-//      while(true){  
-//          if(tmp == null){  
-//              break;  
-//          }  
-//          System.out.print(tmp.val + " ");  
-//          if(tmp.left == null){  
-//              break;  
-//          }  
-//          tmp = tmp.left;  
-//      }  
-
-
-//      TreeNode tmp = convertBST2DLL(r1);  
-//      while(true){  
-//          if(tmp == null){  
-//              break;  
-//          }  
-//          System.out.print(tmp.val + " ");  
-//          if(tmp.right == null){  
-//              break;  
-//          }  
-//          tmp = tmp.right;  
-//      }  
-
-//      System.out.println(getNodeNumKthLevelRec(r1, 2));  
-//      System.out.println(getNodeNumKthLevel(r1, 2));  
-
-//      System.out.println(getNodeNumLeafRec(r1));  
-//      System.out.println(getNodeNumLeaf(r1));  
-
-//      System.out.println(isSame(r1, r1));  
-//      inorderTraversal(r1);  
-//      System.out.println();  
-//      mirror(r1);  
-//      TreeNode mirrorRoot = mirrorCopy(r1);  
-//      inorderTraversal(mirrorRoot);  
-
-        //System.out.println(isCompleteBinaryTree(r1));
-        //System.out.println(isCompleteBinaryTreeRec(r1));
 
     }
 
@@ -153,6 +64,57 @@ public class Demo {
         }
     }
 
+    /*二叉树序列化/反序列化*/
+    public static String serialize(TreeNode root) {
+        String res = "{";
+        if (root == null) return "{}";
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        res += root.val;
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.remove();
+            if (cur == null) continue;
+            if (cur.left != null) {
+                res += "," + cur.left.val;
+            }else {
+                res += ",#";
+            }
+            if (cur.right != null) {
+                res += "," + cur.right.val;
+            }else {
+                res += ",#";
+            }
+            queue.add(cur.left);
+            queue.add(cur.right);
+        }
+        int i = res.length()-1;
+        while (res.charAt(i)=='#' || res.charAt(i)==','){
+            i--;
+        }
+        res = res.substring(0,i+1);
+        return res += "}";
+    }
+
+    public TreeNode deserialize(String data) {
+        if (data.equals("{}")) return null;
+        String[] field = data.substring(1, data.length()-1).split(",");
+        List<TreeNode> queue = new ArrayList<TreeNode>();
+        TreeNode root = new TreeNode(Integer.parseInt(field[0]));
+        queue.add(root);
+        int idx = 0;
+        boolean isLeft = true;
+        for (int i=1;i<field.length;i++) {
+            if (!field[i].equals("#")){
+                TreeNode node = new TreeNode(Integer.parseInt(field[i]));
+                if (isLeft) queue.get(idx).left = node;
+                else queue.get(idx).right = node;
+                queue.add(node);
+            }
+            if (!isLeft) idx++;
+            isLeft = !isLeft;
+        }
+        return root;
+    }
 
     /**
      * 必须遍历到leaf，而且打到sum和的必须是到leaf了
@@ -1114,103 +1076,6 @@ public class Demo {
 //      return !isCompleteBinaryTreeSubRec(root).equalsTo(notComplete);  
         return isCompleteBinaryTreeSubRec(root).height != -1;
     }
-
-    public String serialize(TreeNode root) {
-        String res = "";
-        if(root == null) return "";
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.add(root);
-        res += root.val;
-        while (!queue.isEmpty()) {
-            TreeNode cur = queue.remove();
-            if (cur.left != null) {
-                res += "," + cur.left.val;
-                queue.add(cur.left);
-            } else {
-                res += ",#";
-            }
-
-            if (cur.right != null) {
-                queue.add(cur.right);
-                res += "," +cur.right.val;
-            } else {
-                res += ",#";
-            }
-        }
-        int i = res.length()-1;
-        for (;i>=1;i--) {
-            if (res.charAt(i)!='#' && res.charAt(i)!=',') {
-                break;
-            }
-        }
-        return res.substring(0,i+1);
-    }
-    /*二叉树序列化/反序列化*/
-    public String serialize2(TreeNode root) {
-        if (root == null) {
-            return "{}";
-        }
-
-        ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
-        queue.add(root);
-
-        for (int i = 0; i < queue.size(); i++) {
-            TreeNode node = queue.get(i);
-            if (node == null) {
-                continue;
-            }
-            queue.add(node.left);
-            queue.add(node.right);
-        }
-
-        while (queue.get(queue.size() - 1) == null) {
-            queue.remove(queue.size() - 1);
-        }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        sb.append(queue.get(0).val);
-        for (int i = 1; i < queue.size(); i++) {
-            if (queue.get(i) == null) {
-                sb.append(",#");
-            } else {
-                sb.append(",");
-                sb.append(queue.get(i).val);
-            }
-        }
-        sb.append("}");
-        return sb.toString();
-    }
-
-    public TreeNode deserialize(String data) {
-        if (data.equals("{}")) {
-            return null;
-        }
-        String[] vals = data.substring(1, data.length() - 1).split(",");
-        ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
-        TreeNode root = new TreeNode(Integer.parseInt(vals[0]));
-        queue.add(root);
-        int index = 0;
-        boolean isLeftChild = true;
-        for (int i = 1; i < vals.length; i++) {
-            if (!vals[i].equals("#")) {
-                TreeNode node = new TreeNode(Integer.parseInt(vals[i]));
-                if (isLeftChild) {
-                    queue.get(index).left = node;
-                } else {
-                    queue.get(index).right = node;
-                }
-                queue.add(node);
-            }
-            if (!isLeftChild) {
-                index++;
-            }
-            isLeftChild = !isLeftChild;
-        }
-        return root;
-    }
-
-
 
     // 递归判断是否满树（完美）  
     public static boolean isPerfectBinaryTreeRec(TreeNode root){
