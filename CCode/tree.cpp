@@ -354,10 +354,69 @@ TreeNode *buildTree_2(vector<int> &inorder, vector<int> &postorder) {
 string serialize(TreeNode *root) {
     string res = "";
     if (root == NULL) return "";
-
+    queue<TreeNode*> q;
+    q.push(root);
+    res += root->val;
+    while (!q.empty()) {
+        TreeNode* cur = q.front();
+        q.pop();
+        if (cur == NULL) continue;
+        if (cur->left != NULL) {
+            res += "," + cur->left->val;
+        } else{
+            res += ",#";
+        }
+        if (cur->right != NULL) {
+            res += "," + cur->right->val;
+        } else{
+            res += ",#";
+        }
+        q.push(cur->left), q.push(cur->right);
+    }
+    int i=q.size()-1;
+    while (res[i] == '#' || res[i] == ','){
+        i--;
+    }
+    return res.substr(0,i+1);
 }
 TreeNode *deserialize(string data) {
-    // write your code here
+    if (data == "") return NULL;
+    //std::string data = data;
+    vector<string> strVec = split(data,",");
+    split_t(data, strVec, ",");
+    int root_val = atoi(strVec[0].c_str());
+    TreeNode* root = new TreeNode(root_val);
+    vector<TreeNode*> nodeVec;
+    nodeVec.push_back(root);
+    bool isLeft = true;
+    int idx = 0;
+
+    for (int i = 1; i < strVec.size(); ++i) {
+        if (strVec[i] != "#") {
+            int val = atoi(strVec[i].c_str());
+            TreeNode* cur = new TreeNode(val);
+            if (isLeft) nodeVec[idx]->left = cur;
+            else nodeVec[idx]->right = cur;
+            nodeVec.push_back(cur);
+        }
+        if (!isLeft) idx++;
+        isLeft = !isLeft;
+    }
+    return root;
+}
+void split(const std::string& s, std::vector<std::string>& v, const std::string& c) {
+    std::string::size_type pos1, pos2;
+    pos2 = s.find(c);
+    pos1 = 0;
+    while(std::string::npos != pos2)
+    {
+        v.push_back(s.substr(pos1, pos2-pos1));
+
+        pos1 = pos2 + c.size();
+        pos2 = s.find(c, pos1);
+    }
+    if(pos1 != s.length())
+        v.push_back(s.substr(pos1));
 }
 
 
