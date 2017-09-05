@@ -17,9 +17,10 @@ public class AllSort {
 
     int[] arr = {5,4,3,2,1};
     public static void main(String[] args) {
-        int[] num = {5,4,3,2,1};
+        int[] num = {3,4,5,1,2};
         AllSort sort = new AllSort();
-        sort.heapify(num);
+        //sort.heapify(num);
+        sort.kthLargestElement(2,num);
     }
 
 
@@ -95,6 +96,29 @@ public class AllSort {
         return low;
     }
 
+    /*第k大元素*/
+    public int kthLargestElement(int k, int[] nums) {
+        return kthPartition(nums, 0,nums.length-1,k);
+    }
+    public int kthPartition(int[] nums, int left, int right, int k) {
+        int i = left;
+        int j = right;
+        int tmp = nums[i];
+        while(i<j){
+            while(i<j && tmp>=nums[j]) j--;
+            if(i<j){ nums[i]=nums[j]; }
+            while(i<j && tmp<=nums[i]) i++;
+            if(i<j){ nums[j]=nums[i]; }
+
+        }
+        if(i == k -1){
+            return tmp;
+        }else if(i< k-1){
+            return kthPartition(nums,i+1,right,k);
+        }else{
+            return kthPartition(nums,left,i-1,k);
+        }
+    }
 
     /*公共util*/
     public static void swap(int[] A, int idx1, int idx2) {
