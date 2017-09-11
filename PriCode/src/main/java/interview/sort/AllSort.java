@@ -29,7 +29,7 @@ public class AllSort {
     }
 
 
-    /**堆排序**/
+    /*堆排序*/
     public void heapify(int[] A) {
         for(int i = A.length / 2; i >= 0; i--){
             heapify(A, i);
@@ -68,7 +68,7 @@ public class AllSort {
             }
         }
     }
-    /**冒泡排序**/
+    /*冒泡排序*/
     public void bubbleSort(int[] A) {
         for (int i=A.length-1; i>0; i--){
             for (int j=0; j<i; j++) {
@@ -101,7 +101,7 @@ public class AllSort {
         return low;
     }
 
-    /**第k大元素**/
+    /*第k大元素*/
     public int kthLargestElement(int k, int[] nums) {
         return kthPartition(nums, 0,nums.length-1,k);
     }
@@ -124,7 +124,7 @@ public class AllSort {
         }
     }
 
-    /**中位数**/
+    /*中位数*/
     public int median(int[] nums) {
         int len = nums.length%2==0?nums.length/2 : nums.length/2+1;
         return medianPartition(nums, 0, nums.length-1, len);
@@ -144,7 +144,8 @@ public class AllSort {
         else return medianPartition(arr, l, right-1,k);
     }
 
-    /**两数之和=给给定数字:给一个整数数组，找到两个数使得他们的和等于一个给定的数 target。**/
+    /*两数之和=给给定数字:给一个整数数组，找到两个数使得他们的和等于一个给定的数 target
+    * Hash*/
     public int[] twoSum(int[] numbers, int target) {
         // write your code here
         if (numbers == null || numbers.length < 2 ){
@@ -166,7 +167,8 @@ public class AllSort {
         return res;
     }
 
-    /**三数字之和=0**/
+    /*三数字之和=0
+    * O(nlogn)+O(n^2)*/
     public List<List<Integer>> threeSum(int[] numbers) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         Arrays.sort(numbers);
