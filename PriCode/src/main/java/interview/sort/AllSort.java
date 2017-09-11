@@ -224,7 +224,8 @@ public class AllSort {
         }
     }
 
-    /*最接近的三数之和:给一个包含n个整数的数组S, 找到和与给定整数target最接近的三元组，返回这三个数的和*/
+    /*最接近的三数之和:
+    给一个包含n个整数的数组S, 找到和与给定整数target最接近的三元组，返回这三个数的和*/
     public int threeSumClosest(int[] numbers, int target) {
         Arrays.sort(numbers);
         int res = Integer.MAX_VALUE;
@@ -241,7 +242,7 @@ public class AllSort {
         return res;
     }
 
-    /*O(n)给一个数组，并且数组里面元素的值只可能是0,1,2，然后现在把这个数组排序*/
+    /*O(n)数组里面元素的值只可能是0,1,2，然后现在把这个数组排序*/
     public void sortColors(int[] nums) {
         int left = 0, cur = 0, right = nums.length-1;
         while (cur <= right) {
@@ -251,7 +252,8 @@ public class AllSort {
         }
     }
 
-    /*四数之和:给一个包含n个数的整数数组S，在S中找到所有使得和为给定整数target的四元组(a, b, c, d)*/
+    /*四数之和:
+    数组S，在S中找到所有使得和为给定整数target的四元组(a, b, c, d)*/
     public List<List<Integer>> fourSum(int[] numbers, int target) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
         Arrays.sort(numbers);
