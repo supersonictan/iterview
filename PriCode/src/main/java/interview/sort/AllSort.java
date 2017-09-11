@@ -17,15 +17,20 @@ import java.util.*;
 * 两数之和=给给定数字
 * 三数之和:a + b + c = 0
 * 拼接最大数：重新排列他们的顺序把他们组成一个最大的整数
+* 最接近的三数之和:给一个包含n个整数的数组S, 找到和与给定整数target最接近的三元组，返回这三个数的和。
+* 给一个数组，并且数组里面元素的值只可能是0,1,2，然后现在把这个数组排序
+* 四数之和:给一个包含n个数的整数数组S，在S中找到所有使得和为给定整数target的四元组(a, b, c, d)
+*
+*
 * */
 public class AllSort {
 
     int[] arr = {1,2,3,4,5,6,8,9,10,7};
     public static void main(String[] args) {
-        int[] num = {-1,-2,-3,-100,-1,-50};
+        int[] num = {2,0,0,1,2,0,2};
         AllSort sort = new AllSort();
         //sort.heapify(num);
-        System.out.println(sort.median(num));
+        sort.sortColors(num);
     }
 
 
@@ -190,9 +195,9 @@ public class AllSort {
         return res;
     }
 
-    /**拼接最大数：重新排列他们的顺序把他们组成一个最大的整数
+    /*拼接最大数：重新排列他们的顺序把他们组成一个最大的整数
      * s1比s2小的话返回负数,s1排在s2前面.那第一个s2comparetos1,s2比s1大
-     * **/
+     * */
     public String largestNumber(int[] num) {
         if(num == null || num.length == 0) return "";
         String[] strs = new String[num.length];
@@ -217,5 +222,77 @@ public class AllSort {
         public int compare(String s1, String s2){
             return (s2+s1).compareTo(s1+s2);
         }
+    }
+
+    /*最接近的三数之和:给一个包含n个整数的数组S, 找到和与给定整数target最接近的三元组，返回这三个数的和*/
+    public int threeSumClosest(int[] numbers, int target) {
+        Arrays.sort(numbers);
+        int res = Integer.MAX_VALUE;
+        for (int i=0; i<numbers.length-1; i++) {
+            int j = i+1, k = numbers.length-1;
+            while (j<k) {
+                int sum = numbers[i] + numbers[j] + numbers[k];
+                res = Math.abs(target-sum) < Math.abs(res-target) ? sum : res;
+                if (sum < target) j++;
+                else if(sum> target)k--;
+                else return sum;
+            }
+        }
+        return res;
+    }
+
+    /*O(n)给一个数组，并且数组里面元素的值只可能是0,1,2，然后现在把这个数组排序*/
+    public void sortColors(int[] nums) {
+        int left = 0, cur = 0, right = nums.length-1;
+        while (cur <= right) {
+            if (nums[cur] == 0) swap(nums, left++, cur++);
+            else if (nums[cur] == 1) cur++;
+            else if (nums[cur] == 2) swap(nums, cur, right--);
+        }
+    }
+
+    /*四数之和:给一个包含n个数的整数数组S，在S中找到所有使得和为给定整数target的四元组(a, b, c, d)*/
+    public List<List<Integer>> fourSum(int[] numbers, int target) {
+        List<List<Integer>> ret = new ArrayList<List<Integer>>();
+        Arrays.sort(numbers);
+        for (int i=0; i<numbers.length; i++) {
+            for (int j=i+1; j<numbers.length; j++) {
+                int tmp = numbers[i] + numbers[j];
+                int k = j+1, l = numbers.length-1;
+                while (k<l) {
+                    int new_sum = tmp+ numbers[k] + numbers[l];
+                    if (new_sum == target) {
+                        List<Integer> tmpList = new ArrayList<Integer>();
+                        tmpList.add(numbers[i]);
+                        tmpList.add(numbers[j]);
+                        tmpList.add(numbers[k++]);
+                        tmpList.add(numbers[l--]);
+                        if (!ret.contains(tmpList)) {
+                            ret.add(tmpList);
+                        }
+                    } else if(new_sum < target) {
+                        k++;
+                    } else {
+                        l--;
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+
+
+
+
+
+
+
+
+
+
+    public void swap(int[] arr, int left, int right) {
+        int tmp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = tmp;
     }
 }
