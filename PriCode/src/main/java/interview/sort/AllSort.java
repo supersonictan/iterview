@@ -20,7 +20,7 @@ import java.util.*;
 * 最接近的三数之和:给一个包含n个整数的数组S, 找到和与给定整数target最接近的三元组，返回这三个数的和。
 * 给一个数组，并且数组里面元素的值只可能是0,1,2，然后现在把这个数组排序
 * 四数之和:给一个包含n个数的整数数组S，在S中找到所有使得和为给定整数target的四元组(a, b, c, d)
-*
+* 二分查找/二分查找第一个出现下标/分段二分查找
 *
 * */
 public class AllSort {
@@ -86,7 +86,7 @@ public class AllSort {
         }
     }
 
-    /**快排**/
+    /*快排*/
     public void quickSort(int low, int high){
         if (low < high) {
             int mid = partition(low,high);
@@ -283,8 +283,71 @@ public class AllSort {
         return ret;
     }
 
-
-
+    /*二分查找*/
+    public int binarySearch(int[] nums, int target) {
+        if (nums == null && nums.length == 0) {
+            return -1;
+        }
+        int begin = 0;
+        int end = nums.length-1;
+        while (begin < end) {
+            int mid = (begin + end) /2;
+            if (target == nums[mid]) return mid;
+            else if (target > nums[mid]) begin = mid+1;
+            else end = mid-1;
+        }
+        return -1;
+    }
+    /*二分查找：第一次出现的下标*/
+    public int binarySearch_first(int[] nums, int target) {
+        int begin = 0;
+        int end = nums.length-1;
+        int res = -1;
+        while (begin<=end) {
+            int mid = (begin+end) / 2;
+            if (nums[mid] == target) {
+                if (res<0) res = mid;
+                if (res>0 && mid<res) res = mid;
+                end = end-1;
+            }else if (nums[mid] > target) {
+                end = mid-1;
+            } else {
+                begin = mid + 1;
+            }
+        }
+        return res;
+    }
+    /*分段查找 分段 6,7,8,9,1,2,3,4,5*/
+    public static boolean getB(int[] a,int target){
+        if(null ==a|| a.length ==0){
+            return false;
+        }
+        int end = a.length-1;
+        int begin =0;
+        while (begin <= end && begin < a.length && end < a.length && begin >=0) {
+            int mid = (end+begin)/2;
+            if(a[mid] == target){
+                return true;
+            }else if(a[mid] > target ){ //比最小的还小
+                if( (mid-1) >=0 && a[mid] < a[mid-1]){
+                    return false;
+                }
+                end =mid-1;
+            }else if(a[mid] < target){
+                if( (mid+1) < a.length-1 && a[mid] > a[mid+1]){//比最大的大
+                    return false;
+                }
+                if(target ==a[end]){
+                    return true;
+                }else if (target > a[end]){
+                    end = mid -1;
+                }else {
+                    begin = mid+1;
+                }
+            }
+        }
+        return false;
+    }
 
 
 
