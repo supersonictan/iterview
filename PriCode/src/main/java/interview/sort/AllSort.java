@@ -27,10 +27,10 @@ public class AllSort {
 
     int[] arr = {1,2,3,4,5,6,8,9,10,7};
     public static void main(String[] args) {
-        int[] num = {2,0,0,1,2,0,2};
+        int[] num = {7,8,9,1,2,3,4,5,6};
         AllSort sort = new AllSort();
         //sort.heapify(num);
-        sort.sortColors(num);
+        System.out.println(sort.findIndex(num));
     }
 
 
@@ -350,6 +350,26 @@ public class AllSort {
     }
 
 
+    public int findIndex(int[] arr) {
+        int left = 0;
+        int right = arr.length-1;
+        while(left < right) {
+            int mid = (left+right)/2;
+            if(mid-1>=0 && arr[mid] < arr[mid-1] ){
+                return mid-1;
+            }
+            if(mid+1 <= arr.length-1 && arr[mid] > arr[mid+1]) {
+                return mid;
+            }
+            if (arr[left] < arr[mid] ) {
+                left = mid+1;
+            }
+            if (arr[mid] < arr[right]) {
+                right = mid-1;
+            }
+        }
+        return -1;
+    }
 
 
 
