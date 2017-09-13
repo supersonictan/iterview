@@ -349,7 +349,7 @@ public class AllSort {
         return false;
     }
 
-
+    /*二分查找：找到7,8,9,1,2,3,4,5,6的分段位置*/
     public int findIndex(int[] arr) {
         int left = 0;
         int right = arr.length-1;
