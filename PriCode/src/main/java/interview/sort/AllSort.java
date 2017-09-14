@@ -30,7 +30,7 @@ public class AllSort {
         int[] num = {7,8,9,1,2,3,4,5,6};
         AllSort sort = new AllSort();
         //sort.heapify(num);
-        System.out.println(sort.getB(num,1));
+        System.out.println(sort.biSearch_seg(num,8));
     }
 
 
@@ -318,50 +318,31 @@ public class AllSort {
         return res;
     }
     /*分段查找 分段 5,6,7,8,9,10,1,2,3,4*/
-    public static int getB(int[] a,int target){
-        int end = a.length-1;
-        int begin =0;
-        while (begin <= end && begin<a.length && end<a.length && begin>=0) {
-            int mid = (end+begin)/2;
-            if(a[mid] == target){
-                return mid;
-            }else if(a[mid] > target ){ //比最小的还小
-                if( (mid-1) >=0 && a[mid] < a[mid-1]){ //边界处
-                    return -1;
-                }
-                end = mid-1;
-            }else if(a[mid] < target){
-                if( (mid+1) < a.length-1 && a[mid] > a[mid+1]){//比最大的大
-                    return -1;
-                }
-                if(target ==a[end]){
-                    return end;
-                }else if (target > a[end]){
-                    end = mid -1;
+    public static int biSearch_seg(int[] a,int target){
+        int left = 0;
+        int right = a.length-1;
+        while (left<=right) {
+            int mid = (left + right) /2;
+            if (a[mid] == target) return mid;
+            if (a[left] < a[mid]) {//左边递增
+                if (target < a[mid] && target > a[left]) {
+                    right = mid-1;
                 }else {
-                    begin = mid+1;
+                    left = mid+1;
                 }
-                //begin = mid +1;
+            } else if (a[left] > a[mid]) { //右边递增
+                if (target > a[mid] && target<a[right]) {
+                    left = mid +1;
+                }else {
+                    right = mid -1;
+                }
+            } else {
+                left++;
             }
         }
         return -1;
     }
-    public static int biSearch_seg(int[] a, int target, int left, int right) {
-        while (left < right) {
-            int mid = (left + right) /2;
-            if (a[mid] == target) return mid;
-            //左边递增
-            if (a[left] < a[mid]) {
-                if (target < a[mid]) {
-                    right = mid - 1;
-                } else {
-                    left = mid + 1;
-                }
-            }else if (a[mid] > a[right]) {
 
-            }
-        }
-    }
 
     /*二分查找：找到7,8,9,1,2,3,4,5,6的分段位置*/
     public int findIndex(int[] arr) {
