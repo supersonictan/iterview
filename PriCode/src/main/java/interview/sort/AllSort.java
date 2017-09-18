@@ -24,16 +24,17 @@ import java.util.*;
 * 二分查找第一个出现下标
 * 二分查找：找到7,8,9,1,2,3,4,5,6的分段位置
 * 二分查找-数组位移
+* x的n次幂-nlgn
 *
 * */
 public class AllSort {
 
     int[] arr = {1,2,3,4,5,6,8,9,10,7};
     public static void main(String[] args) {
-        int[] num = {7,8,9,1,2,3,4,5,6};
+        int[] num = {4,5,6,7,0,1,2};
         AllSort sort = new AllSort();
         //sort.heapify(num);
-        System.out.println(sort.biSearch_seg(num,8));
+        System.out.println(sort.findMin_2(num));
     }
 
 
@@ -347,28 +348,52 @@ public class AllSort {
     }
 
 
-    /*二分查找：找到7,8,9,1,2,3,4,5,6的分段位置*/
-    public int findIndex(int[] arr) {
+    /*位移数组 7,8,9,1,2,3,4,5,6的最小值*/
+    public int findMin(int[] num) {
         int left = 0;
-        int right = arr.length-1;
+        int right = num.length - 1;
+        while(left < right){
+            int mid = (left + right)/2;
+            if(num[mid] > num[right]){
+                left = mid + 1;
+            } else if(num[mid] < num[left]){
+                right = mid;
+            } else{
+                right--;
+            }
+        }
+        return num[left];
+    }
+    public int findMin_2(int[] num) {
+        if (num[0] < num[num.length-1]) return num[0];
+        int left = 0;
+        int right = num.length-1;
         while(left < right) {
             int mid = (left+right)/2;
-            if(mid-1>=0 && arr[mid] < arr[mid-1] ){
-                return mid-1;
+            if(mid-1>=0 && num[mid] < num[mid-1] ){
+                return num[mid];
             }
-            if(mid+1 <= arr.length-1 && arr[mid] > arr[mid+1]) {
-                return mid;
+            if(mid+1 <= num.length-1 && num[mid] > num[mid+1]) {
+                return num[mid+1];
             }
-            if (arr[left] < arr[mid] ) {
+            if (num[left] < num[mid] ) {
                 left = mid+1;
             }
-            if (arr[mid] < arr[right]) {
+            if (num[mid] < num[right]) {
                 right = mid-1;
             }
         }
         return -1;
     }
 
+    /*x的n次幂http://www.cnblogs.com/grandyang/p/4383775.html*/
+    double myPow(double x, int n) {
+        if (n == 0) return 1;
+        double half = myPow(x, n / 2);
+        if (n % 2 == 0) return half * half;
+        else if (n > 0) return half * half * x;
+        else return half * half / x; //取倒数
+    }
 
 
 
