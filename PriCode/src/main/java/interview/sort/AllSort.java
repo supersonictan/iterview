@@ -322,20 +322,20 @@ public class AllSort {
         return res;
     }
     /*二分查找-数组位移 5,6,7,8,9,10,1,2,3,4*/
-    public static int biSearch_seg(int[] a,int target){
+    public static int biSearch_seg(int[] A,int target){
         int left = 0;
-        int right = a.length-1;
+        int right = A.length-1;
         while (left<=right) {
             int mid = (left + right) /2;
-            if (a[mid] == target) return mid;
-            if (a[left] < a[mid]) {//左边递增
-                if (target < a[mid] && target > a[left]) {
+            if (A[mid] == target) return mid;
+            if (A[left] < A[mid]) {//左边递增
+                if (target < A[mid] && target > A[left]) {
                     right = mid-1;
                 }else {
                     left = mid+1;
                 }
-            } else if (a[left] > a[mid]) { //右边递增
-                if (target > a[mid] && target<a[right]) {
+            } else if (A[left] > A[mid]) { //右边递增
+                if (target > A[mid] && target<A[right]) {
                     left = mid +1;
                 }else {
                     right = mid -1;
