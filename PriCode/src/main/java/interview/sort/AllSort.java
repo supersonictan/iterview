@@ -25,16 +25,18 @@ import java.util.*;
 * 二分查找：找到7,8,9,1,2,3,4,5,6的分段位置
 * 二分查找-数组位移
 * x的n次幂-nlgn
+* 搜索二维矩阵
 *
 * */
 public class AllSort {
 
     int[] arr = {1,2,3,4,5,6,8,9,10,7};
     public static void main(String[] args) {
-        int[] num = {4,5,6,7,0,1,2};
+        int[] num = {4,5,6,7,0,1,1,1,1,1,2};
+        int[][] matrix = {{1,5,10,11,16,23,24,26,29,34,41,48,49,56,63,67,71,74,75},{97,118,131,150,160,182,202,226,251,273,289,310,326,349,368,390,401,412,428},{445,455,466,483,501,519,538,560,581,606,631,643,653,678,702,726,748,766,781},{792,817,837,858,872,884,901,920,936,957,972,982,1001,1024,1044,1063,1086,1098,1111},{1129,1151,1172,1194,1213,1224,1234,1250,1267,1279,1289,1310,1327,1348,1371,1393,1414,1436,1452},{1467,1477,1494,1510,1526,1550,1568,1585,1599,1615,1625,1649,1663,1674,1693,1710,1735,1750,1769}};
         AllSort sort = new AllSort();
         //sort.heapify(num);
-        System.out.println(sort.findMin_2(num));
+        System.out.println(sort.searchMatrix(matrix,1769));
     }
 
 
@@ -395,6 +397,36 @@ public class AllSort {
         else return half * half / x; //取倒数
     }
 
+    /*搜索二维矩阵*/
+    public boolean searchMatrix(int[][] m, int target) {
+        if (m == null || m.length < 1) return false;
+        if (m[0][0] > target || m[m.length-1][m[0].length-1] < target) return false;
+        int colLen = m[0].length-1;
+
+        int rowIdx=0, colIdx = 0;
+        int l = 0;
+        int r = m.length-1;
+        while (l<=r) {
+            int mid = (l+r)/2;
+            if (m[mid][0] == target || m[mid][colLen] == target) return true;
+            else if (m[mid][0] <= target && m[mid][colLen] >= target) {
+                rowIdx = mid;
+                break;
+            }
+            else if (m[mid][0] > target) r = mid-1;
+            else if (m[mid][colLen] < target) l = mid+1;
+        }
+
+        l = 0;
+        r = m[0].length-1;
+        while (l <= r) {
+            int mid = (l + r)/2;
+            if (m[rowIdx][mid] == target) return true;
+            else if (m[rowIdx][mid] > target) r = mid-1;
+            else if (m[rowIdx][mid] < target) l = mid +1;
+        }
+        return false;
+    }
 
 
 
