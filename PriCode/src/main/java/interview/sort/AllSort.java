@@ -26,6 +26,8 @@ import java.util.*;
 * 二分查找-数组位移
 * x的n次幂-nlgn
 * 搜索二维矩阵
+* 最大子数组均值(长度=k)
+* 最大子数组均值(长度>=k)
 *
 * */
 public class AllSort {
@@ -428,7 +430,64 @@ public class AllSort {
         return false;
     }
 
+    /*最大子数组均值(指定长度k)*/
+    public double findMaxAverage(int[] nums, int k) {
+        if (nums.length < 1 || nums == null) {
+            return -1;
+        }
+        int sum = 0;
+        int max = 0;
+        for (int i = 0; i < k; i++) {
+            sum += nums[i];// 先求前k个数的和，之后不断维护这个数组即可。
+            max = sum;
+        }
+        for (int i = k; i < nums.length; i++) {
+            sum += nums[i] - nums[i - k];
+            if (sum > max) {
+                max = sum;
+            }
+        }
+        return max * 1.0 / k;
+    }
 
+    public double findMaxAverage_2(int[] nums, int k) {
+        int n = nums.length;
+        double l = Integer.MAX_VALUE, r = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            l = Math.min(l, (double)nums[i]);
+            r = Math.max(r, (double)nums[i]);
+        }
+        double[] sumNums = new double[n + 1];//存放每个num-mid之和
+        sumNums[0] = 0;
+        while (r - l > 1e-6) {
+            double mid = (l + r) / 2;
+            for (int i = 0; i < n; i++) {
+                sumNums[i + 1] = sumNums[i] + nums[i] - mid; //i前所有和-mid
+            }
+            double preMin = 0;//存放之前最小的一个数
+            double sumMax = Integer.MIN_VALUE;
+            for (int i = k; i <= n; i++) {
+                sumMax = Math.max(sumMax, sumNums[i] - preMin);
+                preMin = Math.min(preMin, sumNums[i - k + 1]);
+            }
+            if (sumMax >= 0) {
+                l = mid;
+            }
+            else {
+                r = mid;
+            }
+        }
+        return l;
+    }
+    //http://www.sohu.com/a/164734114_257701
+
+    /*search函数中计算了每一个值与mid的差，也就是和平均数之间的偏差，
+    并依次累加求和，存贮在sum[]中。
+    然后比较偏差的变化，在子数组长度大于等于k之后，开始比较当前偏差之和与k个元素之前的所有偏差的最小值（以后简称最小值），
+    如果当前偏差之和大于最小值，说明子数组的平均数被增大了，也就说明存在某一子数组的平均值大于mid，所以返回true，这样low=mid；
+    如果遍历到最后发现偏差的和始终小于最小值，说明所有子数组的平均值，都小于mid，所以返回false，这样high=mid。
+上述子数组的长度均要求大于等于k，不再强调。
+所以类似于二分法，不断地确定子数组最大平均数的范围，直至high=low。*/
 
     public void swap(int[] arr, int left, int right) {
         int tmp = arr[left];
