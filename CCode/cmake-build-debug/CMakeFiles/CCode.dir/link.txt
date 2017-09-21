@@ -1,1 +1,3 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/CCode.dir/list.cpp.o CMakeFiles/CCode.dir/test.cpp.o CMakeFiles/CCode.dir/sort.cpp.o CMakeFiles/CCode.dir/tree.cpp.o  -o CCode 
+"C:\Program Files (x86)\JetBrains\CLion 2016.3.3\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\CCode.dir/objects.a
+F:\MinGW\bin\ar.exe cr CMakeFiles\CCode.dir/objects.a @CMakeFiles\CCode.dir\objects1.rsp
+F:\MinGW\bin\g++.exe  -g   -Wl,--whole-archive CMakeFiles\CCode.dir/objects.a -Wl,--no-whole-archive  -o CCode.exe -Wl,--out-implib,libCCode.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CCode.dir\linklibs.rsp

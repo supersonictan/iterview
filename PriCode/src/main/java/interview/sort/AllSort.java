@@ -27,18 +27,21 @@ import java.util.*;
 * x的n次幂-nlgn
 * 搜索二维矩阵
 * 最大子数组均值(长度=k)
-* 最大子数组均值(长度>=k)
+* 最大子数组均值(长度>=k)--两种方法
+* 搜索区间:[5, 7, 7, 8, 8, 10]和目标值target=8
+* 找到1~n数字中个一重复的，不排序，空间O(1)
+*
 *
 * */
 public class AllSort {
 
     int[] arr = {1,2,3,4,5,6,8,9,10,7};
     public static void main(String[] args) {
-        int[] num = {4,5,6,7,0,1,1,1,1,1,2};
+        int[] num = {9,10,100,101,1002,10203};
         int[][] matrix = {{1,5,10,11,16,23,24,26,29,34,41,48,49,56,63,67,71,74,75},{97,118,131,150,160,182,202,226,251,273,289,310,326,349,368,390,401,412,428},{445,455,466,483,501,519,538,560,581,606,631,643,653,678,702,726,748,766,781},{792,817,837,858,872,884,901,920,936,957,972,982,1001,1024,1044,1063,1086,1098,1111},{1129,1151,1172,1194,1213,1224,1234,1250,1267,1279,1289,1310,1327,1348,1371,1393,1414,1436,1452},{1467,1477,1494,1510,1526,1550,1568,1585,1599,1615,1625,1649,1663,1674,1693,1710,1735,1750,1769}};
         AllSort sort = new AllSort();
         //sort.heapify(num);
-        System.out.println(sort.searchMatrix(matrix,1769));
+        System.out.println(sort.searchRange(num,10203));
     }
 
 
@@ -450,7 +453,9 @@ public class AllSort {
         return max * 1.0 / k;
     }
 
+    /*最大子数组平均值(长度>=k)*/
     public double findMaxAverage_2(int[] nums, int k) {
+        //http://www.sohu.com/a/164734114_257701
         int n = nums.length;
         double l = Integer.MAX_VALUE, r = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
@@ -464,7 +469,7 @@ public class AllSort {
             for (int i = 0; i < n; i++) {
                 sumNums[i + 1] = sumNums[i] + nums[i] - mid; //i前所有和-mid
             }
-            double preMin = 0;//存放之前最小的一个数
+            double preMin = 0;//存放k之前最小的一个数
             double sumMax = Integer.MIN_VALUE;
             for (int i = k; i <= n; i++) {
                 sumMax = Math.max(sumMax, sumNums[i] - preMin);
@@ -472,22 +477,233 @@ public class AllSort {
             }
             if (sumMax >= 0) {
                 l = mid;
-            }
-            else {
+            } else {//偏差的和始终小于最小值，说明所有子数组的平均值，都小于mid
                 r = mid;
             }
         }
         return l;
     }
-    //http://www.sohu.com/a/164734114_257701
+    /*最大子数组平均值(长度>=k)*/
+    public double maxAverage_3(int[] nums, int k) {
+        // Write your code here
+        double high = Integer.MIN_VALUE;
+        double low = Integer.MAX_VALUE;
+        for(int i = 0;i<nums.length;i++){
+            if(nums[i] > high){
+                high = nums[i];
+            }
+            if(nums[i] < low){
+                low = nums[i];
+            }
+        }
 
-    /*search函数中计算了每一个值与mid的差，也就是和平均数之间的偏差，
-    并依次累加求和，存贮在sum[]中。
-    然后比较偏差的变化，在子数组长度大于等于k之后，开始比较当前偏差之和与k个元素之前的所有偏差的最小值（以后简称最小值），
-    如果当前偏差之和大于最小值，说明子数组的平均数被增大了，也就说明存在某一子数组的平均值大于mid，所以返回true，这样low=mid；
-    如果遍历到最后发现偏差的和始终小于最小值，说明所有子数组的平均值，都小于mid，所以返回false，这样high=mid。
-上述子数组的长度均要求大于等于k，不再强调。
-所以类似于二分法，不断地确定子数组最大平均数的范围，直至high=low。*/
+        while(high - low >= 1e-6){
+            double mid = (high + low)/2.0;
+            if(search(nums , k ,mid)){
+                low = mid;
+            }else{
+                high = mid;
+            }
+        }
+        return high;
+    }
+    public boolean search(int[] nums , int k , double mid){
+        double min = 0;
+        double[] sum = new double[nums.length + 1];
+        sum[0] = 0;
+        for(int i = 1;i<=nums.length;i++){
+            sum[i] = sum[i - 1] + nums[i - 1] - mid;
+            if(i>=k && sum[i] >= min){
+                return true;
+            }
+            if(i>=k){
+                min = Math.min(min , sum[i - k + 1]);
+            }
+        }
+        return false;
+    }
+
+
+    /*搜索区间:[5, 7, 7, 8, 8, 10]和目标值target=8*/
+    public int[] searchRange(int[] A, int target) {
+        int[] res = {-1,-1};
+        if(A == null||A.length==0) return res;
+        if(A.length==1){
+            res[0] = 0;res[1] = 0;
+            return res;
+        }
+        int l = 0;
+        int r = A.length-1;
+        while (l<r) {
+            int mid = (l+r)/2;
+            if (A[mid] == target) {
+                l = mid;
+                break;
+            }else if (A[mid] < target) {
+                l = mid+1;
+            }else {
+                r = mid-1;
+            }
+        }
+        if (A[l] == target) {
+            r = l;
+            while (l>0 && A[l] == target) l--;
+            while (r<A.length-1 && A[r] == target) r++;
+            res[0] = l==0 ? l : l+1;
+            res[1] = r==A.length-1? r : r-1;
+        }
+        return res;
+    }
+
+    /*找到1~n数字中个一重复的，不排序，空间O(1)*/
+    //若不大于mid的数字个数比mid多，
+    // 则重复出现在[low, mid]之间。
+    //若不大于mid的数字个数比mid少，
+    // 重复出现在后半段中[mid+1，high]
+    public int findDuplicate(int[] nums) {
+        if (nums == null) return -1;
+        int l = 1;
+        int r = nums.length-1;
+        while (l<r) {
+            int mid = (l+r)/2;
+            int cnt = 0;
+            for (int i=0;i<nums.length;i++){
+                if (nums[i] <= mid) cnt++;
+            }
+            if (cnt > mid) r = mid;
+            else l = mid+1;
+        }
+        return l;
+    }
+
+
+
+    /*LRU
+    * 由于LRU缓存插入和删除操作频繁，使用双向链表维护缓存节点，
+    * “新节点”：凡是被访问（新建/修改命中/访问命中）过的节点，一律在访问完成后移动到双向链表尾部，保证链表尾部始终为最“新”节点；
+    * “旧节点”：保证链表头部始终为最“旧”节点，LRU策略删除时表现为删除双向链表头部；
+    * 从链表头部到尾部，节点访问热度逐渐递增
+    *
+    * */
+    public class LRUCache {
+        private int cacheSize;//缓存容量
+        private int currentSize;//当前容量
+        private HashMap<Object, CacheNode> nodes;//缓存容器
+        private CacheNode head;//链表头
+        private CacheNode last;//链表尾
+
+        class CacheNode{
+            CacheNode prev;//前一节点
+            CacheNode next;//后一节点
+            int value;//值
+            int key;//键
+            CacheNode() {
+            }
+        }
+
+        //初始化缓存
+        public LRUCache(int capacity) {
+            currentSize=0;
+            cacheSize=capacity;
+            nodes=new HashMap<Object, CacheNode>(capacity);
+        }
+
+        public Integer get(int key) {
+            CacheNode node = nodes.get(key);
+            if (node != null) {
+                move(node);
+                return node.value;
+            } else {
+                return -1;//error code
+            }
+
+        }
+
+        public void set(int key, int value) {
+            CacheNode node = nodes.get(key);
+            //重复Key
+            if(node!=null){
+                node.value=value;
+                move(node);
+                nodes.put(key, node);
+            }else
+            {//key未重复，正常流程
+                node =new CacheNode();
+                if(currentSize>=cacheSize){
+                    if (last != null){//缓存已满，进行淘汰
+                        nodes.remove(last.key);}
+                    removeLast();//移除链表尾部并后移
+                }else{
+                    currentSize++;
+                }
+
+                node.key=key;
+                node.value=value;
+                move(node);
+                nodes.put(key, node);
+            }
+        }
+
+        //移动链表节点至头部
+        private void move(CacheNode cacheNode){
+            if(cacheNode==head)
+                return;
+            //链接前后节点
+            if(cacheNode.prev!=null)
+                cacheNode.prev.next=cacheNode.next;
+            if(cacheNode.next!=null)
+                cacheNode.next.prev=cacheNode.prev;
+            //头尾节点
+            if (last == cacheNode)
+                last = cacheNode.prev;
+            if (head != null) {
+                cacheNode.next = head;
+                head.prev = cacheNode;
+            }
+            //移动后的链表
+            head = cacheNode;
+            cacheNode.prev = null;
+            //节点唯一的情况
+            if (last == null)
+                last = head;
+        }
+
+        //移除指定缓存
+        public void remove(int key){
+            CacheNode cacheNode =  nodes.get(key);
+            if (cacheNode != null) {
+                if (cacheNode.prev != null) {
+                    cacheNode.prev.next = cacheNode.next;
+                }
+                if (cacheNode.next != null) {
+                    cacheNode.next.prev = cacheNode.prev;
+                }
+                if (last == cacheNode)
+                    last = cacheNode.prev;
+                if (head == cacheNode)
+                    head = cacheNode.next;
+            }
+
+        }
+        //删除尾部的结点，即去除最近最久未使用数据
+        private void removeLast(){
+            if(last!=null){
+                if(last.prev!=null){
+                    last.prev.next=null;
+                }else{//空间大小为1的情况
+                    head = null;
+                }
+                last = last.prev;
+            }
+        }
+
+        public void clear() {
+            head = null;
+            last = null;
+        }
+    }
+
+
 
     public void swap(int[] arr, int left, int right) {
         int tmp = arr[left];

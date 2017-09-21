@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/tanzhen/Desktop/code/iterview/CCode/list.cpp" "/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir/list.cpp.o"
-  "/Users/tanzhen/Desktop/code/iterview/CCode/sort.cpp" "/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir/sort.cpp.o"
-  "/Users/tanzhen/Desktop/code/iterview/CCode/test.cpp" "/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir/test.cpp.o"
-  "/Users/tanzhen/Desktop/code/iterview/CCode/tree.cpp" "/Users/tanzhen/Desktop/code/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir/tree.cpp.o"
+  "E:/code/public/tmp/iterview/CCode/list.cpp" "E:/code/public/tmp/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir/list.cpp.obj"
+  "E:/code/public/tmp/iterview/CCode/sort.cpp" "E:/code/public/tmp/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir/sort.cpp.obj"
+  "E:/code/public/tmp/iterview/CCode/test.cpp" "E:/code/public/tmp/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir/test.cpp.obj"
+  "E:/code/public/tmp/iterview/CCode/tree.cpp" "E:/code/public/tmp/iterview/CCode/cmake-build-debug/CMakeFiles/CCode.dir/tree.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
