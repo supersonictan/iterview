@@ -597,17 +597,13 @@ public class AllSort {
             CacheNode next;//后一节点
             int value;//值
             int key;//键
-            CacheNode() {
-            }
+            CacheNode() {}
         }
-
-        //初始化缓存
-        public LRUCache(int capacity) {
+        public LRUCache(int capacity) {//初始化缓存
             currentSize=0;
             cacheSize=capacity;
             nodes=new HashMap<Object, CacheNode>(capacity);
         }
-
         public Integer get(int key) {
             CacheNode node = nodes.get(key);
             if (node != null) {
@@ -616,27 +612,21 @@ public class AllSort {
             } else {
                 return -1;//error code
             }
-
         }
-
         public void set(int key, int value) {
             CacheNode node = nodes.get(key);
-            //重复Key
-            if(node!=null){
+            if(node!=null){//重复Key
                 node.value=value;
                 move(node);
                 nodes.put(key, node);
-            }else
-            {//key未重复，正常流程
+            }else {//key未重复，正常流程
                 node =new CacheNode();
                 if(currentSize>=cacheSize){
-                    if (last != null){//缓存已满，进行淘汰
-                        nodes.remove(last.key);}
+                    if (last != null) nodes.remove(last.key);//缓存已满，进行淘汰
                     removeLast();//移除链表尾部并后移
                 }else{
                     currentSize++;
                 }
-
                 node.key=key;
                 node.value=value;
                 move(node);
@@ -646,16 +636,12 @@ public class AllSort {
 
         //移动链表节点至头部
         private void move(CacheNode cacheNode){
-            if(cacheNode==head)
-                return;
+            if(cacheNode==head) return;
             //链接前后节点
-            if(cacheNode.prev!=null)
-                cacheNode.prev.next=cacheNode.next;
-            if(cacheNode.next!=null)
-                cacheNode.next.prev=cacheNode.prev;
+            if(cacheNode.prev!=null) cacheNode.prev.next=cacheNode.next;
+            if(cacheNode.next!=null) cacheNode.next.prev=cacheNode.prev;
             //头尾节点
-            if (last == cacheNode)
-                last = cacheNode.prev;
+            if (last == cacheNode) last = cacheNode.prev;
             if (head != null) {
                 cacheNode.next = head;
                 head.prev = cacheNode;
@@ -663,34 +649,25 @@ public class AllSort {
             //移动后的链表
             head = cacheNode;
             cacheNode.prev = null;
-            //节点唯一的情况
-            if (last == null)
-                last = head;
+            if (last == null) last = head; //节点唯一的情况
         }
 
         //移除指定缓存
         public void remove(int key){
             CacheNode cacheNode =  nodes.get(key);
             if (cacheNode != null) {
-                if (cacheNode.prev != null) {
-                    cacheNode.prev.next = cacheNode.next;
-                }
-                if (cacheNode.next != null) {
-                    cacheNode.next.prev = cacheNode.prev;
-                }
-                if (last == cacheNode)
-                    last = cacheNode.prev;
-                if (head == cacheNode)
-                    head = cacheNode.next;
-            }
+                if (cacheNode.prev != null) cacheNode.prev.next = cacheNode.next;
+                if (cacheNode.next != null) cacheNode.next.prev = cacheNode.prev;
 
+                if (last == cacheNode) last = cacheNode.prev;
+                if (head == cacheNode) head = cacheNode.next;
+            }
         }
         //删除尾部的结点，即去除最近最久未使用数据
         private void removeLast(){
             if(last!=null){
-                if(last.prev!=null){
-                    last.prev.next=null;
-                }else{//空间大小为1的情况
+                if(last.prev!=null) last.prev.next=null;
+                else{//空间大小为1的情况
                     head = null;
                 }
                 last = last.prev;
