@@ -1,5 +1,8 @@
 package interview.dp;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by ZeYu
  * Date: 2017/9/29.
@@ -17,12 +20,19 @@ public class DP_new {
      * 最长上升连续子序列
      * 最少硬币找零问题
      * 编辑距离
+     *
+     * 爬楼梯
+     * 乘积最大连续子序列
+     * 单词切分
      * **/
 
 
     public static void main(String[] args) {
-        int[] coins = {2,5,7};
-        System.out.println(getChange(coins, 16));
+        String s = "ab";
+        Set<String> set = new HashSet<String>();
+        set.add("a");
+        set.add("b");
+        //System.out.println(wordBreak(s, set));
     }
 
 
@@ -158,4 +168,75 @@ public class DP_new {
         }
         return dp[word1.length()][word2.length()];
     }
+    /*爬楼梯*/
+    public int climbStairs(int n) {
+        if (n == 0 || n == 1 || n == 2) return n;
+
+        int[] r = new int[n+1];
+        r[1] = 1;
+        r[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            r[i] = r[i-1] + r[i-2];
+        }
+        return r[n];
+    }
+
+    /*乘积最大连续子序列*/
+    public static int maxProduct(int[] nums) {
+        //最大值=max(当前元素，max(当前元素*上一次的最大值，当前元素*上一次的最小值))；
+        //最小值=min(当前元素，min(当前元素*上一次的最大值，当前元素*上一次的最小值))；
+        if (nums.length==1) return nums[0];
+        int res = nums[0];//保存前面最大的
+        int max = nums[0];//每一个i都乘,但是res只保存最大的
+        int min = nums[0];
+
+        for (int i=1; i<nums.length; i++) {
+            int max_tmp = max, min_tmp = min;
+            max = Math.max(nums[i], Math.max(nums[i]*max_tmp, nums[i]*min_tmp));
+            min = Math.min(nums[i], Math.min(nums[i]*max_tmp, nums[i]*min_tmp));
+            res = Math.max(max,res);
+        }
+        return res;
+    }
+
+    /*单词切分*/
+    public boolean wordBreak(String s, Set<String> dict) {
+        if (s == null || s.length() == 0) return true;
+
+        int maxLength = getMaxLength(dict);
+        //前i个字符能不能切分
+        boolean[] dp = new boolean[s.length() + 1];
+
+        dp[0] = true;
+        for (int i = 1; i < s.length()+1; i++) {
+            dp[i] = false;
+            for (int j=1; j<=maxLength && j<=i; j++) {
+                //如果前半部分不可切分，那不用看后半部分，直接进入下一个循环判断
+                if (!dp[i - j]) {
+                    continue;
+                }
+                //前半部分可分割，取出后半部分的字符串，进行遍历判断
+                String word = s.substring(i - j, i);//中间段
+                if (dict.contains(word)) {
+                    //如果存在，则表明此时是可以分割的，直接跳出第二层循环
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return dp[s.length()];
+    }
+    private int getMaxLength(Set<String> dict) {
+        int maxlenth = 0;
+        for(String word : dict) {
+            maxlenth = Math.max(maxlenth, word.length());
+        }
+        return maxlenth;
+    }
+
+
+
+
+
 }

@@ -1031,7 +1031,7 @@ public class Demo {
      有如下算法，按层次（从上到下，从左到右）遍历二叉树，当遇到一个节点的左子树为空时，
      则该节点右子树必须为空，且后面遍历的节点左右子树都必须为空，否则不是完全二叉树。
      */
-    public static boolean isCompleteBinaryTree(TreeNode root){
+    /*public static boolean isCompleteBinaryTree(TreeNode root){
         if(root == null){
             return false;
         }
@@ -1043,28 +1043,28 @@ public class Demo {
 
         while( !queue.isEmpty() ){
             TreeNode cur = queue.remove();
-            if(mustHaveNoChild){    // 已经出现了有空子树的节点了，后面出现的必须为叶节点（左右子树都为空）    
+            if(mustHaveNoChild){    // 已经出现了有空子树的节点了，后面出现的必须为叶节点（左右子树都为空）
                 if(cur.left!=null || cur.right!=null){
                     result = false;
                     break;
                 }
             } else {
-                if(cur.left!=null && cur.right!=null){      // 如果左子树和右子树都非空，则继续遍历  
+                if(cur.left!=null && cur.right!=null){      // 如果左子树和右子树都非空，则继续遍历
                     queue.add(cur.left);
                     queue.add(cur.right);
-                }else if(cur.left!=null && cur.right==null){    // 如果左子树非空但右子树为空，说明已经出现空节点，之后必须都为空子树  
+                }else if(cur.left!=null && cur.right==null){    // 如果左子树非空但右子树为空，说明已经出现空节点，之后必须都为空子树
                     mustHaveNoChild = true;
                     queue.add(cur.left);
-                }else if(cur.left==null && cur.right!=null){    // 如果左子树为空但右子树非空，说明这棵树已经不是完全二叉完全树！  
+                }else if(cur.left==null && cur.right!=null){    // 如果左子树为空但右子树非空，说明这棵树已经不是完全二叉完全树！
                     result = false;
                     break;
-                }else{          // 如果左右子树都为空，则后面的必须也都为空子树  
+                }else{          // 如果左右子树都为空，则后面的必须也都为空子树
                     mustHaveNoChild = true;
                 }
             }
         }
         return result;
-    }
+    }*/
 
     /**
      * 14.  判断二叉树是不是完全二叉树（递归） 
