@@ -20,10 +20,10 @@ public class DP_new {
      * 最长上升连续子序列
      * 最少硬币找零问题
      * 编辑距离
-     *
      * 爬楼梯
      * 乘积最大连续子序列
      * 单词切分
+     * 200.最长回文子串:给出字符串 "abcdzdcab"，它的最长回文子串为 "cdzdc"
      * **/
 
 
@@ -32,6 +32,8 @@ public class DP_new {
         Set<String> set = new HashSet<String>();
         set.add("a");
         set.add("b");
+        String ss = "abb";
+        longestPalindrome(ss);
         //System.out.println(wordBreak(s, set));
     }
 
@@ -180,7 +182,6 @@ public class DP_new {
         }
         return r[n];
     }
-
     /*乘积最大连续子序列*/
     public static int maxProduct(int[] nums) {
         //最大值=max(当前元素，max(当前元素*上一次的最大值，当前元素*上一次的最小值))；
@@ -198,7 +199,6 @@ public class DP_new {
         }
         return res;
     }
-
     /*单词切分*/
     public boolean wordBreak(String s, Set<String> dict) {
         if (s == null || s.length() == 0) return true;
@@ -233,6 +233,28 @@ public class DP_new {
             maxlenth = Math.max(maxlenth, word.length());
         }
         return maxlenth;
+    }
+
+    /*200.最长回文子串:给出字符串 "abcdzdcab"，它的最长回文子串为 "cdzdc"*/
+    public static String longestPalindrome(String s) {
+        if (s==null || s.length()==0) return null;
+        int[][] dp = new int[s.length()+1][s.length()+1];
+
+        int max_idx = -1;
+        for (int i=s.length()-1; i>=0; i--) {
+            dp[i][i] = 1;
+            for (int j=i+1; j<s.length(); j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = dp[i+1][j-1] + 2;
+                } else {
+                    dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1]);
+                }
+                System.out.println(i+"," + j + "->" + dp[i][j]);
+            }
+            max_idx = max_idx > dp[i][s.length()-1] ? max_idx : i;
+        }
+        System.out.println(dp[0][s.length()-1]);
+        return s.substring(max_idx+1, dp[0][s.length()-1]);
     }
 
 
