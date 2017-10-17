@@ -18,6 +18,7 @@ import java.util.*;
  判断二叉树是不是完全二叉树
  前序遍历和中序遍历树构造二叉树
  中序遍历和后序遍历树构造二叉树
+ 442. 实现Trie
  *
  */
 public class TreeQuestion {
@@ -276,6 +277,62 @@ public class TreeQuestion {
         }
         return result;
     }
+
+    /*442.实现Trie*/
+    class TrieNode {
+        boolean exist;
+        char ch;
+        TrieNode[] children;
+        public TrieNode() {}
+        public TrieNode(char ch){this.ch = ch;}
+    }
+    public class Trie {
+        private TrieNode root;
+        public Trie() {root = new TrieNode();}
+
+        public void insert(String word) {
+            if(word==null || word.length()==0) return;
+            TrieNode pre = root;
+            for(int i=0; i<word.length(); i++) {
+                int idx = word.charAt(i) - 'a';
+                if(pre.children == null) pre.children = new TrieNode[26];
+                if(pre.children[idx] == null) pre.children[idx] = new TrieNode(word.charAt(i));
+                pre = pre.children[idx];
+                if (i==word.length()-1) pre.exist=true;
+            }
+        }
+        public boolean search(String word) {
+            /**
+             * 复制root到结点pre，然后遍历查找word的每一个字符word.charAt(i)，
+             * 若循环里某个pre.children[index]不存在，或者word的最后一个字符的exist标记为false，
+             * 则返回false。否则，循环结束，返回true
+             */
+            if (word == null || word.length() == 0) return false;
+            TrieNode pre = root;
+            for (int i = 0; i < word.length(); i++) {
+                int index = word.charAt(i) - 'a';
+                if (pre.children == null || pre.children[index] == null) return false;
+                if (i == word.length()-1 && pre.children[index].exist == false) return false;
+                pre = pre.children[index];
+            }
+            return true;
+        }
+        public boolean startsWith(String prefix) {
+            /*是不要求word的最后一个字符的exist标记为true。
+              只要遍历完String prefix，就返回true
+             */
+            if (prefix == null || prefix.length() == 0) return false;
+            TrieNode pre = root;
+            for (int i = 0; i < prefix.length(); i++) {
+                int index = prefix.charAt(i) - 'a';
+                if (pre.children == null || pre.children[index] == null) return false;
+                pre = pre.children[index];
+            }
+            return true;
+        }
+    }
+
+
 
     /*前序遍历和中序遍历树构造二叉树*/
     /*public TreeNode buildTree(int[] preorder, int[] inorder) {
