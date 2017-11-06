@@ -1,5 +1,39 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import json
+
+
+
+
+
+
+def evaluate(jsonData, num):
+    res = ''
+
+    if jsonData == '{}' or jsonData == '' or jsonData == 'null' or jsonData == 'NULL':
+        return str(res)
+
+    text = json.loads(jsonData)
+    i = 1
+    if text != None:
+        for p in text:
+            if i > len(num):
+                break
+            if p.has_key('name'):
+                if res != '':
+                    res += '/'
+                res += p['name']
+                i+=1
+    return str(res)
+
+
+
+if __name__ == '__main__':
+    print evaluate(str,2)
+
+
+
+
 
 common_keyword = {}
 def readFile():

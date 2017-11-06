@@ -280,7 +280,7 @@ public class TreeQuestion {
 
     /*442.实现Trie*/
     class TrieNode {
-        boolean exist;
+        boolean isEnd;
         char ch;
         TrieNode[] children;
         public TrieNode() {}
@@ -298,7 +298,7 @@ public class TreeQuestion {
                 if(pre.children == null) pre.children = new TrieNode[26];
                 if(pre.children[idx] == null) pre.children[idx] = new TrieNode(word.charAt(i));
                 pre = pre.children[idx];
-                if (i==word.length()-1) pre.exist=true;
+                if (i==word.length()-1) pre.isEnd =true;
             }
         }
         public boolean search(String word) {
@@ -312,7 +312,7 @@ public class TreeQuestion {
             for (int i = 0; i < word.length(); i++) {
                 int index = word.charAt(i) - 'a';
                 if (pre.children == null || pre.children[index] == null) return false;
-                if (i == word.length()-1 && pre.children[index].exist == false) return false;
+                if (i == word.length()-1 && pre.children[index].isEnd == false) return false;
                 pre = pre.children[index];
             }
             return true;
