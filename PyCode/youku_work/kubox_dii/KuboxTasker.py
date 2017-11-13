@@ -52,7 +52,7 @@ class KuboxTasker(threading.Thread):
                 if sug.has_key('w') and sug['w'] not in queryList:
                     queryList.append(sug['w'])
         except Exception,e:
-            logger.error('parse json exception, query:' + query + ", e:" + str(e))
+            logger.error('Old parse json exception, query:' + query + ", e:" + str(e))
         return queryList
 
     def __get_dii_sug(self, json, query):
@@ -65,11 +65,11 @@ class KuboxTasker(threading.Thread):
                 if sug.has_key('w') and sug['w'] not in queryList:
                     queryList.append(sug['w'])
         except Exception,e:
-            logger.error('parse json exception, query:' + query + ", e:" + str(e))
+            logger.error('DII parse json exception, query:' + query + ", e:" + str(e))
         return queryList
 
     def run(self):
-        #while True:
+        while True:
             try:
                 Global.lock_curId.acquire()
                 Global.cur_id += 1
@@ -104,4 +104,4 @@ class KuboxTasker(threading.Thread):
 
             except Exception, e:
                 logger.debug('Thread:' + str(self.threadName) + " Finished. e:" + repr(e))
-                #break
+                break
