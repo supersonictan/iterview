@@ -105,10 +105,101 @@ def evaluate_dup(query, chnlName, seq):
         return 0
     lowWeightList = [""]
 
+"""
+数据信息：
+	是否节目数据/是否搜索日志数据/是否神马数据/是否人物数据
+query关键词：
+	包含电影含义词/包含电视剧含义词/综艺词/动漫词/季
+	有花絮词
+	包含歌曲词
+	包含清晰度
+"""
+def getMultiValFeature(dataSource, key):
+    res = ""
+    if key is None or key == "":
+        return ""
+    if dataSource == 1: #节目数据源
+        res += '1'
+    else:
+        res += ',0'
+    if dataSource == 2: #搜索日志数据源
+        res +=  ',1'
+    else:
+        res += ',0'
+    if dataSource == 3: #神马数据源
+        res += ',1'
+    else:
+        res += ',0'
+    if dataSource == 5: #人物数据源
+        res += ',1'
+    else:
+        res += ',0'
+    reg_film = [".+电影.*"]
+    for reg in reg_film:
+        re_res = re.search(reg, key)
+        if re_res is not None:
+            res += ',1'
+        else:
+            res += ',0'
+
+    reg_series = [".+电视剧.*"]
+    for reg in reg_series:
+        re_res = re.search(reg, key)
+        if re_res is not None:
+            res += ',1'
+        else:
+            res += ',0'
+
+    reg_zongyi = [".+综艺.*"]
+    for reg in reg_zongyi:
+        re_res = re.search(reg, key)
+        if re_res is not None:
+            res += ',1'
+        else:
+            res += ',0'
+
+    reg_carton = [".+动漫.*"]
+    for reg in reg_carton:
+        re_res = re.search(reg, key)
+        if re_res is not None:
+            res += ',1'
+        else:
+            res += ',0'
+
+    reg_season = ["第(一|二|三|四|五|六|七|八|九|十){0,3}季|部", "第[0-9]{0,2}季|部"]
+    for reg in reg_season:
+        re_res = re.search(reg, key)
+        if re_res is not None:
+            res += ',1'
+            break
+        else:
+            res += ',0'
+
+    reg_pianhua = [".*花絮.*", ".*片花.*"]
+    for reg in reg_pianhua:
+        re_res = re.search(reg, key)
+        if re_res is not None:
+            res += ',1'
+            break
+        else:
+            res += ',0'
+
+    reg_pianhua = [".*歌曲.*", ".*插曲.*",".*主题曲.*", ".*片尾曲.*"]
+    for reg in reg_pianhua:
+        re_res = re.search(reg, key)
+        if re_res is not None:
+            res += ',1'
+            break
+        else:
+            res += ',0'
+
+    arr = res.split(',')
+    return '\x01'.join(arr)
 
 
 if __name__ == '__main__':
-    print evaluate_country("[\"china\",\"usa\"]")
+    print getMultiValFeature(1,"微微一笑很倾城14集插曲")
+    #print evaluate_country("[\"china\",\"usa\"]")
     #print evaluate_cate("微微一笑第十季", "episode")
     #print evaluate_diiCtrlA("12;43;56", ";")
     #print evaluate_person(person_json)
