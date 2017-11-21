@@ -40,6 +40,22 @@ def evaluate_cate( jsonStr, regType):
         return 0
 
 
+def evaluate_country(jsonStr):
+    res = ""
+    if jsonStr is None or jsonStr == "":
+        return ""
+    try:
+        country = json.loads(jsonStr)
+        if country is not None:
+            for c in country:
+                if res != "":
+                    res += " / "
+                res += c
+                break
+    except ValueError:
+        return ""
+    return res
+
 
 
 def evaluate_person(jsonStr):
@@ -92,7 +108,8 @@ def evaluate_dup(query, chnlName, seq):
 
 
 if __name__ == '__main__':
-    print evaluate_cate("微微一笑第十季", "episode")
+    print evaluate_country("[\"china\",\"usa\"]")
+    #print evaluate_cate("微微一笑第十季", "episode")
     #print evaluate_diiCtrlA("12;43;56", ";")
     #print evaluate_person(person_json)
     #evaluate(str, "device_disabled")
