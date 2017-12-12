@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # -*- coding=utf-8-*-
 import json,re
+import types
+import time
 
 chnl_reg_list = [".+综艺", ".+电影", ".+电视剧", ".+视频"]
-str = """
+str2 = """
 {"site_disabled":["tudou","test"],"device_disabled":["IPTV","PC","Pad","TV","mobile"],"ua_disabled":["App","Web"]}
 """
 str2 = """
@@ -45,18 +47,25 @@ def evaluate_country(jsonStr):
     if jsonStr is None or jsonStr == "":
         return ""
     try:
+        jsonStr = jsonStr.decode("utf-8").lower()
         country = json.loads(jsonStr)
         if country is not None:
             for c in country:
                 if res != "":
                     res += " / "
                 res += c
-                break
     except ValueError:
         return ""
-    return res
+    return res.encode('utf8')
 
-
+def evaluate_scgTime(timeStr):
+    a = "1970-08-17 15:01:47"
+    #将其转换为时间数组
+    timeArray = time.strptime(a, "%Y-%m-%d %H:%M:%S")
+    #转换为时间戳:
+    timeStamp = int(time.mktime(timeArray))
+    diff = int(time.time()) - timeStamp
+    print 1.0/diff
 
 def evaluate_person(jsonStr):
     res = ""
@@ -114,7 +123,7 @@ query关键词：
 	包含歌曲词
 	包含清晰度
 """
-def getMultiValFeature(dataSource, key):
+def evaluate_fea(dataSource, key, hot):
     res = ""
     if key is None or key == "":
         return ""
@@ -122,18 +131,26 @@ def getMultiValFeature(dataSource, key):
         res += '1'
     else:
         res += ',0'
+
     if dataSource == 2: #搜索日志数据源
         res +=  ',1'
     else:
         res += ',0'
+
     if dataSource == 3: #神马数据源
         res += ',1'
     else:
         res += ',0'
+
     if dataSource == 5: #人物数据源
         res += ',1'
     else:
         res += ',0'
+
+    # hot值
+    res += ','
+    res += str(hot)
+
     reg_film = [".+电影.*"]
     for reg in reg_film:
         re_res = re.search(reg, key)
@@ -166,39 +183,102 @@ def getMultiValFeature(dataSource, key):
         else:
             res += ',0'
 
+    isSeasonMatch = False
     reg_season = ["第(一|二|三|四|五|六|七|八|九|十){0,3}季|部", "第[0-9]{0,2}季|部"]
     for reg in reg_season:
         re_res = re.search(reg, key)
         if re_res is not None:
             res += ',1'
+            isSeasonMatch = True
             break
-        else:
-            res += ',0'
+    if not isSeasonMatch:
+        res += ',0'
 
+
+    isPianHuaMatch = False
     reg_pianhua = [".*花絮.*", ".*片花.*"]
     for reg in reg_pianhua:
         re_res = re.search(reg, key)
         if re_res is not None:
             res += ',1'
+            isPianHuaMatch = True
             break
-        else:
-            res += ',0'
+    if not isPianHuaMatch:
+        res += ',0'
 
-    reg_pianhua = [".*歌曲.*", ".*插曲.*",".*主题曲.*", ".*片尾曲.*"]
-    for reg in reg_pianhua:
+    reg_song = [".*歌曲.*", ".*插曲.*",".*主题曲.*", ".*片尾曲.*"]
+    isSongMatch = False
+    for reg in reg_song:
         re_res = re.search(reg, key)
         if re_res is not None:
             res += ',1'
+            isSongMatch = True
             break
-        else:
-            res += ',0'
+    if not isSongMatch:
+        res += ',0'
 
     arr = res.split(',')
     return '\x01'.join(arr)
 
+patStr=u'(第)([一二三四五六七八九十百千]*)([季集部期])'
+pat = re.compile(patStr)
+
+dict_trans = {
+    u'一':1,
+    u'二':2,
+    u'三':3,
+    u'四':4,
+    u'五':5,
+    u'六':6,
+    u'七':7,
+    u'八':8,
+    u'九':9,
+}
+
+def evaluate_dig(targetStr):
+    if targetStr is None:
+        return None
+    line = unicode(targetStr, 'utf8')
+    for match in re.finditer(pat, line):
+        targetStr = match.group(0)
+        str1 = match.group(1)
+        str2 = match.group(2)
+        str3 = match.group(3)
+        targetNum = 0
+        totalNum = 0
+        for uni in str2:
+            if u'十' == uni:
+                if targetNum == 0:
+                    targetNum += 10
+                else:
+                    targetNum *= 10
+                totalNum += targetNum
+                targetNum = 0
+            elif u'百' == uni:
+                totalNum += targetNum * 100
+                targetNum = 0
+            elif u'千' == uni:
+                totalNum += targetNum * 1000
+                targetNum = 0
+            else:
+                targetNum += dict_trans[uni]
+        totalNum += targetNum
+
+        tranStr = '%s%d%s' % (str1, totalNum, str3)
+        line = line.replace(targetStr, tranStr)
+    if not line:
+        return ''
+    if type(line) != types.UnicodeType:
+        line = line.decode('utf8')
+        # text = text.decode('utf8')
+    return ''.join([i for i in line if not ord(i) == 32]).encode('utf8')
+
+
 
 if __name__ == '__main__':
-    print getMultiValFeature(1,"微微一笑很倾城14集插曲")
+    print evaluate_dig("BBC之旅行者号 探 测器冲出太阳系")
+    #evaluate_scgTime()
+    # print evaluate_fea(3,"谢娜菠萝蜜歌曲", 123)
     #print evaluate_country("[\"china\",\"usa\"]")
     #print evaluate_cate("微微一笑第十季", "episode")
     #print evaluate_diiCtrlA("12;43;56", ";")
