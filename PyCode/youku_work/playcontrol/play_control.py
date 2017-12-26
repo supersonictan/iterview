@@ -220,6 +220,48 @@ def evaluate_fea(dataSource, key, hot):
     arr = res.split(',')
     return '\x01'.join(arr)
 
+def evaluate_date_showinfo(mainland_release_date, ovs_release_date, release_date):
+    year = ''
+    try:
+        if not release_date.startswith('0000-00-00') and release_date != '':
+            year = release_date
+        if not ovs_release_date.startswith('0000-00-00') and ovs_release_date != '':
+            year = ovs_release_date
+        if not mainland_release_date.startswith('0000-00-00') and mainland_release_date != '':
+            year = mainland_release_date
+        if year == 'NULL' or year == '' or year == '0000-00-00':
+            return ''
+        return year.split('-', 1)[0]
+    except ValueError:
+        return year
+
+
+def evaluate_zhegnpian(jsonStr, target):
+    if jsonStr is None or jsonStr == "":
+        return 0
+    try:
+        if jsonStr is not None:
+            for c in jsonStr:
+                if c == target:
+                    return 1
+    except ValueError:
+        return 0
+    return 0
+
+def evaluate_area(areas):
+    res = ''
+    try:
+        if areas is not None:
+            list_c = json.loads(areas)
+            for c in list_c:
+                print c
+                if res != '':
+                    res += '\x01'
+                res += c
+    except ValueError:
+        return ''
+    return res
+
 patStr=u'(第)([一二三四五六七八九十百千]*)([季集部期])'
 pat = re.compile(patStr)
 
@@ -273,10 +315,58 @@ def evaluate_dig(targetStr):
         # text = text.decode('utf8')
     return ''.join([i for i in line if not ord(i) == 32]).encode('utf8')
 
+# def parseUGCTitle_kubox(aliasJson):
+#     #["{\"alias\":\"战警也疯狂\",\"type\":0}","{\"alias\":\"暗夜奔袭狂\",\"type\":0}","{\"alias\":\"Dark Asylum\",\"type\":1}","{\"alias\":\"Return To Death Row\",\"type\":1}"]
+#     res = ''
+#     if aliasJson is None or aliasJson == '':
+#         return ''
+#     aliasJson = aliasJson.decode("utf-8").lower()
+#     aliasList = json.loads(aliasJson)
+#     for aliasObj in aliasList:
+#         if res != '':
+#             res += ','
+#         res += str(aliasObj['alias'])
+
+def parseTitle(alias_json):
+    if alias_json is None or alias_json == 'NULL':
+        return alias_json
+    try:
+        alias_json = alias_json.decode("utf-8").lower()
+        alias = json.loads(alias_json)
+    except ValueError:
+        return alias_json
+
+    alias_list = []
+    for line in alias:
+        alias_list.append(line['alias'])
+
+    return ','.join(alias_list).encode("utf-8")
+
+def evalue_forbid(key, source):
+    if key == "" or key is None:
+        return 1
+    if source != 2 and source != 3:  # 只检查 神马和优酷搜索词
+        print source
+        return 0
+    reg_downGrade = [".*(大全|全集).*", ".*(dvd版|完整版|国语版|蓝光版|免费).*", ".*(在线|哪个视频播|哪里看|哪一集).*", ".*[0-9]+集.*",
+                     ".*(迅雷|yy|豆瓣|优酷|百度|爱奇艺|腾讯|土豆|搜狐|西瓜影音).*"]
+    isForbid = False
+    for reg in reg_downGrade:
+        re_res = re.search(reg, key)
+        print reg
+        if re_res is not None:
+            return 1
+    if not isForbid:
+        return 0
 
 
 if __name__ == '__main__':
-    print evaluate_dig("BBC之旅行者号 探 测器冲出太阳系")
+    print evalue_forbid("军师联盟虎啸龙吟在线看", 3)
+    #print parseTitle("""[{"type":"0","alias":"美女与野兽 3D版"},{"type":"1","alias":"Beauty And The Beast 3D"}]""")
+    #print evaluate_date_showinfo("0000-00-00 12:00:00", "2004-10-26 12:00:00", "2004-10-26 12:00:00")
+    #print evaluate_zhegnpian(["正片", "预告片"], "正片")
+    #print evaluate_area('["美国","日本"]')
+    #print evaluate_dig("BBC之旅行者号 探 测器冲出太阳系")
     #evaluate_scgTime()
     # print evaluate_fea(3,"谢娜菠萝蜜歌曲", 123)
     #print evaluate_country("[\"china\",\"usa\"]")
