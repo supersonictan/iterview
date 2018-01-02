@@ -15,4 +15,5 @@ def read_query_file():
 
 
 if __name__ == '__main__':
-    read_query_file()
+    #read_query_file()
+    print len('你好2018'.decode('utf-8'))
