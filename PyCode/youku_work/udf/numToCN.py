@@ -58,6 +58,7 @@ def evaluate(targetStr):
 
 
 
+
 if __name__ == '__main__':
     #print evaluate('第三部')
     print len("微微一笑a".decode('utf-8'))

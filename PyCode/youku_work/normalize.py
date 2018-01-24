@@ -109,24 +109,24 @@ uselessWord_list = ["先导预告片","新剧场版序","新剧场版","攻略�
             "梁家仁版","高力强版","TV","日剧","OVA","国语","粤语","加拿大版","音乐版","牛人"]
 def evaluate_keyword(show_keyword, show_name):
     if show_keyword == "" or show_keyword is None:
-        return ''
+        return show_keyword
     arr = show_keyword.split(',')
     res = []
     if "之" in show_name or ":" in show_name or "：" in show_name:
         if len(arr) == 1:
-            return ''
+            return show_keyword
 
         for key in arr:
             if len(key.decode('utf-8')) <= 2:
                 continue
             if key not in res:
-                res.append(key)
+                res.append(key.strip())
 
         # 去除版本
         for useless in uselessWord_list:
             if useless in show_name:
                 show_name = show_name.replace(useless, "")
-                break
+                # break
 
         # 去除 第几季
         replace_reg = re.compile(r'第(一|二|三|四|五|六|七|八|九|十|百|千|0|1|2|3|4|5|6|7|8|9)*(季|集|部|期)')
@@ -135,7 +135,7 @@ def evaluate_keyword(show_keyword, show_name):
         # TODO 去除数字结尾
 
         if show_name not in res:
-            res.append(show_name)
+            res.append(show_name.strip())
 
         replace_name = show_name
         replace_word = ""
@@ -149,10 +149,43 @@ def evaluate_keyword(show_keyword, show_name):
         replace_name = replace_name.replace(replace_word, "")
 
         if replace_name not in res:
-            res.append(replace_name)
+            res.append(replace_name.strip())
         return ','.join(res)
     else:
-        return ''
+        return show_keyword
+
+
+def evaluate_spell_check( input_str):
+    if input_str == "" or input_str is None:
+        return input_str
+
+        # 去除 版本 信息
+    for useless in uselessWord_list:
+        if useless in input_str:
+            input_str = input_str.replace(useless, "")
+            # break
+
+        # 去除 第几季
+    replace_reg_season = re.compile(r'第(一|二|三|四|五|六|七|八|九|十|百|千|0|1|2|3|4|5|6|7|8|9)*(季|集|部|期|篇|章)')
+    input_str = replace_reg_season.sub('', input_str)
+
+    # 去除 数字结尾
+    replace_reg_season = re.compile(r'([0-9]|一|二|三|四|五|六|七|八|九|十)*$')
+    input_str = replace_reg_season.sub('', input_str)
+
+    # 去除数字开头
+
+
+    return input_str
 
 if __name__ == '__main__':
-    print evaluate_keyword("SOS儿童村,应许之地", "SOS儿童村：应许之地（蓝光版）")
+    #print evaluate_keyword("虎啸龙吟,大军师司马懿", "大军师司马懿之虎啸龙吟 先导预告片")
+    #print(evaluate_spell_check("乡村爱情第一章"))
+    birthday = '1989-08-05'
+    if birthday == "" or birthday is None:
+        print birthday
+    arr = birthday.split('-')
+    if len(arr) != 3:
+        print birthday
+    yearMonth = str(arr[0]) + str(arr[1])
+    print yearMonth
