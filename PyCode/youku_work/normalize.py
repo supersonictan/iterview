@@ -178,14 +178,36 @@ def evaluate_spell_check( input_str):
 
     return input_str
 
+def evaluate4( title1, title2):
+    title1 = title1.decode('utf8').strip()
+    title2 = title2.decode('utf8').strip()
+    if title1 == title2:
+        return 1
+    else:
+        return 0
+
+
+
 if __name__ == '__main__':
-    #print evaluate_keyword("虎啸龙吟,大军师司马懿", "大军师司马懿之虎啸龙吟 先导预告片")
-    #print(evaluate_spell_check("乡村爱情第一章"))
-    birthday = '1989-08-05'
-    if birthday == "" or birthday is None:
-        print birthday
-    arr = birthday.split('-')
-    if len(arr) != 3:
-        print birthday
-    yearMonth = str(arr[0]) + str(arr[1])
-    print yearMonth
+    qid = 3357378705
+    data = 100000
+    if qid is not None and data is not None:
+        # print(bin(3))
+        qid = qid & 0xffffffff
+        qid = qid << 31
+        print(bin(qid))
+        print(bin(data))
+        if (data & 0x80000000) != 0:
+            data = data & 0x7fffffff
+        res = qid | data
+        #print bin(res)
+        print(res)
+
+        mask = 1
+        for i in range(31):
+            mask |= 1 << i
+        print(bin(res >> 32))
+        print(bin(res & mask))
+    else:
+        print None
+
