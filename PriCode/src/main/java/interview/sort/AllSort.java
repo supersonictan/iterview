@@ -207,7 +207,7 @@ public class AllSort {
     }
 
     /*拼接最大数：重新排列他们的顺序把他们组成一个最大的整数
-     * s1比s2小的话返回负数,s1排在s2前面.那第一个s2comparetos1,s2比s1大
+     * <0 升序 >0 降序
      * */
     public String largestNumber(int[] num) {
         if(num == null || num.length == 0) return "";
@@ -215,7 +215,7 @@ public class AllSort {
         for(int i = 0; i < num.length; i++){
             strs[i] = String.valueOf(num[i]);
         }
-        Arrays.sort(strs,new NumberCompare());
+        Arrays.sort(strs, new NumberCompare());
         StringBuilder sb = new StringBuilder();
         for(String i : strs) {
             sb.append(i);
