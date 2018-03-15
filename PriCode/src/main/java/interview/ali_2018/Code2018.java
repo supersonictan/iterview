@@ -29,6 +29,15 @@ import java.util.*;
  * 397. 最长上升连续子序列.（最长上升连续子序列可以定义为从右到左或从左到右的序列。）
  * 最少硬币找零问题:不同面值的硬币(无限多)，组合为某种面额的钱，使硬币的的个数最少。
  * 78. 最长公共前缀:在 "ABCDEFG", "ABCEFG", "ABCEFA" 中, LCP 为 "ABC"
+ * 119. 编辑距离:给出两个单词word1和word2，计算出将word1 转换为word2的最少操作次数。
+ * 最长不重复子串
+ * 最长回文子串
+ * 数对之差最大值
+ * 从一列数删除最少的数，让这个数列从小到大在从大到小
+ * 子数组最大和
+ * 0-1背包
+ *
+ *
  *
  *
  * ---------- 多指针 ----------
@@ -211,6 +220,26 @@ public class Code2018 {
             count++;
         }
         return count;
+    }
+    // 119. 编辑距离:给出两个单词word1和word2，计算出将word1 转换为word2的最少操作次数
+    public int minDistance(String word1, String word2) {
+        int[][] dp = new int[word1.length()+1][word2.length()+1];
+
+        for (int i = 1; i < word1.length() + 1; i++) dp[i][0] = i;
+        for (int i = 1; i<word2.length()+1; i++) dp[0][i] = i;
+
+        for (int i = 1; i < word1.length() + 1; i++) {
+            for (int j = 1; j < word2.length() + 1; j++) {
+                char a = word1.charAt(i-1), b = word2.charAt(j-1);
+                if (a == b) {
+                    dp[i][j] = dp[i-1][j-1];
+                } else {
+                    // 很好理解:要么i和j-1,要么i-1和j,要么i-1和j-1
+                    dp[i][j] = 1 + Math.min(Math.min(dp[i-1][j], dp[i][j-1]), dp[i-1][j-1]);
+                }
+            }
+        }
+        return dp[word1.length()][word2.length()];
     }
 
 
