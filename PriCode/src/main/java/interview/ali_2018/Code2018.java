@@ -30,8 +30,10 @@ import java.util.*;
  * 最少硬币找零问题:不同面值的硬币(无限多)，组合为某种面额的钱，使硬币的的个数最少。
  * 78. 最长公共前缀:在 "ABCDEFG", "ABCEFG", "ABCEFA" 中, LCP 为 "ABC"
  * 119. 编辑距离:给出两个单词word1和word2，计算出将word1 转换为word2的最少操作次数。
+ * 640. 编辑距离 II:给你两个字符串 S 和 T, 判断他们是否只差一步编辑。
+ * 200. 最长回文子串
  * 最长不重复子串
- * 最长回文子串
+ *
  * 数对之差最大值
  * 从一列数删除最少的数，让这个数列从小到大在从大到小
  * 子数组最大和
@@ -223,10 +225,10 @@ public class Code2018 {
     }
     // 119. 编辑距离:给出两个单词word1和word2，计算出将word1 转换为word2的最少操作次数
     public int minDistance(String word1, String word2) {
-        int[][] dp = new int[word1.length()+1][word2.length()+1];
+        int[][] dp = new int[word1.length() + 1][word2.length() + 1];
 
         for (int i = 1; i < word1.length() + 1; i++) dp[i][0] = i;
-        for (int i = 1; i<word2.length()+1; i++) dp[0][i] = i;
+        for (int i = 1; i < word2.length() + 1; i++) dp[0][i] = i;
 
         for (int i = 1; i < word1.length() + 1; i++) {
             for (int j = 1; j < word2.length() + 1; j++) {
@@ -241,7 +243,69 @@ public class Code2018 {
         }
         return dp[word1.length()][word2.length()];
     }
-
+    // 640. 编辑距离 II:给你两个字符串 S 和 T, 判断他们是否只差一步编辑。
+    public boolean isOneEditDistance(String s, String t) {
+        int len1 = s.length();
+        int len2 = t.length();
+        if (len1 == len2) {
+            int flag = 0;
+            for (int i = 0; i < len1; i++) {
+                if (s.charAt(i) != t.charAt(i)) {
+                    flag++;
+                }
+                if (flag == 2) return false;
+            }
+            if (flag == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } else if (Math.abs(len1-len2) == 1){
+            if (len1 > len2) {
+                int p1 = 0;
+                int p2 = 0;
+                while (p1 < len1 && p2 < len2) {
+                    if (s.charAt(p1) == t.charAt(p2)) {
+                        p1++;
+                        p2++;
+                    } else {
+                        p1++;
+                    }
+                }
+                if (p2 == len2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                if (isOneEditDistance(t,s)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+    }
+    // 200. 最长回文子串:给出字符串 "abcdzdcab"，它的最长回文子串为 "cdzdc"
+    public String longestPalindrome(String s) {
+        int dp[][] = new int[s.length()][s.length()];
+        int idx = 0;
+        for (int j = 0; j < s.length(); j++) {
+            dp[j][j] = 1;
+            for (int i = j-1; i >= 0; i--) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = dp[i+1][j-1] + 2;
+                    idx = i;
+                } else {
+                    dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1]);
+                }
+            }
+        }
+        return s.substring(idx, dp[0][s.length()]);
+    }
+    // 数对之差最大值
 
 
 
