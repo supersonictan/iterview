@@ -463,22 +463,22 @@ public class Code2018 {
     public int search(int[] A, int target) {
         int left = 0;
         int right = A.length-1;
-        while (left<=right) {
+        while (left <= right) {
             int mid = (left + right) /2;
             if (A[mid] == target) return mid;
             if (A[left] == target) return left;  // [1,2,3]
             if (A[right] == target) return right;
             if (A[left] < A[mid]) {  // 左边递增
-                if (target < A[mid] && target > A[left]) {
+                if (A[left] < target && target < A[mid]) {
                     right = mid - 1;
-                }else {
+                } else {
                     left = mid + 1;
                 }
-            } else if (A[left] > A[mid]) { // 右边递增
-                if (target > A[mid] && target < A[right]) {
-                    left = mid +1;
-                }else {
-                    right = mid -1;
+            } else if (A[mid] < A[left]) { // 右边递增
+                if (A[mid] < target && target < A[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
                 }
             } else {
                 left++;
@@ -498,7 +498,7 @@ public class Code2018 {
         while (l <= r) {
             int mid = (l + r) / 2;
             if (m[mid][0] == target || m[mid][colLen] == target) return true;
-            else if (m[mid][0] <= target && m[mid][colLen] >= target) {
+            else if (m[mid][0] <= target && target <= m[mid][colLen] ) {
                 rowIdx = mid;
                 break;
             }
@@ -516,8 +516,14 @@ public class Code2018 {
         }
         return false;
     }
-    /** 38.搜索二维矩阵2:每行中的整数从左到右是排序的,每一列的整数从上到下是排序的,在每一行或每一列中没有重复的整数.**/
+    /** 38.搜索二维矩阵2:写出一个高效的算法来搜索m×n矩阵中的值，返回这个值出现的次数。
+     * 每行中的整数从左到右是排序的,每一列的整数从上到下是排序的,在每一行或每一列中没有重复的整数.**/
     public int searchMatrix2(int[][] matrix, int target) {
+        /*[
+            [1, 3, 5, 7],
+            [2, 4, 7, 8],
+            [3, 5, 9, 10]
+        ]*/
         if (matrix.length == 0) return 0;
         int rows = matrix.length;
         int col = matrix[0].length;
@@ -527,13 +533,8 @@ public class Code2018 {
         while (r < rows && c >= 0) {
             if (target == matrix[r][c]) {
                 count++;
-                if (r + 1 < rows) {
-                    r++;
-                } else if (c - 1 > 0) {
-                    c--;
-                } else {
-                    return count;
-                }
+                r++;
+                c--;
             } else if (target > matrix[r][c]) {
                 r++;
             } else {
