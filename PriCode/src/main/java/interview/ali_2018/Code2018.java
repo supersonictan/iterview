@@ -23,20 +23,22 @@ import java.util.*;
  *
  * ---------- 动态规划 ----------
  * 111. 爬楼梯:每次只能爬一步或者两步，多少种不同的方法爬到顶部
- * 77. 最长公共子序列LCS的长度﻿O(mn):给出 "ABCD" 和 "EACB"，这个LCS是"AC"返回 2
- * 79. 最长公共子串.给出A=“ABCD”，B=“CBCE”，返回 2
- * 76. 最长上升子序列:给出 [4,2,4,5,3,7]，LIS 是 [2,4,5,7]，返回 4
+ * 77.  最长公共子序列LCS的长度﻿O(mn):给出 "ABCD" 和 "EACB"，这个LCS是"AC"返回 2
+ * 79.  最长公共子串.给出A=“ABCD”，B=“CBCE”，返回 2
+ * 76.  最长上升子序列:给出 [4,2,4,5,3,7]，LIS 是 [2,4,5,7]，返回 4
  * 397. 最长上升连续子序列.（最长上升连续子序列可以定义为从右到左或从左到右的序列。）
- * 最少硬币找零问题:不同面值的硬币(无限多)，组合为某种面额的钱，使硬币的的个数最少。
+ * 41.  最大子数组:给定一个整数数组，找到一个具有最大和的子数组，返回其最大和
+ *      最少硬币找零问题:不同面值的硬币(无限多)，组合为某种面额的钱，使硬币的的个数最少。
  * 78. 最长公共前缀:在 "ABCDEFG", "ABCEFG", "ABCEFA" 中, LCP 为 "ABC"
  * 119. 编辑距离:给出两个单词word1和word2，计算出将word1 转换为word2的最少操作次数。
  * 640. 编辑距离 II:给你两个字符串 S 和 T, 判断他们是否只差一步编辑。
+ *      数对之差最大值
+ *
  * 200. 最长回文子串
  * 最长不重复子串
- *
- * 数对之差最大值
+ * 乘积最大连续子序列
+ * 单词切分
  * 从一列数删除最少的数，让这个数列从小到大在从大到小
- * 子数组最大和
  * 0-1背包
  *
  *
@@ -94,7 +96,7 @@ public class Code2018 {
     }
 
     /*------------------ 动态规划 ------------------*/
-    // 111. 爬楼梯:每次只能爬一步或者两步，多少种不同的方法爬到顶部
+    /**111. 爬楼梯:每次只能爬一步或者两步，多少种不同的方法爬到顶部**/
     public int climbStairs(int n) {
         if (n == 0 || n == 1 || n == 2) {
             return n;
@@ -107,7 +109,7 @@ public class Code2018 {
         }
         return r[n];
     }
-    // 77. 最长公共子序列LCS的长度﻿O(mn):给出 "ABCD" 和 "EACB"，这个LCS是"AC"返回 2
+    /**77. 最长公共子序列LCS的长度﻿O(mn):给出 "ABCD" 和 "EACB"，这个LCS是"AC"返回 2**/
     public int longestCommonSubsequence(String AStr, String BStr) {
         char[] A = AStr.toCharArray(), B = BStr.toCharArray();
         if (AStr.length() == 0 || BStr.length() == 0) return 0;
@@ -124,7 +126,7 @@ public class Code2018 {
         }
         return res[A.length][B.length];
     }
-    // 79. 最长公共子串.给出A=“ABCD”，B=“CBCE”，返回 2
+    /**79. 最长公共子串.给出A=“ABCD”，B=“CBCE”，返回 2**/
     public int longestCommonSubstring(String AStr, String BStr) {
         char[] A = AStr.toCharArray(), B = BStr.toCharArray();
         if (A.length == 0 || B.length == 0) return 0;
@@ -143,7 +145,7 @@ public class Code2018 {
         }
         return resVal;
     }
-    // 76. 最长上升子序列:给出 [4,2,4,5,3,7]，LIS 是 [2,4,5,7]，返回 4
+    /** 76. 最长上升子序列:给出 [4,2,4,5,3,7]，LIS 是 [2,4,5,7]，返回4 **/
     public int longestIncreasingSubsequence(int[] nums) {
         /*
         思路:使用一维数组dp[i]记录第i位所在的上升连续子序列的长度，
@@ -163,7 +165,7 @@ public class Code2018 {
         }
         return resVal;
     }
-    // 397. 最长上升连续子序列.（最长上升连续子序列可以定义为从右到左或从左到右的序列。）
+    /** 397. 最长上升连续子序列.（最长上升连续子序列可以定义为从右到左或从左到右的序列。）**/
     public int longestIncreasingContinuousSubsequence(int[] A) {
         if (A.length == 0) return 0;
         int[] dp = new int[A.length];
@@ -187,7 +189,7 @@ public class Code2018 {
         }
         return Math.max(maxL, maxR);
     }
-    // 最少硬币找零问题:不同面值的硬币(无限多)，组合为某种面额的钱，使硬币的的个数最少。
+    /** 最少硬币找零问题:不同面值的硬币(无限多)，组合为某种面额的钱，使硬币的的个数最少 **/
     public static int getChangeCoin(int[] coins, int k) {
         if(coins.length == 0 || k == 0) return 0;
         int[] dp = new int[k+1];
@@ -197,15 +199,15 @@ public class Code2018 {
             for (int j = 0; j < coins.length; j++) {
                 int less_coin = i - coins[j];
                 if (less_coin >= 0) {
-                    int min_tmp = dp[less_coin] + 1;
-                    min = min_tmp < min ? min_tmp : min;
+                    int tmp = dp[less_coin] + 1;
+                    min = tmp < min ? tmp : min;
                 }
             }
             dp[i] = min;
         }
         return dp[k];
     }
-    // 78. 最长公共前缀:在 "ABCDEFG", "ABCEFG", "ABCEFA" 中, LCP 为 "ABC"
+    /** 78. 最长公共前缀:在 "ABCDEFG", "ABCEFG", "ABCEFA" 中, LCP 为 "ABC" **/
     public String longestCommonPrefix(String[] strs) {
         if (strs.length == 0) return "";
         if (strs.length == 1) return strs[0];
@@ -223,7 +225,7 @@ public class Code2018 {
         }
         return count;
     }
-    // 119. 编辑距离:给出两个单词word1和word2，计算出将word1 转换为word2的最少操作次数
+    /** 119. 编辑距离:给出两个单词word1和word2，计算出将word1 转换为word2的最少操作次数 **/
     public int minDistance(String word1, String word2) {
         int[][] dp = new int[word1.length() + 1][word2.length() + 1];
 
@@ -243,7 +245,7 @@ public class Code2018 {
         }
         return dp[word1.length()][word2.length()];
     }
-    // 640. 编辑距离 II:给你两个字符串 S 和 T, 判断他们是否只差一步编辑。
+    /** 640. 编辑距离 II:给你两个字符串 S 和 T, 判断他们是否只差一步编辑**/
     public boolean isOneEditDistance(String s, String t) {
         int len1 = s.length();
         int len2 = t.length();
@@ -288,6 +290,46 @@ public class Code2018 {
             return false;
         }
     }
+    /** 数对之差最大值 **/
+    public int getArrayMaxDiff(int[] arr) {
+        //思路：假设f[i]表示数组中前i+1个数的解，前i+1个数的最大值为m[i]。则状态转移方程：
+        //f[i] = max(f[i-1], m[i-1] - a[i]), m[i] = max(m[i-1],a[i])。问题的解为f[n-1]。
+        int[] maxDiff = new int[arr.length];  // i之前最大差
+        int[] max = new int[arr.length];  // i之前最大值
+        max[0] = arr[0];
+
+        int left = 0;
+        int right = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+            maxDiff[i] = Math.max(maxDiff[i-1], max[i-1] - arr[i]);
+            max[i] = Math.max(max[i-1], arr[i]);
+
+            if (maxDiff[i-1] <= (max[i-1] - arr[i])) {
+                right = arr[i];
+            }
+            if (max[i-1] <= arr[i]) {
+                left = arr[i];
+            }
+        }
+        return maxDiff[arr.length-1];
+    }
+    /**41.最大子数组:给定一个整数数组，找到一个具有最大和的子数组，返回其最大和**/
+    public int maxSubArray(int[] nums) {
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+        int[] sum = new int[nums.length];
+        int[] max = new int[nums.length];
+        sum[0] = nums[0];
+        max[0] = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            sum[i] = Math.max(sum[i-1] + nums[i], nums[i]);
+            max[i] = Math.max(sum[i], max[i-1]);
+        }
+        return max[nums.length-1];
+    }
+
     // 200. 最长回文子串:给出字符串 "abcdzdcab"，它的最长回文子串为 "cdzdc"
     public String longestPalindrome(String s) {
         int dp[][] = new int[s.length()][s.length()];
@@ -305,16 +347,16 @@ public class Code2018 {
         }
         return s.substring(idx, dp[0][s.length()]);
     }
-    // 数对之差最大值
 
 
-
+    // 5.第K大数字
+    // 80.中位数
 
 
 
 
     /*------------------ 快排思想 ------------------*/
-    // 5.第K大数字
+    /**5.第K大数字**/
     public int kthLargestElement(int k, int[] nums) {
         return kthPartition(nums, 0, nums.length-1, k);
     }
@@ -336,7 +378,7 @@ public class Code2018 {
             return kthPartition(nums, left, i-1, k);
         }
     }
-    // 80.中位数
+    /** 80.中位数**/
     public int median(int[] nums) {
         int len = nums.length%2==0?nums.length/2 : nums.length/2+1;
         return medianPartition(nums, 0, nums.length-1, len);
@@ -360,7 +402,8 @@ public class Code2018 {
         }
     }
 
-    // 14.二分查找:找到target第一次出现的下标
+    /*------------------- 二分查找 -----------------*/
+    /**14.二分查找:找到target第一次出现的下标**/
     public int binarySearch(int[] nums, int target) {
         int begin = 0;
         int end = nums.length-1;
@@ -379,7 +422,7 @@ public class Code2018 {
         }
         return res;
     }
-    // 457.经典二分查找问题
+    /** 457.经典二分查找问题**/
     public int findPosition(int[] nums, int target) {
         if (nums == null && nums.length == 0) {
             return -1;
@@ -394,14 +437,14 @@ public class Code2018 {
         }
         return -1;
     }
-    // 159. 寻找旋转排序数组中的最小值
+    /** 159. 寻找旋转排序数组中的最小值**/
     public int findMin(int[] num) {
         if (num[0] < num[num.length-1]) return num[0];
         int left = 0;
         int right = num.length-1;
         while(left < right) {
             int mid = (left + right) / 2;
-            if(mid-1 >= 0 && num[mid] < num[mid-1] ){
+            if(mid - 1 >= 0 && num[mid - 1] > num[mid]){
                 return num[mid];
             }
             if(mid+1 <= num.length-1 && num[mid] > num[mid+1]) {
@@ -416,7 +459,7 @@ public class Code2018 {
         }
         return -1;
     }
-    // 62.旋转排序数组搜索target
+    /** 62.旋转排序数组搜索target **/
     public int search(int[] A, int target) {
         int left = 0;
         int right = A.length-1;
@@ -443,7 +486,7 @@ public class Code2018 {
         }
         return -1;
     }
-    // 28.搜索二维矩阵:每行中的整数从左到右是排序的,每行的第一个数大于上一行的最后一个整数。
+    /** 28.搜索二维矩阵:每行中的整数从左到右是排序的,每行的第一个数大于上一行的最后一个整数。**/
     public boolean searchMatrix(int[][] m, int target) {
         if (m == null || m.length < 1) return false;
         if (m[0][0] > target || m[m.length-1][m[0].length-1] < target) return false;
@@ -473,7 +516,7 @@ public class Code2018 {
         }
         return false;
     }
-    // 38.搜索二维矩阵2:每行中的整数从左到右是排序的,每一列的整数从上到下是排序的,在每一行或每一列中没有重复的整数.
+    /** 38.搜索二维矩阵2:每行中的整数从左到右是排序的,每一列的整数从上到下是排序的,在每一行或每一列中没有重复的整数.**/
     public int searchMatrix2(int[][] matrix, int target) {
         if (matrix.length == 0) return 0;
         int rows = matrix.length;
@@ -500,7 +543,7 @@ public class Code2018 {
         return count;
     }
 
-    // 56.两数之和:给一个整数数组，找到两个数使得他们的和等于一个给定的数 target
+    /** 56.两数之和:给一个整数数组，找到两个数使得他们的和等于一个给定的数 target**/
     public int[] twoSum(int[] numbers, int target) {
         // write your code here
         if (numbers == null || numbers.length < 2 ){
@@ -521,7 +564,7 @@ public class Code2018 {
         }
         return res;
     }
-    // 57.三数之和=target的所有组合O(nlogn)+O(n^2)
+    /** 57.三数之和=target的所有组合O(nlogn)+O(n^2)**/
     public List<List<Integer>> threeSum(int[] numbers) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         Arrays.sort(numbers);
@@ -543,7 +586,7 @@ public class Code2018 {
         return res;
     }
 
-    // 58.四数之和,
+    /** 58.四数之和 **/
     public List<List<Integer>> fourSum(int[] numbers, int target) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
         Arrays.sort(numbers);
@@ -574,7 +617,7 @@ public class Code2018 {
         }
         return ret;
     }
-    // 59.最接近的三数之和
+    /** 59.最接近的三数之和**/
     public int threeSumClosest(int[] numbers, int target) {
         Arrays.sort(numbers);
         int res = Integer.MAX_VALUE;
@@ -590,7 +633,7 @@ public class Code2018 {
         }
         return res;
     }
-    // 排序只有0,1,2的数组,O(n)
+    /** 排序只有0,1,2的数组,O(n) **/
     public void sortColors(int[] nums) {
         int left = 0, cur = 0, right = nums.length - 1;
         while (cur <= right) {
@@ -604,7 +647,7 @@ public class Code2018 {
         arr[left] = arr[right];
         arr[right] = tmp;
     }
-    // 633.找到1~n数字中个一重复的，不排序，空间O(1)
+    /** 633.找到1~n数字中个一重复的，不排序，空间O(1)**/
     public int findDuplicate(int[] nums) {
         //若不大于mid的数字个数比mid多，
         // 则重复出现在[low, mid]之间。
@@ -624,7 +667,7 @@ public class Code2018 {
         }
         return l;
     }
-    // 428.x的n次幂O(logn)
+    /** 428.x的n次幂O(logn)**/
     double myPow(double x, int n) {
         double res = 1.0;
         for (int i = n; i != 0; i /= 2) {
@@ -633,7 +676,7 @@ public class Code2018 {
         }
         return n < 0 ? 1 / res : res;
     }
-    // 184.拼接最大数:给出 [1, 20, 23, 4, 8]，返回8423201.  <0 升序 >0 降序
+    /** 184.拼接最大数:给出 [1, 20, 23, 4, 8]，返回8423201.<0 升序 >0 降序**/
     public String largestNumber(int[] num) {
         if(num == null || num.length == 0) return "";
         String[] strs = new String[num.length];
