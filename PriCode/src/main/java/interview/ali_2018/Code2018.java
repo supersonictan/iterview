@@ -356,7 +356,7 @@ public class Code2018 {
 
 
     /*------------------ 快排思想 ------------------*/
-    /**5.第K大数字**/
+    /** 5.第K大数字**/
     public int kthLargestElement(int k, int[] nums) {
         return kthPartition(nums, 0, nums.length-1, k);
     }
@@ -403,16 +403,16 @@ public class Code2018 {
     }
 
     /*------------------- 二分查找 -----------------*/
-    /**14.二分查找:找到target第一次出现的下标**/
+    /** 14.二分查找:找到target第一次出现的下标**/
     public int binarySearch(int[] nums, int target) {
         int begin = 0;
         int end = nums.length-1;
         int res = -1;
-        while (begin<=end) {
-            int mid = (begin+end) / 2;
+        while (begin <= end) {
+            int mid = (begin + end) / 2;
             if (nums[mid] == target) {
-                if (res<0) res = mid;
-                if (res>0 && mid<res) res = mid;
+                if (res < 0) res = mid;
+                if (res > 0 && mid < res) res = mid;
                 end = end-1;
             }else if (nums[mid] > target) {
                 end = mid-1;
