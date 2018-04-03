@@ -526,9 +526,8 @@ public class Code2018 {
         ]*/
         if (matrix.length == 0) return 0;
         int rows = matrix.length;
-        int col = matrix[0].length;
         int r = 0;
-        int c = col - 1;
+        int c = matrix[0].length - 1;
         int count = 0;
         while (r < rows && c >= 0) {
             if (target == matrix[r][c]) {
@@ -543,7 +542,37 @@ public class Code2018 {
         }
         return count;
     }
+    /** 428.x的n次幂O(logn)**/
+    double myPow(double x, int n) {
+        double res = 1.0;
+        for (int i = n; i != 0; i /= 2) {
+            if (i % 2 != 0) res *= x;  // 整体思想折半,奇数折半后丢了1个,找回来
+            x *= x;
+        }
+        return n < 0 ? 1 / res : res;
+    }
+    /** 633.找到1~n数字中个一重复的，不排序，空间O(1)**/
+    public int findDuplicate(int[] nums) {
+        //若不大于mid的数字个数比mid多，
+        // 则重复出现在[low, mid]之间。
+        //若不大于mid的数字个数比mid少，
+        // 重复出现在后半段中[mid+1，high]
+        if (nums == null) return -1;
+        int l = 1;
+        int r = nums.length - 1;
+        while (l < r) {
+            int mid = (l+r)/2;
+            int cnt = 0;
+            for (int i=0;i<nums.length;i++){
+                if (nums[i] <= mid) cnt++;
+            }
+            if (cnt > mid) r = mid;
+            else l = mid+1;
+        }
+        return l;
+    }
 
+    /*------------------ 多指针----------------------*/
     /** 56.两数之和:给一个整数数组，找到两个数使得他们的和等于一个给定的数 target**/
     public int[] twoSum(int[] numbers, int target) {
         // write your code here
@@ -648,35 +677,7 @@ public class Code2018 {
         arr[left] = arr[right];
         arr[right] = tmp;
     }
-    /** 633.找到1~n数字中个一重复的，不排序，空间O(1)**/
-    public int findDuplicate(int[] nums) {
-        //若不大于mid的数字个数比mid多，
-        // 则重复出现在[low, mid]之间。
-        //若不大于mid的数字个数比mid少，
-        // 重复出现在后半段中[mid+1，high]
-        if (nums == null) return -1;
-        int l = 1;
-        int r = nums.length - 1;
-        while (l < r) {
-            int mid = (l+r)/2;
-            int cnt = 0;
-            for (int i=0;i<nums.length;i++){
-                if (nums[i] <= mid) cnt++;
-            }
-            if (cnt > mid) r = mid;
-            else l = mid+1;
-        }
-        return l;
-    }
-    /** 428.x的n次幂O(logn)**/
-    double myPow(double x, int n) {
-        double res = 1.0;
-        for (int i = n; i != 0; i /= 2) {
-            if (i % 2 != 0) res *= x;  // 整体思想折半,奇数折半后丢了1个,找回来
-            x *= x;
-        }
-        return n < 0 ? 1 / res : res;
-    }
+
     /** 184.拼接最大数:给出 [1, 20, 23, 4, 8]，返回8423201.<0 升序 >0 降序**/
     public String largestNumber(int[] num) {
         if(num == null || num.length == 0) return "";
