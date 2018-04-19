@@ -349,58 +349,6 @@ public class Code2018 {
     }
 
 
-    // 5.第K大数字
-    // 80.中位数
-
-
-
-
-    /*------------------ 快排思想 ------------------*/
-    /** 5.第K大数字**/
-    public int kthLargestElement(int k, int[] nums) {
-        return kthPartition(nums, 0, nums.length-1, k);
-    }
-    public int kthPartition(int[] nums, int left, int right, int k) {
-        int i = left;
-        int j = right;
-        int tmp = nums[i];
-        while (i<j){
-            while(i < j && tmp >= nums[j]) j--;
-            if (i<j) { nums[i] = nums[j]; }
-            while (i < j && tmp <= nums[i]) i++;
-            if (i<j) { nums[j] = nums[i]; }
-        }
-        if(i == k - 1) {
-            return tmp;
-        } else if(i< k-1) {
-            return kthPartition(nums, i+1, right, k);
-        } else {
-            return kthPartition(nums, left, i-1, k);
-        }
-    }
-    /** 80.中位数**/
-    public int median(int[] nums) {
-        int len = nums.length%2==0?nums.length/2 : nums.length/2+1;
-        return medianPartition(nums, 0, nums.length-1, len);
-    }
-    public int medianPartition(int[] arr, int l, int r, int k) {
-        int left = l;
-        int right = r;
-        int key = arr[left];
-        while (left < right) {
-            while (left < right && arr[right] >= key) right--;
-            if (left < right) arr[left] = arr[right];
-            while (left < right && arr[left] <= key) left++;
-            if (left < right) arr[right] = arr[left];
-        }
-        if (left == k-1) {
-            return key;
-        } else if (left < k-1) {
-            return medianPartition(arr, left+1, r, k);
-        } else {
-            return medianPartition(arr, l, right-1, k);
-        }
-    }
 
     /*------------------- 二分查找 -----------------*/
     /** 14.二分查找:找到target第一次出现的下标**/
@@ -570,6 +518,51 @@ public class Code2018 {
             else l = mid+1;
         }
         return l;
+    }
+    /** 5.第K大数字**/
+    public int kthLargestElement(int k, int[] nums) {
+        return kthPartition(nums, 0, nums.length-1, k);
+    }
+    public int kthPartition(int[] nums, int left, int right, int k) {
+        int i = left;
+        int j = right;
+        int tmp = nums[i];
+        while (i<j){
+            while(i < j && tmp >= nums[j]) j--;
+            if (i<j) { nums[i] = nums[j]; }
+            while (i < j && tmp <= nums[i]) i++;
+            if (i<j) { nums[j] = nums[i]; }
+        }
+        if(i == k - 1) {
+            return tmp;
+        } else if(i< k-1) {
+            return kthPartition(nums, i+1, right, k);
+        } else {
+            return kthPartition(nums, left, i-1, k);
+        }
+    }
+    /** 80.中位数**/
+    public int median(int[] nums) {
+        int len = nums.length%2==0?nums.length/2 : nums.length/2+1;
+        return medianPartition(nums, 0, nums.length-1, len);
+    }
+    public int medianPartition(int[] arr, int l, int r, int k) {
+        int left = l;
+        int right = r;
+        int key = arr[left];
+        while (left < right) {
+            while (left < right && arr[right] >= key) right--;
+            if (left < right) arr[left] = arr[right];
+            while (left < right && arr[left] <= key) left++;
+            if (left < right) arr[right] = arr[left];
+        }
+        if (left == k-1) {
+            return key;
+        } else if (left < k-1) {
+            return medianPartition(arr, left+1, r, k);
+        } else {
+            return medianPartition(arr, l, right-1, k);
+        }
     }
 
     /*------------------ 多指针----------------------*/
