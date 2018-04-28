@@ -116,18 +116,40 @@ def show_keyword_long_new(show_name, keyword, sub_keyword):
 
 
 def alias_keyword(show_alias):
-
-
-
-
-#in (21918, 219189, 222904, 224358,217589,227117,238046,274271,276185,55715,181845,)
+    trim_reg = "[:]$".decode("utf8")
+    res_keyword = u'办公室的故事:'
+    res_keyword = re.sub(trim_reg, "".decode("utf8"), res_keyword)
+    print(res_keyword.encode('utf8'))
 
 
 if __name__ == '__main__':
+    start = time.time()
+    for i in range(2000000):
+        txt1 = ['中国', '人', '中国人'] * 10
+        txt2 = ['美国', '中国人']  * 10
+        
+        common = len([x for x in txt1 if x in txt2])
+        txt1.extend([x for x in txt2 if x not in txt1])
+        all = len(txt1)
+        # common = len(set(txt1) & set(txt2))
+        # all = len(set(txt1 + txt2))
+        res = float(common) / float(all)
+    end = time.time()
+    print(end-start)
+    # s1 = "你#好#中#国"
+    # s2 = "hi"
+    # # s1 = s1.decode('utf8')
+    # # s2 = s2.decode('utf8')
+    # arr1 = s1.split('#')
+    # arr2 = s2.split('#')
+    # print(len(set(arr1+arr2)))
+    #print(type(arr1))
+    #print(type(arr2))
+    #alias_keyword("123")
     # s = ['早间新闻-新疆 2010','火影忍者 晓之卷','醉生梦死之湾仔之虎','铃铛猫娘 星之旅 剧场版', '湾仔之虎之醉生梦死',
     #      "耶鲁大学公开课:资本主义的成功 危机和改革"]
     # for show_name in s:
-    print show_keyword_long_new('牛群: 2017', "萌学园" ,"")
+    #print show_keyword_long_new('牛群: 2017', "萌学园" ,"")
     # s = "[10020,10021,10023,20716,49161]"
     # res = json.loads(s)
     # for i in res:

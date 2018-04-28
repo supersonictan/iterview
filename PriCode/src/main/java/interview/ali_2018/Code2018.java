@@ -85,6 +85,12 @@ import java.util.*;
  */
 
 public class Code2018 {
+    public static void main(String[] args) {
+        Code2018 c = new Code2018();
+        int[] coin = {1,31,51};
+        int amout = 91;
+        c.coinChange(coin, amout);
+    }
     private static class TreeNode {
         int val;
         TreeNode left;
@@ -190,22 +196,23 @@ public class Code2018 {
         return Math.max(maxL, maxR);
     }
     /** 最少硬币找零问题:不同面值的硬币(无限多)，组合为某种面额的钱，使硬币的的个数最少 **/
-    public static int getChangeCoin(int[] coins, int k) {
-        if(coins.length == 0 || k == 0) return 0;
-        int[] dp = new int[k+1];
-
-        for (int i = 1; i < k+1; i++) {
-            int min = Integer.MAX_VALUE - k;  // 后面可以dp[less_coin] + 1
+    public int coinChange(int[] coins, int amount) {
+        int res[] = new int[amount+1];
+        for (int i = 1; i <= amount; i++) {
+            int min = Integer.MAX_VALUE - amount;
             for (int j = 0; j < coins.length; j++) {
-                int less_coin = i - coins[j];
-                if (less_coin >= 0) {
-                    int tmp = dp[less_coin] + 1;
-                    min = tmp < min ? tmp : min;
+                if (coins[j] == 0) {
+                    continue;
+                }
+                int less = i - coins[j];
+                if (less >= 0) {
+                    min = Math.min(min, res[less] + 1);
                 }
             }
-            dp[i] = min;
+            res[i] = min;
+            System.out.println(Arrays.toString(res));
         }
-        return dp[k];
+        return res[amount] > amount ? -1 : res[amount];
     }
     /** 78. 最长公共前缀:在 "ABCDEFG", "ABCEFG", "ABCEFA" 中, LCP 为 "ABC" **/
     public String longestCommonPrefix(String[] strs) {
@@ -314,20 +321,20 @@ public class Code2018 {
         }
         return maxDiff[arr.length-1];
     }
-    /**41.最大子数组:给定一个整数数组，找到一个具有最大和的子数组，返回其最大和**/
-    public int maxSubArray(int[] nums) {
-        if (nums.length == 0) return 0;
-        if (nums.length == 1) return nums[0];
-        int[] sum = new int[nums.length];
-        int[] max = new int[nums.length];
-        sum[0] = nums[0];
-        max[0] = nums[0];
+    /**41.最大和子数组:给定一个整数数组，找到一个具有最大和的子数组，返回其最大和**/
+    public int maxSubArray(int[] a) {
+        if (a.length == 0) return 0;
+        if (a.length == 1) return a[0];
+        int[] sum = new int[a.length];
+        int[] max = new int[a.length];
+        sum[0] = a[0];
+        max[0] = a[0];
 
-        for (int i = 1; i < nums.length; i++) {
-            sum[i] = Math.max(sum[i-1] + nums[i], nums[i]);
+        for (int i = 1; i < a.length; i++) {
+            sum[i] = Math.max(sum[i-1] + a[i], a[i]);
             max[i] = Math.max(sum[i], max[i-1]);
         }
-        return max[nums.length-1];
+        return max[a.length-1];
     }
 
     // 200. 最长回文子串:给出字符串 "abcdzdcab"，它的最长回文子串为 "cdzdc"
