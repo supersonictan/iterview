@@ -11,9 +11,8 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
-
+# add one more layer and return the output of this layer
 def add_layer(inputs, in_size, out_size, activation_function=None,):
-    # add one more layer and return the output of this layer
     Weights = tf.Variable(tf.random_normal([in_size, out_size]))
     biases = tf.Variable(tf.zeros([1, out_size]) + 0.1,)
     Wx_plus_b = tf.matmul(inputs, Weights) + biases
@@ -34,14 +33,16 @@ def compute_accuracy(v_xs, v_ys):
 
 
 # define placeholder for inputs to network
-xs = tf.placeholder(tf.float32, [None, 784]) # 28x28
+xs = tf.placeholder(tf.float32, [None, 784])  # 不确定sample个数, 28x28
 ys = tf.placeholder(tf.float32, [None, 10])
 
 # add output layer
 prediction = add_layer(xs, 784, 10,  activation_function=tf.nn.softmax)
 
-# loss
-cross_entropy = tf.reduce_mean(-tf.reduce_sum(ys * tf.log(prediction), reduction_indices=[1]))
+# loss 按照行sum
+cross_entropy = tf.reduce_mean(
+    -tf.reduce_sum(ys * tf.log(prediction), reduction_indices=[1])
+)
 
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 

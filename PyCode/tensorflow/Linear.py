@@ -30,3 +30,6 @@ for step in range(150):
     if step % 20 == 0:
         print(step, sess.run(Weights), sess.run(biases))
 
+
+
+
