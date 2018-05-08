@@ -7,3 +7,10 @@ print(data2)
 
 print np.reshape(data2, (-1, 2, 1))
 
+vocab = ('a', 'b', 'c')
+int_to_vocab = dict(enumerate(vocab))
+print(int_to_vocab)
+
+drop = 'drop'
+test = [drop for _ in range(3)]
+print(test)

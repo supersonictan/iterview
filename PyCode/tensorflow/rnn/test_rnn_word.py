@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import tensorflow as tf
 from tensorflow.contrib import rnn
-import numpy as np
+import tensorflow.numpy as np
 import sys
 import collections
 import random
