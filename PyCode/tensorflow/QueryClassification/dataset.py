@@ -2,7 +2,6 @@
 import tensorflow as tf
 import numpy as np
 import os
-import settings
 
 tf.flags.DEFINE_string('buckets', '', 'buckets')
 FLAGS = tf.app.flags.FLAGS
@@ -13,27 +12,26 @@ class Dataset(object):
         生成一个数据集对象
         :param data_kind: 决定了使用哪种数据集 0-训练集 1-开发集 2-测试集
         """
-        self.data, self.labels = self.read_data(data_kind)
+        self.data, self.labels = self.read_data()
         self.start = 0  # 记录当前batch位置
         self.data_size = len(self.data)  # 样例数
 
-    def read_data(self, data_kind):
+    def read_data(self):
         """
         从文件中加载数据
         :param data_kind:数据集种类 0-训练集 1-开发集 2-测试集
         :return:
         """
         # 获取数据集路径
-        # data_path = [settings.TRAIN_DATA, settings.DEV_DATA, settings.TEST_DATA][data_kind]
-        # data = np.load(data_path + '_data.npy')
-        # labels = np.load(data_path + '_labels.npy')
+        #data_path = [settings.TRAIN_DATA, settings.DEV_DATA, settings.TEST_DATA][data_kind]
+        data = np.load('train_data.npy')
+        labels = np.load('train_labels.npy')
 
-        data_path_fe = os.path.join(FLAGS.buckets, '/train_data.npy')
-        data_path_label = os.path.join(FLAGS.buckets, '/train_labels.npy')
-        data = np.load(data_path_fe)
-        labels = np.load(data_path_label)
+        # data_path_fe = os.path.join(FLAGS.buckets, 'train_data.npy')
+        # data_path_label = os.path.join(FLAGS.buckets, 'train_labels.npy')
+        # data = np.load(data_path_fe)
+        # labels = np.load(data_path_label)
 
-        # save_path = os.path.join(FLAGS.buckets, '/filname')
         # 加载
 
         return data, labels

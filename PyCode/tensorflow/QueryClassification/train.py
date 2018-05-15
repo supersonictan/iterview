@@ -1,14 +1,23 @@
 # -*- coding: utf-8 -*-
-import settings
 import tensorflow as tf
+import os
+import functools
+import numpy as np
 import models
 import dataset
-import os
+
+HIDDEN_SIZE = 128
+NUM_LAYERS = 2
+BATCH_SIZE = 64
+# rnn层dropout保留率
+RNN_KEEP_PROB = 0.5
+# emb层dropout保留率
+EMB_KEEP_PROB = 0.5
+
 
 tf.flags.DEFINE_string('buckets', '', 'buckets')
 FLAGS = tf.app.flags.FLAGS
 
-BATCH_SIZE = settings.BATCH_SIZE
 
 # 数据
 x = tf.placeholder(tf.int32, [None, None])
@@ -23,26 +32,25 @@ rnn_keep = tf.placeholder(tf.float32)
 model = models.Model(x, y, emb_keep, rnn_keep)
 
 # 创建数据集对象
-data = dataset.Dataset(0)
+data = dataset.Dataset()
 
 saver = tf.train.Saver()
-
 
 
 with tf.Session() as sess:
     # 全局初始化
     sess.run(tf.global_variables_initializer())
     # 迭代训练
-    for step in range(settings.TRAIN_TIMES):
+    for step in range(2000):
         # 获取一个batch进行训练
         x, y = data.next_batch(BATCH_SIZE)
         loss, _ = sess.run([model.loss, model.optimize],
-                           {model.data: x, model.label: y, model.emb_keep: settings.EMB_KEEP_PROB,
-                            model.rnn_keep: settings.RNN_KEEP_PROB})
+                           {model.data: x, model.label: y, model.emb_keep: EMB_KEEP_PROB, model.rnn_keep: RNN_KEEP_PROB})
         # 输出loss
-        if step % settings.SHOW_STEP == 0:
+        if step % 10 == 0:
             print 'step {},loss is {}'.format(step, loss)
         # 保存模型
-        if step % settings.SAVE_STEP == 0:
-            saver.save(sess, os.path.join(FLAGS.buckets, '/model'), model.global_step)
+        if step % 1000 == 0:
+            pass
+            saver.save(sess, os.path.join(FLAGS.buckets, 'model'), model.global_step)
             # saver.save(sess, os.path.join(settings.CKPT_PATH, settings.MODEL_NAME), model.global_step)
