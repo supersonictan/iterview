@@ -6,7 +6,7 @@ import functools
 HIDDEN_SIZE = 128
 NUM_LAYERS = 2
 # 词汇表大小
-VOCAB_SIZE = 10000
+VOCAB_SIZE = 40000
 # 初始学习率
 LEARN_RATE = 0.0001
 # 学习率衰减

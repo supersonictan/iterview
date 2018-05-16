@@ -15,8 +15,8 @@ RNN_KEEP_PROB = 0.5
 EMB_KEEP_PROB = 0.5
 
 
-tf.flags.DEFINE_string('buckets', '', 'buckets')
-FLAGS = tf.app.flags.FLAGS
+#tf.flags.DEFINE_string('buckets', '', 'buckets')
+#FLAGS = tf.app.flags.FLAGS
 
 
 # 数据
@@ -51,7 +51,7 @@ with tf.Session() as sess:
             print 'step {},loss is {}'.format(step, loss)
         # 保存模型
         if step % 1000 == 0:
-            # pass
-            print(os.path.join(FLAGS.buckets, 'model'))
-            saver.save(sess, os.path.join(FLAGS.buckets, 'model'), model.global_step)
+             pass
+            #print(os.path.join(FLAGS.buckets, 'model'))
+            #saver.save(sess, os.path.join(FLAGS.buckets, 'model'), model.global_step)
             # saver.save(sess, os.path.join(settings.CKPT_PATH, settings.MODEL_NAME), model.global_step)
