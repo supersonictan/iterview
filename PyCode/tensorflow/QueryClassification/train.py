@@ -41,16 +41,17 @@ with tf.Session() as sess:
     # 全局初始化
     sess.run(tf.global_variables_initializer())
     # 迭代训练
-    for step in range(2000):
+    for step in range(20000):
         # 获取一个batch进行训练
         x, y = data.next_batch(BATCH_SIZE)
         loss, _ = sess.run([model.loss, model.optimize],
                            {model.data: x, model.label: y, model.emb_keep: EMB_KEEP_PROB, model.rnn_keep: RNN_KEEP_PROB})
         # 输出loss
-        if step % 10 == 0:
+        if step % 100 == 0:
             print 'step {},loss is {}'.format(step, loss)
         # 保存模型
         if step % 1000 == 0:
-            pass
+            # pass
+            print(os.path.join(FLAGS.buckets, 'model'))
             saver.save(sess, os.path.join(FLAGS.buckets, 'model'), model.global_step)
             # saver.save(sess, os.path.join(settings.CKPT_PATH, settings.MODEL_NAME), model.global_step)

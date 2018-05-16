@@ -23,12 +23,13 @@ class Dataset(object):
         :return:
         """
         # 获取数据集路径
-        #data_path = [settings.TRAIN_DATA, settings.DEV_DATA, settings.TEST_DATA][data_kind]
+        # data_path = [settings.TRAIN_DATA, settings.DEV_DATA, settings.TEST_DATA][data_kind]
         data = np.load('train_data.npy')
         labels = np.load('train_labels.npy')
 
         # data_path_fe = os.path.join(FLAGS.buckets, 'train_data.npy')
         # data_path_label = os.path.join(FLAGS.buckets, 'train_labels.npy')
+        # print(data_path_fe)
         # data = np.load(data_path_fe)
         # labels = np.load(data_path_label)
 
