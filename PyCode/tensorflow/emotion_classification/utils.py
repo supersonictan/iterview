@@ -32,7 +32,7 @@ def read_id_to_word_dict():
     return id2word
 
 
-def get_id_by_word(word, word2id):
+def get_id_by_word(word, word2isdfasdtxtasdfasdfasdfasdfasdfasdffsdasdasdasdasdasdfasfdsffdssdsasdfasdfsdfsdf
     """
     给定一个单词和字典，获得单词在字典中的编号
     :param word: 给定单词

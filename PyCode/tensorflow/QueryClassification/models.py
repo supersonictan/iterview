@@ -86,9 +86,10 @@ class Model(object):
         """
         # 词嵌入矩阵权重
         embedding = tf.get_variable('embedding', [VOCAB_SIZE, HIDDEN_SIZE])
+        basicLstm = tf.nn.rnn_cell.BasicLSTMCell(HIDDEN_SIZE)
         # 使用dropout的LSTM
-        lstm_cell = [tf.nn.rnn_cell.DropoutWrapper(tf.nn.rnn_cell.BasicLSTMCell(HIDDEN_SIZE), self.rnn_keep) for _ in
-                     range(NUM_LAYERS)]
+        dropOutCell = tf.nn.rnn_cell.DropoutWrapper(basicLstm, self.rnn_keep)
+        lstm_cell = [dropOutCell for _ in range(NUM_LAYERS)]
         # 构建循环神经网络
         cell = tf.nn.rnn_cell.MultiRNNCell(lstm_cell)
         # 生成词嵌入矩阵，并进行dropout
@@ -101,19 +102,9 @@ class Model(object):
         # 求最后节点输出的线性加权和
         weights = tf.Variable(tf.truncated_normal([HIDDEN_SIZE, 1]), dtype=tf.float32, name='weights')
         bias = tf.Variable(0, dtype=tf.float32, name='bias')
-
         logits = tf.matmul(last_output, weights) + bias
 
         return logits
-
-    @define_scope
-    def ema(self):
-        """
-        定义移动平均
-        :return:
-        """
-        ema = tf.train.ExponentialMovingAverage(EMA_RATE, self.global_step)
-        return ema
 
     @define_scope
     def loss(self):
@@ -124,6 +115,16 @@ class Model(object):
         loss = tf.nn.sigmoid_cross_entropy_with_logits(labels=self.label, logits=self.predict)
         loss = tf.reduce_mean(loss)
         return loss
+
+    @define_scope
+    def ema(self):
+        """
+        定义移动平均
+        :return:
+        """
+        ema = tf.train.ExponentialMovingAverage(EMA_RATE, self.global_step)
+        return ema
+
 
     @define_scope
     def global_step(self):
