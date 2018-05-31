@@ -52,8 +52,8 @@ def getTestBatch():
 
 
 tf.reset_default_graph()
-labels = tf.placeholder(tf.float32, [batchSize, numClasses])
 input_data = tf.placeholder(tf.int32, [batchSize, maxSeqLength_inputSize])
+labels = tf.placeholder(tf.float32, [batchSize, numClasses])
 data = tf.Variable(tf.zeros([batchSize, maxSeqLength_inputSize, numDimensions_embedding]), dtype=tf.float32)
 data = tf.nn.embedding_lookup(wordVectors, input_data)  # shape是 seq * embedding * batch 可以想象
 
