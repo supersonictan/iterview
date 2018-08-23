@@ -382,7 +382,7 @@ public class AllSort {
             }
             if(mid+1 <= num.length-1 && num[mid] > num[mid+1]) {
                 return num[mid+1];
-            }
+            }/**/
             if (num[left] < num[mid] ) {
                 left = mid+1;
             }
