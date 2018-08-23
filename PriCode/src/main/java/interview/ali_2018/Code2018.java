@@ -358,6 +358,21 @@ public class Code2018 {
 
 
     /*------------------- 二分查找 -----------------*/
+    /** 457.经典二分查找问题**/
+    public int findPosition(int[] nums, int target) {
+        if (nums == null && nums.length == 0) {
+            return -1;
+        }
+        int begin = 0;
+        int end = nums.length-1;
+        while (begin < end) {
+            int mid = (begin + end) /2;
+            if (target == nums[mid]) return mid;
+            else if (target > nums[mid]) begin = mid+1;
+            else end = mid-1;
+        }
+        return -1;
+    }
     /** 14.二分查找:找到target第一次出现的下标**/
     public int binarySearch(int[] nums, int target) {
         int begin = 0;
@@ -376,43 +391,6 @@ public class Code2018 {
             }
         }
         return res;
-    }
-    /** 457.经典二分查找问题**/
-    public int findPosition(int[] nums, int target) {
-        if (nums == null && nums.length == 0) {
-            return -1;
-        }
-        int begin = 0;
-        int end = nums.length-1;
-        while (begin < end) {
-            int mid = (begin + end) /2;
-            if (target == nums[mid]) return mid;
-            else if (target > nums[mid]) begin = mid+1;
-            else end = mid-1;
-        }
-        return -1;
-    }
-    /** 159. 寻找旋转排序数组中的最小值**/
-    public int findMin(int[] num) {
-        if (num[0] < num[num.length-1]) return num[0];
-        int left = 0;
-        int right = num.length-1;
-        while(left < right) {
-            int mid = (left + right) / 2;
-            if(mid - 1 >= 0 && num[mid - 1] > num[mid]){
-                return num[mid];
-            }
-            if(mid+1 <= num.length-1 && num[mid] > num[mid+1]) {
-                return num[mid+1];
-            }
-            if (num[left] < num[mid] ) {
-                left = mid+1;
-            }
-            if (num[mid] < num[right]) {
-                right = mid-1;
-            }
-        }
-        return -1;
     }
     /** 62.旋转排序数组搜索target **/
     public int search(int[] A, int target) {
@@ -437,6 +415,28 @@ public class Code2018 {
                 }
             } else {
                 left++;
+            }
+        }
+        return -1;
+    }
+    /** 159. 寻找旋转排序数组中的最小值**/
+    public int findMin(int[] num) {
+        if (num[0] < num[num.length-1]) return num[0];
+        int left = 0;
+        int right = num.length-1;
+        while(left < right) {
+            int mid = (left + right) / 2;
+            if(mid - 1 >= 0 && num[mid - 1] > num[mid]){
+                return num[mid];
+            }
+            if(mid+1 <= num.length-1 && num[mid] > num[mid+1]) {
+                return num[mid+1];
+            }
+            if (num[left] < num[mid] ) {
+                left = mid+1;
+            }
+            if (num[mid] < num[right]) {
+                right = mid-1;
             }
         }
         return -1;
