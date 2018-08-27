@@ -172,8 +172,8 @@ public class BinarySearch {
     // 428.x的n次幂O(logn)
     double myPow(double x, int n) {
         double res = 0;
-        for (int i = n; i > 0; i /= 2) {
-            if (i%2 != 0) {  // 奇数除了x*x外,要多乘x
+        for (int i = n; i != 0; i /= 2) {
+            if (i % 2 != 0) {  // 奇数除了x*x外,要多乘x
                 res *= x;
             }
             x *= x;
