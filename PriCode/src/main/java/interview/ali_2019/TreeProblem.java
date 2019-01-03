@@ -324,16 +324,6 @@ public class TreeProblem {
         return true;
     }
 
-    // 获取左子树的高度(其实是最左侧分支）
-    public int getLeftHeight(TreeNode root) {
-        int count = 0;
-        while (root != null) {
-            count++;
-            root = root.left;
-        }
-        return count;
-    }
-
     // 222. 完全二叉树的节点个数
     /**
      *二叉树的第n层最多为2n个节点,二叉树最多有2n+1−1个节点
@@ -344,6 +334,15 @@ public class TreeProblem {
      * 这个时候我们就很容易的计算出总结点数nodes=2**(h-1)-1 + 1 +左子树节点数（这里的+1表示root节点）。
      * 根据这个思路我们只要不断循环下去直到root==None结束
      */
+    // 获取左子树的高度(其实是最左侧分支）
+    public int getLeftHeight(TreeNode root) {
+        int count = 0;
+        while (root != null) {
+            count++;
+            root = root.left;
+        }
+        return count;
+    }
     public int getRightHeight(TreeNode root) {
         int count = 0;
         while (root != null) {
