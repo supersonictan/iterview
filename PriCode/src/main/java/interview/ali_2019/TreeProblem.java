@@ -23,6 +23,8 @@ import java.util.*;
  * 236. 二叉树的最近公共祖先
  * 958. 二叉树的完全性检验
  * 222. 完全二叉树的节点个数
+ * 208. 实现 Trie (前缀树)
+ *
  *
  */
 
@@ -334,8 +336,42 @@ public class TreeProblem {
      * 这个时候我们就很容易的计算出总结点数nodes=2**(h-1)-1 + 1 +左子树节点数（这里的+1表示root节点）。
      * 根据这个思路我们只要不断循环下去直到root==None结束
      */
-    // 获取左子树的高度(其实是最左侧分支）
+    // 简洁做法
+    public int countNodes(TreeNode root) {
+        if (root == null) return 0;
+
+        int height = 0;
+        TreeNode left = root;
+        TreeNode right = root;
+
+        while (right != null) {
+            left = left.left;
+            right = right.right;
+            height++;
+        }
+
+        if (left == null) {  // left == null 表示满二叉树
+            return (1 << height) - 1;
+        } else {
+            return countNodes(root.left) + countNodes(root.right) + 1;
+        }
+    }
+    public int countNodes2(TreeNode root) {
+        if (root == null) return 0;
+        int left = getLeftHeight(root);
+        int right = getRightHeight(root);
+
+        if (left == right) {
+            // 表示是满二叉树，二叉树的节点数直接由公式2^n-1得到
+            // leftHeight即为层数， 1 << leftHeight使用位运算计算2^leftHeight，效率更高
+            // 注意(1 << leftHeight) - 1 的括号必须有！！
+            return (1 << left) - 1;
+        } else {
+            return countNodes2(root.left) + countNodes2(root.right) + 1;
+        }
+    }
     public int getLeftHeight(TreeNode root) {
+        if (root == null) return 0;
         int count = 0;
         while (root != null) {
             count++;
@@ -344,6 +380,7 @@ public class TreeProblem {
         return count;
     }
     public int getRightHeight(TreeNode root) {
+        if (root == null) return 0;
         int count = 0;
         while (root != null) {
             count++;
@@ -351,21 +388,44 @@ public class TreeProblem {
         }
         return count;
     }
-    public int countNodes(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        int leftHeight = getLeftHeight(root);
-        int rightHeight = getRightHeight(root);
 
-        if (leftHeight == rightHeight) {
-            // 表示是满二叉树，二叉树的节点数直接由公式2^n-1得到
-            // leftHeight即为层数， 1 << leftHeight使用位运算计算2^leftHeight，效率更高
-            // 注意(1 << leftHeight) - 1 的括号必须有！！
-            return (1 << leftHeight) - 1;
-        } else {
-            // 若该二叉树不是满二叉树，递归的调用该方法，计算左子树和右子树的节点数
-            return countNodes(root.left) + countNodes(root.right) + 1;
+    // 208. 实现 Trie (前缀树)
+    class Trie {
+        private TrieNode root;
+
+        /** Initialize your data structure here. */
+        public Trie() {
+            root = new TrieNode();
+        }
+
+        /** Inserts a word into the trie. */
+        public void insert(String word) {
+            HashMap<Character, TrieNode> children = root.children;
+
+            for (int i = 0; i < word.length(); i++) {
+                TrieNode next;
+                if (children.containsKey(word.charAt(i))) {
+                    next = children.get(word.charAt(i));
+                } else {
+                    next = new TrieNode(word.charAt(i));
+                    children.put(word.charAt(i), next);
+                }
+                children = next.children;
+
+                if (i == word.length() - 1) {
+                    next.isLeaf = true;
+                }
+            }
+        }
+
+        /** Returns if the word is in the trie. */
+        public boolean search(String word) {
+
+        }
+
+        /** Returns if there is any word in the trie that starts with the given prefix. */
+        public boolean startsWith(String prefix) {
+
         }
     }
 
@@ -375,7 +435,16 @@ public class TreeProblem {
 
 
 
+    class TrieNode {
+        Character c;
+        HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
+        boolean isLeaf = false;
 
+        public TrieNode(){}
+        public TrieNode(Character c) {
+            this.c = c;
+        }
+    }
     private static class TreeNode {
         int val;
         TreeNode left;
