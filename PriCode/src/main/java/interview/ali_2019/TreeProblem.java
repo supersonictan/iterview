@@ -327,17 +327,17 @@ public class TreeProblem {
     }
 
     // 222. 完全二叉树的节点个数
-    /**
-     *二叉树的第n层最多为2n个节点,二叉树最多有2^n−1个节点
-     * 基于这两个性质，我们可以这样思考。
-     * 如果右子树的高度等于整棵二叉树的高度-1的话，
-     * 那么左子树一定是一棵满二叉树，这个时候我们就很容易的计算出总结点数nodes=2**(h)-1 + 1 +右子树节点数（这里的+1表示root节点）。
-     * 如果右子树的高度不等于整棵二叉树的高度-1的话，那么左子树不一定是一棵满二叉树，但是有一点可以确定，右子树一定是一棵满二叉树，
-     * 这个时候我们就很容易的计算出总结点数nodes=2**(h-1)-1 + 1 +左子树节点数（这里的+1表示root节点）。
-     * 根据这个思路我们只要不断循环下去直到root==None结束
-     */
     // 简洁做法
     public int countNodes(TreeNode root) {
+        /**
+         *二叉树的第n层最多为2n个节点,二叉树最多有2^n−1个节点
+         * 基于这两个性质，我们可以这样思考。
+         * 如果右子树的高度等于整棵二叉树的高度-1的话，
+         * 那么左子树一定是一棵满二叉树，这个时候我们就很容易的计算出总结点数nodes=2**(h)-1 + 1 +右子树节点数（这里的+1表示root节点）。
+         * 如果右子树的高度不等于整棵二叉树的高度-1的话，那么左子树不一定是一棵满二叉树，但是有一点可以确定，右子树一定是一棵满二叉树，
+         * 这个时候我们就很容易的计算出总结点数nodes=2**(h-1)-1 + 1 +左子树节点数（这里的+1表示root节点）。
+         * 根据这个思路我们只要不断循环下去直到root==None结束
+         */
         if (root == null) return 0;
 
         int height = 0;
@@ -391,13 +391,15 @@ public class TreeProblem {
 
     // 208. 实现 Trie (前缀树)
     class Trie {
+        /*https://hxraid.iteye.com/blog/618962
+        * https://segmentfault.com/a/1190000003709971
+        * */
         private TrieNode root;
 
         /** Initialize your data structure here. */
         public Trie() {
             root = new TrieNode();
         }
-
         /** Inserts a word into the trie. */
         public void insert(String word) {
             HashMap<Character, TrieNode> children = root.children;
@@ -417,17 +419,37 @@ public class TreeProblem {
                 }
             }
         }
-
         /** Returns if the word is in the trie. */
         public boolean search(String word) {
-
+            TrieNode res = searchNode(word);
+            if (res != null && res.isLeaf) {
+                return true;
+            }
+            return false;
         }
-
         /** Returns if there is any word in the trie that starts with the given prefix. */
         public boolean startsWith(String prefix) {
-
+            return searchNode(prefix) != null;
+        }
+        private TrieNode searchNode(String word) {
+            HashMap<Character, TrieNode> children = root.children;
+            TrieNode next = null;
+            for (int i = 0; i < word.length(); i++) {
+                if (children.containsKey(word.charAt(i))) {
+                    next = children.get(word.charAt(i));
+                    children = next.children;
+                } else {
+                    return null;
+                }
+            }
+            return next;
         }
     }
+
+
+
+
+
 
 
 

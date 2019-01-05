@@ -17,16 +17,23 @@ expoQueryReg = re.compile(r'(object_title:)(.*?)(;)')
 expoPosReg = re.compile(r'(object_num:)(.*?)(;)')
 expoTypeReg = re.compile(r'(search_kq:)(.*?)(;)')
 
+onlyCN = re.compile(u'^[/<>~×《》“”"、&ⅫⅡⅢⅣⅤⅥⅦⅧⅠ·•(),，（）+=%—！!a-zA-Z0-9_\.\-\ :：\u4e00-\u9fa5]+$')
+
 def evaluate(othertipsinfo):
     print list(othertipsinfo)
 
 
 if __name__ == '__main__':
-    query = '军师联盟 anglababy'
-    query = unicode(query, 'utf-8')
-    char_list = list(query)
-    new_list = [x.encode('utf8') for x in char_list]
-    print ' '.join(new_list)
+    re_res = re.search(onlyCN, u'女人最痛‎')
+    if re_res is not None:
+        print('ok')
+    else:
+        print('not ok')
+    # query = '军师联盟 anglababy'
+    # query = unicode(query, 'utf-8')
+    # char_list = list(query)
+    # new_list = [x.encode('utf8') for x in char_list]
+    # print ' '.join(new_list)
 
 
 
