@@ -20,12 +20,12 @@ import java.util.*;
  * 107. 二叉树的层次遍历 II:自底向上 List<List<Integer>> levelOrderBottom(TreeNode root)
  * 104. 二叉树的最大深度: int maxDepth(TreeNode root)
  * 111. 二叉树的最小深度: int minDepth(TreeNode root)
- * 236. 二叉树的最近公共祖先
+ * 236. 二叉树的最近公共祖先 public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B)
  * 958. 二叉树的完全性检验
  * 222. 完全二叉树的节点个数
  * 208. 实现 Trie (前缀树)
- * 103. 二叉树的锯齿形层次遍历
- * 124. 二叉树中的最大路径和
+ * 103. 二叉树的锯齿形层次遍历 public List<List<Integer>> zigzagLevelOrder(TreeNode root)
+ * 124. 二叉树中的最大路径和 public int maxPathSum(TreeNode root)
  *
  *
  */
@@ -519,13 +519,14 @@ public class TreeProblem {
 
         maxPathResult = Math.max(currSum2, maxPathResult);
 
+        // 父节点 + 当前根最大路径不是棵树的
         return currSum;
     }
 
 
 
 
-
+    https://www.cnblogs.com/immiao0319/p/9545768.html
 
 
 
