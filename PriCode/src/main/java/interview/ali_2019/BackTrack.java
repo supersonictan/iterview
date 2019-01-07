@@ -9,6 +9,9 @@ public class BackTrack {
     // 79. 单词搜索
     public boolean exist(char[][] board, String word) {
         /**
+         * https://yanjia.me/zh/2018/11/17/leetcode-word-search-i-ii/
+         * https://segmentfault.com/a/1190000003697153
+         * https://www.cnblogs.com/jimmycheng/p/7248179.html
          * 基本思路很简单，对矩阵里每个点都进行一次深度优先搜索，看它能够产生一个路径和所给的字符串是一样的。
          * 重点在如何优化搜索，避免不必要的计算。比如我们一个方向的搜索中已经发现了这个词，那我们就不用再搜索。
          * 另外，如果之前已经访问过的点，就能再访问了，防止出现循环。

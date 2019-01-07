@@ -24,6 +24,8 @@ import java.util.*;
  * 958. 二叉树的完全性检验
  * 222. 完全二叉树的节点个数
  * 208. 实现 Trie (前缀树)
+ * 103. 二叉树的锯齿形层次遍历
+ * 124. 二叉树中的最大路径和
  *
  *
  */
@@ -446,8 +448,79 @@ public class TreeProblem {
         }
     }
 
+    // 103. 二叉树的锯齿形层次遍历
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
 
+        if (root == null) return res;
 
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.offer(root);
+        int depth = 1;
+        int curLevelNum = 1;
+        int nextLevelNum = 0;
+
+        List<Integer> tmp = new ArrayList<Integer>();
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
+            curLevelNum--;
+            if (depth % 2 == 1) {
+                tmp.add(node.val);
+            } else {  // 偶数层反着插
+                tmp.add(0, node.val);
+            }
+
+            if (node.left != null) {
+                q.offer(node.left);
+                nextLevelNum++;
+            }
+            if (node.right != null) {
+                q.offer(node.right);
+                nextLevelNum++;
+            }
+
+            if (curLevelNum == 0) {
+                depth++;
+                curLevelNum = nextLevelNum;
+                nextLevelNum = 0;
+                res.add(tmp);
+                tmp = new ArrayList<Integer>();
+            }
+        }
+        return res;
+    }
+
+    // 124. 二叉树中的最大路径和
+    private int maxPathResult = Integer.MIN_VALUE;
+    public int maxPathSum(TreeNode root) {
+        /*
+         * 思路：首先我们分析一下对于指定某个节点为根时，最大的路径和有可能是哪些情况。
+         * 第一种是左子树的路径加上当前节点，
+         * 第二种是右子树的路径加上当前节点，
+         * 第三种是左右子树的路径加上当前节点（相当于一条横跨当前节点的路径），
+         * 第四种是只有自己的路径。
+         * 乍一看似乎以此为条件进行自下而上递归就行了，然而这四种情况只是用来计算以当前节点根的最大路径，
+         * 如果当前节点上面还有节点，那它的父节点是不能累加第三种情况的。
+         * 所以我们要计算两个最大值，一个是当前节点下最大路径和，另一个是如果要连接父节点时最大的路径和。
+         * 我们用前者更新全局最大量，用后者返回递归值就行了。
+         * */
+        maxPathSumHelper(root);
+        return maxPathResult;
+    }
+    public int maxPathSumHelper(TreeNode root) {
+        if (root == null) return 0;
+
+        int left = maxPathSumHelper(root.left);
+        int right = maxPathSumHelper(root.right);
+
+        // 以上四种情况的最大值
+        int currSum = Math.max(Math.max(left + root.val, right + root.val), root.val);
+        int currSum2 = Math.max(currSum, left + right + root.val);
+
+        maxPathResult = Math.max(currSum2, maxPathResult);
+
+        return currSum;
+    }
 
 
 
