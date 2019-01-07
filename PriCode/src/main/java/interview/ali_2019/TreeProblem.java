@@ -26,6 +26,7 @@ import java.util.*;
  * 208. 实现 Trie (前缀树)
  * 103. 二叉树的锯齿形层次遍历 public List<List<Integer>> zigzagLevelOrder(TreeNode root)
  * 124. 二叉树中的最大路径和 public int maxPathSum(TreeNode root)
+ * 662. 二叉树最大宽度
  *
  *
  */
@@ -523,10 +524,25 @@ public class TreeProblem {
         return currSum;
     }
 
+    // 662. 二叉树最大宽度
+    public int widthOfBinaryTree(TreeNode root) {
+        /*
+        * https://www.jianshu.com/p/fb59df4fc894
+        * 采取二叉树的层次遍历，如果用空节点来占据每层中首尾非空节点中间的空位置来计算每层最大宽度,容易发生超时(因为第n次有2^n个节点，增长速度极快)。因此根据在一颗二叉树中,左孩子在其所在层次中的下标为其父节点的下标*2，右孩子在其所在层次中的下标等于其父节点的下标*2+1 的规律（下标值从0开始)。构造（TreeNode, index）的二元组来记录每个非空节点的位置，便可在层次遍历时只向队列中加入非空节点来缩短遍历所需要的时间。
+        * */
+        if (root == null) return 0;
+
+        int max = 0;
+        LinkedList<List<Object>> q = new LinkedList<List<Object>>();
+        ArrayList<Object> l = {root, 0};
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            int len = q.getFirst()
+        }
+    }
 
 
-
-    https://www.cnblogs.com/immiao0319/p/9545768.html
 
 
 
