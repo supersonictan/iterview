@@ -1,5 +1,7 @@
 package interview.ali_2019;
 
+import javafx.util.Pair;
+
 import java.util.*;
 
 // TODO: 一定要能熟练地写出所有问题的递归和非递归做法！
@@ -26,7 +28,7 @@ import java.util.*;
  * 208. 实现 Trie (前缀树)
  * 103. 二叉树的锯齿形层次遍历 public List<List<Integer>> zigzagLevelOrder(TreeNode root)
  * 124. 二叉树中的最大路径和 public int maxPathSum(TreeNode root)
- * 662. 二叉树最大宽度
+ * 662. 二叉树最大宽度 public int widthOfBinaryTree(TreeNode root)
  *
  *
  */
@@ -524,23 +526,42 @@ public class TreeProblem {
         return currSum;
     }
 
-    // 662. 二叉树最大宽度
+    // 662. 二叉树最大宽度：https://www.jianshu.com/p/fb59df4fc894
     public int widthOfBinaryTree(TreeNode root) {
         /*
-        * https://www.jianshu.com/p/fb59df4fc894
-        * 采取二叉树的层次遍历，如果用空节点来占据每层中首尾非空节点中间的空位置来计算每层最大宽度,容易发生超时(因为第n次有2^n个节点，增长速度极快)。因此根据在一颗二叉树中,左孩子在其所在层次中的下标为其父节点的下标*2，右孩子在其所在层次中的下标等于其父节点的下标*2+1 的规律（下标值从0开始)。构造（TreeNode, index）的二元组来记录每个非空节点的位置，便可在层次遍历时只向队列中加入非空节点来缩短遍历所需要的时间。
+        * 采取二叉树的层次遍历，如果用空节点来占据每层中首尾非空节点中间的空位置来计算每层最大宽度,容易发生超时(因为第n次有2^n个节点，增长速度极快)。
+        * 因此根据在一颗二叉树中,左孩子在其所在层次中的下标为其父节点的下标*2，右孩子在其所在层次中的下标等于其父节点的下标*2+1 的规律（下标值从0开始)。
+        * 构造（TreeNode, index）的二元组来记录每个非空节点的位置，便可在层次遍历时只向队列中加入非空节点来缩短遍历所需要的时间。
+        *
+        * 给二叉树的节点从1开始编号，那么i节点的左右子节点的编号分别为2i和2i+1，
+        * 因此可以使用编号来计算宽度：width=最右节点的编号 - 最左节点的编号。
+        * 用一个队列来记录每一层的最左边节点的编号，那么每一层的宽度就可以直接利用编号计算出来，它们的最大值就是二叉树的宽度。
         * */
         if (root == null) return 0;
 
         int max = 0;
-        LinkedList<List<Object>> q = new LinkedList<List<Object>>();
-        ArrayList<Object> l = {root, 0};
+        LinkedList<Pair<TreeNode, Integer>> q = new LinkedList<Pair<TreeNode, Integer>>();
+        q.offer(new Pair<TreeNode, Integer>(root, 1));
 
+        // 每一次while循环都是遍历新的层
         while (!q.isEmpty()) {
             int size = q.size();
-            int len = q.getFirst()
+
+            int len = q.getLast().getValue() - q.getFirst().getValue() + 1;
+
+            max = Math.max(len, max);
+
+            for (int i = 0; i < size; i++) {
+                Pair<TreeNode, Integer> pair = q.poll();
+                if (pair.getKey().left != null)
+                    q.offer(new Pair<TreeNode, Integer>(pair.getKey().left, 2 * pair.getValue()));
+                if (pair.getKey().right != null)
+                    q.offer(new Pair<TreeNode, Integer>(pair.getKey().right, 2 * pair.getValue() + 1));
+            }
         }
+        return max;
     }
+
 
 
 
