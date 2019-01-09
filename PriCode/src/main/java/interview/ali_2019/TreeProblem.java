@@ -29,6 +29,8 @@ import java.util.*;
  * 103. 二叉树的锯齿形层次遍历 public List<List<Integer>> zigzagLevelOrder(TreeNode root)
  * 124. 二叉树中的最大路径和 public int maxPathSum(TreeNode root)
  * 662. 二叉树最大宽度 public int widthOfBinaryTree(TreeNode root)
+ * 257. 二叉树的所有路径
+ * 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
  *
  *
  */
@@ -526,9 +528,30 @@ public class TreeProblem {
         return currSum;
     }
 
-    // 662. 二叉树最大宽度：https://www.jianshu.com/p/fb59df4fc894
+    // 662. 二叉树最大宽度
+    public int widthOfBinaryTree_practise(TreeNode root) {
+        if (root == null) return 0;
+        LinkedList<Pair<TreeNode, Integer>> q = new LinkedList<Pair<TreeNode, Integer>>();
+        q.offer(new Pair<TreeNode, Integer>(root, 1));
+        int max = 0;
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            int len = q.getLast().getValue() - q.getFirst().getValue() + 1;
+            max = Math.max(max, len);
+
+            for (int i = 0; i < size; i++) {
+                Pair<TreeNode, Integer> p = q.poll();
+
+                if (p.getKey().left != null) q.offer(new Pair<TreeNode, Integer>(p.getKey().left, 2 * p.getValue()));
+                if (p.getKey().right != null) q.offer(new Pair<TreeNode, Integer>(p.getKey().right, 2 * p.getValue() + 1));
+            }
+        }
+        return max;
+    }
     public int widthOfBinaryTree(TreeNode root) {
         /*
+        * https://www.jianshu.com/p/fb59df4fc894
         * 采取二叉树的层次遍历，如果用空节点来占据每层中首尾非空节点中间的空位置来计算每层最大宽度,容易发生超时(因为第n次有2^n个节点，增长速度极快)。
         * 因此根据在一颗二叉树中,左孩子在其所在层次中的下标为其父节点的下标*2，右孩子在其所在层次中的下标等于其父节点的下标*2+1 的规律（下标值从0开始)。
         * 构造（TreeNode, index）的二元组来记录每个非空节点的位置，便可在层次遍历时只向队列中加入非空节点来缩短遍历所需要的时间。
@@ -562,8 +585,52 @@ public class TreeProblem {
         return max;
     }
 
+    // 257. 二叉树的所有路径
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> list = new ArrayList<String>();
+        String s = "";
+        binaryTreePath(root, s, list);
 
+        return list;
+    }
+    public void binaryTreePath(TreeNode root, String s, List<String> list) {
+        if (root == null) return;
 
+        s += root.val;
+
+        if (root.left == null && root.right == null) {
+            list.add(s);
+        } else {
+            s += "->";
+        }
+
+        // s是值传递，内部方法修改后不可变
+        binaryTreePath(root.left, s, list);
+        binaryTreePath(root.right, s, list);
+    }
+
+    // 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
+    private int target;
+    private List<List<Integer>> result = new ArrayList<List<Integer>>();
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        this.target = sum;
+        dfs(root, 0, new ArrayList<Integer>());
+        return result;
+    }
+    private void dfs(TreeNode root, int tmpSum, List<Integer> list) {
+        if (root == null) return;
+
+        int pathSum = tmpSum + root.val;
+        list.add(root.val);
+
+        if (root.left == null && root.right == null && pathSum == target) result.add(new ArrayList<Integer>(list));  // list还需要继续用
+
+        dfs(root.left, pathSum, list);
+        dfs(root.right, pathSum, list);
+
+        // 满足条件的已经放到返回list中了,之后回溯查找需要把每次遍历加入的值去掉
+        list.remove(list.size() - 1);
+    }
 
 
 
