@@ -31,6 +31,9 @@ import java.util.*;
  * 662. 二叉树最大宽度 public int widthOfBinaryTree(TreeNode root)
  * 257. 二叉树的所有路径
  * 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
+ * 951. 翻转等价二叉树
+ * 226. 翻转二叉树[简单]: TreeNode invertTree(TreeNode root)
+ * 637. 二叉树的层平均值: List<Double> averageOfLevels(TreeNode root)
  *
  *
  */
@@ -632,7 +635,70 @@ public class TreeProblem {
         list.remove(list.size() - 1);
     }
 
+    // 226. 翻转二叉树
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) return null;
 
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+        invertTree(root.left);
+        invertTree(root.right);
+
+        return root;
+    }
+
+    // 637. 二叉树的层平均值
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> res = new ArrayList<Double>();
+        if (root == null) return res;
+
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.offer(root);
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            double sum = 0;
+
+            for (int i = 0; i < size; i++) {
+                TreeNode n = q.poll();
+                sum += n.val;
+
+                if (n.left != null) q.offer(n.left);
+                if (n.right != null) q.offer(n.right);
+            }
+
+            res.add(sum/size);
+        }
+        return res;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // TODO:951. 翻转等价二叉树
+    public boolean flipEquiv(TreeNode root1, TreeNode root2) {
+        if(root1 == null && root2 == null) return true;
+
+        if(root1 != null && root2 != null){
+            if(root1.val != root2.val) return false;
+            return
+                    (flipEquiv(root1.left,root2.right) && flipEquiv(root1.right,root2.left)) ||
+                            (flipEquiv(root1.left,root2.left) && flipEquiv(root1.right,root2.right));
+        }
+        return false;
+    }
 
 
     class TrieNode {

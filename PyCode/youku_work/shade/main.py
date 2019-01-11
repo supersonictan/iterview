@@ -24,11 +24,12 @@ def evaluate(othertipsinfo):
 
 
 if __name__ == '__main__':
-    re_res = re.search(onlyCN, u'女人最痛‎')
-    if re_res is not None:
-        print('ok')
-    else:
-        print('not ok')
+    text1 = "123456"
+    text2 = "aa"
+    try:
+        print text1.index(text2)
+    except:
+        print("no")
     # query = '军师联盟 anglababy'
     # query = unicode(query, 'utf-8')
     # char_list = list(query)
