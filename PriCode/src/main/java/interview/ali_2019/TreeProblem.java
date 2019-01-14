@@ -31,9 +31,11 @@ import java.util.*;
  * 662. 二叉树最大宽度 public int widthOfBinaryTree(TreeNode root)
  * 257. 二叉树的所有路径
  * 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
- * 951. 翻转等价二叉树
  * 226. 翻转二叉树[简单]: TreeNode invertTree(TreeNode root)
  * 637. 二叉树的层平均值: List<Double> averageOfLevels(TreeNode root)
+ * 951. TODO:翻转等价二叉树
+ * TODO:前序、中序遍历构造二叉树
+ * TODO：BST
  *
  *
  */
