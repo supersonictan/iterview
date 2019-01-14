@@ -5,10 +5,11 @@ package interview.ali_2019;
 * 300. 最长上升子序列[中等]: int lengthOfLIS(int[] nums)
 * 673. 最长递增子序列的个数[中等]: int findNumberOfLIS(int[] nums)
 * 674. 最长连续递增序列[简单]: int findLengthOfLCIS(int[] nums)
+* 121. 买卖股票的最佳时机[简单]: int maxProfit(int[] prices)
+* 70. 爬楼梯[简单]: int climbStairs(int n)
 *
 * */
 
-import java.util.Arrays;
 
 public class DP {
 
@@ -93,4 +94,39 @@ public class DP {
 
         return result;
     }
+
+    // 121. 买卖股票的最佳时机[简单]
+    public int maxProfit(int[] prices) {
+        /*
+        * O(n)
+        * 保存之前的最低价、result
+        * 指针每次后移, 计算当前结果、更新最小值
+        * */
+        if (prices.length == 0) return 0;
+
+        int minPrice = prices[0];
+        int result = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+            result = Math.max(result, prices[i] - minPrice);
+            minPrice = Math.min(minPrice, prices[i]);
+        }
+        return result;
+    }
+
+    // 70. 爬楼梯[简单]
+    public int climbStairs(int n) {
+        if (n == 0 || n == 1 || n == 2) return n;
+
+        int[] r = new int[n + 1];
+        r[1] = 1;
+        r[2] = 2;
+
+        for (int i = 3; i < n+1; i++) {
+            r[i] = r[i - 1] + r[i - 2];
+        }
+        return r[n];
+    }
+
+
 }
