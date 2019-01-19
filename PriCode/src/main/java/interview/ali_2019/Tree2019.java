@@ -23,13 +23,13 @@ import java.util.*;
  * 104. 二叉树的最大深度: int maxDepth(TreeNode root)
  * 111. 二叉树的最小深度: int minDepth(TreeNode root)
  * 236. 二叉树的最近公共祖先 public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B)
- * 958. 二叉树的完全性检验
- * 222. 完全二叉树的节点个数
+ * 958. 二叉树的完全性检验: boolean isCompleteTree(TreeNode root)
+ * 222. 完全二叉树的节点个数: int countNodes(TreeNode root)
  * 208. 实现 Trie (前缀树)
  * 103. 二叉树的锯齿形层次遍历 public List<List<Integer>> zigzagLevelOrder(TreeNode root)
  * 124. 二叉树中的最大路径和 public int maxPathSum(TreeNode root)
  * 662. 二叉树最大宽度 public int widthOfBinaryTree(TreeNode root)
- * 257. 二叉树的所有路径
+ * 257. 二叉树的所有路径: List<String> binaryTreePaths(TreeNode root)
  * 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
  * 226. 翻转二叉树[简单]: TreeNode invertTree(TreeNode root)
  * 637. 二叉树的层平均值: List<Double> averageOfLevels(TreeNode root)
@@ -40,7 +40,7 @@ import java.util.*;
  *
  */
 
-public class TreeProblem {
+public class Tree2019 {
 
     // 104. 二叉树的最大深度
     public int maxDepth(TreeNode root) {
@@ -207,7 +207,7 @@ public class TreeProblem {
         return res;
     }
 
-    // 144. 前序遍历
+    // 14   4. 前序遍历
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         if (root == null) return res;
@@ -534,26 +534,6 @@ public class TreeProblem {
     }
 
     // 662. 二叉树最大宽度
-    public int widthOfBinaryTree_practise(TreeNode root) {
-        if (root == null) return 0;
-        LinkedList<Pair<TreeNode, Integer>> q = new LinkedList<Pair<TreeNode, Integer>>();
-        q.offer(new Pair<TreeNode, Integer>(root, 1));
-        int max = 0;
-
-        while (!q.isEmpty()) {
-            int size = q.size();
-            int len = q.getLast().getValue() - q.getFirst().getValue() + 1;
-            max = Math.max(max, len);
-
-            for (int i = 0; i < size; i++) {
-                Pair<TreeNode, Integer> p = q.poll();
-
-                if (p.getKey().left != null) q.offer(new Pair<TreeNode, Integer>(p.getKey().left, 2 * p.getValue()));
-                if (p.getKey().right != null) q.offer(new Pair<TreeNode, Integer>(p.getKey().right, 2 * p.getValue() + 1));
-            }
-        }
-        return max;
-    }
     public int widthOfBinaryTree(TreeNode root) {
         /*
         * https://www.jianshu.com/p/fb59df4fc894
