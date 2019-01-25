@@ -4,11 +4,11 @@ package interview.ali_2019;
 /*
 *
 * 122. 买卖股票最佳时机II[简单]:尽可能多的交易,计算获取的最大利润 int maxProfit2(int[] prices)
-* 62. 不同路径[中等]:m*n矩阵从左上角到右下角 int uniquePaths(int m, int n)
-* 64. 最小路径和[中等]: 从左上角到右下角的最小和路径 int minPathSum(int[][] grid)
-* 53. 最大子序和[简单]: 找到一个具有最大和的连续子数组 int maxSubArray(int[] nums)
+* 62. 矩阵左上角到右下角有多少不同路径[中等]:m*n矩阵从左上角到右下角 int uniquePaths(int m, int n)
+* 64. 矩阵左上角到右下角,使得路径和最小[中等]: 从左上角到右下角的最小和路径 int minPathSum(int[][] grid)
+* 53. 最大和的连续子数组[简单]: 找到一个具有最大和的连续子数组 int maxSubArray(int[] nums)
 * 300. 最长上升子序列[中等]: int lengthOfLIS(int[] nums)
-* 673. 最长递增子序列的个数[中等]: int findNumberOfLIS(int[] nums)
+* 673. 最长上升子序列的个数[中等]: int findNumberOfLIS(int[] nums)
 * 674. 最长连续递增序列[简单]: int findLengthOfLCIS(int[] nums)
 * 121. 买卖股票的最佳时机[简单]: int maxProfit(int[] prices)
 * 70. 爬楼梯[简单]: int climbStairs(int n)

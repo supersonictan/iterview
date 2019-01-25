@@ -24,17 +24,11 @@ def evaluate(othertipsinfo):
 
 
 if __name__ == '__main__':
-    text1 = "123456"
-    text2 = "aa"
-    try:
-        print text1.index(text2)
-    except:
-        print("no")
-    # query = '军师联盟 anglababy'
-    # query = unicode(query, 'utf-8')
-    # char_list = list(query)
-    # new_list = [x.encode('utf8') for x in char_list]
-    # print ' '.join(new_list)
+    query = '你好 中国'
+    query = query.decode('utf8')
+    char_list = list(query)
+    new_list = [x.encode('utf8') for x in char_list if x != ' ']
+    print ' '.join(new_list)
 
 
 
