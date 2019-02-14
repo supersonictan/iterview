@@ -3,6 +3,12 @@ package interview.ali_2019;
 
 /*
 *
+* 518. 零钱兑换: 可以凑成总金额的硬币组合数
+* 322. 零钱兑换: 使用最少的coins凑成total
+* 72. 编辑距离
+* 198. 在数组中取出一个或多个不相邻数，使其和最大
+* 213. 组中取出一个或多个不相邻数，使其和最大，头尾不能相连
+*
 * 122. 买卖股票最佳时机II[简单]:尽可能多的交易,计算获取的最大利润 int maxProfit2(int[] prices)
 * 62. 矩阵左上角到右下角有多少不同路径[中等]:m*n矩阵从左上角到右下角 int uniquePaths(int m, int n)
 * 64. 矩阵左上角到右下角,使得路径和最小[中等]: 从左上角到右下角的最小和路径 int minPathSum(int[][] grid)
@@ -24,6 +30,99 @@ public class DP2019 {
         System.out.println(d.lengthOfLIS(test));
     }
 
+    // 518. 零钱兑换: 可以凑成总金额的硬币组合数
+    public int change(int amount, int[] coins) {
+        /**
+         * dp[i], 表示总额为i时的方案数
+         * dp[i] = Σdp[i - coins[j]], 方案数=总额为i-coins[j]的方案数的加和
+         * dp[0] = 1, 表示总额为0时方案数为1
+         */
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+
+        for (int c : coins) {
+            for (int i = 1; i <= amount; i++) {
+                if (i >= c) {
+                    dp[i] += dp[i - c];
+                }
+            }
+        }
+        return dp[amount];
+    }
+
+    // 322. 零钱兑换:使用最少的coins凑成total
+    public int coinChange(int[] coins, int amount) {
+        /**
+         * dp[i]表示装满i需要最少硬币数
+         * 方程: dp[i] = Min(dp[i], dp[i-k]+1)
+         */
+        int[] dp = new int[amount + 1];
+
+        for (int i = 1; i <= amount; i++) {
+            dp[i] = Integer.MAX_VALUE;
+
+            for (int c : coins) {
+                if (i >= c && dp[i - c] != Integer.MAX_VALUE) {
+                    dp[i] = Math.min(dp[i], dp[i - c] + 1);
+                }
+            }
+        }
+
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+    }
+
+    // 72. 编辑距离
+    public int minDistance(String word1, String word2) {
+        /*
+        *
+        * if(word1[i] == word2[j]) dp[i][j] = dp[i-1][j-1]
+          else: dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1
+          画图参考:https://www.cnblogs.com/sumuncle/p/5632032.html
+        * */
+        int n = word1.length();
+        int m = word2.length();
+
+        int[][] dp = new int[n + 1][m + 1];  // 留出开头,以防有空串
+
+        for (int i = 0; i <= n; i++) dp[i][0] = i;
+        for (int i = 0; i <= m; i++) dp[0][i] = i;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (word1.charAt(i) == word2.charAt(j)) {
+                    dp[i + 1][j + 1] = dp[i][j];
+                } else {
+                    dp[i + 1][j + 1] = Math.min(dp[i + 1][j], Math.min(dp[i][j + 1], dp[i][j])) + 1;
+                }
+            }
+        }
+        return dp[n][m];
+    }
+
+    // 213. 组中取出一个或多个不相邻数，使其和最大，头尾不能相连
+
+    // 198. 在数组中取出一个或多个不相邻数，使其和最大
+    public int rob(int[] nums) {
+        /*
+        * dp[i]，表示到第i个房子时能够抢到的最大金额
+        * dp[i] = max(num[i] + dp[i - 2], dp[i - 1])
+        * dp[0] = num[0], dp[1] = max(num[0], num[1])
+        * */
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+        int[] dp = new int[nums.length];
+
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+
+        int res = Math.max(dp[0], dp[1]);
+
+        for (int i = 2; i < nums.length; i++) {
+            dp[i] = Math.max(nums[i] + dp[i - 2], dp[i - 1]);
+            res = Math.max(dp[i], res);
+        }
+        return res;
+    }
 
     // 122. 买卖股票的最佳时机II[简单]:尽可能多的交易,计算获取的最大利润
     public int maxProfit2(int[] prices) {
