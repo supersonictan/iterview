@@ -3,10 +3,12 @@ package interview.ali_2019;
 
 /*
 *
-* 518. 零钱兑换: 可以凑成总金额的硬币组合数
-* 322. 零钱兑换: 使用最少的coins凑成total
-* 72. 编辑距离
-* 198. 在数组中取出一个或多个不相邻数，使其和最大
+* 数对只差最大值
+* 416. 分割等和子集[中]:将数组分割成两个子集，使得两个子集的元素和相等
+* 518. 零钱兑换[中]: 可以凑成总金额的硬币组合数
+* 322. 零钱兑换[中]: 使用最少的coins凑成total
+* 72. 编辑距离[难]
+* 198. [简单]在数组中取出一个或多个不相邻数，使其和最大
 * 213. 组中取出一个或多个不相邻数，使其和最大，头尾不能相连
 *
 * 122. 买卖股票最佳时机II[简单]:尽可能多的交易,计算获取的最大利润 int maxProfit2(int[] prices)
@@ -22,6 +24,9 @@ package interview.ali_2019;
 * */
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DP2019 {
 
     public static void main(String[] args) {
@@ -30,7 +35,83 @@ public class DP2019 {
         System.out.println(d.lengthOfLIS(test));
     }
 
-    // 518. 零钱兑换: 可以凑成总金额的硬币组合数
+
+    // 3. 无重复字符的最长子串[中]
+    public int lengthOfLongestSubstring(String s) {
+        /**
+         * dp[i]：在i字符时最长不重复子串
+         * dp[i]有两种情况, 1和2选择一个最小的：
+         *      1. [0~i-1]中没有i相同的char
+         *      2. s[i]在 [0~i-1]之间出现过
+         * 所以 dp[i]=min(i-上次出现idx, dp[i-1]+1)
+         */
+        if (s.length() == 0) return 0;
+
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        int[] dp = new int[s.length()];
+
+        map.put(s.charAt(0), 0);
+        dp[0] = 1;
+
+        int res = 1;
+
+        for (int i = 1; i < s.length(); i++) {
+            if (map.containsKey(s.charAt(i))) {
+                int idx = map.get(s.charAt(i));
+                dp[i] = Math.min(dp[i - 1] + 1, i - idx);
+            } else {
+                dp[i] = dp[i - 1] + 1;
+            }
+            res = Math.max(dp[i], res);
+
+            map.put(s.charAt(i), i);
+        }
+
+        return res;
+    }
+
+    // ﻿数对只差最大值
+    public int getMaxDiff(int[] nums) {
+        /**
+         * ﻿f[i] = max(f[i-1], m[i-1] - a[i]), m[i] = max(m[i-1],a[i])
+         */
+        int[] maxDiff = new int[nums.length];
+        int[] max = new int[nums.length];
+        max[0] = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            maxDiff[i] = Math.max(maxDiff[i - 1], max[i - 1] - nums[i]);
+            max[i] = Math.max(max[i - 1], nums[i]);
+        }
+
+        return maxDiff[nums.length - 1];
+    }
+
+    // 416. 分割等和子集[中]:将数组分割成两个子集，使得两个子集的元素和相等
+    public boolean canPartition(int[] nums) {
+        /**
+         * 01背包：f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}
+         * 优化空间复杂度后公式：f[v]=max{f[v],f[v-c[i]]+w[i]};
+         */
+        int n = nums.length;
+        int sum = 0;
+
+        for (int i = 0; i < n; i++) sum += nums[i];
+
+        if (sum % 2 != 0) return false;
+
+        int t = sum / 2;
+        int[] dp = new int[t + 1];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = t; j >= nums[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+        }
+        return dp[t] == t;
+    }
+
+    // 518. 零钱兑换[中]: 可以凑成总金额的硬币组合数
     public int change(int amount, int[] coins) {
         /**
          * dp[i], 表示总额为i时的方案数
@@ -50,7 +131,7 @@ public class DP2019 {
         return dp[amount];
     }
 
-    // 322. 零钱兑换:使用最少的coins凑成total
+    // 322. 零钱兑换[中]:使用最少的coins凑成total
     public int coinChange(int[] coins, int amount) {
         /**
          * dp[i]表示装满i需要最少硬币数
