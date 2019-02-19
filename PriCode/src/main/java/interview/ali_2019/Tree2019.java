@@ -2,6 +2,7 @@ package interview.ali_2019;
 
 import javafx.util.Pair;
 
+import javax.management.Query;
 import java.util.*;
 
 // TODO: 一定要能熟练地写出所有问题的递归和非递归做法！
@@ -15,24 +16,29 @@ import java.util.*;
  */
 /**
  *
+ * 104. 二叉树的最大深度[简单]: int maxDepth(TreeNode root)
+ * 637. 二叉树的层平均值[简单]: List<Double> averageOfLevels(TreeNode root)
+ * 226. 翻转二叉树[简单]: TreeNode invertTree(TreeNode root)
+ * 103. 二叉树的锯齿形层次遍历[中等] public List<List<Integer>> zigzagLevelOrder(TreeNode root)
+ * 102. 二叉树的层次遍历[中等]: List<List<Integer>> levelOrder(TreeNode root)
+ * 107. 二叉树自底向上层次遍历[中等]
+ * 111. 二叉树的最小深度[简单]
+ *
+ *
  * 144. 前序遍历
  * 94. 二叉树的中序遍历
  * 145. 二叉树的后序遍历
- * 102. 二叉树的层次遍历: List<List<Integer>> levelOrder(TreeNode root)
- * 107. 二叉树的层次遍历 II:自底向上 List<List<Integer>> levelOrderBottom(TreeNode root)
- * 104. 二叉树的最大深度: int maxDepth(TreeNode root)
+ *
  * 111. 二叉树的最小深度: int minDepth(TreeNode root)
  * 236. 二叉树的最近公共祖先 public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B)
  * 958. 二叉树的完全性检验: boolean isCompleteTree(TreeNode root)
  * 222. 完全二叉树的节点个数: int countNodes(TreeNode root)
  * 208. 实现 Trie (前缀树)
- * 103. 二叉树的锯齿形层次遍历 public List<List<Integer>> zigzagLevelOrder(TreeNode root)
  * 124. 二叉树中的最大路径和 public int maxPathSum(TreeNode root)
  * 662. 二叉树最大宽度 public int widthOfBinaryTree(TreeNode root)
  * 257. 二叉树的所有路径: List<String> binaryTreePaths(TreeNode root)
  * 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
- * 226. 翻转二叉树[简单]: TreeNode invertTree(TreeNode root)
- * 637. 二叉树的层平均值: List<Double> averageOfLevels(TreeNode root)
+ *
  * 951. TODO:翻转等价二叉树
  * TODO:前序、中序遍历构造二叉树
  * TODO：BST
@@ -42,81 +48,205 @@ import java.util.*;
 
 public class Tree2019 {
 
-    // 104. 二叉树的最大深度
+    // 104. 二叉树的最大深度[简单]
     public int maxDepth(TreeNode root) {
         if (root == null) return 0;
-
         int res = 0;
         Queue<TreeNode> q = new LinkedList<TreeNode>();
         q.offer(root);
-        int curLevNum = 1;
-        int nextLevNum = 0;
 
         while (!q.isEmpty()) {
-            TreeNode cur = q.poll();
-            curLevNum--;
+            int size = q.size();
+            res++;
 
-            if (cur.left != null) {
-                q.offer(cur.left);
-                nextLevNum++;
-            }
-            if (cur.right != null) {
-                q.offer(cur.right);
-                nextLevNum++;
-            }
-            if (curLevNum == 0) {
-                curLevNum = nextLevNum;
-                res++;
-                nextLevNum = 0;
+            for (int i = 0; i < size; i++) {
+                TreeNode n = q.poll();
+                if (n.left != null) q.offer(n.left);
+                if (n.right != null) q.offer(n.right);
             }
         }
         return res;
     }
     public int maxDepthRec(TreeNode root) {
-        if (root == null) {
+        if(root == null) {
             return 0;
-        } else {
-            int left_height = maxDepth(root.left);
-            int right_height = maxDepth(root.right);
-            return java.lang.Math.max(left_height, right_height) + 1;
         }
+
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
-    // 111. 二叉树的最小深度
+    // 637. 二叉树的层平均值[简单]
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> res = new ArrayList<Double>();
+        if (root == null) return res;
+
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.offer(root);
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            double sum = 0;
+
+            for (int i = 0; i < size; i++) {
+                TreeNode n = q.poll();
+                sum += n.val;
+
+                if (n.left != null) q.offer(n.left);
+                if (n.right != null) q.offer(n.right);
+            }
+
+            res.add(sum/size);
+        }
+        return res;
+    }
+
+    // 226. 翻转二叉树[简单]
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) return null;
+
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+        invertTree(root.left);
+        invertTree(root.right);
+
+        return root;
+    }
+
+    // 103. 二叉树的锯齿形层次遍历[中等]
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if (root == null) return res;
+
+        int level = 0;
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.offer(root);
+
+        List<Integer> tmp;
+        while (!q.isEmpty()) {
+            tmp = new ArrayList<Integer>();
+            int size = q.size();
+            level++;
+
+            for (int i = 0; i < size; i++) {
+                TreeNode n = q.poll();
+
+                if (level % 2 == 0) {
+                    tmp.add(0, n.val);
+                } else {
+                    tmp.add(n.val);
+                }
+
+                if (n.left != null) q.offer(n.left);
+                if (n.right != null) q.offer(n.right);
+            }
+            res.add(tmp);
+        }
+        return res;
+    }
+
+    // 102. 二叉树的层次遍历[中等]
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if (root == null) return res;
+
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.offer(root);
+
+        List<Integer> tmp;
+        while (!q.isEmpty()) {
+            tmp = new ArrayList<Integer>();
+            int size = q.size();
+
+            for (int i = 0; i < size; i++) {
+                TreeNode n = q.poll();
+                tmp.add(n.val);
+
+                if (n.left != null) q.offer(n.left);
+                if (n.right != null) q.offer(n.right);
+            }
+            res.add(tmp);
+        }
+
+        return res;
+    }
+
+    // 107. 二叉树的自底向上层次遍历[中等]
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if (root == null) return res;
+
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.offer(root);
+
+        List<Integer> tmp;
+        while(!q.isEmpty()) {
+            int size = q.size();
+            tmp = new ArrayList<Integer>();
+
+            for (int i = 0; i < size; i++) {
+                TreeNode n = q.poll();
+                tmp.add(n.val);
+
+                if (n.left !=null) q.offer(n.left);
+                if (n.right != null) q.offer(n.right);
+            }
+            res.add(0, tmp);
+        }
+        return res;
+    }
+
+    // 111. 二叉树的最小深度[简单]
     public int minDepth(TreeNode root) {
         if (root == null) return 0;
 
         Queue<TreeNode> q = new LinkedList<TreeNode>();
         q.offer(root);
-        int curLevNum = 1;
-        int nextLevNum = 0;
-        int res = 1;
+        int res = 0;
 
         while (!q.isEmpty()) {
-            TreeNode cur = q.poll();
-            curLevNum--;
+            res++;
+            int size = q.size();
 
-            if (cur.left != null) {
-                nextLevNum++;
-                q.offer(cur.left);
-            }
-            if (cur.right != null) {
-                nextLevNum++;
-                q.offer(cur.right);
-            }
+            for (int i = 0; i < size; i++) {
+                TreeNode n = q.poll();
 
-            if (cur.left == null && cur.right == null) {
-                return res;
-            }
+                if (n.left == null && n.right == null) return res;
 
-            if (curLevNum == 0) {
-                res++;
-                curLevNum = nextLevNum;
-                nextLevNum = 0;
+                if (n.left != null) q.offer(n.left);
+                if (n.right != null) q.offer(n.right);
             }
         }
         return res;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int minDepthRec(TreeNode root) {
         if (root == null) {
             return 0;
@@ -135,77 +265,8 @@ public class Tree2019 {
         return Math.min(getMin(root.left), getMin(root.right)) + 1;
     }
 
-    // 102. 二叉树的层次遍历
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
 
-        if (root == null) return res;
 
-        Queue<TreeNode> q = new LinkedList<TreeNode>();
-        q.offer(root);
-        int curLevelNum = 1;
-        int nextLevelNum = 0;
-        List<Integer> tmp = new ArrayList<Integer>();
-
-        while (!q.isEmpty()) {
-            TreeNode cur = q.poll();
-            tmp.add(cur.val);
-            curLevelNum--;
-
-            if (cur.left != null) {
-                nextLevelNum++;
-                q.offer(cur.left);
-            }
-            if (cur.right != null) {
-                nextLevelNum++;
-                q.offer(cur.right);
-            }
-
-            if (curLevelNum == 0) {
-                curLevelNum = nextLevelNum;
-                nextLevelNum = 0;
-                res.add(tmp);
-                tmp = new ArrayList<Integer>();
-            }
-        }
-        return res;
-    }
-
-    // 107. 二叉树的层次遍历 II:自底向上
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if (root == null) return res;
-        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.add(root);
-
-        int curLevelNode = 1;
-        int nextLevelNode = 0;
-
-        List<Integer> tmp = new ArrayList<Integer>();
-        while (!queue.isEmpty()) {
-            TreeNode cur = queue.removeFirst();
-            tmp.add(cur.val);
-            curLevelNode--;
-
-            if (cur.left != null) {
-                queue.add(cur.left);
-                nextLevelNode++;
-            }
-            if (cur.right != null) {
-                queue.add(cur.right);
-                nextLevelNode++;
-            }
-
-            if (curLevelNode == 0) {
-                res.add(tmp);
-                tmp = new ArrayList<Integer>();
-                curLevelNode = nextLevelNode;
-                nextLevelNode = 0;
-            }
-        }
-        Collections.reverse(res);
-        return res;
-    }
 
     // 14   4. 前序遍历
     public List<Integer> preorderTraversal(TreeNode root) {
@@ -458,47 +519,7 @@ public class Tree2019 {
         }
     }
 
-    // 103. 二叉树的锯齿形层次遍历
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
 
-        if (root == null) return res;
-
-        Queue<TreeNode> q = new LinkedList<TreeNode>();
-        q.offer(root);
-        int depth = 1;
-        int curLevelNum = 1;
-        int nextLevelNum = 0;
-
-        List<Integer> tmp = new ArrayList<Integer>();
-        while (!q.isEmpty()) {
-            TreeNode node = q.poll();
-            curLevelNum--;
-            if (depth % 2 == 1) {
-                tmp.add(node.val);
-            } else {  // 偶数层反着插
-                tmp.add(0, node.val);
-            }
-
-            if (node.left != null) {
-                q.offer(node.left);
-                nextLevelNum++;
-            }
-            if (node.right != null) {
-                q.offer(node.right);
-                nextLevelNum++;
-            }
-
-            if (curLevelNum == 0) {
-                depth++;
-                curLevelNum = nextLevelNum;
-                nextLevelNum = 0;
-                res.add(tmp);
-                tmp = new ArrayList<Integer>();
-            }
-        }
-        return res;
-    }
 
     // 124. 二叉树中的最大路径和
     private int maxPathResult = Integer.MIN_VALUE;
@@ -615,44 +636,6 @@ public class Tree2019 {
 
         // 满足条件的已经放到返回list中了,之后回溯查找需要把每次遍历加入的值去掉
         list.remove(list.size() - 1);
-    }
-
-    // 226. 翻转二叉树
-    public TreeNode invertTree(TreeNode root) {
-        if (root == null) return null;
-
-        TreeNode tmp = root.left;
-        root.left = root.right;
-        root.right = tmp;
-        invertTree(root.left);
-        invertTree(root.right);
-
-        return root;
-    }
-
-    // 637. 二叉树的层平均值
-    public List<Double> averageOfLevels(TreeNode root) {
-        List<Double> res = new ArrayList<Double>();
-        if (root == null) return res;
-
-        Queue<TreeNode> q = new LinkedList<TreeNode>();
-        q.offer(root);
-
-        while (!q.isEmpty()) {
-            int size = q.size();
-            double sum = 0;
-
-            for (int i = 0; i < size; i++) {
-                TreeNode n = q.poll();
-                sum += n.val;
-
-                if (n.left != null) q.offer(n.left);
-                if (n.right != null) q.offer(n.right);
-            }
-
-            res.add(sum/size);
-        }
-        return res;
     }
 
 
