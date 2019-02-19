@@ -23,6 +23,7 @@ import java.util.*;
  * 102. 二叉树的层次遍历[中等]: List<List<Integer>> levelOrder(TreeNode root)
  * 107. 二叉树自底向上层次遍历[中等]
  * 111. 二叉树的最小深度[简单]
+ * 662. 二叉树最大宽度[中等]
  *
  *
  * 144. 前序遍历
@@ -35,7 +36,6 @@ import java.util.*;
  * 222. 完全二叉树的节点个数: int countNodes(TreeNode root)
  * 208. 实现 Trie (前缀树)
  * 124. 二叉树中的最大路径和 public int maxPathSum(TreeNode root)
- * 662. 二叉树最大宽度 public int widthOfBinaryTree(TreeNode root)
  * 257. 二叉树的所有路径: List<String> binaryTreePaths(TreeNode root)
  * 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
  *
@@ -220,6 +220,40 @@ public class Tree2019 {
         return res;
     }
 
+    // 662. 二叉树最大宽度[中等]
+    public int widthOfBinaryTree(TreeNode root) {
+        /**
+         * https://www.jianshu.com/p/fb59df4fc894
+         * 采取二叉树的层次遍历，如果用空节点来占据每层中首尾非空节点中间的空位置来计算每层最大宽度,容易发生超时(因为第n次有2^n个节点，增长速度极快)。
+         * 因此根据在一颗二叉树中,左孩子在其所在层次中的下标为其父节点的下标*2，右孩子在其所在层次中的下标等于其父节点的下标*2+1 的规律（下标值从0开始)。
+         * 构造（TreeNode, index）的二元组来记录每个非空节点的位置，便可在层次遍历时只向队列中加入非空节点来缩短遍历所需要的时间。
+         *
+         * 给二叉树的节点从1开始编号，那么i节点的左右子节点的编号分别为2i和2i+1，
+         * 因此可以使用编号来计算宽度：width=最右节点的编号 - 最左节点的编号。
+         * 用一个队列来记录每一层的最左边节点的编号，那么每一层的宽度就可以直接利用编号计算出来，它们的最大值就是二叉树的宽度。
+         */
+        if (root == null) return 0;
+
+        int res = 0;
+        LinkedList<Pair<TreeNode, Integer>> q = new LinkedList<Pair<TreeNode, Integer>>();
+        q.offer(new Pair<TreeNode, Integer>(root, 1));
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            int left = q.getFirst().getValue();
+            int right = q.getLast().getValue();
+            res = Math.max(res, right - left + 1);
+
+            for (int i = 0; i < size; i++) {
+                Pair<TreeNode, Integer> pair = q.poll();
+                if (pair.getKey().left != null)
+                    q.offer(new Pair<TreeNode, Integer>(pair.getKey().left, 2*pair.getValue()));
+                if (pair.getKey().right != null)
+                    q.offer(new Pair<TreeNode, Integer>(pair.getKey().right, 2*pair.getValue() + 1));
+            }
+        }
+        return res;
+    }
 
 
 
@@ -534,43 +568,6 @@ public class Tree2019 {
 
         // 父节点 + 当前根最大路径不是棵树的
         return currSum;
-    }
-
-    // 662. 二叉树最大宽度
-    public int widthOfBinaryTree(TreeNode root) {
-        /*
-        * https://www.jianshu.com/p/fb59df4fc894
-        * 采取二叉树的层次遍历，如果用空节点来占据每层中首尾非空节点中间的空位置来计算每层最大宽度,容易发生超时(因为第n次有2^n个节点，增长速度极快)。
-        * 因此根据在一颗二叉树中,左孩子在其所在层次中的下标为其父节点的下标*2，右孩子在其所在层次中的下标等于其父节点的下标*2+1 的规律（下标值从0开始)。
-        * 构造（TreeNode, index）的二元组来记录每个非空节点的位置，便可在层次遍历时只向队列中加入非空节点来缩短遍历所需要的时间。
-        *
-        * 给二叉树的节点从1开始编号，那么i节点的左右子节点的编号分别为2i和2i+1，
-        * 因此可以使用编号来计算宽度：width=最右节点的编号 - 最左节点的编号。
-        * 用一个队列来记录每一层的最左边节点的编号，那么每一层的宽度就可以直接利用编号计算出来，它们的最大值就是二叉树的宽度。
-        * */
-        if (root == null) return 0;
-
-        int max = 0;
-        LinkedList<Pair<TreeNode, Integer>> q = new LinkedList<Pair<TreeNode, Integer>>();
-        q.offer(new Pair<TreeNode, Integer>(root, 1));
-
-        // 每一次while循环都是遍历新的层
-        while (!q.isEmpty()) {
-            int size = q.size();
-
-            int len = q.getLast().getValue() - q.getFirst().getValue() + 1;
-
-            max = Math.max(len, max);
-
-            for (int i = 0; i < size; i++) {
-                Pair<TreeNode, Integer> pair = q.poll();
-                if (pair.getKey().left != null)
-                    q.offer(new Pair<TreeNode, Integer>(pair.getKey().left, 2 * pair.getValue()));
-                if (pair.getKey().right != null)
-                    q.offer(new Pair<TreeNode, Integer>(pair.getKey().right, 2 * pair.getValue() + 1));
-            }
-        }
-        return max;
     }
 
     // 257. 二叉树的所有路径
