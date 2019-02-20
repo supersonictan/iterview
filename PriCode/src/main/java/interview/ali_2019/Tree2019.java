@@ -14,30 +14,31 @@ import java.util.*;
           / \   \
          4  5   6
  */
-/**
+/*
  *
- * 104. 二叉树的最大深度[简单]: int maxDepth(TreeNode root)
- * 637. 二叉树的层平均值[简单]: List<Double> averageOfLevels(TreeNode root)
- * 226. 翻转二叉树[简单]: TreeNode invertTree(TreeNode root)
- * 103. 二叉树的锯齿形层次遍历[中等] public List<List<Integer>> zigzagLevelOrder(TreeNode root)
- * 102. 二叉树的层次遍历[中等]: List<List<Integer>> levelOrder(TreeNode root)
+ * 104. 二叉树的最大深度[简单]
+ * 637. 二叉树的层平均值[简单]
+ * 226. 翻转二叉树[简单]
+ * 103. 二叉树的锯齿形层次遍历[中等]
+ * 102. 二叉树的层次遍历[中等]
  * 107. 二叉树自底向上层次遍历[中等]
  * 111. 二叉树的最小深度[简单]
  * 662. 二叉树最大宽度[中等]
+ * 144. 前序遍历[中等]
+ * 94. 二叉树的中序遍历[中]
+ * 145. 二叉树的后序遍历[难]
+ * 236. 二叉树的最近公共祖先[中]
+ * 113. 根节点到叶节点路径和等于给定目标[中]
+ * 124. 二叉树中的最大路径和[难]
+ * 257. 二叉树的所有路径[简单]
  *
  *
- * 144. 前序遍历
- * 94. 二叉树的中序遍历
- * 145. 二叉树的后序遍历
  *
- * 111. 二叉树的最小深度: int minDepth(TreeNode root)
- * 236. 二叉树的最近公共祖先 public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B)
+ *
+ *
  * 958. 二叉树的完全性检验: boolean isCompleteTree(TreeNode root)
  * 222. 完全二叉树的节点个数: int countNodes(TreeNode root)
  * 208. 实现 Trie (前缀树)
- * 124. 二叉树中的最大路径和 public int maxPathSum(TreeNode root)
- * 257. 二叉树的所有路径: List<String> binaryTreePaths(TreeNode root)
- * 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
  *
  * 951. TODO:翻转等价二叉树
  * TODO:前序、中序遍历构造二叉树
@@ -255,69 +256,49 @@ public class Tree2019 {
         return res;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // 14   4. 前序遍历
+    // 144. 前序遍历
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
+
         if (root == null) return res;
 
-        Stack<TreeNode> s = new Stack<TreeNode>();
-        s.push(root);
+        Stack<TreeNode> q = new Stack<TreeNode>();
+        q.push(root);
 
-        while(!s.isEmpty()) {
-            TreeNode cur = s.pop();
-            res.add(cur.val);
+        while (!q.isEmpty()) {
+            TreeNode n = q.pop();
+            res.add(n.val);
 
-            if (cur.right != null) s.push(cur.right);
-            if (cur.left != null) s.push(cur.left);
+            if (n.right != null) q.push(n.right);
+            if (n.left != null) q.push(n.left);
         }
         return res;
     }
-    public void preorderRecursion(TreeNode root) {
-        if (root != null) {
-            System.out.println(root.val);
-            preorderRecursion(root.left);
-            preorderRecursion(root.right);
+    List<Integer> preorderRecursionList = new ArrayList<Integer>();
+    public List<Integer> preorderRecursion(TreeNode root) {
+        if(root!=null){
+            preorderRecursionList.add(root.val);
+            preorderTraversal(root.left);
+            preorderTraversal(root.right);
         }
+        return preorderRecursionList;
     }
 
-    // 94. 二叉树的中序遍历
+    // 94. 二叉树的中序遍历[中]
+    List<Integer> inorderRecList = new ArrayList<Integer>();
+    public List<Integer> inorderRecursion(TreeNode root) {
+        if (root != null) {
+            inorderRecursion(root.left);
+            inorderRecList.add(root.val);
+            inorderRecursion(root.right);
+        }
+        return inorderRecList;
+    }
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
-        if (root == null) {
-            return res;
-        }
-
         Stack<TreeNode> s = new Stack<TreeNode>();
         TreeNode cur = root;
+
         while (true) {
             while (cur != null) {
                 s.push(cur);
@@ -326,53 +307,48 @@ public class Tree2019 {
 
             if (s.isEmpty()) break;
 
-            cur = s.pop();
-            res.add(cur.val);
-            cur = cur.right;
+            TreeNode tmp = s.pop();
+            res.add(tmp.val);
+            cur = tmp.right;
         }
         return res;
     }
-    public void inorderRecursion(TreeNode root) {
-        if (root != null) {
-            inorderRecursion(root.left);
-            System.out.println(root.val);
-            inorderRecursion(root.right);
-        }
-    }
 
-    // 145. 二叉树的后序遍历:先left,right,root -> s1中:root,right,left->s2中:left,right,root
+    // 145. 二叉树的后序遍历[难]
+    public List<Integer> postorderList = new ArrayList<Integer>();
+    public List<Integer> postorderTraversalRec(TreeNode root) {//递归写法
+        if (root != null) {
+            postorderTraversalRec(root.left);
+            postorderTraversalRec(root.right);
+            postorderList.add(root.val);
+        }
+        return postorderList;
+    }
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         if (root == null) return res;
 
         Stack<TreeNode> s = new Stack<TreeNode>();
         Stack<TreeNode> output = new Stack<TreeNode>();
-        s.push(root);
 
+        s.push(root);
         while (!s.isEmpty()) {
-            TreeNode cur = s.pop();
-            output.push(cur);
-            if (cur.left != null) s.push(cur.left);
-            if (cur.right != null) s.push(cur.right);
+            TreeNode n = s.pop();
+            output.push(n);
+
+            if (n.left != null) s.push(n.left);
+            if (n.right != null) s.push(n.right);
         }
 
         while (!output.isEmpty()) res.add(output.pop().val);
-        return res;
-    }
-    public List<Integer> res = new ArrayList<Integer>();
-    public List<Integer> postorderTraversalRec(TreeNode root) {//递归写法
-        if(root == null)
-            return res;
-        postorderTraversal(root.left);
-        postorderTraversal(root.right);
-        res.add(root.val);
         return res;
     }
 
     // 236. 二叉树的最近公共祖先
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B) {
         if (root == null) return null;
-        if (root == A || root == B) return root;
+
+        if (A == root || B == root) return root;
 
         TreeNode left = lowestCommonAncestor(root.left, A, B);
         TreeNode right = lowestCommonAncestor(root.right, A, B);
@@ -381,6 +357,99 @@ public class Tree2019 {
         if (left != null) return left;
         return right;
     }
+
+    // 113. 根节点到叶节点路径和等于给定目标
+    private int target;
+    private List<List<Integer>> res = new ArrayList<List<Integer>>();
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        if (root == null)  return res;
+        this.target = sum;
+
+        dfs(root, 0, new ArrayList<Integer>());
+
+        return res;
+    }
+    private void dfs(TreeNode root, int tmpSum, List<Integer> list) {
+        if (root == null) return;
+
+        int sum = tmpSum + root.val;
+        list.add(root.val);
+
+        if (sum == target && root.left == null && root.right == null) res.add(new ArrayList<Integer>(list));
+
+        dfs(root.left, sum, list);
+        dfs(root.right, sum, list);
+
+        list.remove(list.size() - 1);
+    }
+
+    // 124. 二叉树中的最大路径和[难]
+    private int maxPathResult = Integer.MIN_VALUE;
+    public int maxPathSum(TreeNode root) {
+        /*
+         * 思路：首先我们分析一下对于指定某个节点为根时，最大的路径和有可能是哪些情况。
+         * 第一种是左子树的路径加上当前节点，
+         * 第二种是右子树的路径加上当前节点，
+         * 第三种是左右子树的路径加上当前节点（相当于一条横跨当前节点的路径），
+         * 第四种是只有自己的路径。
+         * 乍一看似乎以此为条件进行自下而上递归就行了，然而这四种情况只是用来计算以当前节点根的最大路径，
+         * 如果当前节点上面还有节点，那它的父节点是不能累加第三种情况的。
+         * 所以我们要计算两个最大值，一个是当前节点下最大路径和，另一个是如果要连接父节点时最大的路径和。
+         * 我们用前者更新全局最大量，用后者返回递归值就行了。
+         * */
+        maxPathSumDfs(root);
+        return maxPathResult;
+    }
+    public int maxPathSumDfs(TreeNode root) {
+        if (root == null) return 0;
+
+        int left = maxPathSumDfs(root.left);
+        int right = maxPathSumDfs(root.right);
+
+        // 以上四种情况的最大值
+        int tmpSum = Math.max(root.val, Math.max(left + root.val, right + root.val));
+        int tmpSum2 = Math.max(left + root.val + right, tmpSum);
+
+        maxPathResult = Math.max(tmpSum2, maxPathResult);
+
+        // 父节点 + 当前根最大路径不是棵树的
+        return tmpSum;
+    }
+
+    // 257. 二叉树的所有路径
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> res = new ArrayList<String>();
+        String s = "";
+
+        binaryTreePathDfs(root, s, res);
+
+        return res;
+    }
+    public void binaryTreePathDfs(TreeNode root, String s, List<String> list) {
+        if (root == null) return;
+
+        s += root.val;
+
+        if (root.left == null && root.right == null) {
+            list.add(s);
+        } else {
+            s += "->";
+        }
+
+        binaryTreePathDfs(root.left, s, list);
+        binaryTreePathDfs(root.right, s, list);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     // 958. 二叉树的完全性检验
     public boolean isCompleteTree(TreeNode root) {
@@ -536,86 +605,6 @@ public class Tree2019 {
     }
 
 
-
-    // 124. 二叉树中的最大路径和
-    private int maxPathResult = Integer.MIN_VALUE;
-    public int maxPathSum(TreeNode root) {
-        /*
-         * 思路：首先我们分析一下对于指定某个节点为根时，最大的路径和有可能是哪些情况。
-         * 第一种是左子树的路径加上当前节点，
-         * 第二种是右子树的路径加上当前节点，
-         * 第三种是左右子树的路径加上当前节点（相当于一条横跨当前节点的路径），
-         * 第四种是只有自己的路径。
-         * 乍一看似乎以此为条件进行自下而上递归就行了，然而这四种情况只是用来计算以当前节点根的最大路径，
-         * 如果当前节点上面还有节点，那它的父节点是不能累加第三种情况的。
-         * 所以我们要计算两个最大值，一个是当前节点下最大路径和，另一个是如果要连接父节点时最大的路径和。
-         * 我们用前者更新全局最大量，用后者返回递归值就行了。
-         * */
-        maxPathSumHelper(root);
-        return maxPathResult;
-    }
-    public int maxPathSumHelper(TreeNode root) {
-        if (root == null) return 0;
-
-        int left = maxPathSumHelper(root.left);
-        int right = maxPathSumHelper(root.right);
-
-        // 以上四种情况的最大值
-        int currSum = Math.max(Math.max(left + root.val, right + root.val), root.val);
-        int currSum2 = Math.max(currSum, left + right + root.val);
-
-        maxPathResult = Math.max(currSum2, maxPathResult);
-
-        // 父节点 + 当前根最大路径不是棵树的
-        return currSum;
-    }
-
-    // 257. 二叉树的所有路径
-    public List<String> binaryTreePaths(TreeNode root) {
-        List<String> list = new ArrayList<String>();
-        String s = "";
-        binaryTreePath(root, s, list);
-
-        return list;
-    }
-    public void binaryTreePath(TreeNode root, String s, List<String> list) {
-        if (root == null) return;
-
-        s += root.val;
-
-        if (root.left == null && root.right == null) {
-            list.add(s);
-        } else {
-            s += "->";
-        }
-
-        // s是值传递，内部方法修改后不可变
-        binaryTreePath(root.left, s, list);
-        binaryTreePath(root.right, s, list);
-    }
-
-    // 113. 路径总和 II: 根节点到叶子节点路径和等于给定目标
-    private int target;
-    private List<List<Integer>> result = new ArrayList<List<Integer>>();
-    public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        this.target = sum;
-        dfs(root, 0, new ArrayList<Integer>());
-        return result;
-    }
-    private void dfs(TreeNode root, int tmpSum, List<Integer> list) {
-        if (root == null) return;
-
-        int pathSum = tmpSum + root.val;
-        list.add(root.val);
-
-        if (root.left == null && root.right == null && pathSum == target) result.add(new ArrayList<Integer>(list));  // list还需要继续用
-
-        dfs(root.left, pathSum, list);
-        dfs(root.right, pathSum, list);
-
-        // 满足条件的已经放到返回list中了,之后回溯查找需要把每次遍历加入的值去掉
-        list.remove(list.size() - 1);
-    }
 
 
 
