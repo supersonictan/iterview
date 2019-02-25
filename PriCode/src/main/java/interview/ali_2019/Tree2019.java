@@ -644,7 +644,7 @@ public class Tree2019 {
             this.c = c;
         }
     }
-    private static class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

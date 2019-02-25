@@ -2,14 +2,17 @@ package interview.ali_2019;
 
 
 /*
-*
+https://blog.csdn.net/qq_26410101/article/details/80807917
+* 3. 无重复字符的最长子串[中]
 * 数对只差最大值
 * 416. 分割等和子集[中]:将数组分割成两个子集，使得两个子集的元素和相等
+* 474. m个0和n个1, 找到能拼出存在于数组中的字符串的最大数量。每个0和1至多被使用一次
 * 518. 零钱兑换[中]: 可以凑成总金额的硬币组合数
 * 322. 零钱兑换[中]: 使用最少的coins凑成total
 * 72. 编辑距离[难]
-* 198. [简单]在数组中取出一个或多个不相邻数，使其和最大
 * 213. 组中取出一个或多个不相邻数，使其和最大，头尾不能相连
+* 198. [简单]在数组中取出一个或多个不相邻数，使其和最大
+* 337. 间隔遍历二叉树,使和最大[中]
 *
 * 122. 买卖股票最佳时机II[简单]:尽可能多的交易,计算获取的最大利润 int maxProfit2(int[] prices)
 * 62. 矩阵左上角到右下角有多少不同路径[中等]:m*n矩阵从左上角到右下角 int uniquePaths(int m, int n)
@@ -26,6 +29,7 @@ package interview.ali_2019;
 
 import java.util.HashMap;
 import java.util.Map;
+import interview.ali_2019.Tree2019.TreeNode;
 
 public class DP2019 {
 
@@ -90,8 +94,8 @@ public class DP2019 {
     // 416. 分割等和子集[中]:将数组分割成两个子集，使得两个子集的元素和相等
     public boolean canPartition(int[] nums) {
         /**
-         * 01背包：f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}
-         * 优化空间复杂度后公式：f[v]=max{f[v],f[v-c[i]]+w[i]};
+         * 01背包：f[i][v]=max{f[i-1][v], f[i-1][v-c[i]]+w[i]}
+         * 优化空间复杂度后公式：f[v]=max{f[v], f[v-c[i]]+w[i]};
          */
         int n = nums.length;
         int sum = 0;
@@ -109,6 +113,34 @@ public class DP2019 {
             }
         }
         return dp[t] == t;
+    }
+
+    // 474. m个0和n个1, 找到能拼出存在于数组中的字符串的最大数量。每个0和1至多被使用一次
+    public int findMaxForm(String[] strs, int m, int n) {
+        int[][] dp = new int[m + 1][n + 1];
+
+        for (String s: strs) {
+            int count[] = findMaxFormHelper(s);
+
+            for (int i = m; i >= count[0]; i--) {
+                for (int j = n; j >= count[1]; j--) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i - count[0]][j - count[1]] + 1);
+                }
+            }
+        }
+        return dp[m][n];
+    }
+    private int[] findMaxFormHelper(String s) {
+        int[] count = new int[2];
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '0') {
+                count[0]++;
+            } else {
+                count[1]++;
+            }
+        }
+        return count;
     }
 
     // 518. 零钱兑换[中]: 可以凑成总金额的硬币组合数
@@ -131,7 +163,7 @@ public class DP2019 {
         return dp[amount];
     }
 
-    // 322. 零钱兑换[中]:使用最少的coins凑成total
+    // 322. 零钱兑换[中]:使用最少的coins凑成total(完全背包)
     public int coinChange(int[] coins, int amount) {
         /**
          * dp[i]表示装满i需要最少硬币数
@@ -180,7 +212,24 @@ public class DP2019 {
         return dp[n][m];
     }
 
-    // 213. 组中取出一个或多个不相邻数，使其和最大，头尾不能相连
+    // 213. 在数组中取出一个或多个不相邻数，使其和最大(头尾不能相连)
+    public int rob_213(int[] nums) {
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+
+        return Math.max(rob_213(nums, 0, nums.length - 2), rob_213(nums, 1, nums.length - 1));
+    }
+    public int rob_213(int[] nums, int st, int ed) {
+        int rob = 0, notRob = 0;
+
+        for (int i = st; i <= ed; i++) {
+            int preRob = rob, preNotRob = notRob;
+
+            rob = nums[i] + preNotRob;
+            notRob = Math.max(preNotRob, preRob);
+        }
+        return Math.max(rob, notRob);
+    }
 
     // 198. 在数组中取出一个或多个不相邻数，使其和最大
     public int rob(int[] nums) {
@@ -203,6 +252,39 @@ public class DP2019 {
             res = Math.max(dp[i], res);
         }
         return res;
+    }
+    public int rob_198_opt(int[] nums) {
+        /**
+         * 空间优化
+         */
+        int rob = 0, notRob = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int preRob = rob, preNotRob = notRob;
+
+            rob = nums[i] + preNotRob;
+            notRob = Math.max(preNotRob, preRob);
+        }
+        return Math.max(rob, notRob);
+    }
+
+    // 337. 间隔遍历二叉树,使和最大[中]
+    public int rob(TreeNode root) {
+        if (root == null) return 0;
+        return Math.max(robDfs(root)[0], robDfs(root)[1]);
+    }
+    private int[] robDfs(TreeNode root) {
+        int[] dp = {0, 0};
+
+        if (root == null) return dp;
+
+        int[] leftDp = robDfs(root.left);
+        int[] rightDp = robDfs(root.right);
+
+        dp[0] = Math.max(leftDp[0], leftDp[1]) + Math.max(rightDp[0], rightDp[1]);
+        dp[1] = root.val + leftDp[0] + rightDp[0];
+
+        return dp;
     }
 
     // 122. 买卖股票的最佳时机II[简单]:尽可能多的交易,计算获取的最大利润
