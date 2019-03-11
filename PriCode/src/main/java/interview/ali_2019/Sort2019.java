@@ -3,9 +3,12 @@ package interview.ali_2019;
 /*
  * 215. 数组中的第K个最大元素[中]
  * 414. 第三大的数[简单]
+ * 704. 二分查找,不存在返回-1[简单]
+ * 33. 旋转排序数组搜索target[中等]
  *
  *
  * TODO:347. 前K个高频元素[中]
+ * TODO:35. 搜索插入位置
  */
 
 public class Sort2019 {
@@ -83,8 +86,63 @@ public class Sort2019 {
     }
     // TODO：347. 前K个高频元素[中]
 
+    // TODO：35. 搜索插入位置
+    public int searchInsert(int[] nums, int target) {
 
+    }
 
+    // 704. 二分查找,不存在返回-1[简单]
+    public int search(int[] nums, int target) {
+        if (nums.length == 0) return -1;
+
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    // 33. 旋转排序数组搜索target[中等]
+    public int search33(int[] nums, int target) {
+        if (nums.length == 0) return -1;
+
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+
+            if (nums[mid] == target) return mid;
+            if (nums[left] == target) return left;
+            if (nums[right] == target) return right;
+
+            if (nums[left] < nums[mid]) {  // 左边递增
+                if (nums[left] < target && target < nums[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            } else if (nums[mid] < nums[right]) {  // 右边递增
+                if (nums[mid] < target && target < nums[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            } else {
+                left++;
+            }
+        }
+        return -1;
+    }
 
 
 }

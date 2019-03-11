@@ -3,6 +3,8 @@ package interview.ali_2019;
 
 /*
 https://blog.csdn.net/qq_26410101/article/details/80807917
+背包九讲：https://www.cnblogs.com/jbelial/articles/2116074.html
+背包总结：https://www.cnblogs.com/wikiwen/p/10229403.html
 * 3. 无重复字符的最长子串[中]
 * 数对只差最大值
 * 416. 分割等和子集[中]:将数组分割成两个子集，使得两个子集的元素和相等
@@ -27,6 +29,7 @@ https://blog.csdn.net/qq_26410101/article/details/80807917
 * */
 
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import interview.ali_2019.Tree2019.TreeNode;
@@ -94,29 +97,67 @@ public class DP2019 {
     // 416. 分割等和子集[中]:将数组分割成两个子集，使得两个子集的元素和相等
     public boolean canPartition(int[] nums) {
         /**
-         * 01背包：f[i][v]=max{f[i-1][v], f[i-1][v-c[i]]+w[i]}
-         * 优化空间复杂度后公式：f[v]=max{f[v], f[v-c[i]]+w[i]};
+         * https://www.cnblogs.com/Christal-R/p/Dynamic_programming.html
+         * 寻找递推关系式，面对当前商品有两种可能性:
+         * 1.包的容量比该商品体积小，装不下，此时的价值与前i-1个的价值是一样的，即V(i,j)=V(i-1,j);
+         * 2.还有足够的容量可以装该商品，但装了也不一定达到当前最优价值，所以在装与不装之间选择最优的一个
+         *      即V(i,j)=max｛ V(i-1,j)，V(i-1,j-w(i))+v(i) ｝
          */
         int n = nums.length;
-        int sum = 0;
 
-        for (int i = 0; i < n; i++) sum += nums[i];
+        int sum = 0;
+        for (int a: nums) sum += a;
 
         if (sum % 2 != 0) return false;
 
-        int t = sum / 2;
-        int[] dp = new int[t + 1];
+        int v = sum / 2;  // 背包容量
+        int[][] dp = new int[n][v + 1];
 
-        for (int i = 0; i < n; i++) {
-            for (int j = t; j >= nums[i]; j--) {
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j <= v; j++) {
+                if (j < nums[i]) {  // 装不下
+                    dp[i][j] = dp[i-1][j];
+                } else {
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-nums[i]] + nums[i]);
+                }
+            }
+        }
+
+        return dp[n-1][v] == v ? true : false;
+    }
+    public boolean canPartition2(int[] nums) {
+        /**
+         * https://www.cnblogs.com/Christal-R/p/Dynamic_programming.html
+         * 空间优化两点:
+         * 1. 每一次V(i)(j)改变的值只与V(i-1)(x) {x:1...j}有关，V(i-1)(x)是前一次i循环保存下来的值
+         *  可以用一维数组
+         * 2. 每一次推导V(i)(j)是通过V(i-1)(j-w(i))来推导的，
+         *      所以一维数组中j的扫描顺序应该从大到小(capacity到0)
+         *      否则i更新完j-w(i)，i+1可能也更新 j-w(i)
+         *      f[v]=max{f[v], f[v-c[i]]+w[i]};
+         *
+         */
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) sum += nums[i];
+        if (sum % 2 != 0) return false;
+
+        int v = sum / 2;
+        int[] dp = new int[v+1];
+
+        for (int i = 1; i < nums.length; i++) {
+            for (int j = v; j >= nums[i]; j--) {  // j-nums[i]>=0否则越界
                 dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
             }
         }
-        return dp[t] == t;
+        return dp[v] == v;
     }
 
     // 474. m个0和n个1, 找到能拼出存在于数组中的字符串的最大数量。每个0和1至多被使用一次
     public int findMaxForm(String[] strs, int m, int n) {
+        /**
+         * 背包大小是String中0和1个数
+         * 背包大小m,n；每个物品的体积是count[0],count[1],价值是1
+         */
         int[][] dp = new int[m + 1][n + 1];
 
         for (String s: strs) {
@@ -167,21 +208,28 @@ public class DP2019 {
     public int coinChange(int[] coins, int amount) {
         /**
          * dp[i]表示装满i需要最少硬币数
-         * 方程: dp[i] = Min(dp[i], dp[i-k]+1)
+         * https://www.cnblogs.com/Kalix/p/7622102.html
+         * https://blog.csdn.net/tc_to_top/article/details/52346836
+         * https://www.cnblogs.com/jbelial/articles/2116074.html
+         * 完全背包方程: for i=1..N for v=0..V f[v]=max{f[v],f[v-c[i]]+w[i]};
          */
         int[] dp = new int[amount + 1];
 
-        for (int i = 1; i <= amount; i++) {
-            dp[i] = Integer.MAX_VALUE;
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
 
-            for (int c : coins) {
-                if (i >= c && dp[i - c] != Integer.MAX_VALUE) {
-                    dp[i] = Math.min(dp[i], dp[i - c] + 1);
+        for (int c : coins) {
+            for (int j = 1; j <= amount; j++) {
+                if (j >= c && dp[j-c] != Integer.MAX_VALUE) {
+                    dp[j] = Math.min(dp[j], dp[j - c] + 1);
                 }
             }
         }
 
-        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+        if (dp[amount] == Integer.MAX_VALUE) {
+            return -1;
+        }
+        return dp[amount];
     }
 
     // 72. 编辑距离
@@ -285,18 +333,6 @@ public class DP2019 {
         dp[1] = root.val + leftDp[0] + rightDp[0];
 
         return dp;
-    }
-
-    // 122. 买卖股票的最佳时机II[简单]:尽可能多的交易,计算获取的最大利润
-    public int maxProfit2(int[] prices) {
-        int res = 0;
-
-        for (int i = 0; i < prices.length - 1; i++) {
-            if (prices[i + 1] - prices[i] > 0) {
-                res += prices[i + 1] - prices[i];
-            }
-        }
-        return res;
     }
 
     // 62. 不同路径[中等]:m*n矩阵从左上角到右下角
@@ -457,6 +493,18 @@ public class DP2019 {
             minPrice = Math.min(minPrice, prices[i]);
         }
         return result;
+    }
+
+    // 122. 买卖股票的最佳时机II[简单]:尽可能多的交易,计算获取的最大利润
+    public int maxProfit2(int[] prices) {
+        int res = 0;
+
+        for (int i = 0; i < prices.length - 1; i++) {
+            if (prices[i + 1] - prices[i] > 0) {
+                res += prices[i + 1] - prices[i];
+            }
+        }
+        return res;
     }
 
     // 70. 爬楼梯[简单]
