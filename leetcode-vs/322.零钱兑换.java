@@ -41,22 +41,17 @@ class Solution {
          * 完全背包方程: for i=1..N for v=0..V f[v]=max{f[v],f[v-c[i]]+w[i]};
          */
         int[] dp = new int[amount + 1];
-
-        Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
-
-        for (int c : coins) {
-            for (int j = 1; j <= amount; j++) {
-                if (j >= c && dp[j-c] != Integer.MAX_VALUE) {
-                    dp[j] = Math.min(dp[j], dp[j - c] + 1);
-                }
-            }
-        }
-
-        if (dp[amount] == Integer.MAX_VALUE) {
-            return -1;
-        }
-        return dp[amount];
+        
+         Arrays.fill(dp, Integer.MIN_VALUE);
+         for (int i = 1; i < coins.length; i++) {
+             for (int j = 1; j <= amount; j++) {
+                 if (j-coins[i] >= 0 && dp[j-coins[i]] != Integer.MIN_VALUE) {
+                     dp[j] = Math.min(dp[j], dp[j-coins[i]]+ 1);
+                 }
+             }
+         }
+         return dp[amount];
     }
 }
 

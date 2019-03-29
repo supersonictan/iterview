@@ -64,10 +64,11 @@ class Solution {
         return dp[m][n];
     }
 
-    private int[] helper(String str) {
+    private int[] helper(String text) {
         int[] res = new int[2];
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == '0') {
+        
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == '0') {
                 res[0]++;
             } else {
                 res[1]++;

@@ -42,21 +42,19 @@ import java.util.Map;
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         if (s.length() == 0) return 0;
-
+        int[] dp = new int[s.length()];
         Map<Character, Integer> map = new HashMap<Character, Integer>();
         map.put(s.charAt(0), 0);
-        int[] dp = new int[s.length()];
         dp[0] = 1;
         int max = 1;
 
         for (int i = 1; i < s.length(); i++) {
             if (map.containsKey(s.charAt(i))) {
-                int idx = map.get(s.charAt(i));
-                dp[i] = Math.min(i-idx, dp[i-1]+1);
+                dp[i] = Math.min(dp[i-1] + 1, i - map.get(s.charAt(i)));
             } else {
-                dp[i] = dp[i-1] + 1;
+                dp[i] = dp[i-1]+1;
             }
-            max = Math.max(max, dp[i]);
+            max = Math.max(dp[i], max);
             map.put(s.charAt(i), i);
         }
         return max;

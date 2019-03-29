@@ -55,19 +55,24 @@ class Solution {
          *      否则i更新完j-w(i)，i+1可能也更新 j-w(i)
          *      
          */
-        int sum = 0;
-        for (int i = 0; i < nums.length; i++) sum += nums[i];
-        if (sum % 2 != 0) return false;
+        if (nums.length == 0) return false;
 
-        int v = sum / 2;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+        }
+        if (sum % 2 != 0) return false;
+        
+        int v = sum/2;
+
         int[] dp = new int[v+1];
 
         for (int i = 1; i < nums.length; i++) {
-            for (int j = v; j >= nums[i]; j--) {  // j-nums[i]>=0否则越界
-                dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
+            for (int j = v; j >= nums[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j-nums[i]]+nums[i]);
             }
         }
-        return dp[v] == v;
+        return dp[v] == v ? true : false;
     }
 }
 

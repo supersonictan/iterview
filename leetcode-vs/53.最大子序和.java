@@ -27,23 +27,18 @@
  */
 class Solution {
     public int maxSubArray(int[] nums) {
+        // sum[i] 表示以 i 元素结尾的最大和
         if (nums.length == 0) return 0;
 
-        /*
-        * sum[i] 表示以 i 元素结尾的最大和
-        * max[i] 表示到 i 为止的最大和
-        * TODO:可以优化空间复杂度
-        */
-        int[] sum = new int[nums.length];
-        int[] max = new int[nums.length];
-        sum[0] = nums[0];
-        max[0] = nums[0];
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        int max = nums[0];
 
         for (int i = 1; i < nums.length; i++) {
-            sum[i] = Math.max(nums[i], nums[i] + sum[i-1]);
-            max[i] = Math.max(sum[i], max[i-1]);
+            dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+            max = Math.max(max, dp[i]);
         }
-        return max[nums.length-1];
+        return max;
     }
 }
 

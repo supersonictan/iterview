@@ -63,7 +63,6 @@ class Solution {
                 left++;
             }
         }
-
         return -1;
     }
 }

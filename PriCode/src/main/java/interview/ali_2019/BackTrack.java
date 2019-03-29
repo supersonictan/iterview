@@ -1,6 +1,10 @@
 package interview.ali_2019;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /*
 * 79. 单词搜索
 * */
@@ -56,5 +60,46 @@ public class BackTrack {
         flag[row][col] = false;
 
         return false;
+    }
+
+
+
+
+
+
+
+    //https://www.cnblogs.com/chenzhima/p/6440930.html
+    // https://www.cnblogs.com/zpfbuaa/p/6633986.html
+    public static List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> list = new ArrayList<List<Integer>>();//record the final answer
+        List<Integer> tempList = new ArrayList<Integer>();//record one of the subSet
+        Arrays.sort(nums);
+        int len = nums.length;//prevent calculating the length in the function
+        getSubset(list, tempList, 0, nums, len);//calling the backtrack function
+        return list;
+    }
+
+    private static void getSubset(List<List<Integer>> list, List<Integer> tempList, int startLen, int[] nums, int len) {
+        list.add(new ArrayList<Integer>(tempList));//by calling itself to add tempList to the list
+        System.out.println(list);
+        if (startLen < 5) {
+            tempList.add(nums[startLen]);
+            getSubset(list,tempList,startLen+1,nums,len);//calling itself
+            tempList.remove(tempList.size()-1);
+            System.out.println("After " + tempList);
+        }
+        /*for(int i = startLen ; i < len ; i++){
+            tempList.add(nums[i]);// add element to tempList
+            getSubset(list,tempList,i+1,nums,len);//calling itself
+            tempList.remove(tempList.size()-1);//backtrack and remove the top element in tempList
+        }*/
+    }
+    public static void main(String[]args){
+        int []nums = {0,1,2,3,4,5};
+        List<List<Integer>> list = subsets(nums);
+//        int len = list.size();
+//        for(int i = 0 ; i < len;  i++){
+//            System.out.println(list.get(i));
+//        }
     }
 }

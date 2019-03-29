@@ -1,6 +1,8 @@
 package interview.ali_2019;
 
 /*
+ * 153. 旋转数组最小值，有重复数[中]
+ * 154. 旋转数组最小值，有重复数[难]
  * 215. 数组中的第K个最大元素[中]
  * 414. 第三大的数[简单]
  * 704. 二分查找,不存在返回-1[简单]
@@ -88,8 +90,10 @@ public class Sort2019 {
 
     // TODO：35. 搜索插入位置
     public int searchInsert(int[] nums, int target) {
-
+        return 0;
     }
+
+    // TODO:K路归并
 
     // 704. 二分查找,不存在返回-1[简单]
     public int search(int[] nums, int target) {
@@ -111,7 +115,7 @@ public class Sort2019 {
         return -1;
     }
 
-    // 33. 旋转排序数组搜索target[中等]
+    // 33/81. 旋转排序数组搜索target[中等]
     public int search33(int[] nums, int target) {
         if (nums.length == 0) return -1;
 
@@ -144,5 +148,52 @@ public class Sort2019 {
         return -1;
     }
 
+    // 153. 旋转数组最小值，有重复数[中]
+    public int findMin(int[] nums) {
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+
+        int left = 0;
+        int right = nums.length - 1;
+        if (nums[left] < nums[right]) return nums[left];
+
+        while (left < right) {
+            int mid = (left + right) / 2;
+
+            if (nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else if (nums[mid] < nums[right]) {  // 不能-1因为可能包含最小值
+                right = mid;
+            } else {
+                right--;
+            }
+        }
+        return nums[left];
+    }
+
+    // 154. 旋转数组最小值，有重复数[难]
+    public int findMin2(int[] nums) {
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+
+        int left = 0;
+        int right = nums.length - 1;
+        if (nums[left] < nums[right]) return nums[left];
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else if (nums[mid] < nums[right]) {
+                right = mid;  // right可能是最小值不能-1
+            } else {
+                //如果中间和最后相等。怎么查找，主要前后移动方向不确定
+                //无法确定的时候，让 右边的值自减就好了
+                right--;
+            }
+        }
+        return nums[left];
+    }
 
 }

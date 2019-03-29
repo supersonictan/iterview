@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
  * @lc app=leetcode.cn id=300 lang=java
  *
@@ -32,10 +34,9 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0) return 0;
-
-        // dp[]记录以 i 结尾的最长上升序列
+        
         int[] dp = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) dp[i] = 1;
+        Arrays.fill(dp, 1);
         int max = 1;
 
         for (int i = 1; i < nums.length; i++) {
@@ -44,7 +45,7 @@ class Solution {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            max = Math.max(dp[i], max);
+            max = Math.max(max, dp[i]);
         }
         return max;
     }

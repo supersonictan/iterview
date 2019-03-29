@@ -50,19 +50,36 @@ porn_pat_7 = re.compile(porn_reg_str7)
 porn_reg_list = [porn_pat_6, porn_pat_1, porn_pat_2, porn_pat_3, porn_pat_4, porn_pat_5, porn_pat_7]
 
 
+def fun(text1, text2):
+    text1 = text1.decode('utf8')
+    text2 = text2.decode('utf8')
+
+    text_min_len = min(len(text1), len(text2))
+    for i in range(text_min_len):
+        if text1[i] != text2[i]:
+            print(i)
+            break
+
+
+
 
 if __name__ == '__main__':
-    key = '一代伟人邓小平'
-    isMatch = False
-    for pat in porn_reg_list:
-        re_res = pat.search(key)
-        if re_res is not None:
-            isMatch = True
-            break
-    if isMatch:
-        print 1
-    else:
-        print 0
+    if qt_result is None or qt_result == '':
+        return
+
+    try:
+        qt_res_json = json.loads(qt_result)
+
+        for obj in qt_res_json:
+            label = obj['label']
+            start = obj['start']
+            word = obj['word']
+
+            # if label != "PERSON" or label != "SHOW" or label != "BRAND"
+            self.forward(label, word, start)
+    except Exception,e :
+        pass
+
 
 
 
