@@ -61,29 +61,92 @@ def fun(text1, text2):
             break
 
 
+class CrfTerm(object):
+    def __init__(self,term, position, label):
+        self.term = term
+        self.position = position
+        self.label = label
 
 
 if __name__ == '__main__':
-    if qt_result is None or qt_result == '':
-        return
+    terms = "者###魔法战队###魔法###连"
+    positions = "3###0###1###2"
+    labels = "I-SHOW###B-SHOW###B-SHOW###I-SHOW"
 
-    try:
-        qt_res_json = json.loads(qt_result)
+    term_list = terms.split('###')
+    pos_list = positions.split('###')
+    label_list = labels.split('###')
 
-        for obj in qt_res_json:
-            label = obj['label']
-            start = obj['start']
-            word = obj['word']
+    crf_term_list = []
 
-            # if label != "PERSON" or label != "SHOW" or label != "BRAND"
-            self.forward(label, word, start)
-    except Exception,e :
+    if len(term_list) != len(pos_list) or len(term_list) != len(label_list):
         pass
 
+    for i in range(len(term_list)):
+        crf_term_list.append(CrfTerm(term_list[i], pos_list[i], label_list[i]))
+
+    crf_term_list.sort(cmp=None, key=lambda x: x.position, reverse=False)
+
+    bmerge = False
+
+    for i in len(crf_term_list):
+        label = crf_term_list[i].label
+
+        if '-' in label:
+            curBI = label.split('-')[0]
+            curTag = label.split('-')[1]
+
+        else:
+            bmerge = False
 
 
 
 
+    # 当前B:判断next是I，追加。next是B
+    preBI = ''
+    preTag = ''
+    curBI = ''
+    curTag = ''
+    nxtBI = ''
+    nxtTag = ''
+    hasBeginPre = False
+
+    res = []
+
+    for i in len(crf_term_list):
+        label = crf_term_list[i].label
+
+        if '-' in label:
+            curBI = label.split('-')[0]
+            curTag = label.split('-')[1]
+        else:
+            curBI = ''
+            curTag = label
+
+        if i != len(crf_term_list) - 1:
+            labelNxt = crf_term_list[i + 1].label
+
+            if '-' in labelNxt:
+                nxtBI = labelNxt.split('-')[0]
+                nxtTag = labelNxt.split('-')[1]
+            else:
+                nxtBI = ''
+                nxtTag = labelNxt
+        else:
+            nxtBI = ''
+            nxtTag = ''
+
+        # 逻辑
+
+
+
+        # 结尾处理
+        preBI = curBI
+        preTag = curTag
+        curBI = ''
+        curTag = ''
+        nxtBI = ''
+        nxtTag = ''
 
 #
 # 追剧特征
