@@ -27,7 +27,7 @@ def read_query_file(queryFilePath):
 if __name__ == '__main__':
     read_query_file('sug_log')
     thread_list = []
-    for i in range(2):
+    for i in range(5):
         thread_list.append(KuboxTasker(i))
 
     for thread in thread_list:

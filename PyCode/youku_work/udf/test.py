@@ -381,120 +381,93 @@ def gen_crf_feature(corpus_seg, marked_label):
         result = str(e.message)
     return result
 
-def process(show_name, main_keyword, sub_keyword, long_keyword):
 
-    if False:
-        pass
-        # self.forward(main_keyword, sub_keyword, long_keyword)
-    else:
-        try:
-            if not main_keyword or not sub_keyword or not long_keyword:
-                pass
-            else:
-                show_name = show_name.decode('utf8')
-                main_keyword = main_keyword.decode('utf8')
-                sub_keyword = sub_keyword.decode('utf8')
-                long_keyword = long_keyword.decode('utf8')
-
-                # 根据 main_keyword 和 sub_keyword 下标确定 主副keyword
-                main_idx = show_name.find(main_keyword)
-                sub_idx = show_name.find(sub_keyword)
-                if main_idx != -1 and sub_idx != -1 and sub_idx < main_idx:
-                    tmp = main_keyword
-                    main_keyword = sub_keyword
-                    sub_keyword = tmp
-
-                # 有数字结尾的keyword要保留 eg: 好小子9:小鬼大哥大,保留好小子9,同时 long_keyword 也要追加 好小子9小鬼大哥大
-                #pat = re.compile(u'(.*[一|二|三|四|五|六|七|八|九|十|百|千|0|1|2|3|4|5|6|7|8|9]{2})')
-                pat = re.compile(u'(.*)[一|二|三|四|五|六|七|八|九|十|百|千|0|1|2|3|4|5|6|7|8|9]{1,2}')
-                key_with_num = ''
-                for match in re.finditer(pat, show_name):
-                    key_with_num = match.group(1)
-                    print(key_with_num)
-
-                    if main_keyword in key_with_num:
-                        st_idx = key_with_num.find(main_keyword)
-                        key_with_num = key_with_num[st_idx:]
-
-                    # 追加long_keyword
-                    new_long_keyword = key_with_num + sub_keyword
-                    if new_long_keyword not in long_keyword:
-                        long_keyword += "###"
-                        long_keyword += new_long_keyword
-
-                print(main_keyword.encode('utf8') + "---" + key_with_num.encode('utf8') + "---" +  sub_keyword.encode('utf8') + "---" +
-                             long_keyword.encode('utf8'))
-        except Exception, e:
-            print(e)
-
-
-season_reg = re.compile(r'第(一|二|三|四|五|六|七|八|九|十|百|千|0|1|2|3|4|5|6|7|8|9)+(季|部|集|章|届|期|弹|卷|场|番|轮|册)')
-tv_reg = re.compile(r'(浙江|凤凰|东方|四川|广西|青海|江苏|北京|辽宁|上海|东南|深圳|湖北|贵州|旅游|安微|广东|天津|吉林|山东|河北|龙江|江西|河南|湖南|重庆|安徽)(台|卫视|电视台|卫视版)')
+head_month_reg = re.compile(r'(^(\d+年)*\d+月\d+日)')
+head_year_reg = re.compile(r'(^20(08|09|10|11|12|13|14|15|16|17|18|19){1}(赛季)*)')
+shu_ming_hao_reg = re.compile(r'(（.*）|【.*】|\(.*\))')
+year_reg = re.compile(r'(\d+年版)|(\d{4}版)|(\d{2}版)')
+year_reg2 = re.compile(r'(.*\D+)(\d{1,2}月$)')
+year_start = re.compile(r'(^[0-9]{4}年)')
+tail_num_reg3 = re.compile(u'(.*[^\d\.的\-\+之/(TOP)])((19|20){1}(\d{2}$)|(\d{1,2}$))')  # 猪头传媒2018、猪头传媒18
 sp_reg = re.compile(u"[！|\!|·|、|,|▪|－|?|，|・]+")
+season_reg = re.compile(r'第(一|二|三|四|五|六|七|八|九|十|百|千|0|1|2|3|4|5|6|7|8|9)+(季|部|集|章|届|期|弹|卷|场|番|轮|册|回合)')
+tv_reg = re.compile(r'(\d+(年)*)*(台湾东风|中央|浙江|凤凰|东方|四川|广西|青海|江苏|北京|辽宁|上海|东南|深圳|湖北|贵州|旅游|安微|广东|天津|吉林|山东|河北|龙江|江西|河南|湖南|重庆|安徽)(台|卫视|电视台|卫视版)')
+
+
+zhi_reg = re.compile(u'(.{3,})(之)(.{2,})')
+
+def evaluate(show_name):
+    if not show_name:
+        return ''
+    show_name = show_name.strip()
+    key_list = show_name.split('###')
+
+    final_list = []
+
+    for show_name in key_list:
+        ## 去除：开头月份(2018年1月1日)
+        tmp_name = head_month_reg.sub('', show_name).strip()
+        if tmp_name:
+            show_name = tmp_name
+
+        # 去除：开头年份
+        tmp_name = head_year_reg.sub('', show_name).strip()
+        if tmp_name:
+            show_name = tmp_name
+
+        # 去除：书名号内的
+        show_name = shu_ming_hao_reg.sub('', show_name).strip()
+
+        # 去除：季部期
+        show_name = season_reg.sub('', show_name).strip()
+
+        # 去除：xx卫视
+        show_name = tv_reg.sub('', show_name).strip()
+
+        # 去除：09版
+        show_name = year_reg.sub('', show_name).strip()
+
+        # 去除：2016年AVN颁奖典礼
+        show_name = year_start.sub('', show_name).strip()
+
+        # 去除：特殊符号
+        show_name = sp_reg.sub('', show_name.decode('utf8')).encode('utf8').strip()
+
+        # 去除：猪头传媒 22月
+        month_match = re.match(year_reg2, show_name)
+        if month_match:
+            show_name = month_match.group(1).strip()
+
+        # 去除：猪头传媒2018、猪头传媒18
+        matchObj = re.match(tail_num_reg3, show_name)
+        if matchObj:
+            word = matchObj.group(1).strip()
+            print(word)
+            #len(word) >= 2
+            show_name = matchObj.group(1).strip()
+
+        # 重复上一步操作，case:出发梦之队2 2009
+        matchObj = re.match(tail_num_reg3, show_name)
+        if matchObj and len(matchObj.group(1).strip()) >= 2:
+            show_name = matchObj.group(1).strip()
+
+        if show_name not in final_list:
+            final_list.append(show_name)
+
+    return '###'.join(final_list)
+
+
+
+
 
 
 if __name__ == '__main__':
-    # print max_match_segment('微微一笑 第二轮东方卫视刘德华版abcd', ['abc','abcd'])
-    word_dict = ['刘德华', '刘德', '北京卫视']
-    sent = '微微一笑 第二轮北京卫视▪刘德?华版abcd'
-    sent = sp_reg.sub('', sent.decode('utf8'))
-    print(sent)
-
-    # cutlist = []
-    # index = 0
-    # max_wordlen = 40
-    # while index < len(sent):
-    #     matched = False
-    #     for i in range(max_wordlen, 0, -1):
-    #         cand_word = sent[index: index + i]
-    #         if cand_word in word_dict:
-    #             cutlist.append(cand_word)
-    #             matched = True
-    #             break
-    #
-    #     index += i
-    #
-    # for w in cutlist:
-    #     print(w)
-
-
-    # 去除：xx卫视
-    # for match in re.finditer(tv_reg, show_name):
-    #     m1 = match.group(1) + match.group(2)
-    #     show_name = show_name.replace(m1, '')
-
-    # l1 = [1,2,3]
-    # l2 = [2,4,5,6]
-    # l1.extend(l2)
-    # l1.append()
-    # print(list(set(l1)))
-    # print('深海巨鲨312'.find('深海巨鲨'))
-    # process('深海巨鲨312asdf', '深海巨鲨', '123', '深海巨鲨3')
-    # parse_keyword()
-    # list = ['1','2','3',' ']
-    # print [x for x in list if x.strip() != '']
-    # print gen_crf_feature('0:VV  :NR 1:CD 岁:M 动画片:NN', '[{"end": 14, "option": "节目分类", "auto": 0, "label": "TYPE", "start": 5, "text": "动画片", "word": "动画片"}, {"end": 4, "option": "适用年龄", "auto": 0, "label": "AGE", "start": 0, "text": "0 1岁", "word": "0 1岁"}]')
-
-    # list = max_match_segment('1岁早教一岁宝宝早教动画片黑娃', '1:CD 岁:M 早教:NN 一:CD 岁:M 宝宝:NN 早教:NN 动画片:NN 黑娃:NN', '宝宝早教###动画片###黑娃')
-    # print(list)
-
-    # ac = Automaton()
-    # ac.add_word('军师联盟', "军师联盟")
-    # ac.add_word('微微一笑', "微微一笑")
-    # ac.add_word('三生三世', "三生三世")
-    # ac.add_word('刘德华', "刘德华")
-    # ac.add_word('周杰伦', "周杰伦")
-    # ac.add_word('周杰', "周杰")
-    #
-    # ac.make_automaton()
-
-
-    # res_str = ''
-    # for res in ac.iter_long('军师联盟中的周杰伦理片'):
-    #     matches, pos = res
-    #     if res_str != '':
-    #         res_str += "###"
-    #     res_str += str(matches)
-    #
-    # print(res_str)
+    matchObj = re.match(zhi_reg, u'阴阳路2之我在你左右')
+    if matchObj:
+        word_1 = matchObj.group(1).encode('utf8').strip()
+        word_3 = matchObj.group(3).strip()
+        print(word_1 + word_3)
+        # len(word) >= 2
+        show_name = matchObj.group(1).strip()
+    # print evaluate('印度传奇故事TOP啊2019')
 
