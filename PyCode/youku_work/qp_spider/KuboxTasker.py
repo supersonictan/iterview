@@ -12,10 +12,12 @@ import Global
 import re
 from urllib import unquote
 from requests.adapters import HTTPAdapter
+import urllib
 reload(sys)
+
 sys.setdefaultencoding('utf-8')
 
-logger = Logger(logFileName='query_tagging.log', logger="tasker").getlog()
+logger = Logger(logFileName='qt_flag10_test.log', logger="tasker").getlog()
 
 class KuboxTasker(threading.Thread):
 
@@ -90,29 +92,25 @@ class KuboxTasker(threading.Thread):
         return queryList
 
     def __parse_qp_json(self, decodejson, query):
-        result_dic = {}
+        result = 0
         try:
             if len(decodejson['conf']['result']['module']) == 0:
-                result_dic
+                return result
 
             d2_res = decodejson['conf']['result']['module']
             for seg in d2_res:
-                if seg['name'] == "query_tagging":
-                    d2_qt = seg['p']
-                    # print d2_qt['seg_list']
-                    qt_list = d2_qt['seg_list_level1']
+                if seg['name'] == "ali_seg":
+                    ali_seg_p_list = seg['p']
 
-                    for qt in qt_list:
-                        word = qt['word'].encode('utf8')
-                        label = qt['label'].encode('utf8')
-                        result_dic[word] = label
-                    # result = query+ "," + str(qt_result).encode('utf-8').strip() + "\n"
-                    # result = json.dumps(qt_result, ensure_ascii=False).encode('utf-8').strip()
-                    # print result
+                    for each_p in ali_seg_p_list:
+                        flag_val = each_p['flag']
+                        if flag_val == 10:
+                            result = 1
+                            return result
 
         except Exception,e:
             logger.error('Json Parser Error, query:' + query + ", e:" + str(e))
-        return result_dic
+        return result
 
     def run(self):
         while True:
@@ -122,53 +120,31 @@ class KuboxTasker(threading.Thread):
                 tmpId = Global.cur_id
                 Global.lock_curId.release()
 
-
+                if tmpId % 500 == 0:
+                    print(tmpId)
 
                 query = Global.query_queue.get(block=True, timeout=5)
-                #query = '将军'
-                # dii_url='http://pre.kubox.soku.proxy.taobao.org/sug?s=soku_sug_v1&query=' + query + '&outfmt=qp_json_a'
-                # qp_json_a = self.__getKuboxJson(dii_url)
+                # query = urllib.urlencode(query)
 
-                a_url = 'https://soku-qp-pre01.proxy.taobao.org/qp?s=ykapp_bts&utdid=0&q=' + query + '&is_qt_ab=1'
+                a_url = 'https://soku-qp.proxy.taobao.org/qp?s=ykapp_bts&utdid=0&is_qt_ab=1&q=' + query
                 qp_json_a = self.__getQpJson(a_url)
-                a_dic = self.__parse_qp_json(qp_json_a, query)
+                a_has_flag = self.__parse_qp_json(qp_json_a, query)
 
-                b_url = 'https://soku-qp-pre01.proxy.taobao.org/qp?s=ykapp_bts&utdid=0&q=' + query
+                b_url = 'https://soku-qp.proxy.taobao.org/qp?s=ykapp_bts&utdid=0&is_qt_ab=0&q=' + query
                 qp_json_b = self.__getQpJson(b_url)
-                b_dic = self.__parse_qp_json(qp_json_b, query)
-
-                # 比较 diff
-                is_same = cmp(a_dic, b_dic)
-                if is_same != 0:
-                    a_result = ''
-                    for key in a_dic.keys():
-                        a_tmp = "%s--->%s" % (key, a_dic[key])
-                        if a_result != "":
-                            a_result += "    "
-                        a_result += a_tmp
-
-                    b_result = ''
-                    for key in b_dic.keys():
-                        b_tmp = "%s--->%s" % (key, b_dic[key])
-                        if b_result != "":
-                            b_result += "    "
-                        b_result += b_tmp
-                    logger.error('%s\tA[%s]\tB[%s]' % (query, a_result, b_result))
+                b_has_flag = self.__parse_qp_json(qp_json_b, query)
 
 
+                # 新版多的1，少的0
+                flag = -1
+                if a_has_flag == 1 and b_has_flag == 0:
+                    flag = 1
+                elif a_has_flag == 0 and b_has_flag == 1:
+                    flag = 0
 
-                    # else:
-                    #     has_diff = False
-                    #     logger.error(term + "-->" + a_dic[term])
+                if flag != -1:
+                    logger.error('%s\t%d' % (query, flag))
 
-
-                # dii_list = self.__get_dii_sug(qp_json_a, query)
-                # res_str = ''
-                # for dii_s  in dii_list:
-                #     res_str += dii_s + '\t'
-                # logger.error(res_str)
-
-                # old_url='http://tip.soku.com/searches/ykapp/kubox/v4/by_keyword.json?query=' + query + '&site=55'
             except Exception, e:
                 logger.debug('Thread:' + str(self.threadName) + " Finished. e:" + repr(e))
                 break
