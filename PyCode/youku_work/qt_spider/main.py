@@ -50,7 +50,7 @@ def cal_report(file_path):
 if __name__ == '__main__':
     read_query_file('sug_log')
     thread_list = []
-    for i in range(3):
+    for i in range(2):
         thread_list.append(KuboxTasker(i))
 
     for thread in thread_list:
