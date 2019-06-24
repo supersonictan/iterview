@@ -1,0 +1,1 @@
+/anaconda2/python.app/Contents/lib/python2.7/copy_reg.py

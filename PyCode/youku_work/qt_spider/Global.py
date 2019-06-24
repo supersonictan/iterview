@@ -22,9 +22,14 @@ thread_num=20
 #is_log_need_id=0
 
 
+total_pv = 0
+loss_pv = 0
 cur_id=0
 query_queue = Queue.Queue()
 diff_num = 0 #同步
 lock = threading.RLock()
 lock_curId = threading.RLock()
+
+lock_pv = threading.RLock()
+lock_losspv = threading.RLock()
 

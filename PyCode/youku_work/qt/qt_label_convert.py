@@ -65,7 +65,7 @@ if __name__ == '__main__':
     i = 0
     term_list = {}
     res_list = []
-    with open('/Users/tanzhen/Desktop/code/odps/bin/qt_train_corpus_merge', 'r') as f:
+    with open('/Users/tanzhen/Desktop/code/odps/bin/qt_train_corpus_adjust', 'r') as f:
         for text in f:
             text = text.decode('utf8')
             seg = text.split(u'\t')
@@ -86,11 +86,13 @@ if __name__ == '__main__':
 
 
                     # test
-                    if item[u'label'] == u'FOLKART_SHOW':
+                    if item[u'label'] == u'LOC':
                         if item[u'word'] in count_dic:
                             count_dic[item[u'word']] += 1
                         else:
                             count_dic[item[u'word']] =1
+
+                        # print query + "\t" + item[u'word']
                     # end test
 
 
@@ -109,7 +111,7 @@ if __name__ == '__main__':
             except Exception,e:
                 print(query)
 
-    # sorted(count_dic.items(), key=lambda d: d[1], reverse=False)
+    sorted(count_dic.items(), key=lambda d: d[1], reverse=True)
     for (k,v) in count_dic.items():
         print k + '\t' + str(v)
 
@@ -118,57 +120,57 @@ if __name__ == '__main__':
     #         f.write(s)
 
 
-    print "---------------------------------"
-    # testSet
-    term_list = {}
-    res_list = []
-    count_dic = {}
-    with open('/Users/tanzhen/Desktop/code/odps/bin/qt_test_corpus', 'r') as f:
-        for text in f:
-            text = text.decode('utf8')
-            seg = text.split(u'\t')
-            query = seg[0]
-            corpus = seg[1]
-            if corpus == '[]':
-                continue
-
-            json_list = json.loads(corpus)
-
-            term_list = []
-            b_find = False
-            try:
-                for item in json_list:
-                    map = {}
-                    map[u'word'] = item[u'word']
-                    map[u'text'] = item[u'text']
-
-
-                    # test
-                    if item[u'label'] == u'FOLKART_SHOW':
-                        if item[u'word'] in count_dic:
-                            count_dic[item[u'word']] += 1
-                        else:
-                            count_dic[item[u'word']] =1
-                    # end test
-
-
-                    if map[u'word'] in target_map:
-                        b_find = True
-                        map[u'label'] = target_map[map[u'word']]
-                    else:
-                        map[u'label'] = item[u'label']
-                    map[u'start'] = item[u'start']
-                    map[u'end'] = item[u'end']
-
-                    term_list.append(map)
-
-                s = "%s\t%s\n" % (query.encode('utf8'), json.dumps(term_list, ensure_ascii=False).encode('utf8').strip())
-                res_list.append(s)
-            except Exception,e:
-                print(query)
-
-    for (k,v) in count_dic.items():
-        print k + '\t' + str(v)
+    # print "---------------------------------"
+    # # testSet
+    # term_list = {}
+    # res_list = []
+    # count_dic = {}
+    # with open('/Users/tanzhen/Desktop/code/odps/bin/qt_test_corpus', 'r') as f:
+    #     for text in f:
+    #         text = text.decode('utf8')
+    #         seg = text.split(u'\t')
+    #         query = seg[0]
+    #         corpus = seg[1]
+    #         if corpus == '[]':
+    #             continue
+    #
+    #         json_list = json.loads(corpus)
+    #
+    #         term_list = []
+    #         b_find = False
+    #         try:
+    #             for item in json_list:
+    #                 map = {}
+    #                 map[u'word'] = item[u'word']
+    #                 map[u'text'] = item[u'text']
+    #
+    #
+    #                 # test
+    #                 if item[u'label'] == u'GENRE':
+    #                     if item[u'word'] in count_dic:
+    #                         count_dic[item[u'word']] += 1
+    #                     else:
+    #                         count_dic[item[u'word']] =1
+    #                 # end test
+    #
+    #
+    #                 if map[u'word'] in target_map:
+    #                     b_find = True
+    #                     map[u'label'] = target_map[map[u'word']]
+    #                 else:
+    #                     map[u'label'] = item[u'label']
+    #                 map[u'start'] = item[u'start']
+    #                 map[u'end'] = item[u'end']
+    #
+    #                 term_list.append(map)
+    #
+    #             s = "%s\t%s\n" % (query.encode('utf8'), json.dumps(term_list, ensure_ascii=False).encode('utf8').strip())
+    #             res_list.append(s)
+    #         except Exception,e:
+    #             print(query)
+    #
+    # for (k,v) in count_dic.items():
+    #     print k + '\t' + str(v)
 
 
     # with open('/Users/tanzhen/Desktop/code/odps/bin/qt_test_corpus_adjust', 'w') as f:

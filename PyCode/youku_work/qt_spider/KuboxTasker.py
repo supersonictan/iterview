@@ -156,12 +156,18 @@ class KuboxTasker(threading.Thread):
                 if tmpId % 500 == 0:
                     print(tmpId)
 
-                query = Global.query_queue.get(block=True, timeout=5)
-                # query = urllib.urlencode(query)
+                line = Global.query_queue.get(block=True, timeout=5)
+                seg = line.split('\t')
 
+                # if len(seg) == 2:
+                query = seg[0]
+                # query = urllib.urlencode(q)
+                pv = int(seg[1])
+                Global.lock_pv.acquire()
+                Global.total_pv += pv
+                Global.lock_pv.release()
 
-
-                compare_label = ['PERSON', 'SHOW', 'ROLE']
+                compare_label = ['PERSON', 'SHOW']
                 try:
                     cover_dic = self.get_http_data(query, 'cover')
                     cover_merge_dic = self.parse_qt_json(cover_dic['merge'], 'merge')
@@ -171,6 +177,7 @@ class KuboxTasker(threading.Thread):
                     data_merge_dic = self.parse_qt_json(data_dic['merge'], 'merge')
                     data_crf_dic = self.parse_qt_json(data_dic['crf'], 'crf')
 
+                    has_diff = False
                     for label in compare_label:
                         cover_crf_data = cover_crf_dic.get(label, '')
                         data_crf_data = data_crf_dic.get(label, '')
@@ -197,12 +204,22 @@ class KuboxTasker(threading.Thread):
                             list.sort()
                             data_merge_data = '_'.join(list)
 
+
+                        if cover_merge_data != data_merge_data:
+                            has_diff = True
+
                         if cover_crf_data or data_crf_data or cover_merge_data or data_merge_data:
-                            logger.error('%s\t%s\t%s\t%s\t%s\t%s', query, cover_crf_data, data_crf_data, cover_merge_data, data_merge_data, label)
+                            logger.error('%s\t%s\t%s\t%s\t%s\t%s\t%s', query, pv, cover_crf_data, data_crf_data, cover_merge_data, data_merge_data, label)
+
+                    # update loss
+                    if has_diff:
+                        Global.lock_losspv.acquire()
+                        Global.loss_pv += pv
+                        Global.lock_losspv.release()
 
                 except Exception, e:
                     print "Exception: " + query + ", Cause:" + str(e)
 
             except Exception, e:
-                logger.debug('Thread:' + str(self.threadName) + " Finished. e:" + repr(e))
+                logger.error('Thread:' + str(self.threadName) + " Finished. e:" + repr(e))
                 break
